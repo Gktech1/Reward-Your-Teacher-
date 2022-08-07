@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    internal interface ITeacherRepo
+    public interface ITeacherRepo
     {
     }
 }

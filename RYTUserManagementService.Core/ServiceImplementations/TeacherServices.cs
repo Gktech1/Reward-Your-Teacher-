@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Core.ServiceImplementations
 {
-    internal class TeacherServices : ITeacherServices
+    public class TeacherServices : ITeacherServices
     {
     }
 }

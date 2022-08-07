@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoImplementations
 {
-    internal class StudentRepo : IStudentRepo
+    public class StudentRepo : IStudentRepo
     {
     }
 }

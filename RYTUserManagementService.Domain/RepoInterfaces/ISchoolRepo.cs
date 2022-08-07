@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    internal interface ISchoolRepo
+    public interface ISchoolRepo
     {
     }
 }

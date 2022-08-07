@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UhE6HG29yJHfnax1b58uzVZ6Et4PeB5nf6k1zhl1q6fmWHJwShpEi1bOHIh+CytNJTs0LM7zTqJaESgek1y1wQ==",
+  "dgSpecHash": "c9qqOzpnO22ODBV7zcsitXzYF/8VTR2S9htpTj2BoHiDpFZIehJpG8cJhT3fpHH6ZUoZm3d97N7iMmNTqhVbXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+  "projectFilePath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\G-Mykel\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\G-Mykel\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

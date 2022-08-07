@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+      "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
       "projectName": "Wallet.Model",
-      "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+      "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
       "packagesPath": "C:\\Users\\G-Mykel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\obj\\",
+      "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {}
+    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
+    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
         "projectName": "Wallet.Core",
-        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
         "packagesPath": "C:\\Users\\G-Mykel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Core\\obj\\",
+        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,14 +31,14 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
+              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
               },
-              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
+              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
               },
-              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
         "projectName": "Wallet.Data",
-        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
         "packagesPath": "C:\\Users\\G-Mykel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Data\\obj\\",
+        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -146,14 +146,14 @@
         }
       }
     },
-    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
         "projectName": "Wallet.Dtos",
-        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
         "packagesPath": "C:\\Users\\G-Mykel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Dtos\\obj\\",
+        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -173,8 +173,8 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -207,14 +207,14 @@
         }
       }
     },
-    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+    "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "projectUniqueName": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
         "projectName": "Wallet.Model",
-        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "projectPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
         "packagesPath": "C:\\Users\\G-Mykel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\Wallet Service\\Wallet.Model\\obj\\",
+        "outputPath": "C:\\Users\\G-Mykel\\Desktop\\REal-Wallet\\development\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

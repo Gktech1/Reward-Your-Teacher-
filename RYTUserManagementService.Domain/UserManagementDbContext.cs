@@ -4,7 +4,7 @@ using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Domain
 {
-    public class UserManagementDbContext : IdentityDbContext
+    public class UserManagementDbContext : DbContext
     {
         public UserManagementDbContext(DbContextOptions<UserManagementDbContext> options) : base(options)
         {

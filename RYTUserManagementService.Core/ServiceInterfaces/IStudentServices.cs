@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Core.ServiceInterfaces
 {
-    internal interface IStudentServices
+    public interface IStudentServices
     {
     }
 }

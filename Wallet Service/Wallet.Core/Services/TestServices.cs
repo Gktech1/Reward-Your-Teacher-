@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Wallet.Core.Interfaces;
 using Wallet.Core.Repository;
 using Wallet.Dtos;
+using Wallet.Dtos.Pagination;
 
 namespace Wallet.Core.Services
 {
@@ -33,6 +34,8 @@ namespace Wallet.Core.Services
             {
                 newList.Add($"string {i}");
             }
+            PagedList<string> pagedTransactions = PagedList<string>.ToPagedList(newList.AsQueryable(), 1, 10);
+
             return _responseService.PagedExecutionResponse<IEnumerable<string>>("Successfully retrieved test",newList,  10, true);
         }
 

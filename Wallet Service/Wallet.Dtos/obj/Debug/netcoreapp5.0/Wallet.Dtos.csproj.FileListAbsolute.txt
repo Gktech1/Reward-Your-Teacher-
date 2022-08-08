@@ -28,3 +28,18 @@ C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\refint\Wallet.Dtos.dll
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.pdb
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\ref\Wallet.Dtos.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\bin\Debug\netcoreapp5.0\Wallet.Dtos.deps.json
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\bin\Debug\netcoreapp5.0\Wallet.Dtos.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\bin\Debug\netcoreapp5.0\Wallet.Dtos.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\bin\Debug\netcoreapp5.0\Wallet.Model.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\bin\Debug\netcoreapp5.0\Wallet.Model.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.csproj.CopyComplete
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\refint\Wallet.Dtos.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\Wallet.Dtos.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Dtos\obj\Debug\netcoreapp5.0\ref\Wallet.Dtos.dll

@@ -10,3 +10,15 @@ C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\refint\Wallet.Utilties.dll
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.pdb
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\ref\Wallet.Utilties.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\bin\Debug\netcoreapp5.0\Wallet.Utilties.deps.json
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\bin\Debug\netcoreapp5.0\Wallet.Utilties.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\bin\Debug\netcoreapp5.0\Wallet.Utilties.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\refint\Wallet.Utilties.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\Wallet.Utilties.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Utilties\obj\Debug\netcoreapp5.0\ref\Wallet.Utilties.dll

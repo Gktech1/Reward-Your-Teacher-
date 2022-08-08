@@ -36,3 +36,22 @@ C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\refint\Wallet.Core.dll
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.pdb
 C:\Users\Decagon\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\ref\Wallet.Core.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\refint\Wallet.Core.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.deps.json
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Data.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Dtos.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Model.dll
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Data.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Dtos.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Model.pdb
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.AssemblyReference.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.AssemblyInfoInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.AssemblyInfo.cs
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CopyComplete
+C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\ref\Wallet.Core.dll

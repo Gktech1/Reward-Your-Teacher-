@@ -38,17 +38,12 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet]
-        public async Task<string> Banks(string query)
+        public async Task<IActionResult> Banks()
         {
-            var baseUrl = _walletOptions.Url;
-            var key = _walletOptions.Key;
-
-            var url = $"{baseUrl}?key={key}&q={query}";
-            //var result = await _testService.GetBanksAsync();
-            using (var client = _httpClientFactory.CreateClient())
-            {
-                return await client.GetStringAsync(url);
-            }
+            
+            var result = await _testService.GetBanksAsync();
+            
+            return Ok(result);
                 
         }
     }

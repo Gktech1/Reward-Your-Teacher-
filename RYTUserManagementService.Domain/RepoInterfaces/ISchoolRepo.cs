@@ -10,10 +10,10 @@ namespace RYTUserManagementService.Domain.RepoInterfaces
     public interface ISchoolRepo
     {
         Task<IEnumerable<School>> GetAllSchools();
-        Task<School> SchoolExists(int schoolId);
+        Task<bool> SchoolExists(string schoolName);
         Task<bool> CreateSchool(School school);
         Task<bool> UpdateSchool(School school);
-        Task<bool> DeleteSchoolById(int schoolId);
+        Task<bool> DeleteSchool(School school);
         Task<bool> SaveChanges();
     }
 }

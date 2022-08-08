@@ -10,10 +10,11 @@ namespace RYTUserManagementService.Domain.RepoInterfaces
     public interface ITeacherRepo
     {
         Task<IEnumerable<Teacher>> GetAllTeachers();
-        Task<Teacher> TeachertExists(int teacherId);
+        Task<bool> TeacherExists(string name);
         Task<bool> CreateTeacher(Teacher teacher);
         Task<bool> UpdateTeacher(Teacher teacher);
-        Task<bool> DeleteTeacherById(int teacherId);
+        Task<bool> DeleteTeacher(Teacher teacher);
+        Task<Teacher> GetTeacherById(int teacherId);
         Task<bool> SaveChanges();
     }
 }

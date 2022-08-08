@@ -5,6 +5,8 @@ namespace RYTUserManagementService.Models
 {
     public class Teacher : IdentityUser
     {
+        [Key]
+        public int TeacherId { get; set; }
         [Required]
         public string FirstName { get; set; }
 

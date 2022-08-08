@@ -11,15 +11,16 @@ namespace RYTUserManagementService.Domain.RepoImplementations
         {
             _db = db;
         }
-        public Task<bool> CreateStudent(Student student)
+        public async Task<bool> CreateStudent(Student student)
         {
             _db.Students.Add(student);
-            return SaveChanges();
+            return await SaveChanges();
         }
 
-        public void DeleteStudent(Student student)
+        public async Task<bool> DeleteStudent(Student student)
         {
             _db.Students.Remove(student);
+            return await SaveChanges();
         }
 
         public async Task<IEnumerable<Student>> GetAllStudent()
@@ -37,10 +38,10 @@ namespace RYTUserManagementService.Domain.RepoImplementations
             return await _db.Students.Where(sId => sId.Id == studentId).FirstOrDefaultAsync();
         }
 
-        public Task<bool> UpdateStudent(Student student)
+        public async Task<bool> UpdateStudent(Student student)
         {
             _db.Students.Update(student);
-            return SaveChanges();
+            return await SaveChanges();
         }
 
         public Task<bool> StudentExists(string name)

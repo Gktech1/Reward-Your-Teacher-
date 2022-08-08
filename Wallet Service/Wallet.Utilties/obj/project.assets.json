@@ -8,20 +8,25 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Decagon\\.nuget\\packages\\": {}
+    "C:\\Users\\Decagon\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Decagon\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+      "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
       "projectName": "Wallet.Utilties",
-      "projectPath": "C:\\Users\\Decagon\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+      "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
       "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Decagon\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\obj\\",
+      "outputPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Utilties\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

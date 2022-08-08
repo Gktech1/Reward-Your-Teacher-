@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Wallet Service",
+    "\\Wallet Service\\Wallet.Core",
+    "\\Wallet Service\\Wallet.Core\\Interfaces",
+    "\\Wallet Service\\Wallet.Core\\Repository",
+    "\\Wallet Service\\Wallet.Core\\Services",
+    "\\Wallet Service\\Wallet.Data\\bin",
+    "\\Wallet Service\\Wallet.Model\\Enums",
+    "\\Wallet Service\\Wallet.Model\\obj"
+  ],
+  "SelectedNode": "\\Wallet Service\\Wallet.API",
+  "PreviewInSolutionExplorer": false
+}

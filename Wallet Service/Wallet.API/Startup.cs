@@ -16,6 +16,11 @@ using Wallet.Core.Repository;
 using Wallet.Core.Services;
 using Wallet.Data;
 using Wallet.Utilties;
+using AutoMapper;
+using Wallet.Core.Interfaces;
+using Wallet.Core.Repository;
+using Wallet.API.Mappings;
+using Wallet.API.Services;
 
 namespace Wallet.API
 {
@@ -37,6 +42,13 @@ namespace Wallet.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
             });
+
+            IMapper mapper = MappingConfiguration.RegisterMap().CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletServices, WalletServices>();
             services.AddTransient<IResponseFactory, ResponseFactory>();
             services.AddTransient<IHttpGenericFactory, HttpGenericFactory>();
             services.AddTransient<ITestServices, TestServices>();

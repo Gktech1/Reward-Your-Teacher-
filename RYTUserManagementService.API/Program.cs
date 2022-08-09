@@ -4,6 +4,7 @@ using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,10 @@ builder.Services.AddScoped<ITeacherServices, TeacherServices>();
 builder.Services.AddScoped<ISchoolRepo, SchoolRepo>();
 builder.Services.AddScoped<IStudentRepo, StudentRepo>();
 builder.Services.AddScoped<ITeacherRepo, TeacherRepo>();
+
+//AutoMapper for the DTO's
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(Mappings));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -8,5 +8,6 @@ namespace RYTUserManagementService.Core.ServiceInterfaces
 {
     public interface IStudentServices
     {
+
     }
 }

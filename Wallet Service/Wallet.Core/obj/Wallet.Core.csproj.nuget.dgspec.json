@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {}
+    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
+    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
         "projectName": "Wallet.Core",
-        "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
-        "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Core\\obj\\",
+        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -32,14 +28,14 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
+              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
               },
-              "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
+              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
               },
-              "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -98,26 +94,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
         "projectName": "Wallet.Data",
-        "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
-        "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Data\\obj\\",
+        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -130,8 +122,8 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -182,26 +174,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
         "projectName": "Wallet.Dtos",
-        "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
-        "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Dtos\\obj\\",
+        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -214,8 +202,8 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -244,26 +232,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
         "projectName": "Wallet.Model",
-        "projectPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
-        "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Desktop\\LIVE PROJECT5\\Wallet Service\\Wallet.Model\\obj\\",
+        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -302,7 +286,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

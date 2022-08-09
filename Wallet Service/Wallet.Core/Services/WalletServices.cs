@@ -52,6 +52,18 @@ namespace Wallet.API.Services
             
             await _Db.SaveChangesAsync();
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Successfully Created", userWallet, true, 200);
+
+        }
+
+        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(Guid id)
+        {
+            var wallet = await _Db.Wallets.Where(x => x.Id == id).FirstOrDefaultAsync();
+            if(wallet is null)
+            {
+                return _responseService.ExecutionResponse<UserWalletDto>("Wallet does not exist", null, false, 400);
+            }
+            var mapWallet = _mapper.Map<UserWallet,UserWalletDto>(wallet);
+            return _responseService.ExecutionResponse<UserWalletDto>("Wallet Found", mapWallet, true, 200);
         }
     }
 }

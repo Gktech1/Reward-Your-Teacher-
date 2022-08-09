@@ -49,5 +49,12 @@ namespace Wallet.API.Controllers
             var result = await _walletServices.CreateWalletAsync(userWalletDto);
             return StatusCode(result.StatusCode, result);
         }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetUserWallet(Guid id)
+        {
+            var result = await _walletServices.GetUserWalletAsync(id);
+            return StatusCode(result.StatusCode, result);
+        }
     }
 }

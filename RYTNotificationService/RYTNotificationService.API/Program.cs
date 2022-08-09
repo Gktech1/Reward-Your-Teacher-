@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using RYTNotificationService.API.Data;
+using RYTNotificationService.API.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+/*builder.Services.AddApplicationServices(builder.Configuration);*/
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

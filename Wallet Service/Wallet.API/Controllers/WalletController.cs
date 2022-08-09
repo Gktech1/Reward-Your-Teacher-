@@ -32,14 +32,13 @@ namespace Wallet.API.Controllers
         private readonly IMapper _mapper;
         private readonly IWalletServices _walletServices;
 
-        public WalletController(ILogger<WalletController> logger, IMapper mapper,
-                                       IWalletServices walletServices)
+        public WalletController(ILogger<WalletController> logger, IMapper mapper, IWalletServices walletServices)
         {
             _mapper = mapper;
             _logger = logger;
             _walletServices = walletServices;
-            
-            
+
+
         }
 
 
@@ -50,11 +49,29 @@ namespace Wallet.API.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+
+        [HttpPatch("{userId}/activate")]
+        public async Task<IActionResult> ActivateWallet(string userId)
+        {
+            var result = await _walletServices.ActivateWallet(userId);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpPatch("{userId}/deactivate")]
+
+        public async Task<IActionResult> DeactivateWallet(string userId)
+        {
+            var result = await _walletServices.DeactivateWallet(userId);
+            return StatusCode(result.StatusCode, result);
+        }
+
+
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetUserWallet(string userId)
         {
             var result = await _walletServices.GetUserWalletAsync( userId);
             return StatusCode(result.StatusCode, result);
         }
+
     }
 }

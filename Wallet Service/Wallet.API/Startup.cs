@@ -21,6 +21,8 @@ using Wallet.Core.Interfaces;
 using Wallet.Core.Repository;
 using Wallet.API.Mappings;
 using Wallet.API.Services;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Options;
 
 namespace Wallet.API
 {
@@ -43,8 +45,7 @@ namespace Wallet.API
                 options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
             });
 
-         
-           
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IWalletRepository, WalletRepository>();

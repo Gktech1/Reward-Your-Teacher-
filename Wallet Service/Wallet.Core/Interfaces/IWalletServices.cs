@@ -12,12 +12,10 @@ namespace Wallet.Core.Interfaces
 {
 	public interface IWalletServices
 	{
-
-
 		Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
-
-
-
+		Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId);
 	}
 
+
+	
 }

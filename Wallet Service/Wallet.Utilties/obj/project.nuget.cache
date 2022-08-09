@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "6Sx1gr5ZbY0xHmlxrl1JJXK8Bcl/Olci46aIHLRrqtJ9+ECa75y8axP8zOLWf5ji9rt1d4GIKhrYv15N5GU3pQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+=======
+  "dgSpecHash": "0ZAmilTRltApRaGx4vwA7V/fKFlDB34kEpvwdg43Mm5GxKjj2RKBFF7ck95rrx5OlA6j/f/1lfrnvfkMcjZiWA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+>>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
   "expectedPackageFiles": [],
   "logs": []
 }

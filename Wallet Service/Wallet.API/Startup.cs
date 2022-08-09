@@ -68,7 +68,6 @@ namespace Wallet.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
 
             services.AddControllers(config => config.InputFormatters.Insert(0, GetJsonPatchInputFormatter()));

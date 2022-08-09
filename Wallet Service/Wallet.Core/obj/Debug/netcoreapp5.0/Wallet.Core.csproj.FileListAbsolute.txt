@@ -55,3 +55,22 @@ C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netc
 C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CoreCompileInputs.cache
 C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CopyComplete
 C:\Users\Decagon\Desktop\LIVE PROJECT5\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\ref\Wallet.Core.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.deps.json
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Core.pdb
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Data.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Dtos.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Model.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Data.pdb
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Dtos.pdb
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\bin\Debug\netcoreapp5.0\Wallet.Model.pdb
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.AssemblyReference.cache
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.AssemblyInfoInputs.cache
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.AssemblyInfo.cs
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CoreCompileInputs.cache
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.csproj.CopyComplete
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\refint\Wallet.Core.dll
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\Wallet.Core.pdb
+C:\Users\23480\Documents\Reward-Your-Teacher-WalletService-SQ011A\Wallet Service\Wallet.Core\obj\Debug\netcoreapp5.0\ref\Wallet.Core.dll

@@ -55,10 +55,10 @@ namespace Wallet.API.Services
 
         }
 
-        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(Guid id)
+        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId)
         {
-            var wallet = await _Db.Wallets.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if(wallet is null)
+            var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            if(wallet == null)
             {
                 return _responseService.ExecutionResponse<UserWalletDto>("Wallet does not exist", null, false, 400);
             }

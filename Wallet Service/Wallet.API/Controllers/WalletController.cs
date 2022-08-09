@@ -50,10 +50,10 @@ namespace Wallet.API.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetUserWallet(Guid id)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserWallet(string userId)
         {
-            var result = await _walletServices.GetUserWalletAsync(id);
+            var result = await _walletServices.GetUserWalletAsync( userId);
             return StatusCode(result.StatusCode, result);
         }
     }

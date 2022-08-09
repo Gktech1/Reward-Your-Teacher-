@@ -43,8 +43,8 @@ namespace Wallet.API
                 options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
             });
 
-            IMapper mapper = MappingConfiguration.RegisterMap().CreateMapper();
-            services.AddSingleton(mapper);
+         
+           
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IWalletRepository, WalletRepository>();

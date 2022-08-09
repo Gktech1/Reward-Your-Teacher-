@@ -10,6 +10,7 @@ using Wallet.Model;
 
 namespace Wallet.Core.Interfaces
 {
+<<<<<<< HEAD
     public interface IWalletServices
     {
 
@@ -28,5 +29,14 @@ namespace Wallet.Core.Interfaces
 
 
     }
+=======
+	public interface IWalletServices
+	{
+		Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
+		Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId);
+	}
+>>>>>>> development
 
+
+	
 }

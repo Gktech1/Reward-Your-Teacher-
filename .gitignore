@@ -35,3 +35,5 @@ Generated\ Files/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+
+Wallet\ Service\Wallet.API/appsettings.json

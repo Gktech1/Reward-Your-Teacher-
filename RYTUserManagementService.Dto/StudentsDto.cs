@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RYTUserManagementService.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace RYTUserManagementService.Models
+namespace RYTUserManagementService.Dto
 {
-    public class Student
+    public class StudentsDto
     {
         [Key]
         public int Id { get; set; }
@@ -18,7 +19,6 @@ namespace RYTUserManagementService.Models
 
         public int SchoolId { get; set; }
 
-        //public ICollection<Student> Students { get; set; }
+        public ICollection<Student> Students { get; set; }
     }
-
 }

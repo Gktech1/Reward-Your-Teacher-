@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RYTUserManagementService.Domain;
 
@@ -11,9 +12,10 @@ using RYTUserManagementService.Domain;
 namespace RYTUserManagementService.Domain.Migrations
 {
     [DbContext(typeof(UserManagementDbContext))]
-    partial class UserManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220808093549_SydneyTest")]
+    partial class SydneyTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,6 +81,9 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.Property<int>("SchoolId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime2");
 
@@ -86,16 +91,15 @@ namespace RYTUserManagementService.Domain.Migrations
 
                     b.HasIndex("SchoolId");
 
+                    b.HasIndex("StudentId");
+
                     b.ToTable("Students");
                 });
 
             modelBuilder.Entity("RYTUserManagementService.Models.Teacher", b =>
                 {
-                    b.Property<int>("TeacherId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeacherId"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -122,9 +126,6 @@ namespace RYTUserManagementService.Domain.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -179,7 +180,7 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TeacherId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SchoolId");
 
@@ -193,6 +194,10 @@ namespace RYTUserManagementService.Domain.Migrations
                         .HasForeignKey("SchoolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("RYTUserManagementService.Models.Student", null)
+                        .WithMany("Students")
+                        .HasForeignKey("StudentId");
                 });
 
             modelBuilder.Entity("RYTUserManagementService.Models.Teacher", b =>
@@ -211,6 +216,11 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.Navigation("Students");
 
                     b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("RYTUserManagementService.Models.Student", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

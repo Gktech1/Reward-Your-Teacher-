@@ -66,6 +66,9 @@ namespace Wallet.Data.Migrations
                     b.Property<string>("Currency")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 

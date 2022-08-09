@@ -43,5 +43,7 @@ namespace Wallet.Core.Repository
         {
             throw new NotImplementedException();
         }
+
+
     }
-    }
+}

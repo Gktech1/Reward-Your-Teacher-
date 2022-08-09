@@ -9,8 +9,9 @@ namespace Wallet.Core.Interfaces
 {
     public interface IWalletRepository
     {
-        
+
 
         Task CreateWalletAsync(UserWalletDto userWalletDto);
+
     }
 }

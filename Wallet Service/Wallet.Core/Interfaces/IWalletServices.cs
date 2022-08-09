@@ -10,14 +10,23 @@ using Wallet.Model;
 
 namespace Wallet.Core.Interfaces
 {
-	public interface IWalletServices
-	{
+    public interface IWalletServices
+    {
 
 
-		Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
+        Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
+        Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(string userId);
+        Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(string userId);
+
+        //paatch wallet update
+
+
+        //save changes for patch
 
 
 
-	}
+
+
+    }
 
 }

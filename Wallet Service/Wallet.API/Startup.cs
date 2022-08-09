@@ -21,6 +21,8 @@ using Wallet.Core.Interfaces;
 using Wallet.Core.Repository;
 using Wallet.API.Mappings;
 using Wallet.API.Services;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Options;
 
 namespace Wallet.API
 {
@@ -36,6 +38,13 @@ namespace Wallet.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter() =>
+                new ServiceCollection().AddLogging().AddMvc().AddNewtonsoftJson()
+                    .Services.BuildServiceProvider()
+                    .GetRequiredService<IOptions<MvcOptions>>().Value.InputFormatters
+                    .OfType<NewtonsoftJsonPatchInputFormatter>().First();
+
+
 
             // Register the Swagger generator, defining 1 or more Swagger document
             services.AddDbContextPool<AppDbContext>(options =>
@@ -43,8 +52,7 @@ namespace Wallet.API
                 options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
             });
 
-            IMapper mapper = MappingConfiguration.RegisterMap().CreateMapper();
-            services.AddSingleton(mapper);
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IWalletRepository, WalletRepository>();
@@ -60,9 +68,10 @@ namespace Wallet.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
 
-            services.AddControllers();
+            services.AddControllers(config => config.InputFormatters.Insert(0, GetJsonPatchInputFormatter()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

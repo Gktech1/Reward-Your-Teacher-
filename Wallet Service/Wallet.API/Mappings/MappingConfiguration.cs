@@ -5,19 +5,13 @@ using Wallet.Model;
 
 namespace Wallet.API.Mappings
 {
-    public class MappingConfiguration
+    public class MappingConfiguration : Profile
     {
 
-        public static MapperConfiguration RegisterMap()
+        public MappingConfiguration()
         {
-            var mappingConfig = new MapperConfiguration(Config =>
-            Config.CreateMap<UserWalletDto, UserWallet>().ReverseMap()
-            
-            );
-
-           
-
-            return mappingConfig;
+            CreateMap<UserWallet, UserWalletDto>().ReverseMap();
+            CreateMap<UserWallet, UserWalletUpdateDto>().ReverseMap();
         }
     }
 }

@@ -38,8 +38,8 @@ namespace Wallet.API.Controllers
             _mapper = mapper;
             _logger = logger;
             _walletServices = walletServices;
-            
-            
+
+
         }
 
 
@@ -49,5 +49,21 @@ namespace Wallet.API.Controllers
             var result = await _walletServices.CreateWalletAsync(userWalletDto);
             return StatusCode(result.StatusCode, result);
         }
+
+        [HttpPatch("{userId}/activate")]
+        public async Task<IActionResult> ActivateWallet(string userId)
+        {
+            var result = await _walletServices.ActivateWallet(userId);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpPatch("{userId}/deactivate")]
+
+        public async Task<IActionResult> DeactivateWallet(string userId)
+        {
+            var result = await _walletServices.DeactivateWallet(userId);
+            return StatusCode(result.StatusCode, result);
+        }
+
     }
 }

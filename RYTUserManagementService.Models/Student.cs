@@ -17,8 +17,6 @@ namespace RYTUserManagementService.Models
         [StringLength(Constants.Max2000Length)]
         public string About { get; set; }
         public virtual IdentityUser User { get; set; }
-
-
         public ICollection<Student> Students { get; set; }
         public virtual IEnumerable<School> School { get; set; }
 

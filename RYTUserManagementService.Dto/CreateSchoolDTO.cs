@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class SchoolDTO
+    public class CreateSchoolDTO
     {
         public School Logo { get; set; }
 
@@ -22,6 +22,9 @@ namespace RYTUserManagementService.Dto
         public Address Address { get; set; }
 
         public Constants.SchoolType SchoolType { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public string CreatedBy { get; set; }
 
     }
 }

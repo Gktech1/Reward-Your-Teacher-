@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace RYTUserManagementService.API.Controllers
 {
-    public class SchoolController : BaseApiController
+    public class SchoolController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         private UnitOfWork<School> unitOfWork = new UnitOfWork<School>();
         private readonly IMapper _mapper;

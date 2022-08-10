@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Models;
 using System;
 using System.Collections.Generic;
@@ -9,21 +8,17 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class TeacherDTO
+    public class CreateStudentDTO 
     {
-        public Constants.Titles Title { get; set; }
-    
+        public Student Title { get; set; }
+        public string FullName { get; set; }
         public string ProfileUrl { get; set; }
 
-        public string FullName { get; set; }
-
         public string Email { get; set; }
-
+  
         public IdentityUser Password { get; set; }
 
         public IdentityUser PhoneNumber { get; set; }
-
-        public IdentityUser Position { get; set; }
 
         public Address Address { get; set; }
 
@@ -33,10 +28,7 @@ namespace RYTUserManagementService.Dto
 
         public IdentityUser Gender { get; set; }
 
-        public Teacher About { get; set; }
+        public Student About { get; set; }
 
-        public Teacher StartYear { get; set; }
-
-        public Teacher? EndYear { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class StudentDTO 
+    public class CreateStudentDTO 
     {
         public Student Title { get; set; }
         public string FullName { get; set; }

@@ -68,29 +68,83 @@ namespace RYTUserManagementService.API.Controllers
             return Ok(studentsList);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
-
-
-
-        // GET: Game/Details/5
-        public ActionResult Details(int? id)
+        // GET: AStudentBySchool
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public async Task<IActionResult> GetStudentsBySchoolID(int studentId, int schoolId )
         {
-            if (id == null)
+            School school = new School();
+            Student student = new Student();
+            if (school.Id.Equals(schoolId))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var students = unitOfWork.GeneralRepository.Get().Where(x => schoolId == school.Id &&  studentId == student.Id.FirstOrDefault();
             }
-            Game game = unitOfWork.GameRepository.GetByID(id);
-            if (game == null)
+
+            
+            if (students == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(game);
+            return Ok(_mapper.Map<Student>(students));
         }
-        // GET: Game/Create
-        public ActionResult Create()
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // GET: Student
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public async Task<IActionResult> GetAllStudentsBySchoolId(int id)
         {
-            return View();
+            var students = unitOfWork.GeneralRepository.Get().Where(x => x.Student.id == x.Id);
+            if (students == null)
+            {
+                return NotFound();
+            }
+
+            var studentsList = new List<Student>();
+            foreach (var student in studentsList)
+            {
+                studentsList.Add(_mapper.Map<Student>(student));
+            }
+
+            return Ok(studentsList);
         }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // POST: Student
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [Microsoft.AspNetCore.Mvc.ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateStudent(Student student)
+        {
+            
+        }
+
+
         // POST: Game/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

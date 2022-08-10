@@ -9,5 +9,6 @@ namespace RYTUserManagementService.Core.ServiceImplementations
 {
     public class SchoolServices : ISchoolServices
     {
+        
     }
 }

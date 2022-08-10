@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using RYTUserManagementService.Common.Utilities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RYTUserManagementService.Models
 {
@@ -14,6 +15,8 @@ namespace RYTUserManagementService.Models
         [StringLength(Constants.Max100Length)]
         public string FullName { get; set; }
 
+        [StringLength(Constants.Max200Length)]
+        public string ProfileUrl { get; set; }
 
         [StringLength(Constants.Max100Length)]
         public string Position { get; set; }
@@ -23,7 +26,7 @@ namespace RYTUserManagementService.Models
 
         public DateTime StartYear { get; set; }
 
-        public DateTime EndYear { get; set; }
+        public DateTime? EndYear { get; set; }
         public virtual IEnumerable<School> School { get; set; }
 
         public virtual IdentityUser User { get; set; }

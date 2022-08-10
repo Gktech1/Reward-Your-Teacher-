@@ -8,12 +8,10 @@ namespace RYTUserManagementService.Domain
     {
         public UserManagementDbContext(DbContextOptions<UserManagementDbContext> options) : base(options)
         {
-
         }
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-
         public DbSet<School> Schools { get; set; }
 
 

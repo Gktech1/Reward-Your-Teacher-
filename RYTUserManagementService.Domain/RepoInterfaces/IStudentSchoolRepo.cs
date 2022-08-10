@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    internal interface IStudentSchoolRepo
+    public interface IStudentSchoolRepo
     {
+        Task<Student> GetStudentInASchool(int id);
+        Task<ICollection<Student>> GetAllStudentInASchool(School school);
     }
 }

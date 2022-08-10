@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
@@ -10,6 +12,9 @@ namespace RYTUserManagementService.Models
         public int Id { get; set; }
 
         public Constants.Titles Title { get; set; }
+
+        [StringLength(Constants.Max200Length)]
+        public string ProfileUrl { get; set; }
 
         [StringLength(Constants.Max100Length)]
         public string FullName { get; set; }

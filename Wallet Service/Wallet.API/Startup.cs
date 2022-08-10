@@ -49,6 +49,10 @@ namespace Wallet.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddHttpClient<IHttpService, HttpService>();
+            services.AddScoped<IHttpService, HttpService>();
+            services.AddScoped<ITransactionService, TransactionService>();  
+            services.AddScoped<IPayStackService, PayStackService>();
             services.AddScoped<IWalletServices, WalletServices>();
             services.AddTransient<IResponseFactory, ResponseFactory>();
             services.AddTransient<IHttpGenericFactory, HttpGenericFactory>();

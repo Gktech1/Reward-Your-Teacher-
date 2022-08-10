@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Wallet.Data\Wallet.Data.csproj" />
     <ProjectReference Include="..\Wallet.Dtos\Wallet.Dtos.csproj" />
     <ProjectReference Include="..\Wallet.Model\Wallet.Model.csproj" />
+    <ProjectReference Include="..\Wallet.Utilties\Wallet.Utilties.csproj" />
   </ItemGroup>
 
 </Project>

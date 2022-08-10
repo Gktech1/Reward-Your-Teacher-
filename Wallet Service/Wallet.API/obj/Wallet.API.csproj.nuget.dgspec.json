@@ -1,37 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {}
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
         "projectName": "Wallet.API",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
-        "projectName": "Wallet.API",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,37 +28,20 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj"
-=======
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj"
-              },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
-              },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
-              },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
-              },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj"
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj"
               }
             }
           }
@@ -143,31 +109,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
         "projectName": "Wallet.Core",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
-        "projectName": "Wallet.Core",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\Wallet.Core.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,25 +133,17 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
               },
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
-=======
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj"
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj"
-              },
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj"
               }
             }
           }
@@ -262,31 +206,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
         "projectName": "Wallet.Data",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
-        "projectName": "Wallet.Data",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\Wallet.Data.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -300,13 +230,8 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
-=======
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -361,31 +286,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
         "projectName": "Wallet.Dtos",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
-        "projectName": "Wallet.Dtos",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\Wallet.Dtos.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Dtos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -399,13 +310,8 @@
           "net5.0": {
             "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
-=======
-              "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
+              "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+                "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj"
               }
             }
           }
@@ -419,6 +325,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "netcoreapp5.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -438,31 +350,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
         "projectName": "Wallet.Model",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
-        "projectName": "Wallet.Model",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\Wallet.Model.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -506,31 +404,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
+    "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
         "projectName": "Wallet.Utilties",
-        "projectPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
-        "packagesPath": "C:\\Users\\23480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\23480\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\23480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
-        "projectName": "Wallet.Utilties",
-        "projectPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
+        "projectPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\Wallet.Utilties.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Documents\\LiveProject2\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.Utilties\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bf2a767eaf6b42e8cf7d5f5fb19a18b886c98c52
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

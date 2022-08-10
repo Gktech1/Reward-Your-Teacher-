@@ -1,37 +1,41 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
 {
-    public class Teacher : IdentityUser
+    [Table(name: "Teachers")]
+    public class Teacher
     {
-        [Required]
-        public string FirstName { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public Constants.Titles Title { get; set; }
 
-        [Required]
-        public string LastName { get; set; }
+        [StringLength(Constants.Max100Length)]
+        public string FullName { get; set; }
 
-        [Required]
-        [StringLength(50, ErrorMessage = ModelValidationErrors.DataInputError)]
-        public string Password { get; set; }
 
-        [Required]
-        [StringLength(50, ErrorMessage = ModelValidationErrors.ConfirmPasswordError)]
-        public string ConfirmPassword { get; set; }
+        [StringLength(Constants.Max100Length)]
+        public string Position { get; set; }
+
+        [StringLength(Constants.Max2000Length)]
+        public string About { get; set; }
+
+        public DateTime StartYear { get; set; }
+
+        public DateTime EndYear { get; set; }
+        public virtual IEnumerable<School> School { get; set; }
+
+        public virtual IdentityUser User { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public DateTime UpdateAt { get; set; }
 
-        public int SchoolId { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
 
-        public string Position { get; set; }
 
-        public DateTime StartYear { get; set; }
-
-        public DateTime EndYear { get; set; }
-
-        public School School { get; set; }
 
 
     }

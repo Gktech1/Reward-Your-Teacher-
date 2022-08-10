@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wallet.Core.Interfaces;
+using Wallet.Data;
 using Wallet.Dtos.PaymentDtos;
 using Wallet.Model.Enums;
 using Wallet.Utilties;
@@ -18,14 +19,16 @@ namespace Wallet.Core.Services
         private readonly IConfiguration _config;
         private readonly IHttpService _httpService;
         private readonly ITransactionService _txService;
+        private readonly AppDbContext _db;
         private readonly UrlConfiguration _walletOptions;
 
         public PayStackService(IConfiguration config, IHttpService httpService, 
-            IOptionsSnapshot<UrlConfiguration> walletoptions, ITransactionService txService)
+            IOptionsSnapshot<UrlConfiguration> walletoptions, ITransactionService txService, AppDbContext db)
         {
             _config = config;
             _httpService = httpService;
             _txService = txService;
+            _db = db;
             //_walletOptions = walletoptions.Value;
         }
 
@@ -40,12 +43,15 @@ namespace Wallet.Core.Services
             request.Url = $"https://api.paystack.co/transaction/verify/{txRef}";
             request.AccessToken = _config["WalletApi:Key"];
             var response = await _httpService.SendGetRequest<PayStackTransactionDto>(request);
-            if (response.Data.Status == "success")
+            var tx = await _txService.GetTransactionAsync(txRef);
+
+            if (response.Data.Status == "success" )
             {
-                var tx = await _txService.GetTransactionAsync(txRef);
+                var wallet = _db.Wallets.FirstOrDefault(x => x.Id.Equals(tx.WalletId));
+                wallet.Balance += Convert.ToInt32(tx.Amount);
                 tx.Status = TransactionStatus.Success;
                 tx.Updated = DateTime.Now;
-                await _txService.UpdateTransaction(tx);
+                await _db.SaveChangesAsync();
                 return true;
             }
             return false;
@@ -55,6 +61,7 @@ namespace Wallet.Core.Services
         public async Task<PayStackLinkResponseDto> GetPaymentLink(PayStackPaymentDto details, string userId)
         {
             var request = new JsonContentPostRequest<PayStackPaymentDto>();
+            details.Amount = details.Amount + "00";
             request.Data = details;
             request.Url = "https://api.paystack.co/transaction/initialize";
             request.AccessToken = _config["WalletApi:Key"]; ;

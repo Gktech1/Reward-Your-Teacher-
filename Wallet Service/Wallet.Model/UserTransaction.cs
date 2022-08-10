@@ -14,8 +14,8 @@ namespace Wallet.Model
     {
         [Key]
         public Guid Id { get; set; }
-        public TransactionStatus Status { get; set; }
-        public TransactionType Type { get; set; }
+        public TransactionStatus Status { get; set; } = TransactionStatus.Pending;
+        public TransactionType Type { get; set; } = TransactionType.Funding;
         public string Amount { get; set; }   
         public Guid WalletId { get; set; }
 #nullable enable

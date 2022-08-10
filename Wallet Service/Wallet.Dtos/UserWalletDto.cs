@@ -4,7 +4,6 @@ namespace Wallet.Dtos
 {
     public class UserWalletDto
     {
-        
         public string UserId { get; set; }
         public double Balance { get; set; } = 0;
         public DateTime CreatedAt { get; set; } = DateTime.Now;

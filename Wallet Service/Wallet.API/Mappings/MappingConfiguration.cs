@@ -15,6 +15,8 @@ namespace Wallet.API.Mappings
 
             CreateMap<UserWallet, UserWalletUpdateDto>().ReverseMap();
 
+            CreateMap<AccountDetail, AccountDetailDto>().ReverseMap();
+
         }
     }
 }

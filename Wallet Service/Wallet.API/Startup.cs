@@ -40,10 +40,13 @@ namespace Wallet.API
         {
 
             // Register the Swagger generator, defining 1 or more Swagger document
-            services.AddDbContextPool<AppDbContext>(options =>
+            /*services.AddDbContextPool<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
-            });
+            });*/
+
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("sqlConnection")));
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

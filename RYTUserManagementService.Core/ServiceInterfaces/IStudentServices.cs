@@ -9,11 +9,12 @@ namespace RYTUserManagementService.Core.ServiceInterfaces
 {
     public interface IStudentServices
     {
+
        /* Task<IEnumerable<CreateStudentDTO>> GetAllStudentsAsync();
 
         Task<CreateStudentDTO> GetStudentByIdAsync(int id);
 
         Task<CreateStudentDTO> GetStudentBySchoolIdAsync(int schoolId);*/
-        
+ 
     }
 }

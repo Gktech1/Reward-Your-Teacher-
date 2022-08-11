@@ -9,5 +9,6 @@ namespace RYTUserManagementService.Domain.RepoInterfaces
 {
     public interface ITeacherRepository : IGeneralRepository<Teacher>
     {
+
     }
 }

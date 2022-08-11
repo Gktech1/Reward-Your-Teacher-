@@ -9,6 +9,7 @@ namespace RYTUserManagementService.Models
     public class Teacher
     {
         [Key]
+
         public int Id { get; set; }
         public Constants.Titles Title { get; set; }
 

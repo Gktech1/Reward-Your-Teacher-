@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Core", "RYTUserManagementService.Core\RYTUserManagementService.Core.csproj", "{F0446C58-D166-4984-85A7-256BB238F153}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RYTUserManagementService.Dto", "RYTUserManagementService.Dto\RYTUserManagementService.Dto.csproj", "{6CD3BDFD-5B7D-47AB-9686-B3AC0E3609E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Dto", "RYTUserManagementService.Dto\RYTUserManagementService.Dto.csproj", "{6CD3BDFD-5B7D-47AB-9686-B3AC0E3609E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RYTUserManagementService.Test", "RYTUserManagementService.Test\RYTUserManagementService.Test.csproj", "{E826E127-1B9B-4697-AC79-C20D8488EDD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Test", "RYTUserManagementService.Test\RYTUserManagementService.Test.csproj", "{E826E127-1B9B-4697-AC79-C20D8488EDD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RYTUserManagementService.Models", "RYTUserManagementService.Models\RYTUserManagementService.Models.csproj", "{6330CDD7-82EB-4F6B-A5C1-E0D35DF1A347}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Models", "RYTUserManagementService.Models\RYTUserManagementService.Models.csproj", "{6330CDD7-82EB-4F6B-A5C1-E0D35DF1A347}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RYTUserManagementService.Common.Utilities", "RYTUserManagementService.Common.Utilities\RYTUserManagementService.Common.Utilities.csproj", "{B6C67397-DA37-4D22-9183-D0CC4CDC3A5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RYTUserManagementService.Common.Utilities", "RYTUserManagementService.Common.Utilities\RYTUserManagementService.Common.Utilities.csproj", "{B6C67397-DA37-4D22-9183-D0CC4CDC3A5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F42825B0-34D6-4A29-97A3-9BCB1E93BA52}"
 	ProjectSection(SolutionItems) = preProject

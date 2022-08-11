@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.TypeRepository
 {
-    public class StudentRepository : GenericRepository<CreateStudentDTO>, IStudentRepository
+    public class StudentRepository : GenericRepository<CreateStudentDto>, IStudentRepository
     {
         public StudentRepository(UserManagementDbContext context) : base(context) { }
     }

@@ -1,3 +1,4 @@
+
 ﻿using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 using System;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    public interface ISchoolRepository : IGeneralRepository<CreateSchoolDTO>
+    public interface ISchoolRepository : IGeneralRepository<CreateSchoolDto>
     {
+        
     }
 }

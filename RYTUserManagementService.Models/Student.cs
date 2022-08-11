@@ -11,6 +11,7 @@ namespace RYTUserManagementService.Models
         [Key]
         public int Id { get; set; }
 
+
         public Constants.Titles Title { get; set; }
 
         [StringLength(Constants.Max200Length)]

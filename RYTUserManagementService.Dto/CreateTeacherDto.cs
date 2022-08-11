@@ -1,29 +1,28 @@
-﻿using RYTUserManagementService.Models;
-using System.ComponentModel.DataAnnotations;
-
+﻿using Microsoft.AspNetCore.Identity;
+using RYTUserManagementService.Common.Utilities;
+using RYTUserManagementService.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace RYTUserManagementService.Dto
 {
-    public class CreateTeacherDto
+    public class CreateTeacherDTO
     {
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = ModelValidationErrors.DataInputError)]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-        [Required]
-        [StringLength(50, ErrorMessage = ModelValidationErrors.ConfirmPasswordError)]
-        [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public int SchoolId { get; set; }
-        public string Position { get; set; }
-        public DateTime StartYear { get; set; }
-        public DateTime EndYear { get; set; }
-        public School School { get; set; }
+        public Constants.Titles Title { get; set; }
+        public string ProfileUrl { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public IdentityUser Password { get; set; }
+        public IdentityUser PhoneNumber { get; set; }
+        public IdentityUser Position { get; set; }
+        public Address Address { get; set; }
+        public School SchoolName { get; set; }
+        public IdentityUser UserType { get; set; }
+        public IdentityUser Gender { get; set; }
+        public Teacher About { get; set; }
+        public Teacher StartYear { get; set; }
+        public Teacher? EndYear { get; set; }
     }
 }

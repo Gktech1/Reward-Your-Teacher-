@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RYTUserManagementService.Dto\RYTUserManagementService.Dto.csproj" />
     <ProjectReference Include="..\RYTUserManagementService.Models\RYTUserManagementService.Models.csproj" />
   </ItemGroup>
 

@@ -1,47 +1,42 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
-using System.Web.Mvc;
 
 namespace RYTUserManagementService.API.Controllers
 {
-    public class StudentController : Microsoft.AspNetCore.Mvc.ControllerBase
+    [ApiController]
+    [Microsoft.AspNetCore.Components.Route("[controller]")]
+    public class StudentController : ControllerBase
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+
 
         public StudentController(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this.unitOfWork = unitOfWork;
+            this._unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-     
+
 
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-
-        // GET: Student
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet("id", Name = "GetStudentById")]
+        [HttpGet("[controller]/{id}", Name = "GetStudentById")]
         public async Task<IActionResult> GetStudentById(int id)
         {
-            var students = unitOfWork.Student.GetById(id);
-            if (students == null)
-            {
+            var school = _unitOfWork.School.GetById(id);
+            if (school == null)
                 return NotFound();
-            }
-            return Ok(_mapper.Map<CreateStudentDTO>(students));
+
+            return Ok(_mapper.Map<Student>(school));
         }
+
+
 
         /// <summary>
         /// 
@@ -53,23 +48,24 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        public async Task<IActionResult> GetAllSchools()
+        [HttpGet("[controller]/{GetAllStudents}")]
+        public async Task<IActionResult> GetAllStudents()
         {
-            var students = unitOfWork.Student.GetAll();
+            var students = _unitOfWork.Student.GetAll();
             if (students == null)
             {
                 return NotFound();
             }
 
-            var studentsList = new List<CreateStudentDTO>();
+            var studentsList = new List<Student>();
             foreach (var student in studentsList)
             {
-                studentsList.Add(_mapper.Map<CreateStudentDTO>(student));
+                studentsList.Add(_mapper.Map<Student>(student));
             }
 
             return Ok(studentsList);
         }
+
 
 
         /// <summary>
@@ -82,7 +78,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [HttpPost("[controller]/{AddStudent}")]
         public async Task<IActionResult> AddStudent(CreateStudentDTO student)
         {
 
@@ -92,15 +88,15 @@ namespace RYTUserManagementService.API.Controllers
                 return NotFound();
             }
 
-            unitOfWork.Student.Add(student);
+            _unitOfWork.Student.Add(student);
 
-            var studentList = new List<CreateStudentDTO>();
-            foreach (var stud in studentList)
+            var studentsList = new List<Student>();
+            foreach (var stud in studentsList)
             {
-                studentList.Add(_mapper.Map<CreateStudentDTO>(stud));
+                studentsList.Add(_mapper.Map<Student>(stud));
             }
 
-            return Ok(studentList);
+            return Ok(studentsList);
         }
 
         /// <summary>
@@ -109,21 +105,21 @@ namespace RYTUserManagementService.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // Put: UpdateStudent
+        // Put: UpdateSchool
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPut]
+        [HttpPut("[controller]/{UpdateStudent}")]
         public async Task<IActionResult> UpdateStudent(CreateStudentDTO student)
         {
-            unitOfWork.Student.Add(student);
 
             if (student == null)
             {
                 return NotFound();
             }
 
-            return Ok("Update Successfull");
+            _unitOfWork.Student.Add(student);
+            return Ok("Update Successful");
         }
 
         /// <summary>
@@ -132,21 +128,21 @@ namespace RYTUserManagementService.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // Delete: DeleteStudent
+        // Delete: DeleteSchool
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpDelete]
-        public async Task<IActionResult> DeleteStudent(CreateStudentDTO student)
+        [HttpDelete("[controller]/{DeleteStudent}")]
+        public async Task<IActionResult> DeleteSchool(CreateStudentDTO student)
         {
-            unitOfWork.Student.Remove(student);
+            _unitOfWork.Student.Remove(student);
 
             if (student == null)
             {
                 return NotFound();
             }
 
-            return Ok("Delete Successfull");
+            return Ok("Delete Successful");
         }
     }
 }

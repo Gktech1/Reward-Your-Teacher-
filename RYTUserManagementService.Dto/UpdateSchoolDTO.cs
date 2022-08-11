@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class SchoolDTO
+    public class UpdateSchoolDTO
     {
         public School Logo { get; set; }
 

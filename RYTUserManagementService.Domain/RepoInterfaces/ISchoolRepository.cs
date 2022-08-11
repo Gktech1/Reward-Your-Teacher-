@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    public interface ISchoolRepository : IGeneralRepository<SchoolDTO>
+    public interface ISchoolRepository : IGeneralRepository<CreateSchoolDTO>
     {
     }
 }

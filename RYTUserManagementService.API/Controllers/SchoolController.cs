@@ -5,11 +5,14 @@ using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
-using System.Web.Mvc;
+
+
 
 namespace RYTUserManagementService.API.Controllers
 {
-    public class SchoolController : Microsoft.AspNetCore.Mvc.ControllerBase
+    [ApiController]
+    [Microsoft.AspNetCore.Components.Route("[controller]")]
+    public class SchoolController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper _mapper;
@@ -21,17 +24,18 @@ namespace RYTUserManagementService.API.Controllers
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
 
-        // GET: School
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet("id", Name = "GetSchoolById")]
+        // <summary>
+        // 
+        // </summary>
+        // <param name = "id" ></ param >
+        // < returns ></ returns >
+
+        //GET: School
+       [ProducesResponseType(200)]
+       [ProducesResponseType(400)]
+       [ProducesResponseType(404)]
+       [HttpGet("[controller]/{id}", Name = "GetSchoolById")]
         public async Task<IActionResult> GetSchoolById(int id)
         {
             var schools = unitOfWork.School.GetById(id);
@@ -39,8 +43,13 @@ namespace RYTUserManagementService.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<SchoolDTO>(schools));
+            return Ok(_mapper.Map<School>(schools));
+
         }
+
+
+
+
 
         /// <summary>
         /// 
@@ -52,7 +61,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [HttpGet("[controller]/{GetAllSchools}")]
         public async Task<IActionResult> GetAllSchools()
         {
             var schools = unitOfWork.School.GetAll();
@@ -61,16 +70,17 @@ namespace RYTUserManagementService.API.Controllers
                 return NotFound();
             }
 
-            var schoolsList = new List<SchoolDTO>();
+            var schoolsList = new List<CreateSchoolDTO>();
             foreach (var school in schoolsList)
             {
-                schoolsList.Add(_mapper.Map<SchoolDTO>(school));
+                schoolsList.Add(_mapper.Map<CreateSchoolDTO>(school));
             }
 
             return Ok(schoolsList);
         }
-        
-        
+
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -81,22 +91,22 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        public async Task<IActionResult> AddSchool(SchoolDTO school)
+        [HttpPost("[controller]/{AddSchool}")]
+        public async Task<IActionResult> AddSchool(CreateSchoolDTO school)
         {
 
-            
+
             if (school == null)
             {
                 return NotFound();
             }
-            
+
             unitOfWork.School.Add(school);
 
-            var schoolsList = new List<SchoolDTO>();
+            var schoolsList = new List<CreateSchoolDTO>();
             foreach (var sch in schoolsList)
             {
-                schoolsList.Add(_mapper.Map<SchoolDTO>(sch));
+                schoolsList.Add(_mapper.Map<CreateSchoolDTO>(sch));
             }
 
             return Ok(schoolsList);
@@ -112,8 +122,8 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPut]
-        public async Task<IActionResult> UpdateSchool(SchoolDTO school)
+        [HttpPut("[controller]/{UpdateSchool}")]
+        public async Task<IActionResult> UpdateSchool(CreateSchoolDTO school)
         {
             unitOfWork.School.Add(school);
 
@@ -122,7 +132,7 @@ namespace RYTUserManagementService.API.Controllers
                 return NotFound();
             }
 
-            return Ok("Update Successfull");
+            return Ok("Update Successful");
         }
 
         /// <summary>
@@ -135,8 +145,8 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpDelete]
-        public async Task<IActionResult> DeleteSchool(SchoolDTO school)
+        [HttpDelete("[controller]/{DeleteSchool}")]
+        public async Task<IActionResult> DeleteSchool(CreateSchoolDTO school)
         {
             unitOfWork.School.Remove(school);
 
@@ -145,8 +155,9 @@ namespace RYTUserManagementService.API.Controllers
                 return NotFound();
             }
 
-            return Ok("Delete Successfull");
+            return Ok("Delete Successful");
         }
 
     }
 }
+

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
@@ -80,7 +79,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPost("[controller]/{AddStudent}")]
-        public async Task<IActionResult> AddStudent(CreateStudentDTO student)
+        public async Task<IActionResult> AddStudent(CreateStudentDto student)
         {
 
 
@@ -111,7 +110,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPut("[controller]/{UpdateStudent}")]
-        public async Task<IActionResult> UpdateStudent(CreateStudentDTO student)
+        public async Task<IActionResult> UpdateStudent(CreateStudentDto student)
         {
 
             if (student == null)
@@ -134,7 +133,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpDelete("[controller]/{DeleteStudent}")]
-        public async Task<IActionResult> DeleteSchool(CreateStudentDTO student)
+        public async Task<IActionResult> DeleteSchool(CreateStudentDto student)
         {
             _unitOfWork.Student.Remove(student);
 
@@ -144,45 +143,7 @@ namespace RYTUserManagementService.API.Controllers
             }
 
             return Ok("Delete Successful");
-=======
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using RYTUserManagementService.Domain.RepoInterfaces;
-using RYTUserManagementService.Dto;
 
-namespace RYTUserManagementService.API.Controllers
-{
-    [Route("[controller]")]
-    public class StudentController : ControllerBase
-    {
-        private readonly IStudentRepo _studentRepo;
-        private readonly IMapper _mapper;
-
-        public StudentController(IStudentRepo studentsRepo, IMapper mapper)
-        {
-            _studentRepo = studentsRepo;
-            _mapper = mapper;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        /// 
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpGet("id", Name = "GetStudentById")]
-        public async Task<IActionResult> GetStudentById(int id)
-        {
-            var checkId = await _studentRepo.GetStudentById(id);
-            if(checkId == null)
-            {
-                return NotFound();
-            }
-            return Ok(_mapper.Map<StudentsDto>(checkId));
-            
->>>>>>> develop
         }
     }
 }

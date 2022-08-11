@@ -70,10 +70,10 @@ namespace RYTUserManagementService.API.Controllers
                 return NotFound();
             }
 
-            var schoolsList = new List<CreateSchoolDTO>();
+            var schoolsList = new List<CreateSchoolDto>();
             foreach (var school in schoolsList)
             {
-                schoolsList.Add(_mapper.Map<CreateSchoolDTO>(school));
+                schoolsList.Add(_mapper.Map<CreateSchoolDto>(school));
             }
 
             return Ok(schoolsList);
@@ -92,7 +92,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPost("[controller]/{AddSchool}")]
-        public async Task<IActionResult> AddSchool(CreateSchoolDTO school)
+        public async Task<IActionResult> AddSchool(CreateSchoolDto school)
         {
 
 
@@ -103,10 +103,10 @@ namespace RYTUserManagementService.API.Controllers
 
             unitOfWork.School.Add(school);
 
-            var schoolsList = new List<CreateSchoolDTO>();
+            var schoolsList = new List<CreateSchoolDto>();
             foreach (var sch in schoolsList)
             {
-                schoolsList.Add(_mapper.Map<CreateSchoolDTO>(sch));
+                schoolsList.Add(_mapper.Map<CreateSchoolDto>(sch));
             }
 
             return Ok(schoolsList);
@@ -123,7 +123,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPut("[controller]/{UpdateSchool}")]
-        public async Task<IActionResult> UpdateSchool(CreateSchoolDTO school)
+        public async Task<IActionResult> UpdateSchool(CreateSchoolDto school)
         {
             unitOfWork.School.Add(school);
 
@@ -146,7 +146,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpDelete("[controller]/{DeleteSchool}")]
-        public async Task<IActionResult> DeleteSchool(CreateSchoolDTO school)
+        public async Task<IActionResult> DeleteSchool(CreateSchoolDto school)
         {
             unitOfWork.School.Remove(school);
 

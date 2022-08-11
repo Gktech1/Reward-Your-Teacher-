@@ -11,12 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
-=======
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
->>>>>>> develop
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,7 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RYTUserManagementService.Core\RYTUserManagementService.Core.csproj" />
     <ProjectReference Include="..\RYTUserManagementService.Domain\RYTUserManagementService.Domain.csproj" />
-    <ProjectReference Include="..\RYTUserManagementService.Dto\RYTUserManagementService.Dto.csproj" />
   </ItemGroup>
 
 </Project>

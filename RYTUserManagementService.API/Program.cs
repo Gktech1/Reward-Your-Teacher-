@@ -18,9 +18,9 @@ builder.Services.AddDbContext<UserManagementDbContext>(options =>
 builder.Services.AddScoped<ISchoolServices, SchoolServices>();
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
-builder.Services.AddScoped<ISchoolRepo, SchoolRepo>();
-builder.Services.AddScoped<IStudentRepo, StudentRepo>();
-builder.Services.AddScoped<ITeacherRepo, TeacherRepo>();
+
+
+builder.Services.AddTransient< IUnitOfWork, UnitOfWork > ();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

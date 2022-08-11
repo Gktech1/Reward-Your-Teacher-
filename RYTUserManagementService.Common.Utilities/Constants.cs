@@ -1,4 +1,6 @@
-﻿namespace RYTUserManagementService.Common.Utilities
+﻿using System.ComponentModel;
+
+namespace RYTUserManagementService.Common.Utilities
 {
     public class Constants
     {

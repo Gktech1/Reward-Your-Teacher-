@@ -3,7 +3,7 @@ using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
 {
-    public class Student
+    public class StudentSchool
     {
         public int Id { get; set; }
         public virtual School School { get; set; }

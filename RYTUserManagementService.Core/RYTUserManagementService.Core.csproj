@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RYTUserManagementService.Domain\RYTUserManagementService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

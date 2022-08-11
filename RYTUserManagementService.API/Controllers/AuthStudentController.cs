@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RYTUserManagementService.API.Controllers
 {
-    public class AuthStudentController : BaseApiController
+    public class AuthStudentController : ControllerBase
     {
     }
 }

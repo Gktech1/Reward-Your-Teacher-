@@ -1,43 +1,40 @@
 ﻿using RYTUserManagementService.Core.ServiceInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RYTUserManagementService.Domain.
+using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Dto;
+using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Core.ServiceImplementations
 {
     public class StudentServices : IStudentServices
-    {
-        private readonly IStudentRepo _studentRepo;
-        public StudentServices(IStudentRepo studentRepo)
+    {/*
+        private readonly IStudentRepository _studentRepo;
+        public StudentServices(IStudentRepository studentRepo)
         {
             _studentRepo = studentRepo;
         }
-        public async Task<IEnumerable<Student>> GetAllStudentsAsync()
+        public async Task<IEnumerable<CreateStudentDTO>> GetAllStudentsAsync()
         {
-            return await _studentRepo.GetAllStudent();
+            return _studentRepo.GetAll();
         }
-        public async Task<Student> GetStudentByIdAsync(int id)
+        public async Task<CreateStudentDTO> GetStudentByIdAsync(int id)
         {
-            return await _studentRepo.GetStudentById(id);
+            return _studentRepo.GetById(id);
         }
-        public async Task<Student> GetStudentBySchoolIdAsync(int schoolId)
+        public async Task<CreateStudentDTO> GetStudentBySchoolIdAsync(int schoolId)
         {
-            return await _studentRepo.GetStudentBySchoolId(schoolId);
+            return _studentRepo.GetById(schoolId);
         }
-        public async Task<bool> AddStudent(Student student)
+        public async Task<CreateStudentDTO> AddStudent(CreateStudentDTO student)
         {
-            return await _studentRepo.CreateStudent(student);
+            return _studentRepo.Add(student);
         }
-        public async Task<bool> UpdateStudent(Student student)
+        public async Task<CreateStudentDTO> UpdateStudent(int id)
         {
-            return await (_studentRepo.UpdateStudent(student));
+            return _studentRepo.UpdateStudent(id);
         }
-        public async Task<bool> DeleteStudent(Student student)
+        public async Task<CreateStudentDTO> DeleteStudent(CreateStudentDTO student)
         {
-            return await _studentRepo.DeleteStudent(student);
-        }
+            return _studentRepo.Remove(student);
+        }*/
     }
 }

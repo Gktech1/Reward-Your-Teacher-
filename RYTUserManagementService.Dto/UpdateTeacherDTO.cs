@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class CreateTeacherDTO
+    public class UpdateTeacherDTO
     {
         public Constants.Titles Title { get; set; }
     

@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RYTUserManagementService.Core\RYTUserManagementService.Core.csproj" />
     <ProjectReference Include="..\RYTUserManagementService.Domain\RYTUserManagementService.Domain.csproj" />
+    <ProjectReference Include="..\RYTUserManagementService.Dto\RYTUserManagementService.Dto.csproj" />
   </ItemGroup>
 
 </Project>

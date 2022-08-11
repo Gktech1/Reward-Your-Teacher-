@@ -2,21 +2,24 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoImplementations;
+using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 using System.Web.Mvc;
 
 namespace RYTUserManagementService.API.Controllers
 {
-    public class StudentController : BaseApiController
+    public class StudentController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
-        private UnitOfWork<Student> unitOfWork = new UnitOfWork<Student>();
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper _mapper;
 
-        public StudentController(UnitOfWork<Student> unitOfWork, IMapper mapper)
+        public StudentController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+     
 
 
         /// <summary>
@@ -32,190 +35,118 @@ namespace RYTUserManagementService.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("id", Name = "GetStudentById")]
         public async Task<IActionResult> GetStudentById(int id)
         {
-            var students = unitOfWork.GeneralRepository.GetByID(id);
+            var students = unitOfWork.Student.GetById(id);
             if (students == null)
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<Student>(students));
+            return Ok(_mapper.Map<CreateStudentDTO>(students));
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // GET: Student
+        // GET: AllStudents
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public async Task<IActionResult> GetAllStudents()
+        public async Task<IActionResult> GetAllSchools()
         {
-            var students = unitOfWork.GeneralRepository.Get();
+            var students = unitOfWork.Student.GetAll();
             if (students == null)
             {
                 return NotFound();
             }
 
-            var studentsList = new List<Student>();
+            var studentsList = new List<CreateStudentDTO>();
             foreach (var student in studentsList)
             {
-                studentsList.Add(_mapper.Map<Student>(student));
-            }
-
-            return Ok(studentsList);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
-        // GET: AStudentBySchool
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        public async Task<IActionResult> GetStudentsBySchoolID(int studentId, int schoolId )
-        {
-            School school = new School();
-            Student student = new Student();
-            if (school.Id.Equals(schoolId))
-            {
-                var students = unitOfWork.GeneralRepository.Get().Where(x => schoolId == school.Id &&  studentId == student.Id.FirstOrDefault();
-            }
-
-            
-            if (students == null)
-            {
-                return NotFound();
-            }
-            return Ok(_mapper.Map<Student>(students));
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
-        // GET: Student
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        public async Task<IActionResult> GetAllStudentsBySchoolId(int id)
-        {
-            var students = unitOfWork.GeneralRepository.Get().Where(x => x.Student.id == x.Id);
-            if (students == null)
-            {
-                return NotFound();
-            }
-
-            var studentsList = new List<Student>();
-            foreach (var student in studentsList)
-            {
-                studentsList.Add(_mapper.Map<Student>(student));
+                studentsList.Add(_mapper.Map<CreateStudentDTO>(student));
             }
 
             return Ok(studentsList);
         }
 
 
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // POST: Student
+        // Post: AddStudent
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        [Microsoft.AspNetCore.Mvc.ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateStudent(Student student)
+        public async Task<IActionResult> AddStudent(CreateStudentDTO student)
         {
-            
-        }
 
 
-        // POST: Game/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Game game)
-        {
-            if (ModelState.IsValid)
+            if (student == null)
             {
-                unitOfWork.GameRepository.Insert(game);
-                unitOfWork.Save();
-                return RedirectToAction("Index");
+                return NotFound();
             }
-            return View(game);
+
+            unitOfWork.Student.Add(student);
+
+            var studentList = new List<CreateStudentDTO>();
+            foreach (var stud in studentList)
+            {
+                studentList.Add(_mapper.Map<CreateStudentDTO>(stud));
+            }
+
+            return Ok(studentList);
         }
-        // GET: Game/Edit/5
-        public ActionResult Edit(int? id)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // Put: UpdateStudent
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        public async Task<IActionResult> UpdateStudent(CreateStudentDTO student)
         {
-            if (id == null)
+            unitOfWork.Student.Add(student);
+
+            if (student == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return NotFound();
             }
-            Game game = unitOfWork.GameRepository.GetByID(id);
-            if (game == null)
-            {
-                return HttpNotFound();
-            }
-            return View(game);
+
+            return Ok("Update Successfull");
         }
-        // POST: Game/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Game game)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // Delete: DeleteStudent
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Microsoft.AspNetCore.Mvc.HttpDelete]
+        public async Task<IActionResult> DeleteStudent(CreateStudentDTO student)
         {
-            if (ModelState.IsValid)
+            unitOfWork.Student.Remove(student);
+
+            if (student == null)
             {
-                unitOfWork.GameRepository.Update(game);
-                unitOfWork.Save();
-                return RedirectToAction("Index");
+                return NotFound();
             }
-            return View(game);
-        }
-        // GET: Game/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Game game = unitOfWork.GameRepository.GetByID(id);
-            if (game == null)
-            {
-                return HttpNotFound();
-            }
-            return View(game);
-        }
-        // POST: Game/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Game game = unitOfWork.GameRepository.GetByID(id);
-            unitOfWork.GameRepository.Delete(id);
-            unitOfWork.Save();
-            return RedirectToAction("Index");
-        }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                unitOfWork.Dispose();
-            }
-            base.Dispose(disposing);
+
+            return Ok("Delete Successfull");
         }
     }
 }

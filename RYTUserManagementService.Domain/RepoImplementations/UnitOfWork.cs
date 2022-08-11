@@ -6,40 +6,81 @@ using System.Threading.Tasks;
 using RYTUserManagementService.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Web;
+using RYTUserManagementService.Domain.TypeRepository;
+using RYTUserManagementService.Domain.RepoInterfaces;
 
 namespace RYTUserManagementService.Domain.RepoImplementations
 {
-    public class UnitOfWork<T> : IDisposable
+    public class UnitOfWork : IUnitOfWork     /*<T> : IDisposable where T : class*/
     {
-        private readonly UserManagementDbContext context = UserManagementDbContext.
-        private readonly GeneralRepository<T> generalRepository;
-        public GeneralRepository<T> GeneralRepository
+        private readonly UserManagementDbContext context;
+
+
+        public UnitOfWork(UserManagementDbContext context)
         {
-            get
-            {
-                return this.GeneralRepository ?? new GeneralRepository<T>(context);
-            }
+            this.context = context;
+            Student = new StudentRepository(this.context);
+            Teacher = new TeacherRepository(this.context);
+            School = new SchoolRepository(this.context);
         }
-        public void Save()
+        public IStudentRepository Student
         {
-            context.SaveChanges();
+            get;
+            private set;
         }
-        private bool disposed = false;
-        protected virtual void Dispose(bool disposing)
+        public ITeacherRepository Teacher
         {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
+            get;
+            private set;
         }
+        public ISchoolRepository School
+        {
+            get;
+            private set;
+        }
+
+
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            context.Dispose();
         }
+        public int Save()
+        {
+            return context.SaveChanges();
+        }
+
+
+
+
+        //private readonly GeneralRepository<T> generalRepository;
+        //public GeneralRepository<T> GeneralRepository
+        //{
+        //    get
+        //    {
+        //        return this.generalRepository ?? new GeneralRepository<T>(context);
+        //    }
+        //}
+        //public void Save()
+        //{
+        //    context.SaveChanges();
+        //}
+        //private bool disposed = false;
+        //protected virtual void Dispose(bool disposing)
+        //{
+        //    if (!this.disposed)
+        //    {
+        //        if (disposing)
+        //        {
+        //            context.Dispose();
+        //        }
+        //    }
+        //    this.disposed = true;
+        //}
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    GC.SuppressFinalize(this);
+        //}
     }
 }

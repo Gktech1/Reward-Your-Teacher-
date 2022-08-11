@@ -17,8 +17,6 @@ using Wallet.Core.Services;
 using Wallet.Data;
 using Wallet.Utilties;
 using AutoMapper;
-using Wallet.Core.Interfaces;
-using Wallet.Core.Repository;
 using Wallet.API.Mappings;
 using Wallet.API.Services;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -40,10 +38,10 @@ namespace Wallet.API
         {
 
             // Register the Swagger generator, defining 1 or more Swagger document
-            services.AddDbContextPool<AppDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("sqlconnection"));
-            });
+            
+
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("sqlConnection")));
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

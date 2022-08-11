@@ -15,5 +15,6 @@ namespace Wallet.Data
 
         public DbSet<UserWallet> Wallets { get; set; }
         public DbSet<UserTransaction> Transactions { get; set; }
+        public DbSet<AccountDetail> AccountDetails { get; set; }
     }
 }

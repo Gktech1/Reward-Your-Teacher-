@@ -10,7 +10,7 @@ namespace Wallet.Model
     {
         public UserWallet()
         {
-            Transactions = new HashSet<UserTransaction>();
+           // Transactions = new HashSet<UserTransaction>();
         }
         public Guid Id { get; set; }
         public string UserId { get; set; }

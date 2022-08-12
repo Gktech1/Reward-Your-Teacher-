@@ -32,7 +32,7 @@ namespace Wallet.Dtos.Pagination
             var count = source.Count();
             var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize);
 
-            return new PagedList<T>(items.ToList(), items.Count(), pageNumber, pageSize);
+            return new PagedList<T>(items.ToList(), count, pageNumber, pageSize);
         }
     }
 }

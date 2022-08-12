@@ -16,14 +16,14 @@ namespace Wallet.API.Controllers
             _payStackService = payStackService;
         }
 
-        [HttpPost("paystack/pay/{userId}")]
+        [HttpPost("pay/{userId}")]
         public async Task<IActionResult> PayUsingPayStack(PayStackPaymentDto details, string userId)
         {
             var link = await _payStackService.GetPaymentLink(details, userId);
             return Ok(link);
         }
 
-        [HttpPost("paystack/transaction/{id}")]
+        [HttpPost("transaction/{id}")]
         public async Task<IActionResult> ConfirmTransaction(string id)
         {
             var result = await _payStackService.ConfirmTransactionByRef(id);

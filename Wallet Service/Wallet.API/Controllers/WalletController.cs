@@ -1,22 +1,14 @@
-﻿using System;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Wallet.Model;
-using Wallet.Data;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Wallet.Core.Interfaces;
-using Wallet.Utilties;
-using Microsoft.Extensions.Configuration;
-using Wallet.API.Services;
 using Wallet.Dtos;
+using Wallet.Utilties;
+using Wallet.Utilties.Requests;
 
 namespace Wallet.API.Controllers
 {
@@ -73,5 +65,19 @@ namespace Wallet.API.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+        [HttpPost("walletTransfer")]
+        public async Task<IActionResult> TransferToWallet(WalletTransferDto walletTransferDto)
+        {
+            var result = await _walletServices.TransferToWallet(walletTransferDto);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet("walletTransactions/{id:Guid}")]
+        public async Task<IActionResult> GetWalletTransactions(Guid id, [FromQuery]TransactionParameters parameters)
+        {
+            var result = await _walletServices.GetWalletTransactionsAsync(id, parameters);
+            return StatusCode(result.StatusCode, result);
+        }
+        
     }
 }

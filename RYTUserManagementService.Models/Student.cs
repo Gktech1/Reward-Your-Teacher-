@@ -5,13 +5,8 @@ using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
 {
-    [Table(name: "Students")]
-    public class Student
+    public class Student : IdentityUser
     {
-        [Key]
-        public int Id { get; set; }
-
-
         public Constants.Titles Title { get; set; }
 
         [StringLength(Constants.Max200Length)]
@@ -22,19 +17,19 @@ namespace RYTUserManagementService.Models
 
         [StringLength(Constants.Max2000Length)]
         public string About { get; set; }
-        public virtual IdentityUser User { get; set; }
+
         public ICollection<Student> Students { get; set; }
-        public virtual IEnumerable<School> School { get; set; }
+
+        public virtual ICollection<School> School { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        
+        public DateTime UpdatedAt { get; set; }
 
-        public DateTime UpdateAt { get; set; }
-
+        public string Address { get; set; }
+        
         public string CreatedBy { get; set; }
+        
         public string UpdatedBy { get; set; }
-
     }
-
-
-
 }

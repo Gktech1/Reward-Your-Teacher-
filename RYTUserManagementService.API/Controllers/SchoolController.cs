@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
-using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 
 
@@ -11,16 +9,18 @@ using RYTUserManagementService.Models;
 namespace RYTUserManagementService.API.Controllers
 {
     [ApiController]
-    [Microsoft.AspNetCore.Components.Route("[controller]")]
+    [Route("[controller]/api/v1")]
     public class SchoolController : ControllerBase
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<SchoolController> _logger;
 
-        public SchoolController(IUnitOfWork unitOfWork, IMapper mapper)
+        public SchoolController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<SchoolController> logger)
         {
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
         }
 
 
@@ -32,18 +32,24 @@ namespace RYTUserManagementService.API.Controllers
         // < returns ></ returns >
 
         //GET: School
+     
+       [HttpGet("{id}")]
        [ProducesResponseType(200)]
        [ProducesResponseType(400)]
        [ProducesResponseType(404)]
-       [HttpGet("[controller]/{id}", Name = "GetSchoolById")]
-        public async Task<IActionResult> GetSchoolById(int id)
+        public async Task<IActionResult> GetSchoolById(string id)
         {
-            var schools = unitOfWork.School.GetById(id);
-            if (schools == null)
+            try
             {
-                return NotFound();
+                var school = await _unitOfWork.Schools.Get(q => q.Id == id);
+                //var result = _mapper.Map<SchoolDto>(school);
+                return Ok(school);
             }
-            return Ok(_mapper.Map<School>(schools));
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(GetSchoolById)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
 
         }
 
@@ -58,25 +64,25 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // GET: AllSchools
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpGet("[controller]/{GetAllSchools}")]
+        [HttpGet("GetAllSchools")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetAllSchools()
         {
-            var schools = unitOfWork.School.GetAll();
-            if (schools == null)
+            try
             {
-                return NotFound();
-            }
+                var schools = await _unitOfWork.Schools.GetAll();
+              
 
-            var schoolsList = new List<CreateSchoolDto>();
-            foreach (var school in schoolsList)
+                //var results = _mapper.Map<IList<SchoolDto>>(schools);
+                return Ok(schools);
+            }
+            catch (Exception e)
             {
-                schoolsList.Add(_mapper.Map<CreateSchoolDto>(school));
+                _logger.LogError(e, $"Something went wrong in the {nameof(GetAllSchools)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
-
-            return Ok(schoolsList);
         }
 
 
@@ -87,29 +93,35 @@ namespace RYTUserManagementService.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // Post: AddSchool
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpPost("[controller]/{AddSchool}")]
-        public async Task<IActionResult> AddSchool(CreateSchoolDto school)
+        // Post: CreateSchool
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPost("CreateSchool")]
+        public async Task<IActionResult> CreateSchool([FromBody] School school)
         {
-
-
-            if (school == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                _logger.LogError($"Invalid Post attempt in {nameof(CreateSchool)}");
+                return BadRequest(ModelState);
             }
 
-            unitOfWork.School.Add(school);
-
-            var schoolsList = new List<CreateSchoolDto>();
-            foreach (var sch in schoolsList)
+            try
             {
-                schoolsList.Add(_mapper.Map<CreateSchoolDto>(sch));
-            }
+               
+                //var school = _mapper.Map<School>(schoolDto);
+                await _unitOfWork.Schools.Insert(school);
+                await _unitOfWork.Save();
 
-            return Ok(schoolsList);
+                return CreatedAtRoute("GetStudent", new { id = school.Id }, school);
+
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(CreateSchool)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
         }
 
         /// <summary>
@@ -119,20 +131,39 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Put: UpdateSchool
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpPut("[controller]/{UpdateSchool}")]
-        public async Task<IActionResult> UpdateSchool(CreateSchoolDto school)
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPut("UpdateSchool")]
+        public async Task<IActionResult> UpdateSchool(string id, [FromBody] School school)
         {
-            unitOfWork.School.Add(school);
-
-            if (school == null)
+            if (!ModelState.IsValid || id == null)
             {
-                return NotFound();
+                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateSchool)}");
+                return BadRequest(ModelState);
             }
 
-            return Ok("Update Successful");
+            try
+            {
+                var getSchool = await _unitOfWork.Schools.Get(q => q.Id == id);
+                if (school == null)
+                {
+                    _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateSchool)}");
+                    return BadRequest("Submitted Data is Invalid");
+                }
+
+               // _mapper.Map(schoolDto, school);
+                _unitOfWork.Schools.Update(getSchool);
+                await _unitOfWork.Save();
+
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(UpdateSchool)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
         }
 
         /// <summary>
@@ -142,20 +173,39 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Delete: DeleteSchool
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpDelete("[controller]/{DeleteSchool}")]
-        public async Task<IActionResult> DeleteSchool(CreateSchoolDto school)
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpDelete("DeleteSchool")]
+        public async Task<IActionResult> DeleteSchool(string id)
         {
-            unitOfWork.School.Remove(school);
-
-            if (school == null)
+            if (id == null)
             {
-                return NotFound();
+                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteSchool)}");
+                return BadRequest(ModelState);
             }
 
-            return Ok("Delete Successful");
+            try
+            {
+                var school = await _unitOfWork.Schools.Get(q => q.Id == id);
+                if (school == null)
+                {
+                    _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteSchool)}");
+                    return BadRequest("Submitted Data is Invalid");
+                }
+
+
+                await _unitOfWork.Schools.Delete(school.Id);
+                await _unitOfWork.Save();
+
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(DeleteSchool)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
         }
 
     }

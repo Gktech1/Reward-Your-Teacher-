@@ -1,21 +1,30 @@
-﻿using RYTUserManagementService.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using RYTUserManagementService.Common.Utilities;
+using RYTUserManagementService.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Dto
 {
-    public class UpdateSchoolDto
+    public class UpdateSchoolDTO
     {
+        public School Logo { get; set; }
 
-        [Required]
-        public string SchoolName { get; set; }
+        public School SchoolName { get; set; }
 
-        [Required]
-        public string Address { get; set; }
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public IdentityUser Password { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public IdentityUser PhoneNumber { get; set; }
 
-        public ICollection<Teacher> Teachers { get; set; }
+        public Address Address { get; set; }
+
+        public Constants.SchoolType SchoolType { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+        public string UpdatedBy { get; set; }
 
     }
 }

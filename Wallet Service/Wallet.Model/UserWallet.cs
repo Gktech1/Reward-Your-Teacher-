@@ -12,7 +12,7 @@ namespace Wallet.Model
     {
         public UserWallet()
         {
-            Transactions = new HashSet<UserTransaction>();
+           // Transactions = new HashSet<UserTransaction>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "qy03lZoXVsFVG71hVOdNkOyQf3D7YrgCP+dbwTiofT889P9+8qBr8PqMzAirY0/djkW69EcVIHB3T8M5Ui4Ewg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Documents\\live project\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
+=======
+  "dgSpecHash": "txTScb0bdAs48YKVd1ieCaoGaKdA/cBHam7ihbo5Tk9g6GTGjqN+8P51KBiJ8Y/rFuRt8s0qc9sKKwavXPZH4w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hp\\Documents\\LiveProject\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
+>>>>>>> dffdba7de9106d892c82d3933089d1cf21224d1d
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

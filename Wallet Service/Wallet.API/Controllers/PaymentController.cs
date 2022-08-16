@@ -23,7 +23,7 @@ namespace Wallet.API.Controllers
             return Ok(link);
         }
 
-        [HttpPost("paystack/transaction/{id}")]
+        [HttpPost("transaction/{id}")]
         public async Task<IActionResult> ConfirmTransaction(string id)
         {
             var result = await _payStackService.ConfirmTransactionByRef(id);

@@ -3,15 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wallet.Data;
 
 namespace Wallet.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220816071951_intial")]
+    partial class intial
+    [Migration("20220812025945_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +32,10 @@ namespace Wallet.Data.Migrations
 
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
-
                     b.Property<string>("BankCode")
                         .HasColumnType("text");
+                    b.Property<string>("Bank")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -38,17 +43,20 @@ namespace Wallet.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.Property<int>("WalletId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("userId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("AccountDetails");
                 });
-
             modelBuilder.Entity("Wallet.Model.UserBank", b =>
                 {
                     b.Property<int>("Id")
@@ -84,12 +92,14 @@ namespace Wallet.Data.Migrations
                     b.ToTable("Banks");
                 });
 
+
             modelBuilder.Entity("Wallet.Model.UserTransaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Amount")
                         .HasColumnType("nvarchar(max)");
@@ -125,6 +135,12 @@ namespace Wallet.Data.Migrations
 
                     b.HasIndex("UserBankId");
 
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("WalletId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
                     b.HasIndex("WalletId");
 
                     b.ToTable("Transactions");
@@ -136,7 +152,7 @@ namespace Wallet.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
+                        .HasColumnType("uniqueidentifier");
                     b.Property<double>("Balance")
                         .HasColumnType("float");
 
@@ -151,10 +167,10 @@ namespace Wallet.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
-
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
                     b.HasKey("Id");
 
                     b.ToTable("Wallets");
@@ -182,7 +198,6 @@ namespace Wallet.Data.Migrations
                     b.HasOne("Wallet.Model.UserBank", "UserBank")
                         .WithMany()
                         .HasForeignKey("UserBankId");
-
                     b.HasOne("Wallet.Model.UserWallet", "Wallet")
                         .WithMany("Transactions")
                         .HasForeignKey("WalletId")

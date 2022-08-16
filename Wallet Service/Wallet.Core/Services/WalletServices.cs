@@ -14,6 +14,8 @@ using Wallet.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Wallet.Utilties.Requests;
+using System.Collections.Generic;
 
 namespace Wallet.API.Services
 {
@@ -24,6 +26,7 @@ namespace Wallet.API.Services
         //private readonly WalletServices _walletServices;
         private readonly IMapper _mapper;
         private readonly AppDbContext _Db;
+        private readonly ITransactionService _txService;
         private IResponseFactory _responseService;
 
         private WalletRepository _walletRepository;
@@ -32,9 +35,9 @@ namespace Wallet.API.Services
                                           AppDbContext Db, IResponseFactory responseFactory)
         {
             _mapper = mapper;
-
             _responseService = responseFactory;
             _Db = Db;
+            _txService = txService;
         }
 
         public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int UserId)
@@ -113,6 +116,16 @@ namespace Wallet.API.Services
 
             }
         }
+
+        public async Task<ExecutionResponse<UserTransactionDto>> TransferToWallet(WalletTransferDto walletTransferDto) =>
+            await _txService.CreateWalletToWalletTransactionAsync(walletTransferDto.WalletId,
+                walletTransferDto.SenderOrReceiverWalletId, Convert.ToInt32(walletTransferDto.Amount), walletTransferDto.Description);
+
+        public async Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetWalletTransactionsAsync
+            (Guid id, TransactionParameters parameters) =>
+           await _txService.GetTransactionsForWallet(id: id, pageSize: parameters.PageSize,
+                pageNumber: parameters.PageNumber, searchDate: parameters.SearchDate);
+
     }
 }
 

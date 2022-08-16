@@ -44,7 +44,7 @@ namespace Wallet.API
             options.UseNpgsql(Configuration.GetConnectionString("sqlConnection")));
 
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddHttpClient<IHttpService, HttpService>();

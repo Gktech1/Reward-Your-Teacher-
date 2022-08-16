@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 
 
@@ -13,8 +14,10 @@ namespace RYTUserManagementService.API.Controllers
     public class SchoolController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+       // private readonly IMapper _mapper;
         private readonly ILogger<SchoolController> _logger;
+
+        private readonly IMapper _mapper;
 
         public SchoolController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<SchoolController> logger)
         {
@@ -42,8 +45,8 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var school = await _unitOfWork.Schools.Get(q => q.Id == id);
-                //var result = _mapper.Map<SchoolDto>(school);
-                return Ok(school);
+                var result = _mapper.Map<SchoolViewDto>(school);
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -73,10 +76,9 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var schools = await _unitOfWork.Schools.GetAll();
-              
-
-                //var results = _mapper.Map<IList<SchoolDto>>(schools);
-                return Ok(schools);
+                
+                var results = _mapper.Map<IList<SchoolViewDto>>(schools);
+                return Ok(results);
             }
             catch (Exception e)
             {
@@ -94,12 +96,12 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Post: CreateSchool
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("CreateSchool")]
-        public async Task<IActionResult> CreateSchool([FromBody] School school)
+        public async Task<IActionResult> CreateSchool([FromBody] SchoolCreateDto schoolcreate)
         {
             if (!ModelState.IsValid)
             {
@@ -110,7 +112,7 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                
-                //var school = _mapper.Map<School>(schoolDto);
+                var school = _mapper.Map<School>(schoolcreate);
                 await _unitOfWork.Schools.Insert(school);
                 await _unitOfWork.Save();
 
@@ -136,7 +138,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("UpdateSchool")]
-        public async Task<IActionResult> UpdateSchool(string id, [FromBody] School school)
+        public async Task<IActionResult> UpdateSchool(string id, [FromBody] SchoolCreateDto school)
         {
             if (!ModelState.IsValid || id == null)
             {
@@ -147,13 +149,13 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var getSchool = await _unitOfWork.Schools.Get(q => q.Id == id);
-                if (school == null)
+                if (getSchool == null)
                 {
                     _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateSchool)}");
                     return BadRequest("Submitted Data is Invalid");
                 }
 
-               // _mapper.Map(schoolDto, school);
+                _mapper.Map(school, getSchool);
                 _unitOfWork.Schools.Update(getSchool);
                 await _unitOfWork.Save();
 

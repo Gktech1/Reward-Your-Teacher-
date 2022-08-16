@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace RYTUserManagementService.Models
 {
+
     public class ApiUser : IdentityUser
     {
         public string FirstName { get; set; }

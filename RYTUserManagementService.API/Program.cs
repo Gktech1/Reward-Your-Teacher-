@@ -1,10 +1,5 @@
-
-using System.Configuration;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RYTUserManagementService.API;
 using RYTUserManagementService.Core.ServiceImplementations;
@@ -12,10 +7,12 @@ using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 using Serilog;
 using Serilog.Events;
-//using AutoMapper;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,14 +75,15 @@ builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
 builder.Services.AddTransient<IAuthManager, AuthManager>();
 
+
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddIdentity<ApiUser, IdentityRole>();
 
 
 
 //AutoMapper for the DTO's
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(Mappings));
 
 
 // ADD JWT AUTHENTICATION

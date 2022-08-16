@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Abp.AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Dto
 {
+    [AutoMapFrom(typeof(Teacher))]
     public class TeacherDto
     {
         public int Id { get; set; }
@@ -36,6 +38,7 @@ namespace RYTUserManagementService.Dto
         public TeacherDto? EndYear { get; set; }
     }
 
+    [AutoMapFrom(typeof(Teacher))]
     public class UpdateTeacherDto : TeacherDto
     {
         public Constants.Titles Title { get; set; }

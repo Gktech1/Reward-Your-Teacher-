@@ -1,34 +1,25 @@
-﻿using Microsoft.AspNetCore.Identity;
-using RYTUserManagementService.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RYTUserManagementService.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace RYTUserManagementService.Dto
 {
-    public class CreateStudentDTO 
+    public class CreateStudentDto
     {
-        public Student Title { get; set; }
-        public string FullName { get; set; }
-        public string ProfileUrl { get; set; }
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
 
-        public string Email { get; set; }
-  
-        public IdentityUser Password { get; set; }
+        public string Password { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
 
-        public IdentityUser PhoneNumber { get; set; }
-
-        public Address Address { get; set; }
-
-        public School SchoolName { get; set; }
-
-        public IdentityUser UserType { get; set; }
-
-        public IdentityUser Gender { get; set; }
-
-        public Student About { get; set; }
-
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public ICollection<Student> Students { get; set; }
     }
 }

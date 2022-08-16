@@ -12,10 +12,10 @@ namespace Wallet.Core.Interfaces
     public interface ITransactionService
     {
         Task CreateFundingTransactionAsync(string txRef, string amount, int userId);
-        Task CreateWalletToWalletTransactionAsync(int senderWalletId, int receiverWalletId, int amount);//charges could be set for this transfer
+        Task<ExecutionResponse<UserTransactionDto>>CreateWalletToWalletTransactionAsync(int senderWalletId, int receiverWalletId, int amount, string description);//charges could be set for this transfer
         Task<UserTransaction> GetTransactionAsync(string txRef);
         Task UpdateTransaction(UserTransaction transaction);
-        Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetTransactionsForWallet(Guid id, int pageNumber, int pageSize,
+        Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetTransactionsForWallet(int id, int pageNumber, int pageSize,
             DateTime searchDate);
     }
 }

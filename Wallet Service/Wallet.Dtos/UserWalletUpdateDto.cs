@@ -8,7 +8,7 @@ namespace Wallet.Dtos
 {
     public class UserWalletUpdateDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int UserId { get; set; }
         public double Balance { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;

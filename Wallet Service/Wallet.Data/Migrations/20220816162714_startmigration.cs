@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Wallet.Data.Migrations
 {
-    public partial class intial : Migration
+    public partial class startmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,7 @@ namespace Wallet.Data.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: true),
                     LastName = table.Column<string>(type: "text", nullable: true),
-                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
+                    AccountNumber = table.Column<string>(type: "text", nullable: true),
                     BankCode = table.Column<string>(type: "text", nullable: true),
                     WalletId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -86,7 +86,7 @@ namespace Wallet.Data.Migrations
                     WalletId = table.Column<int>(type: "integer", nullable: false),
                     TransactionReference = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    SenderOrReceiverWalletId = table.Column<string>(type: "text", nullable: true),
+                    SenderOrReceiverWalletId = table.Column<int>(type: "integer", nullable: true),
                     UserBankId = table.Column<int>(type: "integer", nullable: true),
                     Created = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Updated = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)

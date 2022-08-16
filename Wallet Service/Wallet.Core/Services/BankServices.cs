@@ -27,15 +27,12 @@ namespace Wallet.Core.Services
         public async Task<ExecutionResponse<AccountDetailDto>> CreateBankAsync(AccountDetailDto accountDetailDto)
         {
             var account = _mapper.Map<AccountDetail>(accountDetailDto);
-            if(account == null)
-            {
-                return _responseService.ExecutionResponse<AccountDetailDto>("Bank Account already exists", accountDetailDto, false, 400);
-            }
 
-            var accountDetailMapping = _mapper.Map<AccountDetailDto>(account);
-            _Db.Add(accountDetailMapping);
+            _Db.Add(account);
             await _Db.SaveChangesAsync();
-            return _responseService.ExecutionResponse<AccountDetailDto>("Bank Account created", accountDetailMapping, true, 200);
+            var accountToReturn = _mapper.Map < AccountDetailDto >(account);
+
+            return _responseService.ExecutionResponse<AccountDetailDto>("Bank Account created", accountToReturn, true, 200);
         }
 
         public async Task<ExecutionResponse<AccountDetailDto>> DeleteBankAsync(int accountId, int userId)

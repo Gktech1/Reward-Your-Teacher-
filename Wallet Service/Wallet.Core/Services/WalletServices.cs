@@ -16,10 +16,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Wallet.Utilties.Requests;
 using System.Collections.Generic;
-
 namespace Wallet.API.Services
 {
-
     public class WalletServices : IWalletServices
     {
         // private readonly ILogger _logger;
@@ -28,18 +26,15 @@ namespace Wallet.API.Services
         private readonly AppDbContext _Db;
         private readonly ITransactionService _txService;
         private IResponseFactory _responseService;
-
         private WalletRepository _walletRepository;
-
-            public WalletServices(IMapper mapper,
-                                          AppDbContext Db, IResponseFactory responseFactory)
+        public WalletServices(IMapper mapper,
+            AppDbContext Db, IResponseFactory responseFactory, ITransactionService txService)
         {
             _mapper = mapper;
             _responseService = responseFactory;
             _Db = Db;
             _txService = txService;
         }
-
         public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int UserId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == UserId).FirstOrDefaultAsync();
@@ -60,39 +55,30 @@ namespace Wallet.API.Services
                     await _Db.SaveChangesAsync();
                     return _responseService.ExecutionResponse<UserWalletUpdateDto>("Wallet activated", userWalletDtoToReturn, true, 200);
                 }
-
             }
         }
-
         public async Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet)
         {
-
             var wallet = _Db.Wallets.Where(x => x.UserId == userWallet.UserId);
-
             if (wallet.Any())
             {
                 return _responseService.ExecutionResponse<UserWalletDto>("Wallet Already Exists", userWallet, false, 400);
-
             }
             var mappWallet = _mapper.Map<UserWalletDto, UserWallet>(userWallet);
             _Db.Wallets.Add(mappWallet);
-
             await _Db.SaveChangesAsync();
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Successfully Created", userWallet, true, 200);
-
         }
-
         public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(int userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
-            if(wallet == null)
+            if (wallet == null)
             {
                 return _responseService.ExecutionResponse<UserWalletDto>("Wallet does not exist", null, false, 400);
             }
-            var mapWallet = _mapper.Map<UserWallet,UserWalletDto>(wallet);
+            var mapWallet = _mapper.Map<UserWallet, UserWalletDto>(wallet);
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Found", mapWallet, true, 200);
         }
-
         public async Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(int userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
@@ -113,19 +99,14 @@ namespace Wallet.API.Services
                     _Db.SaveChanges();
                     return _responseService.ExecutionResponse<UserWalletUpdateDto>("Wallet deactivated", userWalletDtoToReturn, true, 200);
                 }
-
             }
         }
-
         public async Task<ExecutionResponse<UserTransactionDto>> TransferToWallet(WalletTransferDto walletTransferDto) =>
             await _txService.CreateWalletToWalletTransactionAsync(walletTransferDto.WalletId,
                 walletTransferDto.SenderOrReceiverWalletId, Convert.ToInt32(walletTransferDto.Amount), walletTransferDto.Description);
-
         public async Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetWalletTransactionsAsync
-            (Guid id, TransactionParameters parameters) =>
+            (int id, TransactionParameters parameters) =>
            await _txService.GetTransactionsForWallet(id: id, pageSize: parameters.PageSize,
                 pageNumber: parameters.PageNumber, searchDate: parameters.SearchDate);
-
     }
 }
-

@@ -22,7 +22,7 @@ namespace Wallet.Model
 #nullable enable
         public string? TransactionReference { get; set; }
         public string? Description { get; set; }
-        public string? SenderOrReceiverWalletId { get; set; } 
+        public int? SenderOrReceiverWalletId { get; set; } 
         public UserBank? UserBank { get; set; }
 #nullable disable
         public DateTime Created { get; set; } = DateTime.Now;

@@ -73,7 +73,7 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet("walletTransactions/{id:Guid}")]
-        public async Task<IActionResult> GetWalletTransactions(Guid id, [FromQuery]TransactionParameters parameters)
+        public async Task<IActionResult> GetWalletTransactions(int id, [FromQuery]TransactionParameters parameters)
         {
             var result = await _walletServices.GetWalletTransactionsAsync(id, parameters);
             return StatusCode(result.StatusCode, result);

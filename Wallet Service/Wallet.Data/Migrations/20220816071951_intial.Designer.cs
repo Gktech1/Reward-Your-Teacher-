@@ -10,8 +10,8 @@ using Wallet.Data;
 namespace Wallet.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220811114207_initialpostgresmigration")]
-    partial class initialpostgresmigration
+    [Migration("20220816071951_intial")]
+    partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace Wallet.Data.Migrations
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Bank")
+                    b.Property<string>("BankCode")
                         .HasColumnType("text");
 
                     b.Property<string>("FirstName")
@@ -40,30 +40,58 @@ namespace Wallet.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.Property<string>("userId")
-                        .HasColumnType("text");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("WalletId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.ToTable("AccountDetails");
                 });
 
-            modelBuilder.Entity("Wallet.Model.Bank", b =>
+            modelBuilder.Entity("Wallet.Model.UserBank", b =>
                 {
-                    b.Property<Guid>("BankId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.HasKey("BankId");
+                    b.Property<int?>("AccountDetailId")
+                        .HasColumnType("integer");
 
-                    b.ToTable("Bank");
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("BankCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("WalletId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountDetailId");
+
+                    b.HasIndex("WalletId")
+                        .IsUnique();
+
+                    b.ToTable("Banks");
                 });
 
             modelBuilder.Entity("Wallet.Model.UserTransaction", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Amount")
                         .HasColumnType("text");
@@ -89,15 +117,15 @@ namespace Wallet.Data.Migrations
                     b.Property<DateTime>("Updated")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid?>("UserBankBankId")
-                        .HasColumnType("uuid");
+                    b.Property<int?>("UserBankId")
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("WalletId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("WalletId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserBankBankId");
+                    b.HasIndex("UserBankId");
 
                     b.HasIndex("WalletId");
 
@@ -106,9 +134,10 @@ namespace Wallet.Data.Migrations
 
             modelBuilder.Entity("Wallet.Model.UserWallet", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<double>("Balance")
                         .HasColumnType("double precision");
@@ -125,19 +154,36 @@ namespace Wallet.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.ToTable("Wallets");
                 });
 
+            modelBuilder.Entity("Wallet.Model.UserBank", b =>
+                {
+                    b.HasOne("Wallet.Model.AccountDetail", "AccountDetail")
+                        .WithMany()
+                        .HasForeignKey("AccountDetailId");
+
+                    b.HasOne("Wallet.Model.UserWallet", "Wallet")
+                        .WithOne("UserBank")
+                        .HasForeignKey("Wallet.Model.UserBank", "WalletId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AccountDetail");
+
+                    b.Navigation("Wallet");
+                });
+
             modelBuilder.Entity("Wallet.Model.UserTransaction", b =>
                 {
-                    b.HasOne("Wallet.Model.Bank", "UserBank")
+                    b.HasOne("Wallet.Model.UserBank", "UserBank")
                         .WithMany()
-                        .HasForeignKey("UserBankBankId");
+                        .HasForeignKey("UserBankId");
 
                     b.HasOne("Wallet.Model.UserWallet", "Wallet")
                         .WithMany("Transactions")
@@ -153,6 +199,8 @@ namespace Wallet.Data.Migrations
             modelBuilder.Entity("Wallet.Model.UserWallet", b =>
                 {
                     b.Navigation("Transactions");
+
+                    b.Navigation("UserBank");
                 });
 #pragma warning restore 612, 618
         }

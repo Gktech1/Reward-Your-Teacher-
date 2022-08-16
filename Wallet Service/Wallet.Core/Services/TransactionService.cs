@@ -19,7 +19,7 @@ namespace Wallet.Core.Services
             _db = db;
         }
 
-        public async Task CreateFundingTransactionAsync(string txRef, string amount, string userId)
+        public async Task CreateFundingTransactionAsync(string txRef, string amount, int userId)
         {
             var transaction = new UserTransaction();
             var userWalletId = GetWalletId(userId);
@@ -30,7 +30,7 @@ namespace Wallet.Core.Services
             await _db.SaveChangesAsync();
         }
 
-        public Task CreateWalletToWalletTransactionAsync(Guid senderWalletId, Guid receiverWalletId, int amount)
+        public Task CreateWalletToWalletTransactionAsync(int senderWalletId, int receiverWalletId, int amount)
         {
             throw new NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace Wallet.Core.Services
             await _db.SaveChangesAsync();
         }  
 
-        private Guid GetWalletId(string userId) =>
+        private int GetWalletId(int userId) =>
             _db.Wallets.FirstOrDefault(x => x.UserId == userId).Id;
     }
 }

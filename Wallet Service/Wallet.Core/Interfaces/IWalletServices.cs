@@ -16,9 +16,9 @@ namespace Wallet.Core.Interfaces
 
 
         Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
-        Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(string userId);
-        Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(string userId);
-		Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId);
+        Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int userId);
+        Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(int userId);
+		Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(int userId);
 
 
 

@@ -28,8 +28,8 @@ namespace Wallet.API.Services
 
         private WalletRepository _walletRepository;
 
-        public WalletServices(IMapper mapper,
-                                      AppDbContext Db, IResponseFactory responseFactory)
+            public WalletServices(IMapper mapper,
+                                          AppDbContext Db, IResponseFactory responseFactory)
         {
             _mapper = mapper;
 
@@ -37,7 +37,7 @@ namespace Wallet.API.Services
             _Db = Db;
         }
 
-        public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(string UserId)
+        public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int UserId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == UserId).FirstOrDefaultAsync();
             if (wallet == null)
@@ -79,7 +79,7 @@ namespace Wallet.API.Services
 
         }
 
-        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId)
+        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(int userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
             if(wallet == null)
@@ -90,7 +90,7 @@ namespace Wallet.API.Services
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Found", mapWallet, true, 200);
         }
 
-        public async Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(string userId)
+        public async Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(int userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
             if (wallet == null)

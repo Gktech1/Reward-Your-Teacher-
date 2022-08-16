@@ -12,4 +12,6 @@ namespace RYTUserManagementService.Domain.RepoInterfaces
     {
 
     }
+
+
 }

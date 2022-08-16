@@ -14,4 +14,6 @@ namespace RYTUserManagementService.Domain.TypeRepository
     {
         public StudentRepository(UserManagementDbContext context) : base(context) { }
     }
+
+
 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Domain
 {
-    public class UserManagementDbContext : DbContext
+    public class UserManagementDbContext : IdentityDbContext<IdentityUser>
     {
         public UserManagementDbContext(DbContextOptions<UserManagementDbContext> options) : base(options)
         {
@@ -15,6 +16,10 @@ namespace RYTUserManagementService.Domain
         public DbSet<School> Schools { get; set; }
 
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Student>().HasNoKey();
+        //}
     }
 
 }

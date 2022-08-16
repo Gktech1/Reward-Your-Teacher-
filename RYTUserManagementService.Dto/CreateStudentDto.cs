@@ -11,6 +11,10 @@ namespace RYTUserManagementService.Dto
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+
+        [Required, EmailAddress]
+        public string Email { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
 
@@ -21,5 +25,9 @@ namespace RYTUserManagementService.Dto
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public ICollection<Student> Students { get; set; }
+
+        //public string? PasswordResetToken { get; set; } 
+
+       // public DateTime? ResetTokenExpires { get; set; }
     }
 }

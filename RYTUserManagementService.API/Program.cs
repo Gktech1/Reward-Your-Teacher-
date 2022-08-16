@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using RYTUserManagementService.Common.Utilities.Services;
 using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
@@ -19,6 +22,18 @@ builder.Services.AddDbContext<UserManagementDbContext>(options =>
 builder.Services.AddScoped<ISchoolServices, SchoolServices>();
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
+builder.Services.AddTransient<IdentityUser, IdentityUser>();
+builder.Services.AddTransient<IEmailSender, MailJetEmailSender>();
+
+builder.Services.AddIdentityCore<IdentityUser> (opt =>
+{
+    opt.User.RequireUniqueEmail = true;
+    opt.Password.RequiredUniqueChars = 2;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequiredLength = 8;
+}).AddEntityFrameworkStores<UserManagementDbContext>().AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication();
 
 
 builder.Services.AddTransient< IUnitOfWork, UnitOfWork > ();

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
+using System.Security.Cryptography;
 
 namespace RYTUserManagementService.API.Controllers
 {
@@ -12,12 +15,15 @@ namespace RYTUserManagementService.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IEmailSender _emailSender;
 
-
-        public StudentController(IUnitOfWork unitOfWork, IMapper mapper)
+        public StudentController(IUnitOfWork unitOfWork, IMapper mapper, UserManager<IdentityUser> userManager, IEmailSender emailSender)
         {
-            this._unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _userManager = userManager;
+            _emailSender = emailSender;
         }
 
 
@@ -145,5 +151,54 @@ namespace RYTUserManagementService.API.Controllers
             return Ok("Delete Successful");
 
         }
+
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [HttpPost("[controller]/ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword(ForgotpasswordDto model)
+        {
+           if(ModelState.IsValid)
+           {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if(user == null)
+                {
+                    return NotFound();
+                }
+            
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackurl = Url.Action("ResetPassword", "Student", new { userId=user.Id, code=code }, protocol: HttpContext.Request.Scheme);
+
+                await _emailSender.SendEmailAsync(model.Email, "Reset Password - Identity Manager", "Please reset your password" + callbackurl);
+           }
+
+            return Ok();
+        }
+
+
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [HttpPost("[controller]/ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                if(result.Succeeded)
+                {
+                    return Ok("Password Reset Successfully");
+                }
+            }
+
+            return Ok();
+        }
+
     }
 }

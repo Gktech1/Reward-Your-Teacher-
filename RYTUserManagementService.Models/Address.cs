@@ -12,6 +12,7 @@ namespace RYTUserManagementService.Models
     [Table(name: "Addresses")]
     public class Address
     {
+        public int Id { get; set; }
         [StringLength(Constants.Max2000Length)]
         public string StreetAddress { get; set; }
 

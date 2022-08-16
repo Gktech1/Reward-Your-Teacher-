@@ -1,16 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RYTUserManagementService.Domain.RepoInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RYTUserManagementService.Domain.RepoImplementations
 {
-   
-    
+
+
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly UserManagementDbContext _context;

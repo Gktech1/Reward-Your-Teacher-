@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using RYTUserManagementService.Models;
+using Abp.AutoMapper;
 
 namespace RYTUserManagementService.Dto
 {
-
+    [AutoMapFrom(typeof(ApiUser))]
     public class LoginUserDto
     {
         [Required]
@@ -33,4 +35,23 @@ namespace RYTUserManagementService.Dto
         [StringLength(15, ErrorMessage = "Your Password is limited to {2} to 15 characters", MinimumLength = 4)]
         public string Password { get; set; }
     }
+
+    public class UpdatePasswordDto : UserDto
+    {
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Current password")]
+        public string CurrentPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string NewPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm new password")]
+        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        public string ConfirmNewPassword { get; set; }
+}
 }

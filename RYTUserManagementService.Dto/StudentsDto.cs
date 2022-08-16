@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Abp.AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Dto
 {
+    [AutoMapFrom(typeof(Student))]
     public class StudentsDto 
     {
         //public int Id { get; set; }
@@ -14,7 +16,7 @@ namespace RYTUserManagementService.Dto
     }
 
 
-
+    [AutoMapFrom(typeof(Student))]
     public class CreateStudentDto : StudentsDto
     {
         public int Id { get; set; }
@@ -40,6 +42,7 @@ namespace RYTUserManagementService.Dto
 
     }
 
+    [AutoMapFrom(typeof(Student))]
     public class UpdateStudentDto : StudentsDto
     {
         public string FirstName { get; set; }

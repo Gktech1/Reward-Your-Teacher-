@@ -16,7 +16,7 @@ namespace RYTUserManagementService.Models
         public Address Address { get; set; }
 
 
-        public string Logo { get; set; }
+        public string? Logo { get; set; }
 
 
         public Constants.SchoolType Type { get; set; }

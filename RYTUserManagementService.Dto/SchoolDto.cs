@@ -1,27 +1,27 @@
 ﻿using RYTUserManagementService.Models;
 using System.ComponentModel.DataAnnotations;
+using Abp.AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Dto
 {
+    [AutoMapFrom(typeof(School))]
     public class SchoolDto 
     {
-        [Key]
-        public int Id { get; set; }
 
-        [Required]
+        public string Id { get; set; }
+
         public string SchoolName { get; set; }
 
-        [Required]
-        public string Address { get; set; }
+       // public string Address { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        public ICollection<StudentsDto> Students { get; set; }
-
-        public ICollection<TeacherDto> Teachers { get; set; }
+       // public DateTime CreatedAt { get; set; }
     }
 
+
+    /*
+    [AutoMapFrom(typeof(School))]
     public class UpdateSchoolDto : SchoolDto
     {
         [StringLength(Constants.Max100Length)]
@@ -40,5 +40,5 @@ namespace RYTUserManagementService.Dto
         public DateTime UpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
 
-    }
+    }*/
 }

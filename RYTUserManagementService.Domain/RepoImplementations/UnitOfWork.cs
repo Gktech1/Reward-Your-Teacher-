@@ -1,9 +1,10 @@
 ﻿using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Models;
 
+
 namespace RYTUserManagementService.Domain.RepoImplementations
 {
-    public class UnitOfWork: IUnitOfWork     
+    public class UnitOfWork: IUnitOfWork
     {
         private readonly UserManagementDbContext _context;
         private IGenericRepository<Student> _students;

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.API.Controllers
@@ -39,8 +40,8 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var teacher = await _unitOfWork.Teachers.Get(q => q.Id == id, new List<string> { "Teachers" });
-                //var result = _mapper.Map<TeacherDto>(teacher);
-                return Ok(teacher);
+                var result = _mapper.Map<TeacherDto>(teacher);
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -65,8 +66,8 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var teachers = await _unitOfWork.Teachers.GetAll();
-                //var results = _mapper.Map<IList<TeacherDto>>(teachers);
-                return Ok(teachers);
+                var results = _mapper.Map<IList<TeacherDto>>(teachers);
+                return Ok(results);
             }
             catch (Exception e)
             {
@@ -89,7 +90,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("CreateTeacher")]
-        public async Task<IActionResult> CreateTeacher([FromBody] Teacher teacher)
+        public async Task<IActionResult> CreateTeacher([FromBody] TeacherDto teacherDto)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +100,7 @@ namespace RYTUserManagementService.API.Controllers
 
             try
             {
-                //var teacher = _mapper.Map<Teacher>(teacherDto);
+                var teacher = _mapper.Map<Teacher>(teacherDto);
                 await _unitOfWork.Teachers.Insert(teacher);
                 await _unitOfWork.Save();
 
@@ -125,7 +126,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("UpdateTeacher")]
-        public async Task<IActionResult> UpdateTeacher(string id, [FromBody] Teacher teacher)
+        public async Task<IActionResult> UpdateTeacher(string id, [FromBody] UpdateTeacherDto teacherDto)
         {
             if (!ModelState.IsValid || id == null)
             {
@@ -142,7 +143,7 @@ namespace RYTUserManagementService.API.Controllers
                     return BadRequest("Submitted Data is Invalid");
                 }
 
-               // _mapper.Map(teacherDto, teacher);
+                _mapper.Map(teacherDto, updateteach);
                 _unitOfWork.Teachers.Update(updateteach);
                 await _unitOfWork.Save();
 
@@ -184,7 +185,6 @@ namespace RYTUserManagementService.API.Controllers
                     return BadRequest("Submitted Data is Invalid");
                 }
                 
-                //var newId = Convert.ToInt32(teacher.Id);
 
                 await _unitOfWork.Teachers.Delete(teacher.Id);
                 await _unitOfWork.Save();

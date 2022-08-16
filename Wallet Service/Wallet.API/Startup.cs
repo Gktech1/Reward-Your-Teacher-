@@ -52,6 +52,7 @@ namespace Wallet.API
             services.AddScoped<ITransactionService, TransactionService>();  
             services.AddScoped<IPayStackService, PayStackService>();
             services.AddScoped<IWalletServices, WalletServices>();
+            services.AddScoped<IBankServices, BankServices>();
             services.AddTransient<IResponseFactory, ResponseFactory>();
             services.AddTransient<IHttpGenericFactory, HttpGenericFactory>();
             services.AddTransient<ITestServices, TestServices>();

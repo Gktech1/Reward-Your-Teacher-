@@ -43,7 +43,7 @@ namespace Wallet.API.Controllers
 
 
         [HttpPatch("{userId}/activate")]
-        public async Task<IActionResult> ActivateWallet(string userId)
+        public async Task<IActionResult> ActivateWallet(int userId)
         {
             var result = await _walletServices.ActivateWallet(userId);
             return StatusCode(result.StatusCode, result);
@@ -51,7 +51,7 @@ namespace Wallet.API.Controllers
 
         [HttpPatch("{userId}/deactivate")]
 
-        public async Task<IActionResult> DeactivateWallet(string userId)
+        public async Task<IActionResult> DeactivateWallet(int userId)
         {
             var result = await _walletServices.DeactivateWallet(userId);
             return StatusCode(result.StatusCode, result);
@@ -59,7 +59,7 @@ namespace Wallet.API.Controllers
 
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetUserWallet(string userId)
+        public async Task<IActionResult> GetUserWallet(int userId)
         {
             var result = await _walletServices.GetUserWalletAsync( userId);
             return StatusCode(result.StatusCode, result);
@@ -73,7 +73,7 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet("walletTransactions/{id:Guid}")]
-        public async Task<IActionResult> GetWalletTransactions(Guid id, [FromQuery]TransactionParameters parameters)
+        public async Task<IActionResult> GetWalletTransactions(int id, [FromQuery]TransactionParameters parameters)
         {
             var result = await _walletServices.GetWalletTransactionsAsync(id, parameters);
             return StatusCode(result.StatusCode, result);

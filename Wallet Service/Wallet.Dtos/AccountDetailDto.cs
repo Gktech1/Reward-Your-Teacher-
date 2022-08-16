@@ -9,12 +9,10 @@ namespace Wallet.Dtos
 {
     public class AccountDetailDto
     {
-        [Key]
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public long AccountNumber { get; set; }
-        public string Bank { get; set; }
-        public string userId { get; set; }
+        public string AccountNumber { get; set; }
+        public string BankCode { get; set; }
+
     }
 }

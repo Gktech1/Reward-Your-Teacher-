@@ -10,15 +10,15 @@ namespace Wallet.Dtos
 {
     public class UserTransactionDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public TransactionStatus Status { get; set; } = TransactionStatus.Pending;
         public TransactionType Type { get; set; } = TransactionType.Funding;
         public string Amount { get; set; }
-        public Guid WalletId { get; set; }
+        public int WalletId { get; set; }
 #nullable enable
         public string? TransactionReference { get; set; }
         public string? Description { get; set; }
-        public Guid? SenderOrReceiverWalletId { get; set; }
+        public int? SenderOrReceiverWalletId { get; set; }
         public Bank? UserBank { get; set; }
 #nullable disable
         public DateTime Created { get; set; } = DateTime.Now;

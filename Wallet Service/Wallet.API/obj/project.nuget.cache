@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "txTScb0bdAs48YKVd1ieCaoGaKdA/cBHam7ihbo5Tk9g6GTGjqN+8P51KBiJ8Y/rFuRt8s0qc9sKKwavXPZH4w==",
+  "dgSpecHash": "qy03lZoXVsFVG71hVOdNkOyQf3D7YrgCP+dbwTiofT889P9+8qBr8PqMzAirY0/djkW69EcVIHB3T8M5Ui4Ewg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Documents\\LiveProject\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
+  "projectFilePath": "C:\\Users\\hp\\Documents\\live project\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\Wallet.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
@@ -178,6 +178,12 @@
     "C:\\Users\\hp\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\hp\\Documents\\live project\\Reward-Your-Teacher-WalletService-SQ011A\\Wallet Service\\Wallet.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

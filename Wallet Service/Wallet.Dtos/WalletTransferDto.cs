@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Wallet.Dtos
 {
-    public record WalletTransferDto(Guid WalletId,
-            Guid SenderOrReceiverWalletId, string Amount, string Description);
+    public record WalletTransferDto(int WalletId,
+            int SenderOrReceiverWalletId, string Amount, string Description);
 }

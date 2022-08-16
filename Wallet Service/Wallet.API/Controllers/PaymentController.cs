@@ -16,8 +16,8 @@ namespace Wallet.API.Controllers
             _payStackService = payStackService;
         }
 
-        [HttpPost("pay/{userId}")]
-        public async Task<IActionResult> PayUsingPayStack(PayStackPaymentDto details, string userId)
+        [HttpPost("paystack/pay/{userId}")]
+        public async Task<IActionResult> PayUsingPayStack(PayStackPaymentDto details, int userId)
         {
             var link = await _payStackService.GetPaymentLink(details, userId);
             return Ok(link);

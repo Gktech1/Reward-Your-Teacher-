@@ -4,7 +4,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using RYTNotificationService.API.Data;
 using RYTNotificationService.API.Extensions;
-
+using RYTNotificationService.API.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 

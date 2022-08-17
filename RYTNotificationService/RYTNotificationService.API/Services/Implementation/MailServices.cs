@@ -1,4 +1,5 @@
 ﻿using EmailSenders.Entity;
+using EmailSenders.Services;
 using EmailSenders.Settings;
 using MailKit.Net.Smtp;
 using MailKit.Security;
@@ -9,7 +10,7 @@ using RYTNotificationService.API.Models;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace EmailSenders.Services
+namespace RYTNotificationService.API.Services.Implementation
 {
     public class MailService : IMailService
     {
@@ -52,7 +53,7 @@ namespace EmailSenders.Services
                 smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
                 await smtp.SendAsync(email);
                 smtp.Disconnect(true);
-                return new Response<bool> { Data = true, Message = "Email was sent successfully", Success = true };  
+                return new Response<bool> { Data = true, Message = "Email was sent successfully", Success = true };
             }
             catch (Exception ex)
             {

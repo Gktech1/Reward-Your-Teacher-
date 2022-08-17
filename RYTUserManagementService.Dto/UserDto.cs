@@ -34,6 +34,13 @@ namespace RYTUserManagementService.Dto
         [Required]
         [StringLength(15, ErrorMessage = "Your Password is limited to {2} to 15 characters", MinimumLength = 4)]
         public string Password { get; set; }
+
+    }
+
+    public class TokenDto
+    {
+        public string Token { get; set; }
+        public string Email { get; set; }
     }
 
     public class UpdatePasswordDto : UserDto

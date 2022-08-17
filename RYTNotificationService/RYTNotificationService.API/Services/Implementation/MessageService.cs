@@ -1,4 +1,4 @@
-﻿using RYTNotificationService.API.Data.Repository.Interfaces;
+﻿    using RYTNotificationService.API.Data.Repository.Interfaces;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;
@@ -13,6 +13,7 @@ namespace RYTNotificationService.API.Services.Implementation
         {
             _messageRepository = messageRepository;
         }
+
 
         public void DisConnected(Connection connection)
         {

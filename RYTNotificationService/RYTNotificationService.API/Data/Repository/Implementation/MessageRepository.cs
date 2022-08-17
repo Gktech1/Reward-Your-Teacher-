@@ -40,10 +40,12 @@ namespace RYTNotificationService.API.Data.Repository.Implementation
 
         public async Task<Message> GetMessageById(string id)
         {
-            return await _context.Messages
+          return  await _context.Messages.FindAsync(id);
+            
+          /*return await _context.Messages
                 .Include(u => u.SenderId)
                 .Include(u => u.RecipientId)
-                .SingleOrDefaultAsync(x => x.Id == id);
+                .SingleOrDefaultAsync(x => x.Id == id);*/
         }
 
         public async Task<PagedList<MessageDto>> GetMessageForUser(MessageParams messageParams)

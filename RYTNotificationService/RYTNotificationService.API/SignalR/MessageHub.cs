@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
@@ -6,6 +7,7 @@ using RYTNotificationService.API.Services.Interfaces;
 
 namespace RYTNotificationService.API.SignalR
 {
+    [Authorize]
     public class MessageHub : Hub
     {
         private readonly IMessageService _messageService;

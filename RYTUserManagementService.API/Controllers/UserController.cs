@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
@@ -18,14 +19,14 @@ namespace RYTUserManagementService.API.Controllers
         private readonly SignInManager<ApiUser> _signInManager;
         private readonly ILogger<UserController> _logger;
         private readonly IMapper _mapper;
-        private readonly IAuthManager _authManager;
+        private readonly AuthManager _authManager;
 
         public UserController(
                 UserManager<ApiUser> userManager,
                 SignInManager<ApiUser> signInManager,
                 ILogger<UserController> logger,
                 IMapper mapper,
-                IAuthManager authManager)
+                AuthManager authManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -92,10 +93,11 @@ namespace RYTUserManagementService.API.Controllers
         // <param name = "id" ></ param >
         // < returns ></ returns >
 
-       // Post: LoginUser
-       [ProducesResponseType(StatusCodes.Status200OK)]
-       [HttpPost("LoginUser")]
-        public async Task<IActionResult> Login([FromBody] LoginUserDto userDto)
+        // Post: LoginUser
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [HttpPost("LoginUser")]
+        public async Task<ActionResult<TokenDto>> Login([FromBody] LoginUserDto userDto)
         {
             _logger.LogInformation($"Login attempt for {userDto.Email}");
             if (!ModelState.IsValid)
@@ -105,13 +107,17 @@ namespace RYTUserManagementService.API.Controllers
 
             try
             {
-
-                if (!await _authManager.ValidateUser(userDto))
-                {
+                var user = await _userManager.FindByEmailAsync(userDto.Email);
+                if (user == null || !await _userManager.CheckPasswordAsync(user, userDto.Password))
                     return Unauthorized();
-                }
 
-                return Accepted(new { Token = await _authManager.CreateToken() });
+                return new TokenDto
+                {
+                    Email = user.Email,
+                    Token = await _authManager.CreateToken(user)
+                };
+
+
             }
             catch (Exception e)
             {
@@ -121,7 +127,13 @@ namespace RYTUserManagementService.API.Controllers
 
 
         }
-
+        // Logou
+        [HttpPost("userLogOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok();
+        }
 
         /// <summary>
         /// 
@@ -130,6 +142,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // GET: AllUsers
+       
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
@@ -147,8 +160,6 @@ namespace RYTUserManagementService.API.Controllers
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
         }
-
-
 
         
         /// <summary>

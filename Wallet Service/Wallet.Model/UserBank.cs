@@ -13,13 +13,18 @@ namespace Wallet.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int UserId { get; set; }
+        [Required]
+        public int? BankId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public long AccountNumber { get; set; }
-        public string BankCode { get; set; }
-        public int WalletId { get; set; }
+
+        public string AccountName { get; set; }
+
+        public string AccountNumber { get; set; }
+        public int? WalletId { get; set; }
         [ForeignKey("WalletId")]
-        public UserWallet Wallet { get; set; }
-        public AccountDetail AccountDetail { get; set; }
+        public virtual UserWallet Wallet { get; set; }
+
     }
 }

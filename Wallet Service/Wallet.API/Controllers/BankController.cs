@@ -31,17 +31,18 @@ namespace Wallet.API.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> CreateBank([FromBody]AccountDetailDto accountDetailDto)
+        [Route("BankDetail")]
+        public async Task<IActionResult> CreateBank([FromBody] UserBankDto userBankDto)
         {
-            var account = await _bankServices.CreateBankAsync(accountDetailDto);
+            var account = await _bankServices.CreateBankAsync(userBankDto);
             return StatusCode(account.StatusCode, account);
-           // return Ok(accountDetailDto);
+            // return Ok(accountDetailDto);
         }
 
-        [HttpGet("{accountId}/{userId}")]
-        public async Task<IActionResult> GetUserBank(int accountId, int userId)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserBank(int userId)
         {
-            var bank = await _bankServices.GetBankAsync(accountId, userId);
+            var bank = await _bankServices.GetBankAsync(userId);
             return StatusCode(bank.StatusCode, bank);
         }
 
@@ -50,6 +51,13 @@ namespace Wallet.API.Controllers
         {
             var bank = await _bankServices.DeleteBankAsync(accountId, userId);
             return StatusCode(bank.StatusCode, bank);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetBanks()
+        {
+            var banks = await _bankServices.GetBanks();
+            return StatusCode(banks.StatusCode, banks);
         }
     }
 }

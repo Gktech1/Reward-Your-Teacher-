@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace Wallet.Model
 {
-    [NotMapped]
+
     public class Bank
     {
-        
-        public Guid BankId { get; set; }
+
+        [Key]
+        public int Id { get; set; }
+        public string BankCode { get; set; }
+        public string BankName { get; set; }
+
     }
 }

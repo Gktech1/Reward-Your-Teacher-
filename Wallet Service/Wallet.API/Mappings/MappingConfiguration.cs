@@ -1,12 +1,12 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
+using System;
 using Wallet.Dtos;
 using Wallet.Model;
 
 namespace Wallet.API.Mappings
 {
 
-    public class MappingConfiguration:Profile
+    public class MappingConfiguration : Profile
     {
 
         public MappingConfiguration()
@@ -15,9 +15,10 @@ namespace Wallet.API.Mappings
 
             CreateMap<UserWallet, UserWalletUpdateDto>().ReverseMap();
 
-            CreateMap<AccountDetail, AccountDetailDto>().ReverseMap();
+            CreateMap<UserBank, UserBankDto>().ReverseMap();
             CreateMap<UserTransaction, UserTransactionDto>();
-            
+            CreateMap<Bank, BankModelDto>().ReverseMap();
+
         }
     }
 }

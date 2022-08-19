@@ -38,7 +38,7 @@ namespace Wallet.API
         {
 
             // Register the Swagger generator, defining 1 or more Swagger document
-            
+
 
             services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("sqlConnection")));
@@ -48,8 +48,9 @@ namespace Wallet.API
 
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddHttpClient<IHttpService, HttpService>();
+            services.AddScoped<IMockService, MockService>();
             services.AddScoped<IHttpService, HttpService>();
-            services.AddScoped<ITransactionService, TransactionService>();  
+            services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPayStackService, PayStackService>();
             services.AddScoped<IWalletServices, WalletServices>();
             services.AddScoped<IBankServices, BankServices>();

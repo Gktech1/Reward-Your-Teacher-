@@ -65,6 +65,8 @@ namespace Wallet.API.Services
                 return _responseService.ExecutionResponse<UserWalletDto>("Wallet Already Exists", userWallet, false, 400);
             }
             var mappWallet = _mapper.Map<UserWalletDto, UserWallet>(userWallet);
+            mappWallet.Balance = 0;
+            mappWallet.CreatedAt = DateTime.Now;
             _Db.Wallets.Add(mappWallet);
             await _Db.SaveChangesAsync();
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Successfully Created", userWallet, true, 200);
@@ -103,7 +105,8 @@ namespace Wallet.API.Services
         }
         public async Task<ExecutionResponse<UserTransactionDto>> TransferToWallet(WalletTransferDto walletTransferDto) =>
             await _txService.CreateWalletToWalletTransactionAsync(walletTransferDto.WalletId,
-                walletTransferDto.SenderOrReceiverWalletId, Convert.ToInt32(walletTransferDto.Amount), walletTransferDto.Description);
+                walletTransferDto.SenderOrReceiverWalletId, Convert.ToInt32(walletTransferDto.Amount + "00"), walletTransferDto.Description);
+
         public async Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetWalletTransactionsAsync
             (int id, TransactionParameters parameters) =>
            await _txService.GetTransactionsForWallet(id: id, pageSize: parameters.PageSize,

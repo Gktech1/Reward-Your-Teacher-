@@ -6,7 +6,7 @@ using Wallet.Model;
 
 namespace Wallet.Data
 {
-     public class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt)
         {
@@ -15,7 +15,13 @@ namespace Wallet.Data
 
         public DbSet<UserWallet> Wallets { get; set; }
         public DbSet<UserTransaction> Transactions { get; set; }
-        public DbSet<UserBank> Banks { get; set; }
-        public DbSet<AccountDetail> AccountDetails { get; set; }
+
+        public DbSet<UserBank> UserBanks { get; set; }
+        public DbSet<Bank> Banks { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace Wallet.Dtos
 {
     public class BankModelDto
     {
-        public string bankName { get; set; }
+        public int Id { get; set; }
         public string bankCode { get; set; }
+        public string bankName { get; set; }
     }
 }

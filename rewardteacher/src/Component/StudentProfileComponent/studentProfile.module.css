@@ -37,7 +37,8 @@
 .container-center-horizontal > * {
   flex-shrink: 0;
   pointer-events: auto;
-} 
+  margin-top: 8rem;
+}
 
 .profile {
   align-items: flex-start;

@@ -1,31 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import ErrorBoundary from './Component/Common/ErrorBoundary';
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
+import "./App.css";
+import ErrorBoundary from "./Component/Common/ErrorBoundary";
+import TeacherProfileScreen from "./pages/teacher/TeacherProfileScreen";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <ErrorBoundary>
-       <Suspense fallback="loading">
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
-       </Suspense>  
-    </ErrorBoundary>  
+    <Router>
+      <ErrorBoundary>
+        <Suspense fallback="loading">
+          <Switch>
+            <Route path="/teacher-profile">
+              <TeacherProfileScreen />
+            </Route>
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </Router>
   );
 }
-
 export default App;

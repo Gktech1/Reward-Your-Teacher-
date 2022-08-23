@@ -67,7 +67,7 @@ export default function StudentProfileTeacher(props) {
     //     otherInfo="Other Info"
     //     babajideLawalGmailCom="babajidelawal@gmail.com"
     //     phone="08098556634"
-    //     appreciAteStudent="Appreciate Student"/> */
+    //     appreciateStudent="Appreciate Student"/> */
 }
 
 const Frame8632 = styled.div`

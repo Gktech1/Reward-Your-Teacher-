@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   margin: 0 auto;
-  width: 100%;
-  height: 100%;
+  width: 1440px;
+  height: 3373px;
   display: block;
   padding: 3rem;
+  overflow-x: hidden;
 `;
 
 export const NavBar = styled.nav`

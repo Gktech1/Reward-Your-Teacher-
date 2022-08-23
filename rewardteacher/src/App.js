@@ -1,10 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ErrorBoundary from "./component/common/ErrorBoundary";
+import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
-import {HomePage} from "./component/homePage/HomePage";
+import { HomePage } from "./Component/homePage/HomePage";
 import GlobalFonts from "../src/assets/fonts/fonts";
-
 
 function App() {
   return (

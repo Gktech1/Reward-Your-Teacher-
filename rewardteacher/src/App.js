@@ -8,12 +8,11 @@ import GlobalFonts from "../src/assets/fonts/fonts";
 
 function App() {
   return (
-  <ErrorBoundary> 
+    <ErrorBoundary>
       <Suspense fallback="loading">
-
         <div className="App">
-          <header className="App-header">
-          </header>
+          {/* <header className="App-header">
+          </header> */}
         </div>
       </Suspense>
 

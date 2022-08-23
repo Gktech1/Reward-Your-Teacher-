@@ -1,0 +1,100 @@
+.card {
+  width: 509px;
+  height: 408px;
+  margin: 120px auto;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body__title {
+  width: 315px;
+  height: 58px;
+  font-size: "Inter", sans-serif;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #21334f;
+  margin-bottom: -0.5px;
+}
+.card-body__title > span {
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+}
+.card-img {
+  margin: 40px auto;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 81.45px;
+  height: 81.45px;
+}
+
+.card-body__message {
+  width: 271px;
+  height: 34px;
+
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #21334f;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.card-btn {
+  padding: 10px 10px 10px 8px;
+  gap: 2px;
+
+  width: 343px;
+  height: 44px;
+
+  background: rgba(128, 185, 24, 0.1);
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #55a630;
+  border: none;
+}
+
+.card-btn:focus {
+  outline: none;
+}
+
+.card-link {
+  width: 91px;
+  height: 17px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #03435f;
+}

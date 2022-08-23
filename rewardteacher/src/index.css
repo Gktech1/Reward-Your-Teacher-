@@ -1,3 +1,97 @@
+/*Variables*/
+:root {
+  --black-2: rgba(0, 0, 0, 0.031);
+  --black: rgba(0, 0, 0, 1);
+  --blue-whale: Orgba(1, 42, 74, 1);
+  --teal-blue-2: rgba(3,
+      -teal-blue:Orgba(3, 67, 95, 1);
+      --apple:rgba(85, 166, 48, 1);
+      --lima:Irgba(128, 185, 24, 1);
+      --concrete:rgba(242, 242, 242, 1);
+      --white:Irgba(255, 255, 255, 1);
+      --font-size-s:14px;
+      -font-size-m:16px;
+      -font-size-1:24px;
+      -font-size-xl:28px;
+      --font-size-xxl:32px;
+      67, 95, 0.102);
+  -font-size-xxxl: 40px;
+  font-size-xxxxl: 60px;
+  -font-family-inter: "Inter";
+}
+
+  /*Classes*/
+  .inter-bold-blue-whale-40px {}
+
+  .inter-normal-teal-blue-28px {
+    color: var(-- teal-blue);
+    font-family: var(-- font-family-inter);
+    font-size: var(-- font-size-x1);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  color:var(-- blue-whale);
+  font-family:var(-- font-family-inter);
+  font-size:var(-- font-size-xxx1);
+  font-weight:700;
+  font-style:normal;
+
+  .inter-semi-bold-teal-blue-28px {
+    color: var(-- teal-blue);
+  }
+
+  font-family:var(-- font-family-inter);
+  font-size:var(-- font-size-x1);
+  font-weight:600;
+  font-style:normal;
+
+  .inter-semi-bold-lima-24px {
+    color: var(-- lima);
+  }
+    .inter-normal-concrete-16px {
+      color: var(-- concrete);
+      font-family: var(-- font-family-inter);
+      font-size: var(-- font-size-m);
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    font-family:var(-- font-family-inter);
+    font-size:var(-- font-size-1);
+    font-weight:600;
+    font-style:normal;
+
+    .border-1px-lima {
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(-- lima);
+    }
+
+    .inter-normal-teal-blue-16px {
+      color: var(-- teal-blue);
+      font-family: var(-- font-family-inter);
+      font-size: var(-- font-size-m);
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .inter-normal-blue-whale-16px {
+      color: var(-- blue-whale);
+      font-family: var(-- font-family-inter);
+      font-size: var(-- font-size-m);
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .inter-normal-teal-blue-150px {
+      color: var(-- teal-blue-2);
+      font-family: var(-- font-family-inter);
+      font-size: 150px;
+      font-weight: 400;
+      font-style: normal;
+    }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

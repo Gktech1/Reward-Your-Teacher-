@@ -17,8 +17,8 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_KEY }}
         APP_NAME: ${{ 'teacher-studentapp' }}
       run: |
-	docker build -t teacherstudentapp .
-	docker tag teacherstudentapp registry.heroku.com/$APP_NAME/web
+        docker build -t teacherstudentapp .
+        docker tag teacherstudentapp registry.heroku.com/$APP_NAME/web
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         heroku container:push web -a $APP_NAME
         heroku container:release web -a $APP_NAME

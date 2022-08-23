@@ -36,7 +36,7 @@ namespace Wallet.Core.Services
             }
             PagedList<string> pagedTransactions = PagedList<string>.ToPagedList(newList.AsQueryable(), 1, 10);
 
-            return _responseService.PagedExecutionResponse<IEnumerable<string>>("Successfully retrieved test",newList,  10, true);
+            return _responseService.PagedExecutionResponse<IEnumerable<string>>("Successfully retrieved test", newList, 10, true);
         }
 
         public async Task<ExecutionResponse<BankDto>> GetBanksAsync()
@@ -47,6 +47,7 @@ namespace Wallet.Core.Services
             }, "");
 
             var response = JsonConvert.DeserializeObject<BankDto>(getBanks.Item2);
+
             return _responseService.ExecutionResponse<BankDto>($"banks", response);
         }
     }

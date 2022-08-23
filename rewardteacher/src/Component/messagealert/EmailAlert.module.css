@@ -1,0 +1,54 @@
+.card {
+  position: absolute;
+  width: 509px;
+  height: 377px;
+
+  margin: 0 auto;
+
+  background: #ffffff;
+}
+
+.card-img {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  left: 188px;
+  top: 42px;
+}
+.card-text {
+  position: absolute;
+  width: 386px;
+  height: 48px;
+  left: 40px;
+  top: 189px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+
+  color: #03435f;
+}
+
+.card-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+
+  position: absolute;
+  width: 429px;
+  height: 42px;
+  left: 40px;
+  top: 304px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+
+  background: #80b918;
+  border-radius: 4px;
+}

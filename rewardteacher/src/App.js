@@ -1,21 +1,32 @@
 import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import "./App.css";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
-import TopBar from "./Component/Common/navs/TopBar/TopBar";
-import SideBar from "./Component/Common/navs/SideBar/SideBar";
-import { SideBarData } from "./Component/Common/navs/SideBar/SideBarData";
+import React, { Suspense } from "react";
+import { HomePage } from "./Component/homePage/HomePage";
+import GlobalFonts from "../src/assets/fonts/fonts";
 
 function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback="loading">
         <div className="App">
-          <TopBar />
-          <SideBar SideBarData={SideBarData} />
-          {/* <SideBar SideBarData={[{title: "Messaging", icon: "", link: "/messaging"}, {title: "allteachers", icon: "", link: "/allteachers"}]} /> */}
-          {/* <SideBar SideBarData={[{}]}/>  //how to invoke the component using props*/}
+          <header className="App-header">
+          </header>
         </div>
       </Suspense>
+
+      <Router>
+        <switch>
+          <Suspense fallback="loading">
+            <GlobalFonts />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </Suspense>
+        </switch>
+      </Router>
     </ErrorBoundary>
   );
 }

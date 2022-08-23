@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove=".github\**" />
+    <Content Remove=".github\**" />
+    <EmbeddedResource Remove=".github\**" />
+    <None Remove=".github\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
@@ -26,10 +33,6 @@
     <ProjectReference Include="..\Wallet.Dtos\Wallet.Dtos.csproj" />
     <ProjectReference Include="..\Wallet.Model\Wallet.Model.csproj" />
     <ProjectReference Include="..\Wallet.Utilties\Wallet.Utilties.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include=".github\workflows\main.yml" />
   </ItemGroup>
 
 </Project>

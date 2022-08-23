@@ -1,22 +1,30 @@
-import React, { Suspense } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
-import TeacherProfileScreen from "./pages/teacher/TeacherProfileScreen";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { Suspense } from "react";
+import { HomePage } from "./Component/homePage/HomePage";
+import GlobalFonts from "../src/assets/fonts/fonts";
 
 function App() {
   return (
-    <Router>
-      <ErrorBoundary>
-        <Suspense fallback="loading">
-          <Switch>
-            <Route path="/teacher-profile">
-              <TeacherProfileScreen />
-            </Route>
-          </Switch>
-        </Suspense>
-      </ErrorBoundary>
-    </Router>
+    <ErrorBoundary>
+      <Suspense fallback="loading">
+        <div className="App">
+          <header className="App-header"></header>
+        </div>
+      </Suspense>
+
+      <Router>
+        <switch>
+          <Suspense fallback="loading">
+            <GlobalFonts />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </Suspense>
+        </switch>
+      </Router>
+    </ErrorBoundary>
   );
 }
 export default App;

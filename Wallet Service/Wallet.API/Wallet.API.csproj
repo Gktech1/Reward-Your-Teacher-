@@ -28,4 +28,8 @@
     <ProjectReference Include="..\Wallet.Utilties\Wallet.Utilties.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\main.yml" />
+  </ItemGroup>
+
 </Project>

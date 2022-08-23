@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:408,700,500,600");
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 745px;
+  height: 750px;
+}
+
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+.container__img {
+  /* position: absolute; */
+  width: 24px;
+  height: 24px;
+  margin-right: 25px;
+  margin-bottom: 20px;
+}
+
+.container__heading {
+  width: 246px;
+  height: 29px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #55a630;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  gap: 40px;
+  width: 745px;
+  height: 641px;
+  background: #ffffff;
+  flex: none;
+  order: 1;
+  border: 5px solid #55a630;
+  border-radius: 10px;
+}
+/* 
+.card-form {
+  padding:80px  ;
+} */
+
+.card-form__heading {
+  width: 206px;
+  height: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #21334f;
+  margin-top: 20px;
+  margin-bottom: 63px;
+}
+
+label,
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  width: 31px;
+  height: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  color: #21334f;
+}
+input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  width: 500px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+input::placeholder {
+  width: 117px;
+  height: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #c4c4c4;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.card-form-group__option {
+  width: 102px;
+  height: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #21334f;
+  flex: none;
+  order: 1;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.card-form__btn-card-form__btn--login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  border: none;
+  width: 500px;
+  height: 48px;
+  background: #80b918;
+  margin-bottom: -30px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.login-text {
+  width: 33px;
+  height: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.card__auth {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 16px;
+
+  width: 500px;
+  height: 48px;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.sign-up {
+  width: 117px;
+  height: 15px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  color: #21334f;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.card__line {
+  height: 1px;
+  background: #d9d9d9;
+  width: 500px;
+}
+
+.lines {
+  text-align: center;
+}
+
+.or {
+  position: relative;
+  top: 10px;
+  background: #fff;
+  display: inline-block;
+
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.card__account {
+  width: 228px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #21334f;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}

@@ -11,6 +11,7 @@ COPY ["Wallet.Dtos/Wallet.Dtos.csproj", "Wallet.Dtos/"]
 COPY ["Wallet.Model/Wallet.Model.csproj", "Wallet.Model/"]
 COPY ["Wallet.Core/Wallet.Core.csproj", "Wallet.Core/"]
 COPY ["Wallet.Data/Wallet.Data.csproj", "Wallet.Data/"]
+COPY ["Wallet.Utilties/Wallet.Utilties.csproj", "Wallet.Utilties/"]
 RUN dotnet restore "Wallet.API/Wallet.API.csproj"
 COPY . .
 WORKDIR "/src/Wallet.API"

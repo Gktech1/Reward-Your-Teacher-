@@ -10,7 +10,7 @@ on:
 #set environment variables 
 env:
   HEROKU_API_KEY: ${{ secrets.HEROKU_KEY }}
-  APP_NAME: ${{ HEROKU_APP }}
+  APP_NAME: ${{ secrets.HEROKU_APP }}
 
 jobs:
       

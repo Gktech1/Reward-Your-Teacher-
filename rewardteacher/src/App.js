@@ -1,6 +1,5 @@
 import "./App.css";
 import StudentProfileTeacher from "./Component/StudentProfileComponent/studentProfile";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";

@@ -6,9 +6,17 @@ import { HomePage } from "./Component/homePage/HomePage";
 import GlobalFonts from "../src/assets/fonts/fonts";
 
 
+
 function App() {
   return (
     <ErrorBoundary>
+      <Suspense fallback="loading">
+
+        <div className="App">
+          <header className="App-header">
+          </header>
+        </div>
+      </Suspense>
 
       <Router>
         <switch>
@@ -20,7 +28,6 @@ function App() {
           </Suspense>
         </switch>
       </Router>
-
     </ErrorBoundary>
   );
 }

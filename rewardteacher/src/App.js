@@ -11,14 +11,14 @@ function App() {
     <ErrorBoundary>
       <Suspense fallback="loading">
         <div className="App">
-          {/* {/* <header className="App-header">
+          {/* {/* {/* <header className="App-header">
           </header> */}
         </div>
       </Suspense>
 
       <Router>
         <GlobalFonts />
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */} Hello World
       </Router>
     </ErrorBoundary>
   );

@@ -23,4 +23,6 @@ RUN dotnet publish "Wallet.API.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Wallet.API.dll"]
+
+#ENTRYPOINT ["dotnet", "Wallet.API.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet Wallet.API.dll

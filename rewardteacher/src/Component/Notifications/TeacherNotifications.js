@@ -1,6 +1,6 @@
 import styles from './TeacherNotifications.module.css';
 
-export default function TeacherNotifications() {
+export default function TeacherNotifications() { //bodys
     return (
         <div className={styles['notification-border']}>
             <h1 className={styles.header}>Notifications</h1>

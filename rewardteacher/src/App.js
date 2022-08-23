@@ -1,30 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import ErrorBoundary from './Component/Common/ErrorBoundary';
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
+import "./App.css";
+import ErrorBoundary from "./Component/Common/ErrorBoundary";
+import TopBar from "./Component/Common/navs/TopBar/TopBar";
+import SideBar from "./Component/Common/navs/SideBar/SideBar";
+import { SideBarData } from "./Component/Common/navs/SideBar/SideBarData";
 
 function App() {
   return (
     <ErrorBoundary>
-       <Suspense fallback="loading">
+      <Suspense fallback="loading">
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
+          <TopBar />
+          <SideBar SideBarData={SideBarData} />
+          {/* <SideBar SideBarData={[{title: "Messaging", icon: "", link: "/messaging"}, {title: "allteachers", icon: "", link: "/allteachers"}]} /> */}
+          {/* <SideBar SideBarData={[{}]}/>  //how to invoke the component using props*/}
         </div>
-       </Suspense>  
-    </ErrorBoundary>  
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 

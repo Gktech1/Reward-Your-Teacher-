@@ -5,9 +5,11 @@ import React, { Suspense } from "react";
 import { HomePage } from "./Component/homePage/HomePage";
 import GlobalFonts from "../src/assets/fonts/fonts";
 
+
 function App() {
   return (
     <ErrorBoundary>
+
       <Router>
         <switch>
           <Suspense fallback="loading">
@@ -18,6 +20,7 @@ function App() {
           </Suspense>
         </switch>
       </Router>
+
     </ErrorBoundary>
   );
 }

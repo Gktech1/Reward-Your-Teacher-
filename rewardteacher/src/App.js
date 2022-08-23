@@ -6,6 +6,7 @@ import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
 import { HomePage } from "./Component/homePage/HomePage";
 import GlobalFonts from "../src/assets/fonts/fonts";
+import TeacherProfileScreen from "./pages/teacher/TeacherProfileScreen";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
 
       <Router>
         <GlobalFonts />
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/Teacher-Profile" element={<TeacherProfileScreen />} />
+        </Routes>
       </Router>
     </ErrorBoundary>
   );

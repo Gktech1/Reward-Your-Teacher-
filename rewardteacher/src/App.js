@@ -1,13 +1,19 @@
 import "./App.css";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
-import AppreciationAlert from "./Component/appreciationmessage/AppreciationAlert";
 import React, { Suspense } from "react";
+import EmailAlert from "./Component/messagealert/EmailAlert";
+
 
 function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback="loading">
-        <AppreciationAlert />
+
+        <div className="App">
+          <header className="App-header">
+            <EmailAlert />
+          </header>
+        </div>
       </Suspense>
     </ErrorBoundary>
   );

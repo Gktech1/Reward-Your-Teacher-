@@ -3,7 +3,7 @@ import styled from "styled-components";
 import close from "../../assets/close.svg";
 import student from "../../assets/student.svg";
 import like from "../../assets/like.svg";
-import styles from  "./studentProfile.module.css";
+import styles from "./studentProfile.module.css";
 import {
   InterSemiBoldTealBlue14px,
   InterNormalTealBlue14px,
@@ -22,8 +22,8 @@ export default function StudentProfileTeacher(props) {
     appreciateStudent,
   } = props;
   return (
-    <div className={styles['container-center-horizontal']}>
-      <div className={styles['profile screen']}>
+    <div className={styles["container-center-horizontal"]}>
+      <div className={styles["profile screen"]}>
         <Frame8632>
           <Frame8631>
             <ProfileDetails>{profileDetails}</ProfileDetails>
@@ -59,15 +59,17 @@ export default function StudentProfileTeacher(props) {
   );
 }
 
-{/* //   <StudentProfileTeacher
+{
+  /* //   <StudentProfileTeacher
     //     profileDetails="Profile details"
     //     babajideLawal="Babajide Lawal"
     //     alumniEkoGrammarSchool="Alumni (Eko Grammar school)"
     //     otherInfo="Other Info"
     //     babajideLawalGmailCom="babajidelawal@gmail.com"
     //     phone="08098556634"
-    //     appreciateStudent="Appreciate Student"/> */}
-    
+    //     appreciAteStudent="Appreciate Student"/> */
+}
+
 const Frame8632 = styled.div`
   width: 509px;
   display: flex;

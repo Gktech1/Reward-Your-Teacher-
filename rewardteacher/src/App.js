@@ -1,20 +1,32 @@
 import "./App.css";
-import ErrorBoundary from "./Component/Common/ErrorBoundary";
-import React from "react";
 import StudentProfileTeacher from "./Component/StudentProfileComponent/studentProfile";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ErrorBoundary from "./Component/Common/ErrorBoundary";
+import React, { Suspense } from "react";
+import { HomePage } from "./Component/homePage/HomePage";
+import GlobalFonts from "../src/assets/fonts/fonts";
 
 function App() {
   return (
-    <ErrorBoundary>
-      <StudentProfileTeacher
-        profileDetails="Profile details"
-        babajideLawal="Babajide Lawal"
-        alumniEkoGrammarSchool="Alumni (Eko Grammar school)"
-        otherInfo="Other Info"
-        babajideLawalGmailCom="babajidelawal@gmail.com"
-        phone="08098556634"
-        appreciateStudent="Appreciate Student"
-      />
+  <ErrorBoundary> 
+      <Suspense fallback="loading">
+
+        <div className="App">
+          <header className="App-header">
+          </header>
+        </div>
+      </Suspense>
+
+      <Router>
+        <switch>
+          <Suspense fallback="loading">
+            <GlobalFonts />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </Suspense>
+        </switch>
+      </Router>
     </ErrorBoundary>
   );
 }

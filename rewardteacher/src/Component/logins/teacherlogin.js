@@ -5,7 +5,7 @@ import googleLogo from "../../assets/google.svg";
 
 function TeacherLogin() {
   return (
-    <div className={styles.container}>
+    <div className={styles["container"]}>
       <div className={styles["container__header"]}>
         <div className={styles["container__img"]}>
           <img src={rewardLogo} alt="" />
@@ -14,9 +14,7 @@ function TeacherLogin() {
       </div>
       <div className={styles["card"]}>
         <form className={styles["card-form"]}>
-          <h5 className={styles["card-form__heading"]}>
-            Login as a Teacher
-          </h5>
+          <h5 className={styles["card-form__heading"]}>Login as a Teacher</h5>
           <div className="card-form__group">
             <label>Email</label>
             <input type="password" placeholder="Enter your email" />
@@ -24,7 +22,9 @@ function TeacherLogin() {
           <div className="card-form__group">
             <label>Password</label>
             <input type="password" placeholder="Enter your password" />
-            <p className={styles["card-form-group__option"]}>Forgot Password</p>
+            <p className={styles["card-form-group__option"]}>
+              Forgot Password?
+            </p>
           </div>
           <button className={styles["card-form__btn-card-form__btn--login"]}>
             <span className={styles["login-text"]}>Login</span>
@@ -44,7 +44,7 @@ function TeacherLogin() {
           <span className={styles["card__account--link"]}>
             Don't have an account?{" "}
           </span>
-          <span>Create Account</span>
+          <span className={styles["text-green"]}>Create Account</span>
         </div>
       </div>
     </div>

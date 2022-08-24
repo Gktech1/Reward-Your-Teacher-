@@ -1,0 +1,33 @@
+.first-icon_container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: -4rem;
+}
+.icon-logo {
+  margin-right: 0.5rem;
+}
+
+.icon-logo img {
+  height: 39px;
+  width: 39px;
+}
+.icon-text {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-text p {
+  font-size: 24px;
+  color: #55a630;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 29px;
+}
+.second-icon_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

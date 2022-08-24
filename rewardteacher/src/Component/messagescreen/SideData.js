@@ -4,7 +4,7 @@ export const SidebarData = [
     {
         id : 1,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
+        body: 'Hello Good Morning, how are...',
         time: 'Fri',
         unread: 2
     },
@@ -12,49 +12,49 @@ export const SidebarData = [
     {
         id: 2,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
+        body: 'Good Morning, Doing good...',
         time: 'Fri',
         unread: 1
     },
     {
         id: 3,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
+        body: 'Hello Good Evening, how are...',
         time: 'Fri',
         unread: ''
     },
     {
         id: 4,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
-        time: 'Fri',
+        body: 'Good Evening, trust you are...',
+        time: 'Tue',
         unread: ''
     },
     {
         id: 5,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
-        time: 'Fri',
+        body: 'Hello Good Afternoon, how are...',
+        time: 'Tue',
         unread: ''
     },
     {
         id : 6,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
-        time: 'Fri',
+        body: 'Good Afternoon, how are...',
+        time: 'Sat',
         unread: ''
     },
     {
         id : 7,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
-        time: 'Fri',
+        body: 'Hello Good Day, how are...',
+        time: 'Sat',
         unread: ''
     },
     {
         id : 8,
         name: 'Muyiwa Oguntade',
-        body: 'hello good morning, how are...',
-        time: 'Fri',
+        body: 'Same here, doing cool..',
+        time: 'Sun',
     },
 ]

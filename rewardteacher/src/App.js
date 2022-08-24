@@ -8,7 +8,8 @@ import StudentNotifications from "./Component/Notifications/StudentNotifications
 import TeacherNotifications from "./Component/Notifications/TeacherNotifications";
 import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
-import Student from "./Component/layout/dashboard/Student";
+import Student from "./Component/layout/dashboard/Student"
+import MessageBody from "./Component/messagescreen/MessageBody"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/student-notifictions" element={<StudentNotifications />} />
             <Route path="/teacher-notifictions" element={<TeacherNotifications />} />
             <Route path="/student-dashboard" element={<Student />} />
+            <Route path="/chat" element={<MessageBody />} />
           </Routes>
         </Suspense>
       </Router>

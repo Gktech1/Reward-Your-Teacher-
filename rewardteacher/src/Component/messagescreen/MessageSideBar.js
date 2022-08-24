@@ -7,7 +7,7 @@ import icon from '../../assets/edit.svg';
 
 function MessageSideBar() {
     return (
-        <div style={{border: '1px solid grey', height: '100%', paddingTop: '1rem'}}>
+        <div style={{border: '1px solid grey', height: 'calc(100% - 2rem)', paddingTop: '1rem' , margin: '1rem 1rem 0'}}>
 
             <div>
                 <div style={{ display: 'flex', padding: '1rem' }}>

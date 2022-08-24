@@ -8,13 +8,14 @@ import StudentNotifications from "./Component/Notifications/StudentNotifications
 import TeacherNotifications from "./Component/Notifications/TeacherNotifications";
 import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
-import {Navigation} from "./Component/Common/navs/Navigation";
-import MessageBody from "./Component/messagescreen/MessageBody"
+import { Navigation } from "./Component/Common/navs/Navigation";
+import MessageBody from "./Component/messagescreen/MessageBody";
 import Student from "./Component/layout/dashboard/Student";
 import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
+import StudentLogin from "./Component/logins/studentlogin";
+import TeacherLogin from "./Component/logins/teacherlogin";
 import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
-
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
             <Route path="/schools" element={<Navigation />} />
             <Route path="/notification" element={<Navigation />} />
             <Route path="/messaging" element={<Navigation />} />
+            <Route path="/studentlogin" element={<StudentLogin />} />
+            <Route path="/teacherlogin" element={<TeacherLogin />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
             <Route
               path="/student-notifictions"

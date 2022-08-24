@@ -9,7 +9,7 @@ import {
 import filter from "../../assets/Filter.svg";
 import ReactDOM from "react-dom/client";
 import Pagination from "./Paginations";
-import data from "./us_institutions.json";
+
 
 
 let PageSize = 10;

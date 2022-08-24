@@ -8,6 +8,7 @@ import StudentNotifications from "./Component/Notifications/StudentNotifications
 import TeacherNotifications from "./Component/Notifications/TeacherNotifications";
 import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
+import Student from "./Component/layout/dashboard/Student";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/student-notifictions" element={<StudentNotifications />} />
             <Route path="/teacher-notifictions" element={<TeacherNotifications />} />
+            <Route path="/student-dashboard" element={<Student />} />
           </Routes>
         </Suspense>
       </Router>

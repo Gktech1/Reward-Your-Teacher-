@@ -9,6 +9,7 @@ import TeacherNotifications from "./Component/Notifications/TeacherNotifications
 import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import Student from "./Component/layout/dashboard/Student";
+import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
 
 function App() {
   return (
@@ -17,9 +18,16 @@ function App() {
         <Suspense fallback="loading">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/student-notifictions" element={<StudentNotifications />} />
-            <Route path="/teacher-notifictions" element={<TeacherNotifications />} />
+            <Route
+              path="/student-notifictions"
+              element={<StudentNotifications />}
+            />
+            <Route
+              path="/teacher-notifictions"
+              element={<TeacherNotifications />}
+            />
             <Route path="/student-dashboard" element={<Student />} />
+            <Route path="/settingsModal" element={<SettingsModalCard />} />
           </Routes>
         </Suspense>
       </Router>

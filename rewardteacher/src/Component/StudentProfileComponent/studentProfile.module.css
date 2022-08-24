@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,600");
+
+/* :root{
+    --black-3:rgba(0,0,0,0.031);
+    --black-2:rgba(0,0,0,0.039);
+    --black-52:rgba(0,0,0,0.059);
+    --black-42:rgba(0,0,0.251);
+    --black-6:rgba(0,0,0,0.502);
+    --black:rgba(0,0,0,1);
+    --blue-whale:rgba(1,42,74,1);
+    --teal-blue-2:rgba(3,67,95,0.102);
+    --teal-blue:rgba(3,67,95,1);
+    --cloud-burst:rgba(33,51,79,1);
+    --blueberry:rgba(66,133,244,1);
+    --apple:rgba(85,166,48,1);
+    --lima-2:rgba(128,185,24,0.102);
+    --lima:rgba(128,185,24,1);
+    --mountain-mist:rgba(151,151,151,1);
+    --silver:Irgba(189,189,189,1);
+    --mist-gray:rgba(196,196,196,1);
+    --alto:rgba(217,217,217,1);
+    --alto-2:rgba(218,218, 218,1);
+ }  */
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+  margin-top: 8rem;
+}
+
+.profile {
+  align-items: flex-start;
+  background-color: var(-- white);
+  display: flex;
+  flex-direction: column;
+  height: 377px;
+  padding: 24px;
+  width: 509px;
+}

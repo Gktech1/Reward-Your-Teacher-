@@ -20,7 +20,7 @@ function App() {
       <Router>
         <GlobalFonts />
         <Routes>
-          <Route path="/Teacher-Profile" element={<TeacherProfileScreen />} />
+          <Route path="/" element={<HomePage/>} />
         </Routes>
       </Router>
     </ErrorBoundary>

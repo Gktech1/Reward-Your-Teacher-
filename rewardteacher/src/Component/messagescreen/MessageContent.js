@@ -1,6 +1,6 @@
 import React from 'react';
 import { SidebarData } from './SideData';
-import { MessageContainer, MessageContainerBodyRight, MessageContainerBody, MessageTextBox } from "./MessageStyle"
+import { MessageContainer, MessageContainerBodyRight, MessageContainerBody, MessageTextBox, Send} from "./MessageStyle"
 import ellipse from '../../assets/Ellipse1.svg';
 import image from '../../assets/Ellipse2.svg';
 import mark from '../../assets/tick.svg';
@@ -15,9 +15,10 @@ function MessageContent() {
                 <h1>Taiwo Fola</h1>
                 <hr />
                 <MessageContainerBody>
-                    <img src={ellipse} alt="wantedimage" />
+                 <img src={ellipse} alt="wantedimage" />
                     <div className='body'>
-                  </div>
+                        {SidebarData[0].body}
+                    </div>
                 </MessageContainerBody>
 
 
@@ -91,33 +92,22 @@ function MessageContent() {
             </MessageContainer>
             
             <MessageTextBox>
-              {/* <div style={{ 
-                display: 'flex', 
-                padding: '1rem', 
-                marginTop: '20rem', 
-                marginBottom: '-30px' }}> */}
 
                 <div className="form-group has-search" style={{ flex: '9rem' }}>
                     <span className="fa fa-search form-control-feedback"></span>
                     <input type="text"
                      className="form-control" placeholder="Type a new message" 
                      style={{ height: '54px', 
-                     width: '95%', borderRadius: '10px', border: '1px solid grey', flex: '9rem' }} />
+                     width: '95%', borderRadius: '10px', border: '1px solid grey', flex: '9rem', marginBottom: '1rem' }} />
                 </div>
 
-                {/* <div className="send" style={{flex: '-1rem', 
-                height: '26px', 
-                marginLeft:'1rem', 
-                padding: '0.9rem',  
-                border: '1px solid grey', 
-                borderRadius: '10px',
-                marginBottom: '1rem' }}> */}
-                    
-                <img src={sender} alt="send message" />
-
-                {/* </div> */}
+                <Send>
+                      <img src={sender} alt="send message" />
+                </Send>
             
             </MessageTextBox>
+
+                
 
         </div>
         

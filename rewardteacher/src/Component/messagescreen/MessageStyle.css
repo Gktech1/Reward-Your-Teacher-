@@ -13,7 +13,7 @@
     padding-left: 2.375rem;
   }
   
-  /* .has-search .form-control-feedback {
+  .has-search .form-control-feedback {
     position: absolute;
     z-index: 2;
     display: block;
@@ -24,4 +24,4 @@
     pointer-events: none;
     color: #aaa;
     margin-top:10px;
-  } */
+  }

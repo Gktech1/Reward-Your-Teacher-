@@ -44,7 +44,11 @@ function Student() {
 
       <WalletBalanceContainer>
         <WalletBalanceInner>
-          <MyWalletBalance>My Wallet Balance</MyWalletBalance>
+          <MyWalletBalance
+            
+          >
+            My Wallet Balance
+          </MyWalletBalance>
           <WalletAmount>N56,600</WalletAmount>
           {/* <WalletButton type="button">
             <img  alt="btnlogo" />
@@ -60,14 +64,14 @@ function Student() {
             />
             <span
               style={{
-                width: '86px',
-                height: '19px',
-                fontFamily: 'Inter',
-                fontStyle: 'normal',
-                fontWeight: '400',
-                fontSize: '15px',
-                lineHeight: '19px',
-                color: '#FFFFFF',
+                width: "86px",
+                height: "19px",
+                fontFamily: "Inter",
+                fontStyle: "normal",
+                fontWeight: "400",
+                fontSize: "15px",
+                lineHeight: "19px",
+                color: "#FFFFFF",
               }}
             >
               Add Money

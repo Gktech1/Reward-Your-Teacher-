@@ -1,18 +1,18 @@
 import React from "react";
 import "./LogoutButton.css";
-import logout from "../../../../Asset/Images/logout-icon.svg";
+import logout from "../../../../assets/logout-icon.svg";
 
 const LogoutButton = () => {
   return (
     <div className="logout-container">
       <ul className="logout-list">
         <li className="row">
-          <div className="logout-image" id="icon">
+          <div className="logout-image" id="icon2">
             <img src={logout} alt="logout" />
           </div>
-          <div className="logout-button" id="title">
+          <p className="logout-button" id="title2">
             Logout
-          </div>
+          </p>
         </li>
       </ul>
     </div>

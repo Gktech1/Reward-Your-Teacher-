@@ -16,6 +16,10 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/Navbar" element={<Navigation />} />
+            <Route path="/overview" element={<Navigation />} />
+            <Route path="/schools" element={<Navigation />} />
+            <Route path="/notification" element={<Navigation />} />
+            <Route path="/messaging" element={<Navigation />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
           </Routes>
         </Suspense>

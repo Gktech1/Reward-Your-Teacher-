@@ -8,12 +8,6 @@ import {
 } from "./AllSchoolsStyled";
 import filter from "../../assets/Filter.svg";
 import ReactDOM from "react-dom/client";
-import Pagination from "./Paginations";
-
-
-
-let PageSize = 10;
-
 
 
 
@@ -33,13 +27,6 @@ export function AllSchools() {
     "Ikeja Private",
   ];
   
-  // const [currentPage, setCurrentPage] = React.useState(1);
-
-  // const currentTableData = useMemo(() => {
-  //   const firstPageIndex = (currentPage - 1) * PageSize;
-  //   const lastPageIndex = firstPageIndex + PageSize;
-  //   return data.slice(firstPageIndex, lastPageIndex);
-  // }, [currentPage]);
 
   return (
     <>
@@ -95,14 +82,6 @@ export function AllSchools() {
           <a href="/">6</a>
           <a href="/">next &raquo;</a>
         </Pages>
-
-        {/* <Pagination
-          className="pagination-bar"
-          currentPage={currentPage}
-          totalCount={data.length}
-          pageSize={PageSize}
-          onPageChange={(page) => setCurrentPage(page)}
-        /> */}
       </MainContainer>
     </>
   );

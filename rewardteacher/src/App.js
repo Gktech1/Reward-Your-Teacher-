@@ -13,6 +13,7 @@ import MessageBody from "./Component/messagescreen/MessageBody"
 import Student from "./Component/layout/dashboard/Student";
 import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
+import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
 
 
 function App() {
@@ -37,10 +38,19 @@ function App() {
               element={<TeacherNotifications />}
             />
             <Route path="/student-dashboard" element={<Student />} />
+            
             <Route path="/teacher-dashboard" element={<Teacher />} />
             <Route path="/chat" element={<MessageBody />} />
+
             <Route path="/settingsModal" element={<SettingsModalCard />} />
+
+            <Route
+              path="/teachers-registration"
+              element={<TeachersSignUpPage />}
+            />
+
           </Routes>
+    
         </Suspense>
       </Router>
     </ErrorBoundary>

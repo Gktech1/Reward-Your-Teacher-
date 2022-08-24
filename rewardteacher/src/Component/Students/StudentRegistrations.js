@@ -1,6 +1,6 @@
 
 import React from 'react'
-import './styles.css'
+import './ikechukwustyles.css'
 import google from './Google.svg'
 import ellipse from './Frame12.svg'
 

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter,Routes, Route, } from "react-router-dom";
 import "./App.css";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
@@ -18,33 +18,46 @@ import EditStudentProfile from "./pages/student/EditStudentProfile";
 //         </Suspense>
 //       </ErrorBoundary>
 //     </Router>
-function App() {
+// function App() {
+//   return (
+//     <ErrorBoundary>
+//       {/* <Suspense fallback="loading">
+//         <div className="App">
+//           <header className="App-header"></header>
+//         </div>
+//       </Suspense> */}
+
+//       {/* <switch>
+//         <Route path="/student-profile">
+//           <EditStudentProfile />
+//         </Route>
+//       </switch> */}
+//       <Routes>
+//           <Route path="/" element={<HomePage />} /> 
+//           <Route path="/admin" element={<HomePage />} /> 
+//       </Routes>
+//     </ErrorBoundary>
+//   );
+// }
+
+function App(){
   return (
     <ErrorBoundary>
-      <Suspense fallback="loading">
+      <Suspense>
         <div className="App">
-          <header className="App-header"></header>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/student-profile" element={<EditStudentProfile />} />
+            </Routes>
+          </BrowserRouter>
         </div>
       </Suspense>
-
-      {/* <switch>
-        <Route path="/student-profile">
-          <EditStudentProfile />
-        </Route>
-      </switch> */}
-
-      <Router>
-        <switch>
-          <Suspense fallback="loading">
-            <GlobalFonts />
-            <Route>
-              <Route path="/" element={<HomePage />} />
-            </Route>
-          </Suspense>
-        </switch>
-      </Router>
     </ErrorBoundary>
   );
 }
 
+ <Suspense fallback="loading">
+            <GlobalFonts />
+ </Suspense>
 export default App;

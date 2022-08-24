@@ -6,40 +6,40 @@ import Penlight from "../../assets/penlight.svg";
 
 export default function EditStudentProfile() {
   return (
-    <div className={styles.main}>
-      <p className={styles.heading}>Profile</p>
-      <form className={styles.forms}>
-        <p className={styles.info}>BASIC INFORMATION</p>
-        <p className={styles.info1}>
+    <div className={styles.maint}>
+      <p className={styles.headingt}>Profile</p>
+      <form className={styles.formst}>
+        <p className={styles.infot}>BASIC INFORMATION</p>
+        <p className={styles.info1t}>
           Only you can view and edit your information
         </p>
-        <p className={styles.info2}>First Name</p>
-        <div className={styles["input-wrapper"]}>
-          <input className={styles.fields} type="text"></input>
-          <img className={styles.pen} src={Pen} />
+        <p className={styles.info2t}>First Name</p>
+        <div className={styles["input-wrappert"]}>
+          <input className={styles.fieldst} type="text"></input>
+          <img className={styles.pent} src={Pen} alt="pencil" />
         </div>
-        <p className={styles.info2}>Last Name</p>
-        <div className={styles["input-wrapper"]}>
-          <input className={styles.fields} type="text"></input>
-          <img className={styles.pen} src={Pen} />
+        <p className={styles.info2t}>Last Name</p>
+        <div className={styles["input-wrappert"]}>
+          <input className={styles.fieldst} type="text"></input>
+          <img className={styles.pent} src={Pen} alt="pencil" />
         </div>
-        <p className={styles.info2}>Phone</p>
-        <div className={styles["input-wrapper"]}>
-          <input className={styles.fields} type="text"></input>
-          <img className={styles.penlight} src={Penlight} />
+        <p className={styles.info2t}>Phone</p>
+        <div className={styles["input-wrappert"]}>
+          <input className={styles.fieldst} type="text"></input>
+          <img className={styles.penlightt} src={Penlight} alt="pencil" />
         </div>
-        <p className={styles.info2}>Email</p>
-        <div className={styles["input-wrapper"]}>
-          <input className={styles.fields} type="text"></input>
-          <img className={styles.penlight} src={Penlight} />
+        <p className={styles.info2t}>Email</p>
+        <div className={styles["input-wrappert"]}>
+          <input className={styles.fieldst} type="text"></input>
+          <img className={styles.penlightt} src={Penlight} alt="pencil" />
         </div>
-        <p className={styles.info2}>Name of schools</p>
-        <div className={styles["input-wrapper"]}>
-          <input className={styles.fields} type="text"></input>
-          <img className={styles.penlight} src={Penlight} />
+        <p className={styles.info2t}>Name of schools</p>
+        <div className={styles["input-wrappert"]}>
+          <input className={styles.fieldst} type="text"></input>
+          <img className={styles.penlightt} src={Penlight} alt="pencil"/>
         </div>
         <button>
-          <a href=" " className={styles.link}>
+          <a href=" " className={styles.linkt}>
             Save
           </a>
         </button>

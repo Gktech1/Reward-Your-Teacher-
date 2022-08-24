@@ -10,6 +10,7 @@ import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import Student from "./Component/layout/dashboard/Student";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
+import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
 
 function App() {
   return (
@@ -27,8 +28,16 @@ function App() {
               element={<TeacherNotifications />}
             />
             <Route path="/student-dashboard" element={<Student />} />
+            
             <Route path="/settingsModal" element={<SettingsModalCard />} />
+
+            <Route
+              path="/teachers-registration"
+              element={<TeachersSignUpPage />}
+            />
+
           </Routes>
+    
         </Suspense>
       </Router>
     </ErrorBoundary>

@@ -31,17 +31,10 @@
     font-style: normal;
   }
 
-<<<<<<< HEAD
-  color:var(-- blue-whale)
-  font-family:var(-- font-family-inter)
-  font-size:var(-- font-size-xxx1)
-  font-weight:700;
-=======
   color:var(--blue-whale);
   font-family:var(-- font-family-inter);
   font-size:var(-- font-size-xxx1);
   font-weight: 700;
->>>>>>> 3a83635a71870e991ab233c7881c20ffcd4aeef9
   font-style:normal;
 
   .inter-semi-bold-teal-blue-28px {

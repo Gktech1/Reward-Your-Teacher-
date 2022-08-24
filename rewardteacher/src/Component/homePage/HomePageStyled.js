@@ -305,6 +305,6 @@ export const Footer = styled.footer`
     justify-content: left;
   }
   .social-Right {
-    margin-left: 33rem;
+    margin-left: 30rem;
   }
 `;

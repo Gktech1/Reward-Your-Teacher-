@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './TeacherProfile.module.css'
+import {} from './TeacherProfileStyled.js'
 
 function TeacherProfile() {
   return (

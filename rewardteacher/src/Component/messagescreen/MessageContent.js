@@ -90,7 +90,7 @@ function MessageContent() {
 
             </MessageContainer>
             
-
+            
             <div style={{ 
                 display: 'flex', 
                 padding: '1rem', 
@@ -119,6 +119,7 @@ function MessageContent() {
             </div>
 
         </div>
+        
     );
 }
 

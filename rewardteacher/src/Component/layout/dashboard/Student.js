@@ -46,8 +46,32 @@ function Student() {
         <WalletBalanceInner>
           <MyWalletBalance>My Wallet Balance</MyWalletBalance>
           <WalletAmount>N56,600</WalletAmount>
-          <WalletButton type="button">
-            <img src={walletbuttonlogo} alt="btnlogo" />
+          {/* <WalletButton type="button">
+            <img  alt="btnlogo" />
+          </WalletButton> */}
+          <WalletButton>
+            <img
+              src={walletbuttonlogo}
+              alt="btnlogo"
+              style={{
+                width: "20px",
+                height: "20px",
+              }}
+            />
+            <span
+              style={{
+                width: '86px',
+                height: '19px',
+                fontFamily: 'Inter',
+                fontStyle: 'normal',
+                fontWeight: '400',
+                fontSize: '15px',
+                lineHeight: '19px',
+                color: '#FFFFFF',
+              }}
+            >
+              Add Money
+            </span>
           </WalletButton>
 
           <WalletEclipse>

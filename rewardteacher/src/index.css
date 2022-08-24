@@ -31,9 +31,9 @@
     font-style: normal;
   }
 
-  color:var(-- blue-whale);
-  font-family:var(-- font-family-inter);
-  font-size:var(-- font-size-xxx1);
+  color:var(-- blue-whale)
+  font-family:var(-- font-family-inter)
+  font-size:var(-- font-size-xxx1)
   font-weight:700;
   font-style:normal;
 

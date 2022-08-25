@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap");
+
+.maint {
+  margin-left: 70px;
+  text-align: left;
+}
+.headingt {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  color: #03435f;
+}
+.formst {
+  margin-left: 30px;
+  margin-top: 60px;
+}
+
+.infot {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #21334f;
+  height: 8px;
+  margin-bottom : 15px;
+}
+.info1t {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #bdbdbd;
+  height: 20px;
+}
+.info2t {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #21334f;
+  margin-bottom: 8px;
+  margin-top: 30px;
+}
+
+button {
+  width: 500px;
+  height: 48px;
+  background: #55a630;
+  margin-top: 30px;
+  border: #55a630;
+}
+.linkt {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.input-wrappert {
+  position: relative;
+}
+.pent {
+  position: absolute;
+  left: 460px;
+  top: calc(5% - 0.5em);
+  font-size: 20px;
+  width: 1%;
+  height: 120%;
+  border-radius: 1.5px;
+  border: none;
+}
+
+.penlightt {
+  position: absolute;
+  left: 460px;
+  top: calc(5% - 0.5em);
+  font-size: 20px;
+  border-radius: 1.5px;
+  width: 1%;
+  height: 120%;
+  border: none;
+}
+.fieldst {
+  width: 500px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.03);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #21334f;
+  padding-left: 20px;
+  border: rgba(0, 0, 0, 0.03);
+}

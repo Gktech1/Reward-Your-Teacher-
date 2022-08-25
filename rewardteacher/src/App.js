@@ -1,6 +1,6 @@
-import ErrorBoundary from './Component/Common/ErrorBoundary';
+import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
-import SuccessAlert from './Component/messagescreen/SuccessAlert';
+import SuccessAlert from "./Component/messagescreen/SuccessAlert";
 import "./App.css";
 import StudentProfileTeacher from "./Component/StudentProfileComponent/studentProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -12,14 +12,14 @@ import TeacherNotifications from "./Component/Notifications/TeacherNotifications
 import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
-import {Navigation} from "./Component/Common/navs/Navigation";
-import MessageBody from "./Component/messagescreen/MessageBody"
+import { Navigation } from "./Component/Common/navs/Navigation";
+import MessageBody from "./Component/messagescreen/MessageBody";
 import Student from "./Component/layout/dashboard/Student";
 import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
 import StudentLogin from "./Component/logins/studentlogin";
 import TeacherLogin from "./Component/logins/teacherlogin";
-import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
+import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 
 function App() {
   return (
@@ -45,21 +45,20 @@ function App() {
               element={<TeacherNotifications />}
             />
             <Route path="/student-dashboard" element={<Student />} />
-            
+
             <Route path="/teacher-dashboard" element={<Teacher />} />
             <Route path="/chat" element={<MessageBody />} />
 
             <Route path="/settingsModal" element={<SettingsModalCard />} />
             <Route path="/teacher-profile" element={<TeacherProfile />} />
             <Route path="/all-teacher" element={<AllTeacher />} />
+            <Route path="/success-alert" element={<SuccessAlert />} />
 
             <Route
               path="/teachers-registration"
               element={<TeachersSignUpPage />}
             />
-
           </Routes>
-    
         </Suspense>
       </Router>
     </ErrorBoundary>

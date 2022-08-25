@@ -2,16 +2,13 @@ import "./App.css";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
 import SuccessAlert from "./Component/messagescreen/SuccessAlert";
-import StudentProfileTeacher from "./Component/StudentProfileComponent/studentProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./Component/homePage/HomePage";
-import GlobalFonts from "../src/assets/fonts/fonts";
 import EditStudentProfile from "./Component/student/EditStudentProfile";
 import StudentNotifications from "./Component/Notifications/StudentNotifications";
 import AllTeacher from "./Component/all-teacher/AllTeacher";
 import TeacherNotifications from "./Component/Notifications/TeacherNotifications";
-import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import { Navigation } from "./Component/Common/navs/Navigation";
@@ -47,7 +44,8 @@ function App() {
             <Route path="/notification" element={<Navigation />} />
             <Route path="/messaging" element={<Navigation />} />
             <Route path="/studentlogin" element={<StudentLogin />} />
-            <Route path="/student-profile" element={<EditStudentProfile />} />yy
+            <Route path="/student-profile" element={<EditStudentProfile />} />
+            <Route path="/Teacher-Profile" element={<TeacherProfileScreen />} />
             <Route path="/teacherlogin" element={<TeacherLogin />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
             <Route

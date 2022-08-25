@@ -23,6 +23,7 @@
   line-height: 17px;
   color: #21334f;
   height: 8px;
+  margin-bottom : 15px;
 }
 .info1t {
   font-family: "Inter", sans-serif;
@@ -43,7 +44,7 @@
 }
 
 button {
-  width: 523px;
+  width: 500px;
   height: 48px;
   background: #55a630;
   margin-top: 30px;
@@ -59,7 +60,7 @@ button {
 }
 .pent {
   position: absolute;
-  left: 490px;
+  left: 460px;
   top: calc(5% - 0.5em);
   font-size: 20px;
   width: 1%;
@@ -70,7 +71,7 @@ button {
 
 .penlightt {
   position: absolute;
-  left: 490px;
+  left: 460px;
   top: calc(5% - 0.5em);
   font-size: 20px;
   border-radius: 1.5px;

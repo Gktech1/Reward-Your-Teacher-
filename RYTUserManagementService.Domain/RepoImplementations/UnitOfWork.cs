@@ -1,86 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RYTUserManagementService.Domain;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using System.Web;
-using RYTUserManagementService.Domain.TypeRepository;
-using RYTUserManagementService.Domain.RepoInterfaces;
+﻿using RYTUserManagementService.Domain.RepoInterfaces;
+using RYTUserManagementService.Models;
+
 
 namespace RYTUserManagementService.Domain.RepoImplementations
 {
-    public class UnitOfWork : IUnitOfWork     /*<T> : IDisposable where T : class*/
+    public class UnitOfWork: IUnitOfWork
     {
-        private readonly UserManagementDbContext context;
+        private readonly UserManagementDbContext _context;
+        private IGenericRepository<Student> _students;
+        private IGenericRepository<Teacher> _teachers;
+        private IGenericRepository<School> _schools;
 
 
         public UnitOfWork(UserManagementDbContext context)
         {
-            this.context = context;
-            Student = new StudentRepository(this.context);
-            Teacher = new TeacherRepository(this.context);
-            School = new SchoolRepository(this.context);
-        }
-        public IStudentRepository Student
-        {
-            get;
-            private set;
-        }
-        public ITeacherRepository Teacher
-        {
-            get;
-            private set;
-        }
-        public ISchoolRepository School
-        {
-            get;
-            private set;
-        }
+            _context = context;
 
+        }
+        public IGenericRepository<Student> Students => _students ??= new GenericRepository<Student>(_context);
+        public IGenericRepository<Teacher> Teachers => _teachers ??= new GenericRepository<Teacher>(_context);
+        public IGenericRepository<School> Schools => _schools ??= new GenericRepository<School>(_context);
+        
+       
 
         public void Dispose()
         {
-            context.Dispose();
+            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
-        public int Save()
+        public async Task Save()
         {
-            return context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-
-
-
-        //private readonly GeneralRepository<T> generalRepository;
-        //public GeneralRepository<T> GeneralRepository
-        //{
-        //    get
-        //    {
-        //        return this.generalRepository ?? new GeneralRepository<T>(context);
-        //    }
-        //}
-        //public void Save()
-        //{
-        //    context.SaveChanges();
-        //}
-        //private bool disposed = false;
-        //protected virtual void Dispose(bool disposing)
-        //{
-        //    if (!this.disposed)
-        //    {
-        //        if (disposing)
-        //        {
-        //            context.Dispose();
-        //        }
-        //    }
-        //    this.disposed = true;
-        //}
-        //public void Dispose()
-        //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
-        //}
     }
 }

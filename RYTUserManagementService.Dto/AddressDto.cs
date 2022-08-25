@@ -1,34 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abp.AutoMapper;
 using RYTUserManagementService.Common.Utilities;
+using RYTUserManagementService.Models;
 
-namespace RYTUserManagementService.Models
+namespace RYTUserManagementService.Dto
 {
-    [Table(name: "Addresses")]
-    public class Address : BaseEntity
+    [AutoMapFrom(typeof(Address))]
+    public class AddressDto
     {
-<<<<<<< HEAD
         public int Id { get; set; }
         [StringLength(Constants.Max2000Length)]
-=======
->>>>>>> develop
         public string StreetAddress { get; set; }
 
+        [StringLength(Constants.Max100Length)]
         public string City { get; set; }
 
+        [StringLength(Constants.Max100Length)]
         public string State { get; set; }
 
+        [StringLength(Constants.Max100Length)]
         public string Country { get; set; }
-
         public double Longitude { get; set; }
-
         public double Latitude { get; set; }
-
-        public ICollection<School> Schools { get; set; }
     }
 }

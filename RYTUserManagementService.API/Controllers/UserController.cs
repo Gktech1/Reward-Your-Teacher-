@@ -1,59 +1,40 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using RYTUserManagementService.Domain.RepoImplementations;
-using RYTUserManagementService.Domain.RepoInterfaces;
-
+using Microsoft.EntityFrameworkCore;
+using RYTUserManagementService.Core.ServiceImplementations;
+using RYTUserManagementService.Core.ServiceInterfaces;
+using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.API.Controllers
 {
     [ApiController]
-    [Microsoft.AspNetCore.Components.Route("[controller]")]
+    [Route("[controller]/api/v1")]
     public class UserController : ControllerBase
     {
-        private readonly IUnitOfWork unitOfWork;
-        private readonly IdentityUser identityUser;
+        private readonly UserManager<ApiUser> _userManager;
+        private readonly SignInManager<ApiUser> _signInManager;
+        private readonly ILogger<UserController> _logger;
         private readonly IMapper _mapper;
+        private readonly AuthManager _authManager;
 
-        public UserController(IUnitOfWork unitOfWork, IMapper mapper, IdentityUser identityUser)
+        public UserController(
+                UserManager<ApiUser> userManager,
+                SignInManager<ApiUser> signInManager,
+                ILogger<UserController> logger,
+                IMapper mapper,
+                AuthManager authManager)
         {
-            this.unitOfWork = unitOfWork;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _logger = logger;
             _mapper = mapper;
-            this.identityUser = identityUser;
+            _authManager = authManager;
         }
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
-        // GET: AllUsers
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpGet("{GetAllUsers}")]
-        public async Task<IActionResult> GetAllUsers()
-        {
-
-            var usersList = new List<IdentityUser>();
-
-            if (usersList == null)
-            {
-                return NotFound();
-            }
-            foreach (var user in usersList)
-            {
-                usersList.Add(_mapper.Map<IdentityUser>(user));
-            }
-
-            return Ok(usersList); 
-        }
 
 
 
@@ -64,23 +45,94 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Post: AddUser
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPost("[controller]/{AddUser}")]
-        public async Task<IActionResult> AddUser(IdentityUser user)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+
+
+        [HttpPost("RegisterUser")]
+        public async Task<IActionResult> Register([FromBody] UserDto userDto)
         {
-            if (user == null)
+            _logger.LogInformation($"Registration attempt for {userDto.Email}");
+            if (!ModelState.IsValid)
             {
-                return NotFound();
-            }
-            var usersList = new List<IdentityUser>();
-            foreach (var use in usersList)
-            {
-                usersList.Add(_mapper.Map<IdentityUser>(use));
+                return BadRequest(ModelState);
             }
 
-            return Ok(usersList);
+            try
+            {
+                var user = _mapper.Map<ApiUser>(userDto);
+                user.UserName = userDto.Email;
+                var result = await _userManager.CreateAsync(user, userDto.Password);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest($"User Registration Attempt Failed");
+                }
+
+                await _userManager.AddToRolesAsync(user, userDto.Roles);
+
+                return Accepted();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something Went Wrong in the {nameof(Register)}");
+                return Problem($"Something Went wrong in the {nameof(Register)}", statusCode: 500);
+            }
+
+
+        }
+
+
+
+
+        // <summary>
+        // 
+        // </summary>
+        // <param name = "id" ></ param >
+        // < returns ></ returns >
+
+        // Post: LoginUser
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [HttpPost("LoginUser")]
+        public async Task<ActionResult<TokenDto>> Login([FromBody] LoginUserDto userDto)
+        {
+            _logger.LogInformation($"Login attempt for {userDto.Email}");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(userDto.Email);
+                if (user == null || !await _userManager.CheckPasswordAsync(user, userDto.Password))
+                    return Unauthorized();
+
+                return new TokenDto
+                {
+                    Email = user.Email,
+                    Token = await _authManager.CreateToken(user)
+                };
+
+
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something Went Wrong in the {nameof(Login)}");
+                return Problem($"Something Went wrong in the {nameof(Login)}", statusCode: 500);
+            }
+
+
+        }
+        // Logou
+        [HttpPost("userLogOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok();
         }
 
         /// <summary>
@@ -89,25 +141,100 @@ namespace RYTUserManagementService.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
 
-        // Put: UpdateUser
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/{UpdateUser}")]
-        public async Task<IActionResult> UpdateUser(IdentityUser user)
+        // GET: AllUsers
+       
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [HttpGet("GetAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            var userPresent = _mapper.Map<IdentityUser>(user);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            else if (user == userPresent)
-            {
-                return Ok();
-            }
 
-            
-            return Ok("Update Successful");
+            try
+            {
+                var users = _userManager.Users.ToList();
+                return Ok(users);
+
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(GetAllUsers)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // Put: UpdateUser
+        [Authorize(Roles = "Administrator")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/{UpdateUser}")]
+        public async Task<IActionResult> UpdateUser([FromBody] UserDto userDto)
+        {
+            _logger.LogInformation($"Update attempt for {userDto.Email}");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var user = _mapper.Map<ApiUser>(userDto);
+                user.UserName = userDto.Email;
+                var result = await _userManager.UpdateAsync(user);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest($"User Update Attempt Failed");
+                }
+
+                return Accepted();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(UpdateUser)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
+        }
+        [Authorize(Roles = "Administrator")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/{UpdateUser}/UpdatePassword")]
+        public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordDto userDto)
+        {
+            _logger.LogInformation($"Update Password attempt for {userDto.Email}");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var user = _mapper.Map<ApiUser>(userDto);
+                if (user.Email != userDto.Email)
+                {
+                    _logger.LogInformation($"Check the credentials and try again");
+                    return BadRequest();
+                }
+
+                var result = await _userManager.ChangePasswordAsync(user, userDto.CurrentPassword, userDto.NewPassword);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest($"Password Update Attempt Failed");
+                }
+
+                return Accepted();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(UpdatePassword)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
         }
 
         /// <summary>
@@ -117,21 +244,32 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Delete: DeleteUser
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
+        [Authorize(Roles = "Administrator")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Microsoft.AspNetCore.Mvc.HttpDelete("[controller]/{DeleteUser}")]
-        public async Task<IActionResult> DeleteUser(IdentityUser user)
+        public async Task<IActionResult> DeleteUser(string id)
         {
-            
-
-            if (user == null)
+            try
             {
-                return NotFound();
-            }
+                var user = _mapper.Map<ApiUser>(id);
+                var result = await _userManager.DeleteAsync(user);
 
-            return Ok("Delete Successful");
+                if (!result.Succeeded)
+                {
+                    return BadRequest($"User Update Attempt Failed");
+                }
+
+                return Accepted();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Something went wrong in the {nameof(UpdateUser)}");
+                return StatusCode(500, "Internal Server Error. Please try Again Later.");
+            }
         }
+        
 
 
 

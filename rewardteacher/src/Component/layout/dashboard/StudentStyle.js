@@ -10,7 +10,7 @@ const MyDashboard = styled.div`
   margin-top: 455px;
   margin-top: 135px;
   min-width: 225px;
-  margin-left: -83rem;
+  margin-left: 13rem;
 `;
 
 const WalletBalanceContainer = styled.div`
@@ -88,7 +88,7 @@ const WalletButton = styled.button`
 const WalletEclipse = styled.div`
   height: 197px;
   margin-left: 358px;
-  margin-top: -8px;
+  margin-top: -9px;
   position: absolute;
 `;
 
@@ -218,7 +218,7 @@ const TotalMoneySentInner = styled.div`
 const TotalMoneySent = styled.div`
   color: #03435f;
   font-family: "Inter";
-  font-size: "normal";
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0px;
   margin-top: 1px;

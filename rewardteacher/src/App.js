@@ -1,7 +1,6 @@
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import React, { Suspense } from "react";
 import SuccessAlert from "./Component/messagescreen/SuccessAlert";
-import "./App.css";
 import StudentProfileTeacher from "./Component/StudentProfileComponent/studentProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -20,6 +19,7 @@ import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
 import StudentLogin from "./Component/logins/studentlogin";
 import TeacherLogin from "./Component/logins/teacherlogin";
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
+import Reward from "./Component/reward/Reward";
 
 function App() {
   return (
@@ -53,6 +53,7 @@ function App() {
             <Route path="/teacher-profile" element={<TeacherProfile />} />
             <Route path="/all-teacher" element={<AllTeacher />} />
             <Route path="/success-alert" element={<SuccessAlert />} />
+            <Route path="/reward" element={<Reward />} />
 
             <Route
               path="/teachers-registration"

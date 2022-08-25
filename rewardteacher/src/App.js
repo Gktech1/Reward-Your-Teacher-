@@ -15,9 +15,9 @@ import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
 import StudentLogin from "./Component/logins/studentlogin";
 import TeacherLogin from "./Component/logins/teacherlogin";
-import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
+import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 import LogoutConfirmation from "./Component/LogoutConfirmation/LogoutConfirmation";
-
+import StudentMiniProfile from "./Component/StudentProfileComponent/StudentMini";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
             <Route path="/notification" element={<Navigation />} />
             <Route path="/messaging" element={<Navigation />} />
             <Route path="/studentlogin" element={<StudentLogin />} />
+
             <Route path="/teacherlogin" element={<TeacherLogin />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
             <Route
@@ -43,21 +44,23 @@ function App() {
               element={<TeacherNotifications />}
             />
             <Route path="/student-dashboard" element={<Student />} />
-            
+
             <Route path="/teacher-dashboard" element={<Teacher />} />
             <Route path="/chat" element={<MessageBody />} />
 
-            <Route path="/settingsModal" element={<SettingsModalCard />} />
-
             <Route
+              path="/studentMiniProfile"
+              element={<StudentMiniProfile />}
+            />
+            <Route path="/settingsModal" element={<SettingsModalCard />} />
+            <Route path="/logout" element={<LogoutConfirmation />} />
+
+            {/* <Route
               path="/teachers-registration"
               element={<TeachersSignUpPage />}
-            />
-
-            <Route path="/logout" element={<LogoutConfirmation />} />
+            /> */}
             <Route path="/studentProfile" element={<Student />} />
           </Routes>
-    
         </Suspense>
       </Router>
     </ErrorBoundary>

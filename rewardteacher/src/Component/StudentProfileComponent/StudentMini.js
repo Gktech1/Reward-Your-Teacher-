@@ -1,7 +1,7 @@
 import React from "react";
 import StudentProfileTeacher from "./studentProfile";
 
-export default function Student() {
+export default function StudentMiniProfile() {
   return (
     <div>
       <StudentProfileTeacher

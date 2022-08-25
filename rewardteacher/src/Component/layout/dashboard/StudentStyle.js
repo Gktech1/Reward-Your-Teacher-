@@ -66,21 +66,21 @@ const WalletAmount = styled.h1`
 const WalletButton = styled.button`
   margin-top: 17px;
   border: unset;
-  cursor: pointer;
   display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px 16px;
-gap: 14px;
-width: 214px;
-height: 40px;
-left: 80px;
-top: 123px;
-background: #55A630;
-border-radius: 4px;
-  &:hover {
-    transform: Scale(1.05);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 14px;
+  width: 214px;
+  height: 40px;
+  left: 80px;
+  top: 123px;
+  background: #55A630;
+  cursor: pointer;
+  border-radius: 4px;
+    &:hover {
+      transform: Scale(1.05);
 
   }
 `;

@@ -12,9 +12,13 @@ import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import {Navigation} from "./Component/Common/navs/Navigation";
 import MessageBody from "./Component/messagescreen/MessageBody"
+import { Navigation } from "./Component/Common/navs/Navigation";
 import Student from "./Component/layout/dashboard/Student";
+import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
-
+import StudentLogin from "./Component/logins/studentlogin";
+import TeacherLogin from "./Component/logins/teacherlogin";
+import TeachersSignUpPage  from "./Component/teachersRegistration/TeachersSignUpPage";
 
 function App() {
   return (
@@ -28,6 +32,8 @@ function App() {
             <Route path="/schools" element={<Navigation />} />
             <Route path="/notification" element={<Navigation />} />
             <Route path="/messaging" element={<Navigation />} />
+            <Route path="/studentlogin" element={<StudentLogin />} />
+            <Route path="/teacherlogin" element={<TeacherLogin />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
             <Route
               path="/student-notifictions"
@@ -38,11 +44,21 @@ function App() {
               element={<TeacherNotifications />}
             />
             <Route path="/student-dashboard" element={<Student />} />
+            
+            <Route path="/teacher-dashboard" element={<Teacher />} />
             <Route path="/chat" element={<MessageBody />} />
+
             <Route path="/settingsModal" element={<SettingsModalCard />} />
             <Route path="/teacher-profile" element={<TeacherProfile />} />
             <Route path="/all-teacher" element={<AllTeacher />} />
+
+            <Route
+              path="/teachers-registration"
+              element={<TeachersSignUpPage />}
+            />
+
           </Routes>
+    
         </Suspense>
       </Router>
     </ErrorBoundary>

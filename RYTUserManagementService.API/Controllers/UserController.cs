@@ -94,7 +94,7 @@ namespace RYTUserManagementService.API.Controllers
         // < returns ></ returns >
 
         // Post: LoginUser
-
+        
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpPost("LoginUser")]
         public async Task<ActionResult<TokenDto>> Login([FromBody] LoginUserDto userDto)
@@ -142,7 +142,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // GET: AllUsers
-       
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
@@ -159,6 +159,18 @@ namespace RYTUserManagementService.API.Controllers
                 _logger.LogError(e, $"Something went wrong in the {nameof(GetAllUsers)}");
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
+        }
+        // get single user
+        [Authorize]
+        [HttpGet("currentUser")]
+        public async Task<ActionResult<TokenDto>> GetCurrentUser()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            return new TokenDto
+            {
+                Email = user.Email,
+                Token = await _authManager.CreateToken(user)
+            };
         }
 
         

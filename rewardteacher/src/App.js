@@ -19,6 +19,8 @@ import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
 import StudentLogin from "./Component/logins/studentlogin";
 import TeacherLogin from "./Component/logins/teacherlogin";
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
+import LogoutConfirmation from "./Component/LogoutConfirmation/LogoutConfirmation";
+import StudentMiniProfile from "./Component/StudentProfileComponent/StudentMini";
 import Reward from "./Component/reward/Reward";
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
             <Route path="/notification" element={<Navigation />} />
             <Route path="/messaging" element={<Navigation />} />
             <Route path="/studentlogin" element={<StudentLogin />} />
+
             <Route path="/teacherlogin" element={<TeacherLogin />} />
             {/* <Route path="/Sidebar" element={<SideBar />} /> */}
             <Route
@@ -49,9 +52,19 @@ function App() {
             <Route path="/teacher-dashboard" element={<Teacher />} />
             <Route path="/chat" element={<MessageBody />} />
 
+            <Route
+              path="/studentMiniProfile"
+              element={<StudentMiniProfile />}
+            />
             <Route path="/settingsModal" element={<SettingsModalCard />} />
+            <Route path="/logout" element={<LogoutConfirmation />} />
             <Route path="/teacher-profile" element={<TeacherProfile />} />
             <Route path="/all-teacher" element={<AllTeacher />} />
+            {/* <Route
+              path="/teachers-registration"
+              element={<TeachersSignUpPage />}
+            /> */}
+            <Route path="/studentProfile" element={<Student />} />
             <Route path="/success-alert" element={<SuccessAlert />} />
             <Route path="/reward" element={<Reward />} />
 

@@ -5,11 +5,14 @@ import "./App.css";
 import ErrorBoundary from "./Component/Common/ErrorBoundary";
 import { HomePage } from "./Component/homePage/HomePage";
 import StudentNotifications from "./Component/Notifications/StudentNotifications";
+import AllTeacher from "./Component/all-teacher/AllTeacher";
 import TeacherNotifications from "./Component/Notifications/TeacherNotifications";
-// import { AllSchools } from "./Component/allSchools/AllSchools";
-// import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
+import { AllSchools } from "./Component/allSchools/AllSchools";
+import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
+import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
+import {Navigation} from "./Component/Common/navs/Navigation";
+import MessageBody from "./Component/messagescreen/MessageBody"
 import { Navigation } from "./Component/Common/navs/Navigation";
-import MessageBody from "./Component/messagescreen/MessageBody";
 import Student from "./Component/layout/dashboard/Student";
 import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
@@ -54,7 +57,8 @@ function App() {
             />
             <Route path="/settingsModal" element={<SettingsModalCard />} />
             <Route path="/logout" element={<LogoutConfirmation />} />
-
+            <Route path="/teacher-profile" element={<TeacherProfile />} />
+            <Route path="/all-teacher" element={<AllTeacher />} />
             {/* <Route
               path="/teachers-registration"
               element={<TeachersSignUpPage />}

@@ -1,4 +1,4 @@
-/*Variables*/
+Variables
 :root {
   --black-2: rgba(0, 0, 0, 0.031);
   --black: rgba(0, 0, 0, 1);
@@ -31,10 +31,10 @@
     font-style: normal;
   }
 
-  color:var(-- blue-whale);
+  color:var(--blue-whale);
   font-family:var(-- font-family-inter);
   font-size:var(-- font-size-xxx1);
-  font-weight:700;
+  font-weight: 700;
   font-style:normal;
 
   .inter-semi-bold-teal-blue-28px {
@@ -106,29 +106,4 @@ code {
     monospace;
 }
 
-.msg_body {
-  display:flex
-}
 
-.msg_left {
-  flex: 2;
-}
-.msg_right {  flex: 5;
-}
-
-.has-search .form-control {
-  padding-left: 2.375rem;
-}
-
-.has-search .form-control-feedback {
-  position: absolute;
-  z-index: 2;
-  display: block;
-  width: 2.375rem;
-  height: 2.375rem;
-  line-height: 2.375rem;
-  text-align: center;
-  pointer-events: none;
-  color: #aaa;
-  margin-top:10px;
-}

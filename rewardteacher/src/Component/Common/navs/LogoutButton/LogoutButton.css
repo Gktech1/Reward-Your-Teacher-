@@ -1,0 +1,29 @@
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 244px;
+  height: 54px;
+  margin-left: 1.5rem;
+  margin-top: 22rem;
+  /* margin-bottom: 2rem; */
+  background: rgba(128, 185, 24, 0.1);
+}
+.logout-image {
+  margin-left: -0.8rem;
+  margin-right: 1.2rem;
+}
+
+.logout-list .row {
+  width: 100%;
+  height: 70px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  color: #55a630;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter";
+  font-size: 20px;
+}
+

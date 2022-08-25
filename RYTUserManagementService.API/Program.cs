@@ -21,7 +21,6 @@ var config = builder.Configuration;
 var services = builder.Services;
 
 // Add services to the container.
-
 // Add Serilog configuration
 builder.Host.UseSerilog();
 

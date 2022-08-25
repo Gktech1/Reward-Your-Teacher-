@@ -12,7 +12,6 @@ import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import {Navigation} from "./Component/Common/navs/Navigation";
 import MessageBody from "./Component/messagescreen/MessageBody"
-import { Navigation } from "./Component/Common/navs/Navigation";
 import Student from "./Component/layout/dashboard/Student";
 import Teacher from "./Component/layout/dashboard/Teacher";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";

@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using RYTNotificationService.API.Data.Repository.Interfaces;
+using RYTNotificationService.API.Data.Repositories.Interfaces;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Helpers;
 using RYTNotificationService.API.Models;
 
-namespace RYTNotificationService.API.Data.Repository.Implementation
+namespace RYTNotificationService.API.Data.Repositories.Implementation
 {
     public class MessageRepository : IMessageRepository
     {
@@ -40,12 +40,12 @@ namespace RYTNotificationService.API.Data.Repository.Implementation
 
         public async Task<Message> GetMessageById(string id)
         {
-          return  await _context.Messages.FindAsync(id);
-            
-          /*return await _context.Messages
-                .Include(u => u.SenderId)
-                .Include(u => u.RecipientId)
-                .SingleOrDefaultAsync(x => x.Id == id);*/
+            return await _context.Messages.FindAsync(id);
+
+            /*return await _context.Messages
+                  .Include(u => u.SenderId)
+                  .Include(u => u.RecipientId)
+                  .SingleOrDefaultAsync(x => x.Id == id);*/
         }
 
         public async Task<PagedList<MessageDto>> GetMessageForUser(MessageParams messageParams)

@@ -2,7 +2,7 @@
 using RYTNotificationService.API.Helpers;
 using RYTNotificationService.API.Models;
 
-namespace RYTNotificationService.API.Data.Repository.Interfaces
+namespace RYTNotificationService.API.Data.Repositories.Interfaces
 {
     public interface IMessageRepository
     {

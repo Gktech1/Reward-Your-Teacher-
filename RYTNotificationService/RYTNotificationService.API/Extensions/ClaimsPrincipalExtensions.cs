@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 
 namespace RYTNotificationService.API.Extensions
-{
-    public static class ClaimsPrincipalExtensions
+{ 
+    public static class ClaimsPrincipleExtensions
     {
         public static string GetUserName(this ClaimsPrincipal user)
         {
@@ -14,4 +14,5 @@ namespace RYTNotificationService.API.Extensions
             return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty);
         }
     }
+    
 }

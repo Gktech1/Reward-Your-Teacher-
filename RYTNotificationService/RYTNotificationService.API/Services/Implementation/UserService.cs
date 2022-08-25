@@ -15,7 +15,7 @@ namespace RYTNotificationService.API.Services.Implementation
         public async Task<AppUser> GetUserById(string id, string token)
         {
             return await _httpClientService.GetRequestAsync<AppUser>(
-                requestUrl: $"/{id}", null, token
+                 requestUrl: $"/{id}", null, token
             );
         }
 

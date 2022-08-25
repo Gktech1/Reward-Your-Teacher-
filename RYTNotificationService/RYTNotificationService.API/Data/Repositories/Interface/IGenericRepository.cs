@@ -1,4 +1,4 @@
-﻿namespace RYTNotificationService.API.Data.Repository.Interfaces
+﻿namespace RYTNotificationService.API.Data.Repositories.Interface
 {
     public interface IGenericRepository<T> where T : class
     {

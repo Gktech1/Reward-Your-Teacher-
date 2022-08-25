@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Services.Interfaces;
+using System.Net.Http.Headers;
 
 namespace RYTNotificationService.API.Services.Implementation
 {

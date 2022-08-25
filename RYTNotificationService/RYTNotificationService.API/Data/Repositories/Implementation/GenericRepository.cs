@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RYTNotificationService.API.Data.Repository.Interfaces;
+using RYTNotificationService.API.Data.Repositories.Interfaces;
 
-namespace RYTNotificationService.API.Data.Repository.Implementation
+namespace RYTNotificationService.API.Data.Repositories.Implementation
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -33,6 +33,5 @@ namespace RYTNotificationService.API.Data.Repository.Implementation
         {
             _table.Update(data);
         }
-
     }
 }

@@ -1,43 +1,49 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using RYTNotificationService.API.Extensions;
+using Microsoft.AspNetCore.SignalR;
 
 namespace RYTNotificationService.API.SignalR
 {
-    [Authorize]
-    public class PresenceHub : Hub
-    {
-        private readonly PresenceTracker _tracker;
-
-        public PresenceHub(PresenceTracker tracker)
+   
+         [Authorize]
+        public class PresenceHub : Hub
         {
-            _tracker = tracker;
-        }
+            private readonly PresenceTracker _tracker;
 
-        public override async Task OnConnectedAsync()
-        {
-            var isOnline = await _tracker.UserConnected(Context.User.GetUserName(),
+            public PresenceHub(PresenceTracker tracker)
+            {
+                _tracker = tracker;
+            }
+
+            public override async Task OnConnectedAsync()
+            {
+                var isOnline = await _tracker.UserConnected(Context.User.GetUserName(),
                 Context.ConnectionId);
 
             if (isOnline)
-            {
-                await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUserName());
+                {
+                    await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUserName());
+                }
+
+                var currentUsers = await _tracker.GetOnlineUsers();
+                await Clients.Caller.SendCoreAsync("GetOnlineUsers", currentUsers);
             }
 
-            var currentUsers = await _tracker.GetOnlineUsers();
-            await Clients.Caller.SendCoreAsync("GetOnlineUsers", currentUsers);
-        }
-
-        public override async Task OnDisconnectedAsync(Exception exception)
-        {
-            var isOffline = await _tracker.UserDisconnected(Context.User.GetUserName(), Context.ConnectionId);
-
-            if (isOffline)
+            public override async Task OnDisconnectedAsync(Exception exception)
             {
-                await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUserName());
-            }
+                var isOffline = await _tracker.UserDisconnected(Context.User.GetUserName(), Context.ConnectionId);
 
-            await base.OnDisconnectedAsync(exception);
+                if (isOffline)
+                {
+                    await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUserName());
+                }
+
+                await base.OnDisconnectedAsync(exception);
+            }
         }
-    }
+ 
 }
+

@@ -1,0 +1,138 @@
+.container {
+  height: 75rem;
+  box-sizing: border-box;
+}
+
+.container__heading {
+  width: 6.25rem;
+  height: 2.4375rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.4375rem;
+  color: #03435f;
+  position: absolute;
+  left: 300px;
+  top: 136px;
+}
+
+.form-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 3.75rem;
+  gap: 2rem;
+  width: 38.5rem;
+  height: 56.25rem;
+  left: 23.75rem;
+  top: 12.9375rem;
+  background: #ffffff;
+  border: 0.0625rem solid #c4c4c4;
+  position: absolute;
+  left: 300px;
+  top: 207px;
+}
+
+.form-container__heading {
+  width: 13.25rem;
+  height: 1.0625rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  color: #21334f;
+  margin-left: -2px;
+}
+.form-container__info {
+  width: 18.1875rem;
+  height: 1.0625rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  color: #bdbdbd;
+  flex: none;
+  flex-grow: 0;
+  margin-top: -2.5rem;
+  margin-left: -3px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  margin-top: -1.5625rem;
+}
+
+label {
+  width: auto;
+  height: 1.0625rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  color: #21334f;
+  margin-bottom: 0.125rem;
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  width: 31.25rem;
+  height: 2.5rem;
+  background: #ffffff;
+  border: 0.0625rem solid #bdbdbd;
+  margin-bottom: 0.625rem;
+}
+
+.tags {
+  margin-bottom: 0.625rem;
+}
+
+.form-group__tag {
+  width: 9rem;
+  height: 2.5rem;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 3.125rem;
+  margin-right: 0.9375rem;
+  color: #21334f;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  gap: 0.625rem;
+  padding: 0.5rem;
+}
+.btn {
+  box-sizing: border-box;
+
+  width: 500px;
+  height: 50px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25rem;
+
+  color: #ffffff;
+
+  background: #55a630;
+  margin-top: -10px;
+}
+
+input[type="file"] {
+  width: 500px;
+}
+
+.file-container {
+  margin-top: -30px;
+}

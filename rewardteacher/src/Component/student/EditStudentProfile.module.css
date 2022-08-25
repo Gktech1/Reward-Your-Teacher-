@@ -60,17 +60,23 @@ button {
 .pent {
   position: absolute;
   left: 490px;
-  top: calc(50% - 0.5em);
-  font-size: 15px;
+  top: calc(5% - 0.5em);
+  font-size: 20px;
+  width: 1%;
+  height: 120%;
   border-radius: 1.5px;
+  border: none;
 }
 
 .penlightt {
   position: absolute;
   left: 490px;
-  top: calc(50% - 0.5em);
-  font-size: 15px;
+  top: calc(5% - 0.5em);
+  font-size: 20px;
   border-radius: 1.5px;
+  width: 1%;
+  height: 120%;
+  border: none;
 }
 .fieldst {
   width: 500px;

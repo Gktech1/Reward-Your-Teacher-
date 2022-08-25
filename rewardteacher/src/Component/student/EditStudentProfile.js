@@ -16,27 +16,27 @@ export default function EditStudentProfile() {
         <p className={styles.info2t}>First Name</p>
         <div className={styles["input-wrappert"]}>
           <input className={styles.fieldst} type="text"></input>
-          {/* <img className={styles.pent} src={Pen} alt="pencil" /> */}
+          <img className={styles.pent} src={Pen} alt="pencil" />
         </div>
         <p className={styles.info2t}>Last Name</p>
         <div className={styles["input-wrappert"]}>
           <input className={styles.fieldst} type="text"></input>
-          {/* <img className={styles.pent} src={Pen} alt="pencil" /> */}
+          <img className={styles.pent} src={Pen} alt="pencil" />
         </div>
         <p className={styles.info2t}>Phone</p>
         <div className={styles["input-wrappert"]}>
           <input className={styles.fieldst} type="text"></input>
-          {/* <img className={styles.penlightt} src={Penlight} alt="pencil" /> */}
+          <img className={styles.penlightt} src={Penlight} alt="pencil" />
         </div>
         <p className={styles.info2t}>Email</p>
         <div className={styles["input-wrappert"]}>
           <input className={styles.fieldst} type="text"></input>
-          {/* <img className={styles.penlightt} src={Penlight} alt="pencil" /> */}
+          <img className={styles.penlightt} src={Penlight} alt="pencil" />
         </div>
         <p className={styles.info2t}>Name of schools</p>
         <div className={styles["input-wrappert"]}>
           <input className={styles.fieldst} type="text"></input>
-          {/* <img className={styles.penlightt} src={Penlight} alt="pencil"/> */}
+          <img className={styles.penlightt} src={Penlight} alt="pencil"/>
         </div>
         <button className="button">
           <a href=" " className={styles.linkt}>

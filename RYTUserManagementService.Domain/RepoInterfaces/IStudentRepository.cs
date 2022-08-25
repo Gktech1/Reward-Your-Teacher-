@@ -8,7 +8,7 @@ using RYTUserManagementService.Dto;
 
 namespace RYTUserManagementService.Domain.RepoInterfaces
 {
-    public interface IStudentRepository : IGeneralRepository<CreateStudentDto>
+    public interface IStudentRepository : IGenericRepository<CreateStudentDto>
     {
 
     }

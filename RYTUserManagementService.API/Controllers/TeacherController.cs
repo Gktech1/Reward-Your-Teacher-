@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Http;
-=======
 using Microsoft.AspNetCore.Authorization;
->>>>>>> develop
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -19,25 +16,16 @@ namespace RYTUserManagementService.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-<<<<<<< HEAD
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IEmailSender _emailSender;
-
-        public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, UserManager<IdentityUser> userManager, IEmailSender emailSender)
-=======
         private readonly ILogger<TeacherController> _logger;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;
 
         public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<TeacherController> logger, UserManager<IdentityUser> userManager, IEmailSender emailSender)
->>>>>>> develop
+
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-<<<<<<< HEAD
-=======
             _logger = logger;
->>>>>>> develop
             _userManager = userManager;
             _emailSender = emailSender;
         }
@@ -235,23 +223,6 @@ namespace RYTUserManagementService.API.Controllers
                     return NotFound();
                 }
 
-<<<<<<< HEAD
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpPost("[controller]/ForgotPassword")]
-        public async Task<IActionResult> ForgotPassword(ForgotpasswordDto model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-=======
->>>>>>> develop
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackurl = Url.Action("ResetPassword", "Student", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
 
@@ -261,18 +232,12 @@ namespace RYTUserManagementService.API.Controllers
             return Ok();
         }
 
-<<<<<<< HEAD
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [HttpPost("[controller]/ResetPassword")]
-=======
         //[Authorize]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("ResetPassword")]
->>>>>>> develop
+
         public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
         {
             if (ModelState.IsValid)
@@ -292,11 +257,7 @@ namespace RYTUserManagementService.API.Controllers
 
             return Ok();
         }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> develop
     }
 }
 

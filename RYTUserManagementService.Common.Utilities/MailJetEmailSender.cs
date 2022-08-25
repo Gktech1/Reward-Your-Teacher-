@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RYTUserManagementService.Common.Utilities.Services
+namespace RYTUserManagementService.Common.Utilities
 {
     public class MailJetEmailSender : IEmailSender 
     {

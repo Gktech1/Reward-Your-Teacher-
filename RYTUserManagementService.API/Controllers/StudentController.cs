@@ -16,11 +16,17 @@ namespace RYTUserManagementService.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<StudentController> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IEmailSender _emailSender;
 
         public StudentController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<StudentController> logger, UserManager<IdentityUser> userManager, IEmailSender emailSender)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
+            _userManager = userManager;
+            _emailSender = emailSender;
         }
 
 
@@ -252,11 +258,11 @@ namespace RYTUserManagementService.API.Controllers
             return Ok();
         }
 
-        [ProducesResponseType(200)]
+        /*[ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPost("[controller]/ForgotPassword")]
-        public async Task<IActionResult> ForgotPassword(ForgotpasswordDto model)
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto model)
         {
            if(ModelState.IsValid)
            {
@@ -274,9 +280,9 @@ namespace RYTUserManagementService.API.Controllers
 
             return Ok();
         }
+*/
 
-
-        [ProducesResponseType(200)]
+       /* [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [HttpPost("[controller]/ResetPassword")]
@@ -298,7 +304,7 @@ namespace RYTUserManagementService.API.Controllers
             }
 
             return Ok();
-        }
+        }*/
 
     }
     

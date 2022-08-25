@@ -12,11 +12,6 @@ namespace RYTUserManagementService.Models
     [Table(name: "Addresses")]
     public class Address : BaseEntity
     {
-<<<<<<< HEAD
-        public int Id { get; set; }
-        [StringLength(Constants.Max2000Length)]
-=======
->>>>>>> develop
         public string StreetAddress { get; set; }
 
         public string City { get; set; }

@@ -7,11 +7,7 @@ using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Domain
 {
-<<<<<<< HEAD
-    public class UserManagementDbContext : IdentityDbContext<IdentityUser>
-=======
     public class UserManagementDbContext : IdentityDbContext<ApiUser>
->>>>>>> develop
     {
         public UserManagementDbContext(DbContextOptions<UserManagementDbContext> options) : base(options)
         {

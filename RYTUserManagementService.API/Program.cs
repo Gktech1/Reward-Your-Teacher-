@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
 using Microsoft.OpenApi.Models;
 using RYTUserManagementService.API;
->>>>>>> develop
-using RYTUserManagementService.Common.Utilities.Services;
+using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
@@ -78,12 +75,6 @@ builder.Services.ConfigureIdentity();
 builder.Services.AddScoped<ISchoolServices, SchoolServices>();
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
-<<<<<<< HEAD
-builder.Services.AddTransient<IdentityUser, IdentityUser>();
-builder.Services.AddTransient<IEmailSender, MailJetEmailSender>();
-
-builder.Services.AddIdentityCore<IdentityUser> (opt =>
-=======
 builder.Services.AddScoped<AuthManager>();
 
 
@@ -94,7 +85,6 @@ builder.Services.AddTransient<IdentityUser, IdentityUser>();
 builder.Services.AddTransient<IEmailSender, MailJetEmailSender>();
 
 builder.Services.AddIdentityCore<IdentityUser>(opt =>
->>>>>>> develop
 {
     opt.User.RequireUniqueEmail = true;
     opt.Password.RequiredUniqueChars = 2;

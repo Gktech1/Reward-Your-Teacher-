@@ -75,7 +75,7 @@ builder.Services.ConfigureIdentity();
 builder.Services.AddScoped<ISchoolServices, SchoolServices>();
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
-builder.Services.AddTransient<IAuthManager, AuthManager>();
+builder.Services.AddScoped<AuthManager>();
 
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -131,7 +131,8 @@ void AddSwaggerDoc(IServiceCollection services)
     {
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
-            Description = @"",
+            Description = @" JWT Authorization header using bearer scheme, 
+                               enter 'Bearer' forllow by Space and enter your token ",
             Name = "Authorization",
             In = ParameterLocation.Header,
             Type = SecuritySchemeType.ApiKey,
@@ -171,6 +172,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -10,6 +10,8 @@ import { AllSchools } from "./Component/allSchools/AllSchools";
 import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import Student from "./Component/layout/dashboard/Student";
 import SettingsModalCard from "./Component/SettingsModal/SettingsModalCard";
+import LogoutConfirmation from "./Component/LogoutConfirmation/LogoutConfirmation";
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             />
             <Route path="/student-dashboard" element={<Student />} />
             <Route path="/settingsModal" element={<SettingsModalCard />} />
+            <Route path="/logout" element={<LogoutConfirmation />} />
+            <Route path="/studentProfile" element={<Student />} />
           </Routes>
         </Suspense>
       </Router>

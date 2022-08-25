@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using RYTUserManagementService.API;
+using RYTUserManagementService.Common.Utilities.Services;
 using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
@@ -79,6 +81,18 @@ builder.Services.AddTransient<IAuthManager, AuthManager>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddIdentity<ApiUser, IdentityRole>();
+builder.Services.AddTransient<IdentityUser, IdentityUser>();
+builder.Services.AddTransient<IEmailSender, MailJetEmailSender>();
+
+builder.Services.AddIdentityCore<IdentityUser>(opt =>
+{
+    opt.User.RequireUniqueEmail = true;
+    opt.Password.RequiredUniqueChars = 2;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequiredLength = 8;
+}).AddEntityFrameworkStores<UserManagementDbContext>().AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication();
 
 
 

@@ -62,6 +62,23 @@ const MessageContainerBodyRight = styled.div`
     }
 `;
 
+const MessageTextBox = styled.div`
+    display: flex;
+    padding: 1rem;
+    margin-top: 20rem;
+    margin-Bottom: -30px;
+`;
+
+const Send = styled.div`
+   
+    height: 26px;
+    padding: 0.9rem;
+    margin-left: 1rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-buttom: 1rem;
+`;
 
 
-export {MessageContainer, MessageContainerBody, MessageContainerBodyRight}
+
+export {MessageContainer, MessageContainerBody, MessageContainerBodyRight, MessageTextBox, Send}

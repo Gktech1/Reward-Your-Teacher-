@@ -38,6 +38,8 @@ const SettingsBoundary = styled.div`
   margin-top: 5rem;
   margin-left: 35rem;
   padding: 3rem;
+  border: 1px solid white;
+  background-color: white;
 `;
 const Account = styled.div``;
 

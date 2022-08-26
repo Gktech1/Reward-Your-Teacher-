@@ -35,7 +35,7 @@
     margin:40px auto;
 }
 
-button{
+.transaction-button{
     width: 343px;
     height: 44px;
     color: #55A630;

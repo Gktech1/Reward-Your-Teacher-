@@ -18,7 +18,7 @@ function SuccessAlert(){
             </>
         </div>
         <div className={styles["btn"]}>
-          <button>Done</button>
+          <button className ={styles["transaction-button"]}>Done</button>
         </div>
     </div>
         

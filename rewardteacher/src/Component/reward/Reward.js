@@ -6,45 +6,64 @@ function Reward() {
   return (
     <>
       <div className={styles["container"]}>
-        <div className={styles["topbar"]}>
-          <div>
-            <div className={styles["wrapper"]}>
-              <img src={paystack} alt="img" />
-              <h1 className={styles["header"]}>Pay with Paystack</h1>
-              <div className={styles["title"]}>
-                <span className={styles["close"]}>&times;</span>
-              </div>
+        <div className={styles["container__header"]}>
+          <div className={styles["container__header-title"]}>
+            <img
+              src={paystack}
+              alt=""
+              className={styles["container__header-title--image"]}
+            />
+            <p className={styles["container__header-title--text"]}>
+              Pay with Paystack
+            </p>
+          </div>
+        </div>
+        <p className={styles["container__header-close"]}>&#10006;</p>
+        <div className={styles["container__body"]}>
+          <div className={styles["container__body-amount"]}>
+            <p className={styles["container__body-amount--text"]}>Amount</p>
+            <div className={styles["container__body-amount--value"]}>
+              &#8358;20,000
             </div>
           </div>
-        </div>
-        <hr />
-        <h4>Amount</h4>
-        <h1 className={styles["amount"]}>N20,000</h1>
-        <div className={styles["btn"]}>
-          <button className={styles["btnone"]}>PAY WITH CARD</button>
-          <button className={styles["btntwo"]}>PAY WITH BANK</button>
-        </div>
-
-        <form className={styles["form-container"]}>
-          <div className={styles["form-wrapper"]}>
-            <label className={styles["card"]}>Card Number</label>
+          <div className={styles["container__body-payment"]}>
+            <div className={styles["container__body-payment--card"]}>
+              PAY WITH CARD
+            </div>
+            <div className={styles["container__body-payment--bank"]}>
+              PAY WITH BANK
+            </div>
+          </div>
+          <div className={styles["container__body-card-number"]}>
+            <label className={styles["form-label__card-number"]}>Card Number</label>
             <input
               type="text"
+              className={styles["form-control"]}
               placeholder="0000 0000 0000 0000"
-              className={styles["inp"]}
             />
           </div>
-        </form>
-        <div className={styles["containerTwo"]}>
-          <span className={styles["valid"]}>Valid Till</span>
-          <span className={styles["cvv"]}>CVV</span>
-        </div>
-        <div className={styles["inpTwo"]}>
-          <input type="text" placeholder="MM/YY" className={styles["inpOne"]} />
-          <input type="text" placeholder="123" className={styles["inpOne" ]}/>
-        </div>
-        <div className={styles["payBtn"]}>
-          <button className={styles["payBtnOne"]}>Pay NGR 20,000</button>
+          <div className={styles["container__body-card-details"]}>
+            <div className={styles["form-group"]}>
+              <label className={styles["container__body-card-details--label-valid"]}>
+                Valid Till
+              </label>
+              <input
+                type="text"
+                className={styles["container__body-card-details--valid"]}
+                placeholder="MM/YY"
+              />
+            </div>
+            <div className={styles["form-group"]}>
+              <label className={styles["container__body-card-details--label-cvv"]}>CVV</label>
+
+              <input
+                type="text"
+                className={styles["container__body-card-details--cvv"]}
+                placeholder="123"
+              />
+            </div>
+          </div>
+          <button className={styles["container__btn"]}>Pay NGR 20,000</button>
         </div>
       </div>
     </>

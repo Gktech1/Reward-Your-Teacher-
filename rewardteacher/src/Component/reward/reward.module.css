@@ -1,196 +1,265 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 .container {
-  position: absolute;
+  position: relative;
   width: 509px;
   height: 408px;
   background: #ffffff;
-  margin: 80px 400px;
-  border: 1px solid black;
-  box-shadow: #000;
-}
-
-.topbar {
+  margin: 120px auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
-.wrapper {
+.container__header {
   display: flex;
-  justify-content: space-between;
-  margin: 10px;
+  justify-content: space-around;
+  width: 100%;
+  border-bottom: 2px solid #d9d9d9;
+  height: auto;
+  margin-top: 20px;
 }
 
-.title .close {
-  display: block;
-  float: right;
+.container__header-title {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 40px;
+  margin-top: -40px;
 }
-img {
-  margin-right: 20px;
+.container__header-title--image {
+  margin-left: 20px;
+  width: 24px;
+  height: 24.16px;
+  align-self: center;
 }
-.close {
-  position: relative;
-  display: block;
-  float: right;
-  left: 130px;
-  right: 0;
-  top: 0;
-  bottom: 28.16%;
-  color: #000;
-  font-size: large;
-}
-
-hr {
-  border: 1px solid #d9d9d9;
-}
-
-.header {
+.container__header-title--text {
+  margin-left: 10px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 19px;
+  align-self: center;
   color: #03435f;
 }
 
-h4 {
+.container__header-close {
+  position: absolute;
+  right: 33px;
+  top: 1px;
+  bottom: 19px;
+}
+
+.container__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.container__body-amount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.container__body-amount--text {
+  width: 52px;
+  height: 17px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #979797;
-  text-align: center;
-  padding: 10px;
+  margin-left: 30px;
 }
-.amount {
+
+.container__body-amount--value {
+  width: 120px;
+  height: 29px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   color: #03435f;
-  text-align: center;
+  display: inline;
 }
 
-.btn {
+.container__body-payment {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.container__body-payment--card {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  gap: 10px;
-}
-
-.btnone {
-  width: 160px;
-  height: 37px;
-  left: 76px;
-  top: 130px;
-  background: #80b918;
-  border: 1px solid #80b918;
-}
-
-.btnone {
+  background: #55a630;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
   color: #ffffff;
-}
-
-.btntwo {
   width: 160px;
-  height: 37px;
-  left: 236px;
-  top: 130px;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid #bdbdbd;
+  height: 17px;
 }
 
-.btntwo {
+.container__body-payment--bank {
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.03);
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
   color: #bdbdbd;
+  width: 160px;
+  height: 17px;
 }
-
-.form-container {
+.container__body-card-number {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
-.form-wrapper .card {
+.form-label__card-number {
+  width: 100%;
+  position: absolute;
+  width: auto;
+  height: 15px;
+  left: 15px;
+  top: -7px;
+  background: #fff;
+
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: #21334f;
 }
 
-.inp {
-  width: 340px;
+.form-control {
+  padding: 8px 16px;
+  gap: 10px;
+  width: 360px;
   height: 48px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
 }
 
-input[type="text"]::placeholder {
+.form-control::placeholder {
+  width: 100%;
+  text-align: left;
+  width: 131px;
+  height: 15px;
+
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #c4c4c4;
-  margin-left: 4rem;
-  padding-left: 20px;
 }
-
-.containerTwo {
+.container__body-card-details {
   display: flex;
   justify-content: center;
-  justify-content: space-evenly;
+  align-items: center;
+  gap: 54px;
+}
+
+.container__body-card-details--valid {
+  padding: 8px 16px;
+  gap: 10px;
+  width: 153px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+}
+.container__body-card-details--cvv {
+  padding: 8px 16px;
+  gap: 10px;
+  width: 153px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+}
+.container__body-card-details input::placeholder {
+  width: 100%;
+  text-align: left;
+  width: 131px;
+  height: 15px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #c4c4c4;
+}
+
+.form-group {
+  position: relative;
+}
+
+.container__body-card-details--label-valid {
+  position: absolute;
+  width: 48px;
+  height: 15px;
+  left: 15px;
+  top: -5px;
+  background: #fff;
+
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #21334f;
-  margin: 10px;
 }
 
-.valid {
-  position: relative;
-  left: 7rem;
+.container__body-card-details--label-cvv {
+  position: absolute;
+  width: auto;
+  height: 15px;
+  left: 15px;
+  top: -5px;
+  background: #fff;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #21334f;
 }
 
-.cvv {
-  position: relative;
-  right: 250px;
-  margin-bottom: -10px;
-}
-
-.inpTwo {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.inpOne {
+.container__btn {
+  width: 100%;
+  padding: 8px 16px;
   height: 48px;
-  background: #ffffff;
-  border: 1px solid #d9d9d9;
-  width: 168px;
-}
-
-.payBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.payBtnOne {
-  width: 350px;
-  height: 48px;
-  background: #80b918;
-  border: 1px solid #80b918;
-  margin: 20px;
+  margin-top: 20px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 12px;
+  line-height: 15px;
   color: #ffffff;
+  border: none;
+  background: #55a630;
 }
-
- input {
-  display: block;
-} 

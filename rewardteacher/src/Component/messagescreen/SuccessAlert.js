@@ -1,29 +1,23 @@
-import React from 'react';  
+import React from "react";
 import check from "../../assets/check.svg";
-import styles from "../../../src/Component/messagescreen/SuccessAlert.module.css"
+import styles from "./SuccessAlert.module.css";
 
-
-function SuccessAlert(){
-    return (
+function SuccessAlert() {
+  return (
     <div className={styles.container}>
-        <div className={styles["image"]}>
-            <img src={check} alt="" />
-        </div>
-        <div className={styles["text"]}>
-          <h1>Reward Sent Successfully</h1>
-        </div>
-        <div className={styles["message"]}>
-            <>You just sent <strong>15,000</strong> to{" "}
-            <strong>Chioma <br/>Awoniyi</strong>
-            </>
-        </div>
-        <div className={styles["btn"]}>
-          <button className ={styles["transaction-button"]}>Done</button>
-        </div>
+      <div className={styles["container__img"]}>
+        <img src={check} alt="" />
+      </div>
+      <div className={styles["container__heading"]}>
+        <h1 className={styles["container__heading-text"]}>Reward Sent Successfully</h1>
+        <p className={styles["container__heading-message"]}>
+          You just sent <span className={styles["tag"]}> &#8358;15,000</span>
+          to <span className={styles["tag"]}>Chioma Awoniyi</span>
+        </p>
+      </div>
+      <button className={styles["container__btn"]}>Done</button>
     </div>
-        
-      
-    );
+  );
 }
 
 export default SuccessAlert;

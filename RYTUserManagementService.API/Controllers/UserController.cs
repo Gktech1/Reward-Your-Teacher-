@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RYTUserManagementService.Core.ServiceImplementations;
@@ -8,6 +10,7 @@ using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
+using System.Text;
 
 namespace RYTUserManagementService.API.Controllers
 {
@@ -19,6 +22,7 @@ namespace RYTUserManagementService.API.Controllers
         private readonly SignInManager<ApiUser> _signInManager;
         private readonly ILogger<UserController> _logger;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
         private readonly AuthManager _authManager;
 
         public UserController(
@@ -26,12 +30,14 @@ namespace RYTUserManagementService.API.Controllers
                 SignInManager<ApiUser> signInManager,
                 ILogger<UserController> logger,
                 IMapper mapper,
+                IEmailSender emailSender,
                 AuthManager authManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _mapper = mapper;
+            _emailSender = emailSender;
             _authManager = authManager;
         }
 
@@ -248,6 +254,67 @@ namespace RYTUserManagementService.API.Controllers
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
         }
+
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto model)
+        {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                var callbackurl = Url.Action("ResetPassword", "User", new { userId = user.Id, code = token }, protocol: HttpContext.Request.Scheme);
+
+                await _emailSender.SendEmailAsync(model.Email, "Reset Password - Identity Manager", "Please reset your password by clicking here: <a href=\"" + callbackurl + "\">link</a>");
+                return Ok("Check your email to reset your password");
+        }
+      
+
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto model, string Id)
+        {
+
+            var errorResult = new StringBuilder();
+            if (ModelState.IsValid)
+            {
+                
+                var user = await _userManager.FindByIdAsync(Id);
+                if (user == null)
+                {
+                    return NotFound();
+
+
+                }
+
+                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                if (result.Succeeded)
+                {
+                    return Ok("Password Reset Successfully");
+                }
+
+                if (!result.Succeeded)//return -succeess
+
+                    foreach (var item in result.Errors)
+                    {
+                        errorResult.AppendLine(item.Description);
+                    }
+                   
+
+            }
+
+            return BadRequest(errorResult.ToString());
+        }
+
 
         /// <summary>
         /// 

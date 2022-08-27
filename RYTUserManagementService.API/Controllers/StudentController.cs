@@ -17,10 +17,10 @@ namespace RYTUserManagementService.API.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<StudentController> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApiUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public StudentController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<StudentController> logger, UserManager<IdentityUser> userManager, IEmailSender emailSender)
+        public StudentController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<StudentController> logger, UserManager<ApiUser> userManager, IEmailSender emailSender)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -208,55 +208,34 @@ namespace RYTUserManagementService.API.Controllers
                        
         }
 
-        [Authorize]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpPost("ForgotPassword")]
-        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var callbackurl = Url.Action("ResetPassword", "Student", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-
-                await _emailSender.SendEmailAsync(model.Email, "Reset Password - Identity Manager", "Please reset your password" + callbackurl);
-            }
-
-            return Ok();
-        }
+        
 
 
-        [Authorize]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpPost("ResetPassword")]
-        public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    return NotFound();
-                }
 
-                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-                if (result.Succeeded)
-                {
-                    return Ok("Password Reset Successfully");
-                }
-            }
+        //[Authorize]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[HttpPost("ResetPassword")]
+        //public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await _userManager.FindByEmailAsync(model.Email);
+        //        if (user == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-            return Ok();
-        }
+        //        var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            return Ok("Password Reset Successfully");
+        //        }
+        //    }
+
+        //    return Ok();
+        //}
 
         /*[ProducesResponseType(200)]
         [ProducesResponseType(400)]

@@ -11,12 +11,11 @@ namespace RYTUserManagementService.Dto
     public class ResetPasswordDto
     {
 
-       // public string Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "password")]
-        [Compare("Password")]
         public string Password { get; set; }
 
         public string Token { get; set; }

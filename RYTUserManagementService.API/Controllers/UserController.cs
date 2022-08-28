@@ -269,31 +269,27 @@ namespace RYTUserManagementService.API.Controllers
 
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-                var callbackurl = Url.Action("ResetPassword", "User", new { userId = user.Id, code = token }, protocol: HttpContext.Request.Scheme);
+                var callbackurl = Url.Action("ResetPassword", "User", new { userId = user.Id, token = token }, protocol: HttpContext.Request.Scheme);
 
                 await _emailSender.SendEmailAsync(model.Email, "Reset Password - Identity Manager", "Please reset your password by clicking here: <a href=\"" + callbackurl + "\">link</a>");
                 return Ok("Check your email to reset your password");
         }
       
 
-        [Authorize]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("ResetPassword")]
-        public async Task<IActionResult> ResetPassword(ResetPasswordDto model, string Id)
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
         {
 
             var errorResult = new StringBuilder();
             if (ModelState.IsValid)
-            {
-                
-                var user = await _userManager.FindByIdAsync(Id);
+            {   
+                var user = await _userManager.FindByIdAsync(model.Id);
                 if (user == null)
                 {
                     return NotFound();
-
-
                 }
 
                 var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
@@ -302,14 +298,10 @@ namespace RYTUserManagementService.API.Controllers
                     return Ok("Password Reset Successfully");
                 }
 
-                if (!result.Succeeded)//return -succeess
-
-                    foreach (var item in result.Errors)
-                    {
-                        errorResult.AppendLine(item.Description);
-                    }
-                   
-
+                foreach (var item in result.Errors)
+                {
+                     errorResult.AppendLine(item.Description);
+                }     
             }
 
             return BadRequest(errorResult.ToString());

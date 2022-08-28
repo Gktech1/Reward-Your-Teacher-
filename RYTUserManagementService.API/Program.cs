@@ -1,7 +1,10 @@
+using Mailjet.Client.Resources;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using RYTUserManagementService.API;
+using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
@@ -77,7 +80,20 @@ builder.Services.AddScoped<AuthManager>();
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddIdentity<ApiUser, IdentityRole>();
+builder.Services.AddIdentity<ApiUser, IdentityRole>().AddEntityFrameworkStores<UserManagementDbContext>().AddDefaultTokenProviders();
+builder.Services.AddTransient<IEmailSender, MailJetEmailSender>();
+
+//builder.Services.AddIdentityCore<IdentityUser>(opt =>
+//{
+//    opt.User.RequireUniqueEmail = true;
+//    opt.Password.RequiredUniqueChars = 2;
+//    opt.Password.RequireUppercase = true;
+//    opt.Password.RequiredLength = 8;
+//}).AddEntityFrameworkStores<UserManagementDbContext>()
+//.AddDefaultTokenProviders();
+//.AddTokenProvider(default, typeof(ApiUserTokenProvider<ApiUser>));
+
+builder.Services.AddAuthentication();
 
 
 

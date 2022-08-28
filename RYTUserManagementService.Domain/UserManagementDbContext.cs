@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Domain.Configurations.Entities;
@@ -29,6 +30,10 @@ namespace RYTUserManagementService.Domain
         public DbSet<Address> Addresses { get; set; }
 
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Student>().HasNoKey();
+        //}
     }
 
 }

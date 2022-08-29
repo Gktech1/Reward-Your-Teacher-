@@ -4,6 +4,7 @@ using AutoMapper;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Services.Interfaces;
+using RYTNotificationService.API.Helpers;
 
 namespace RYTNotificationService.API.Controllers
 {
@@ -25,6 +26,15 @@ namespace RYTNotificationService.API.Controllers
             _userservice = userservice;
 
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetNotificationByUserId([FromQuery] MessageParamsId param)
+        {
+            var result = await _notificationServices.GetNotificationByUserIdAsync(param);
+            return Ok(result);
+        }
+
         [HttpPatch("{NotificationId}/{RecipientId}")]
         public async Task<IActionResult> MarkNotificationRead(string NotificationId, string RecipientId)
         {

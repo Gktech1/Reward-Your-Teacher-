@@ -14,6 +14,7 @@ namespace RYTNotificationService.API.Data.Repositories.Interfaces
         Task<Notification> GetNotificationById(string id);
         Task<PagedList<NotificationDto>> GetNotificationForUser(NotificationParams notificationParams);
         Task<IEnumerable<NotificationDto>> GetNotificationThread(string currentUserName, string recipientUserName);
+        Task<PagedList<NotificationDto>> GetNotificationByUserId(MessageParamsId messageParams);
         Task<bool> Complete();
     }
 }

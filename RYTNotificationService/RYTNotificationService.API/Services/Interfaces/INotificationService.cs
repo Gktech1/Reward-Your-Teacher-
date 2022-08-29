@@ -1,4 +1,5 @@
 ﻿using RYTNotificationService.API.DTOs;
+using RYTNotificationService.API.Helpers;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Implementation;
 
@@ -12,8 +13,9 @@ namespace RYTNotificationService.API.Services.Interfaces
         void CreateNotification(Notification notification);
         Task<Notification> GetNotificationById(string id);
         Task<IEnumerable<NotificationDto>> GetNotificationResult(string currentUserName, string recipientUserName);
-     
-        
+
+        Task<Response<PagedList<NotificationDto>>> GetNotificationByUserIdAsync(MessageParamsId messageParams);
+
         Task<bool> Saved();
     }
 }

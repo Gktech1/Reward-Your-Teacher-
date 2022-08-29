@@ -19,6 +19,19 @@ namespace RYTNotificationService.API.Repositories.Implementation
             _mapper = mapper;
 
         }
+
+        public async Task<PagedList<NotificationDto>> GetNotificationByUserId(MessageParamsId messageParams)
+        {
+            var query = _context.Notifications
+                .OrderByDescending(m => m.NoticeSent)
+                .ProjectTo<NotificationDto>(_mapper.ConfigurationProvider)
+                .AsQueryable();
+
+            query = query.Where(u => u.RecipientId == messageParams.UserId && u.RecipientDeleted == false);
+
+            return await PagedList<NotificationDto>.CreateAsync(query, messageParams.PageNumber, messageParams.PageSize);
+        }
+
         public void RemoveConnection(Connection connection)
         {
             _context.Connections.Remove(connection);

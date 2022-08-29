@@ -9,6 +9,7 @@ using RYTNotificationService.API.SignalR;
 using System.Text.Json;
 using System.Threading.Channels;
 using AutoMapper;
+using RYTNotificationService.API.Helpers;
 
 namespace RYTNotificationService.API.Services.Implementation
 {
@@ -29,6 +30,16 @@ namespace RYTNotificationService.API.Services.Implementation
         {
            return await _notificationRepository.MarkReadNotifications(NotificationId, RecieverId);  
         }
+
+        public async Task<Response<PagedList<NotificationDto>>> GetNotificationByUserIdAsync(MessageParamsId messageParams)
+        {
+            if (messageParams.UserId == null)
+                return new Response<PagedList<NotificationDto>> { Data = null, Message = "UserId cannot be empty", Success = false };
+
+            var notifications = await _notificationRepository.GetNotificationByUserId(messageParams);
+            return new Response<PagedList<NotificationDto>> { Data = notifications, Message = "Notification found", Success = true };
+        }
+
         public async Task<Notification> GetNotificationById(string id)
         {
             return await _notificationRepository.GetNotificationById(id);

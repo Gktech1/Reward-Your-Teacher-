@@ -1,4 +1,4 @@
-﻿    using RYTNotificationService.API.Data.Repository.Interfaces;
+﻿using RYTNotificationService.API.Data.Repositories.Interfaces;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;

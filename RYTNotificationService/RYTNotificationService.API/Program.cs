@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.EntityFrameworkCore;
 using RYTNotificationService.API;
 using RYTNotificationService.API.Data;
-using RYTNotificationService.API.Data.Repository.Interfaces;
 using RYTNotificationService.API.Extensions;
 using RYTNotificationService.API.Services.Implementation;
 using RYTNotificationService.API.SignalR;
@@ -32,6 +31,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
 //builder.Services.AddScoped<IGenericRepository<T>, GenericRepository<T>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 //builder.Services.AddAuthentication();
@@ -39,6 +39,7 @@ builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 
 //builder.Services.AddAuthentication();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -48,7 +49,11 @@ builder.Services.AddSignalR();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddHttpClient<IHttpClientService, HttpClientService>();
+builder.Services.AddTransient<IHttpClientService, HttpClientService>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
+//builder.Services.AddScoped<IGenericRepository, GenericRepository>();
 builder.Services.AddAuthentication();  
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();

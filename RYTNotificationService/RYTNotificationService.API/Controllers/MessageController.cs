@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RYTNotificationService.API.Data.Repository.Interfaces;
+using RYTNotificationService.API.Data.Repositories.Interfaces;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;

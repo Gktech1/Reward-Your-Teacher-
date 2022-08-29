@@ -8,6 +8,7 @@ namespace RYTNotificationService.API.Data.Repositories.Interfaces
     {
         void RemoveConnection(Connection connection);
         Task<Connection> GetConnection(string connectionId);
+        Task<Response<bool>> MarkReadNotifications(string NotificationId, string RecieverId);
         void AddNotification(Notification notification);
         void DeleteNotification(Notification notification);
         Task<Notification> GetNotificationById(string id);

@@ -6,6 +6,7 @@ using MailKit.Security;
 
 using Microsoft.Extensions.Options;
 using MimeKit;
+using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using System.IO;
 using System.Threading.Tasks;
@@ -59,11 +60,6 @@ namespace RYTNotificationService.API.Services.Implementation
             {
                 return new Response<bool> { Data = false, Message = "Email was not sent", Success = false };
             }
-
-
-
-
-
         }
     }
 }

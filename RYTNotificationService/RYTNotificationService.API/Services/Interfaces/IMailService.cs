@@ -1,4 +1,5 @@
 ﻿using EmailSenders.Entity;
+using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using System.Threading.Tasks;
 

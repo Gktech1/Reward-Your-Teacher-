@@ -34,20 +34,6 @@ namespace RYTNotificationService.API.Controllers
             if (username == createMessageDto.RecipientUserName.ToLower())
                 return BadRequest("You can not sent message to yourself");
 
-            // var sender = await _userService.GetUserByUsername(username, token);
-            //var recipient = await _userService.GetUserByUsername(createMessageDto.RecipientUserName, token);
-
-            //if (recipient == null) return NotFound();
-
-            /*var message = new Message
-            {
-                SenderId = sender.Id,
-                RecipientId = recipient.Id,
-                SenderUserName = sender.UserName,
-                RecipientUserName = recipient.UserName,
-                Content = createMessageDto.content
-            };*/
-
             var message = new Message()
             {
                 SenderId = "23",

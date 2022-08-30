@@ -22,8 +22,8 @@ namespace RYTUserManagementService.Models
 
         public virtual ICollection<School> School { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
+
         public DateTime UpdatedAt { get; set; }
 
         public string Address { get; set; }

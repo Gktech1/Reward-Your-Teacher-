@@ -2,9 +2,9 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RYTUserManagementService.Domain;
 
 #nullable disable
@@ -12,63 +12,62 @@ using RYTUserManagementService.Domain;
 namespace RYTUserManagementService.Domain.Migrations
 {
     [DbContext(typeof(UserManagementDbContext))]
-    [Migration("20220825223057_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220830195558_postgreslMigration")]
+    partial class postgreslMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.7")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "0eedc213-cfa5-490b-923b-b97d1cf04f8f",
-                            ConcurrencyStamp = "a87cf655-ce97-4f49-9491-d1516f2ff457",
+                            Id = "664064fb-e437-4e09-8429-f8a6c3a485a7",
+                            ConcurrencyStamp = "5e20ea34-cf27-4c1c-9e24-85119bcb6fa6",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "ce1b06af-a004-46e9-b894-96388087ada1",
-                            ConcurrencyStamp = "20eab9f8-ba90-444f-98b3-b7ed4071ed6e",
+                            Id = "4eecd988-7ca5-480d-b949-0ba42a442d13",
+                            ConcurrencyStamp = "f321c11c-a07e-410c-9918-90a604c46bc7",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "c5548c38-1cab-42fa-8e94-f674eef3c304",
-                            ConcurrencyStamp = "5106d1d5-1c77-4d5d-b0bf-b20d0eca5136",
+                            Id = "c041d0fd-0651-4696-84b5-f454b1fd9c91",
+                            ConcurrencyStamp = "4f31c9ff-4e8c-4862-aba6-a899013c51a8",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -78,19 +77,19 @@ namespace RYTUserManagementService.Domain.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -103,19 +102,19 @@ namespace RYTUserManagementService.Domain.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -127,17 +126,17 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -149,10 +148,10 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -164,16 +163,16 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -183,43 +182,43 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("RYTUserManagementService.Models.Address", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<double>("Latitude")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<double>("Longitude")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<string>("State")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("StreetAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -228,10 +227,10 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ded1c454-3674-4440-a002-7bfa91dea8b2",
+                            Id = "a7dd2ab0-289c-11ed-a261-0242ac120002",
                             City = "Benin",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8668),
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5798),
                             CreatedBy = "Dami",
                             Latitude = 4.5646573999999998,
                             Longitude = 9.0,
@@ -242,10 +241,10 @@ namespace RYTUserManagementService.Domain.Migrations
                         },
                         new
                         {
-                            Id = "430d6663-70b5-437a-855c-9f31a615477c",
+                            Id = "b01430ca-289c-11ed-a261-0242ac120002",
                             City = "Lagos",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8673),
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(6092),
                             CreatedBy = "Dami",
                             Latitude = 4.5646764657399999,
                             Longitude = 9.5600645699999998,
@@ -259,62 +258,62 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("RYTUserManagementService.Models.ApiUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -323,8 +322,7 @@ namespace RYTUserManagementService.Domain.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -332,34 +330,34 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("RYTUserManagementService.Models.School", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("AddressId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Logo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SchoolName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -370,24 +368,26 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3dcfce88-4bcd-433f-a30c-61c1b408a611",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8606),
+                            Id = "11f09734-289d-11ed-a261-0242ac120002",
+                            AddressId = "a7dd2ab0-289c-11ed-a261-0242ac120002",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5655),
                             CreatedBy = "Dami",
                             Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                             SchoolName = "Decagon Institute Edo",
                             Type = 1,
-                            UpdatedAt = new DateTime(2022, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdatedAt = new DateTime(2022, 8, 30, 0, 0, 0, 0, DateTimeKind.Local),
                             UpdatedBy = "Dami"
                         },
                         new
                         {
-                            Id = "21e8e520-a566-48c0-a78a-a65fbe8e4502",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8613),
+                            Id = "21addd9e-289d-11ed-a261-0242ac120002",
+                            AddressId = "b01430ca-289c-11ed-a261-0242ac120002",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5662),
                             CreatedBy = "Dami",
                             Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                             SchoolName = "Decagon Institute Lagos",
                             Type = 1,
-                            UpdatedAt = new DateTime(2022, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdatedAt = new DateTime(2022, 8, 30, 0, 0, 0, 0, DateTimeKind.Local),
                             UpdatedBy = "Dami"
                         });
                 });
@@ -395,88 +395,88 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("RYTUserManagementService.Models.Student", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("About")
                         .IsRequired()
                         .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
+                        .HasColumnType("character varying(2000)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("ProfileUrl")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("StudentId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Title")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -487,19 +487,19 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3de65632-9748-4770-9712-f984a3da2a66",
+                            Id = "0e3f2aac-8c53-4ffb-aa41-aac9309cad0f",
                             About = "I am a student",
                             AccessFailedCount = 0,
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            ConcurrencyStamp = "06ba3f28-522e-451f-a65e-e090fd9b1199",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8531),
+                            ConcurrencyStamp = "75aa5c65-16c2-412d-8c28-7a26d1847aa7",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5349),
                             CreatedBy = "Dami",
                             EmailConfirmed = false,
                             FullName = "Jegede Moses",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SecurityStamp = "6a4616c4-3921-4d98-a956-a04fe65414eb",
+                            SecurityStamp = "58b9d0f7-4436-4a5d-8d63-8493c56df3a6",
                             Title = 0,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -507,19 +507,19 @@ namespace RYTUserManagementService.Domain.Migrations
                         },
                         new
                         {
-                            Id = "3ba67af3-84c5-49c7-9736-fc077e108cfd",
+                            Id = "6a02dd68-b2dc-4dd3-b247-4dfb43e44aaa",
                             About = "I am a student",
                             AccessFailedCount = 0,
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            ConcurrencyStamp = "347172fc-bc41-41e1-9eb9-da6998819f72",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8544),
+                            ConcurrencyStamp = "802894ce-b798-48fb-89fc-35c512246d87",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5375),
                             CreatedBy = "Dami",
                             EmailConfirmed = false,
                             FullName = "Jegede Esther",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SecurityStamp = "8717d324-0f7a-4ba9-a0bd-252cf96f0d48",
+                            SecurityStamp = "8241ccdf-0677-4f85-b55b-2dbca6e7af2e",
                             Title = 1,
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -530,96 +530,96 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("RYTUserManagementService.Models.Teacher", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("About")
                         .IsRequired()
                         .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
+                        .HasColumnType("character varying(2000)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime?>("EndYear")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("ProfileUrl")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("StartYear")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Title")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("UpdateAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -628,12 +628,12 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e4c707ad-088f-4f64-b3b0-9fdb34faaaf6",
+                            Id = "7e3e8d5d-f8f4-4eaf-b5e4-8343c536103b",
                             About = "I am A Teacher",
                             AccessFailedCount = 0,
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            ConcurrencyStamp = "f75ace41-b80f-431b-88e0-1962615aede5",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8358),
+                            ConcurrencyStamp = "451e7369-af09-49e6-9b2d-cfa4a43fc2ef",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(4969),
                             CreatedBy = "Dami",
                             EmailConfirmed = false,
                             FullName = "Ayooluwa Moses",
@@ -641,7 +641,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             Position = "HeadSA",
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SecurityStamp = "45ecfebe-ea33-4d00-b457-23183da23765",
+                            SecurityStamp = "89957c93-7558-4e89-8244-3316f0ff6d5d",
                             StartYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = 3,
                             TwoFactorEnabled = false,
@@ -650,12 +650,12 @@ namespace RYTUserManagementService.Domain.Migrations
                         },
                         new
                         {
-                            Id = "466ffffa-9c31-4160-8357-0e1c77615aeb",
+                            Id = "b9c635ff-e89c-43dd-8cc4-517d66b2052b",
                             About = "I am A Teacher",
                             AccessFailedCount = 0,
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            ConcurrencyStamp = "aa3b4992-51ea-4854-825d-b17fd8b8d95c",
-                            CreatedAt = new DateTime(2022, 8, 25, 23, 30, 57, 504, DateTimeKind.Local).AddTicks(8380),
+                            ConcurrencyStamp = "8fbb6076-702b-4b28-9132-30fe3e37310d",
+                            CreatedAt = new DateTime(2022, 8, 30, 20, 55, 57, 847, DateTimeKind.Local).AddTicks(5012),
                             CreatedBy = "Dami",
                             EmailConfirmed = false,
                             FullName = "Tijani Moses",
@@ -663,7 +663,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             Position = "HeadSA",
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SecurityStamp = "83bd71c1-52da-4ccf-9ed3-63e5f23dc9e5",
+                            SecurityStamp = "90f55c68-571d-42ac-aafa-61e2ec4702e8",
                             StartYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = 4,
                             TwoFactorEnabled = false,
@@ -675,10 +675,10 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("SchoolStudent", b =>
                 {
                     b.Property<string>("SchoolId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("StudentsId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("SchoolId", "StudentsId");
 
@@ -690,10 +690,10 @@ namespace RYTUserManagementService.Domain.Migrations
             modelBuilder.Entity("SchoolTeacher", b =>
                 {
                     b.Property<string>("SchoolId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("TeachersId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("SchoolId", "TeachersId");
 

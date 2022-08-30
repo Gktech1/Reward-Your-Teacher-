@@ -28,7 +28,7 @@ namespace RYTUserManagementService.Models
 
         public virtual IEnumerable<School> School { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 
         public DateTime UpdateAt { get; set; }
 

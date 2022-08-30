@@ -41,15 +41,13 @@ namespace RYTNotificationService.API.Controllers
         [HttpGet("GetMessage{id}")]
         public async Task<ActionResult<MessageDto>> GetChatMessage(string id)
         {
-            if (!ModelState.IsValid)
-            {
-                return Ok("Failed to get message");
-            }
+            /*if (!ModelState.IsValid)
+                return BadRequest();*/
+            
             var message =await _messageService.GetMessageById(id);
-
-
-           // return Ok(message);
-           return Ok(_mapper.Map<MessageDto>(message));
+           if (message.Success)
+                return Ok(message.Data);
+            return BadRequest(message);
         }
     }
 }

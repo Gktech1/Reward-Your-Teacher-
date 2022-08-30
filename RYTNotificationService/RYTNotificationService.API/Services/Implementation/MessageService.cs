@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 ﻿using RYTNotificationService.API.Data.Repositories.Interfaces;
-=======
+
 ﻿using AutoMapper;
 using RYTNotificationService.API.Data.Repositories.Interfaces;
 
->>>>>>> updated-Message-Notifications-Controller
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;
@@ -39,17 +38,27 @@ namespace RYTNotificationService.API.Services.Implementation
 
         public async Task<Response<Message>> GetMessageById(string id)
         {
+            /* 
+            For review, Try Catch didn't return the required response 
             var response = new Response<Message>();
-            try
-            {
-                response.Data = await _messageRepository.GetMessageById(id);
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.Message = ex.Message;
-            }
-            return response;
+             try
+             {
+                 response.Data = await _messageRepository.GetMessageById(id);
+                 response.Success = true;
+                 response.Message = "Message Retrieved Successfully";
+             }
+             catch (Exception ex)
+             {
+                 response.Message = ex.Message;
+             }
+             return response;*/
+
+            var message = await _messageRepository.GetMessageById(id);
+            if (message == null)
+                return new Response<Message> { Message = "This Notification cannot be found", Data = null, Success = false };
+
+            return new Response<Message> { Message = "Notification is now read", Success = true, Data = message};
+
         }
 
         public async Task<Response<IEnumerable<MessageDto>>> GetNotificationResult

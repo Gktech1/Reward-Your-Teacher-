@@ -19,7 +19,7 @@ namespace RYTNotificationService.API.Repositories.Implementation
             _mapper = mapper;
 
         }
-<<<<<<< HEAD
+
 
         public async Task<PagedList<NotificationDto>> GetNotificationByUserId(MessageParamsId messageParams)
         {
@@ -33,8 +33,7 @@ namespace RYTNotificationService.API.Repositories.Implementation
             return await PagedList<NotificationDto>.CreateAsync(query, messageParams.PageNumber, messageParams.PageSize);
         }
 
-=======
->>>>>>> updated-Message-Notifications-Controller
+
         public void RemoveConnection(Connection connection)
         {
             _context.Connections.Remove(connection);
@@ -45,30 +44,12 @@ namespace RYTNotificationService.API.Repositories.Implementation
             return await _context.Connections.FindAsync(connectionId);
         }
 
-<<<<<<< HEAD
-        public async Task<Response<bool>> MarkReadNotifications(string NotificationId, string RecieverId)
+        public async Task<Notification> MarkReadNotifications(string NotificationId, string RecieverId)
         {
-            if (string.IsNullOrWhiteSpace(NotificationId) || string.IsNullOrWhiteSpace(RecieverId))
-                return new Response<bool> { Data = false, Success = false, Message = "This notification id is invalid" };
-
-            var Marked = await _context.Notifications.FirstOrDefaultAsync(x => x.Id == NotificationId && x.RecipientId == RecieverId);
-            if (Marked == null)
-                return new Response<bool> { Success = false, Message = "Notification cannot be found", Data = false };
-
-            if (Marked.IsRead == true)
-                return new Response<bool> { Success = true, Message = "Message is Read", Data = true };
-
-            new Notification
-            {
-                Id = NotificationId,
-                RecipientId = RecieverId,
-                IsRead = true,
-                DateRead = DateTime.Now,
-            };
-            return new Response<bool> { Data = true, Message = "Message is now Read", Success = true };
+            return await _context.Notifications.FirstOrDefaultAsync(x => x.Id == NotificationId && x.RecipientId == RecieverId);
         }
-=======
->>>>>>> updated-Message-Notifications-Controller
+
+ 
         public void AddNotification(Notification notification)
         {
             _context.Add(notification);
@@ -84,11 +65,10 @@ namespace RYTNotificationService.API.Repositories.Implementation
             return await _context.Notifications
                 .Include(u => u.SenderId)
                 .Include(u => u.RecipientId)
-<<<<<<< HEAD
                 .SingleOrDefaultAsync(u => u.Id == id);
-=======
-                .SingleOrDefaultAsync(x => x.Id == id);
->>>>>>> updated-Message-Notifications-Controller
+
+         
+
         }
 
         public async Task<PagedList<NotificationDto>> GetNotificationForUser(NotificationParams notificationParams)

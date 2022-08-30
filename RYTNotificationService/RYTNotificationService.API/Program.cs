@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.EntityFrameworkCore;
 using RYTNotificationService.API;
 using RYTNotificationService.API.Data;
+<<<<<<< HEAD
+=======
+
+>>>>>>> updated-Message-Notifications-Controller
 using RYTNotificationService.API.Extensions;
 using RYTNotificationService.API.Services.Implementation;
 using RYTNotificationService.API.SignalR;
@@ -31,17 +35,26 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IUserService, UserService>();
+<<<<<<< HEAD
 
+=======
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IHttpClientService, HttpClientService>();
+>>>>>>> updated-Message-Notifications-Controller
 //builder.Services.AddScoped<IGenericRepository<T>, GenericRepository<T>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 //builder.Services.AddAuthentication();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+<<<<<<< HEAD
 //builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
 
+=======
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+>>>>>>> updated-Message-Notifications-Controller
 
 //builder.Services.AddAuthentication();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -49,6 +62,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddAutoMapper(typeof(Program));
+<<<<<<< HEAD
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddHttpClient<IHttpClientService, HttpClientService>();
@@ -56,6 +70,12 @@ builder.Services.AddTransient<IHttpClientService, HttpClientService>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 //builder.Services.AddScoped<IGenericRepository, GenericRepository>();
+=======
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
+
+>>>>>>> updated-Message-Notifications-Controller
 builder.Services.AddAuthentication();  
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();

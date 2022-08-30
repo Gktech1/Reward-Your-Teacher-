@@ -9,7 +9,11 @@ namespace RYTNotificationService.API.Helpers
         public AutoMapperProfile()
         {
             CreateMap<Message, MessageDto>().ReverseMap();
+<<<<<<< HEAD
             CreateMap<Notification, NotificationDto>();
+=======
+            CreateMap<Notification, NotificationDto>().ReverseMap();
+>>>>>>> updated-Message-Notifications-Controller
         }
     }
 }

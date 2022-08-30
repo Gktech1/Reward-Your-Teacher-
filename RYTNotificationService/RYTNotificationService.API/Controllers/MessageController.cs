@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RYTNotificationService.API.Data.Repositories.Interfaces;
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
@@ -22,35 +23,22 @@ namespace RYTNotificationService.API.Controllers
         {
             _messageService = messageService;
             _mapper = mapper;
-            _userService = userService;
         }
 
         [Authorize]
         [HttpPost("SendMessage")]
         public async Task<ActionResult<MessageDto>> CreateChatMessage(CreateMessageDto createMessageDto, string username, string token)
         {
-            var userName = "";//User.GetUserName(); // to get current user accessing the chat message
+            var response = await _messageService.CreateChatAsync
+                (createMessageDto, username, token);
 
-            if (username == createMessageDto.RecipientUserName.ToLower())
-                return BadRequest("You can not sent message to yourself");
-
-            var message = new Message()
-            {
-                SenderId = "23",
-                RecipientId = "5",
-                SenderUserName = username,
-                RecipientUserName = createMessageDto.RecipientUserName,
-                Content = createMessageDto.content
-            };
-
-            _messageService.CreateMessage(message);
-            if (await _messageService.Saved()) return Ok(_mapper.Map<MessageDto>(message)); //Ok(message); 
-
-            return BadRequest("Failed to send message");
+            if (response.Success)
+                return Ok(response.Data);
+            return BadRequest(response);
         }
 
         [Authorize]
-        [HttpGet("GetMessage")]
+        [HttpGet("GetMessage{id}")]
         public async Task<ActionResult<MessageDto>> GetChatMessage(string id)
         {
             if (!ModelState.IsValid)

@@ -4,7 +4,11 @@ namespace RYTNotificationService.API.DTOs
 {
     public class NotificationDto
     {
+<<<<<<< HEAD
         public string Id { get; set; }
+=======
+        public  string Id{ get; set; }
+>>>>>>> updated-Message-Notifications-Controller
         public string SenderId { get; set; }
         public string SenderUserName { get; set; }
         public string SenderPhotoUrl { get; set; }

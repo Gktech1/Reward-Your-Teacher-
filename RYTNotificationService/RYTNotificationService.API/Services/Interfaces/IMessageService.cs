@@ -7,10 +7,11 @@ namespace RYTNotificationService.API.Services.Interfaces
     {
         void DisConnected(Connection connection);
         Task<Connection> AddConnection(string connectionId);
-        void CreateMessage(Message message);
-        Task<Message> GetMessageById(string id);
-        Task<IEnumerable<MessageDto>> GetMessageResult(string currentUserName, string recipientUserName);
-
-        Task<bool> Saved();
+        Task CreateMessage(Message message);
+        Task<Response<Message>> GetMessageById(string id);
+        Task<Response<IEnumerable<MessageDto>>> GetNotificationResult
+            (string currentUserName, string recipientUserName);
+        Task<Response<MessageDto>>CreateChatAsync
+           (CreateMessageDto createMessageDto, string username, string token);
     }
 }

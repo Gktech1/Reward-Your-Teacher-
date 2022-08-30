@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using RYTNotificationService.API.Data.Repositories.Interfaces;
+=======
+﻿using AutoMapper;
+using RYTNotificationService.API.Data.Repositories.Interfaces;
+
+>>>>>>> updated-Message-Notifications-Controller
 using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;
@@ -8,10 +14,12 @@ namespace RYTNotificationService.API.Services.Implementation
     public class MessageService : IMessageService
     {
         private readonly IMessageRepository _messageRepository;
+        private readonly IMapper _mapper;
 
-        public MessageService(IMessageRepository messageRepository)
+        public MessageService(IMessageRepository messageRepository, IMapper mapper)
         {
             _messageRepository = messageRepository;
+            _mapper = mapper;
         }
 
 
@@ -23,24 +31,63 @@ namespace RYTNotificationService.API.Services.Implementation
         {
             return await _messageRepository.GetConnection(connectionId);
         }
-        public void CreateMessage(Message message)
+        public async Task CreateMessage(Message message)
         {
             _messageRepository.AddMessage(message);
+            await _messageRepository.Complete();
         }
 
-        public async Task<Message> GetMessageById(string id)
+        public async Task<Response<Message>> GetMessageById(string id)
         {
-            return await _messageRepository.GetMessageById(id);
+            var response = new Response<Message>();
+            try
+            {
+                response.Data = await _messageRepository.GetMessageById(id);
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
         }
 
-        public async Task<IEnumerable<MessageDto>> GetMessageResult(string currentUserName, string recipientUserName)
+        public async Task<Response<IEnumerable<MessageDto>>> GetNotificationResult
+            (string currentUserName, string recipientUserName)
         {
-            return await _messageRepository.GetMessageThread(currentUserName, recipientUserName);
+            var response = new Response<IEnumerable<MessageDto>>();
+            response.Data = await _messageRepository.GetMessageThread
+                (currentUserName, recipientUserName);
+            response.Success = true;
+            return response;
         }
-
-        public async Task<bool> Saved()
+        public async Task<Response<MessageDto>> CreateChatAsync
+           (CreateMessageDto createMessageDto, string username, string token)
         {
-            return await _messageRepository.Complete();
+            var userName = ""; // Context.User.GetUserName();
+            var response = new Response<MessageDto>();
+
+            if (username == createMessageDto.RecipientUserName.ToLower())
+            {
+                response.Message = "You cannot send message to yourself";
+                return response;
+            }
+
+
+            var message = new Message
+            {
+                SenderId = "24",
+                RecipientId = "56",
+                SenderUserName = username,
+                RecipientUserName = createMessageDto.RecipientUserName,
+                Content = createMessageDto.content
+            };
+
+            await CreateMessage(message);
+            var messageDto = _mapper.Map<MessageDto>(message);
+            response.Data = messageDto;
+            response.Success = true;
+            return response;
         }
     }
 }

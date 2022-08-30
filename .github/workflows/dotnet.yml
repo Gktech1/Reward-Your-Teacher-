@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build and deploy the Docker image
-      working-directory: ./RYTUserManagementService/
+       # working-directory: ./RYTUserManagementService/
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_KEY }}
         APP_NAME: ${{ 'rewardteacherapi' }}

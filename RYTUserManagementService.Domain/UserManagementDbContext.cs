@@ -12,16 +12,21 @@ namespace RYTUserManagementService.Domain
         public UserManagementDbContext(DbContextOptions<UserManagementDbContext> options) : base(options)
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+           
 
             builder.ApplyConfiguration(new TeacherConfiguration());
             builder.ApplyConfiguration(new StudentConfiguration());
             builder.ApplyConfiguration(new SchoolConfiguration());
             builder.ApplyConfiguration(new AddressConfiguration());
             builder.ApplyConfiguration(new RoleConfiguration());
-
+            base.OnModelCreating(builder);
         }
 
         public DbSet<Student> Students { get; set; }

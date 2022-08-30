@@ -20,13 +20,13 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
             builder.HasData(
                 new School
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = "8691ffe5-4273-42d0-9a59-bed24eb5af6e",
                     SchoolName = "Decagon Institute Edo",
-                    AddressId = _address.Id,
+                    AddressId = "fa17534a-718d -40d5-97cd-7902c790c95a",
                     Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     Type = Constants.SchoolType.Secondary,
-                    Students = new List<Student>(),
-                    Teachers = new List<Teacher>(),
+                    //Students = new List<Student>(),
+                    //Teachers = new List<Teacher>(),
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,
@@ -35,13 +35,13 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 },
                 new School
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = "680b8ddb-6842-46fc-ae90-89e334157731",
                     SchoolName = "Decagon Institute Lagos",
-                    AddressId = _address.Id,
+                    AddressId = "7c1e2be3-53a4-4dec-948d-d4e2e2face50",
                     Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     Type = Constants.SchoolType.Secondary,
-                    Students = new List<Student>(),
-                    Teachers = new List<Teacher>(),
+                    //Students = new List<Student>(),
+                    //Teachers = new List<Teacher>(),
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,

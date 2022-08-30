@@ -63,9 +63,11 @@ Host.CreateDefaultBuilder(args)
 builder.Services.AddControllers();
 builder.Services.AddDbContext<UserManagementDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Path"));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("Path"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Path"));
 });
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Addition of the service extension class
 builder.Services.AddAuthentication();

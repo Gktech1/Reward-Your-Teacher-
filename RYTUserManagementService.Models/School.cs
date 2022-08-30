@@ -8,15 +8,16 @@ namespace RYTUserManagementService.Models
 
     public class School : BaseEntity
     {
-
+        
         public string SchoolName { get; set; }
 
+        public string AddressId { get; set; }
 
-        public string? AddressId { get; set; }
+        [ForeignKey("AddressId")]
         public Address Address { get; set; }
 
 
-        public string? Logo { get; set; }
+        public string Logo { get; set; }
 
 
         public Constants.SchoolType Type { get; set; }

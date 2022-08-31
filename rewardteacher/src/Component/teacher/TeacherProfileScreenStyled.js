@@ -7,6 +7,8 @@ export const Card = styled.div`
   width: 509px;
   border-radius: 0px;
   margin: 80px auto;
+  position: fixed;
+  left: 40%;
 
   .profile {
     display: inline;

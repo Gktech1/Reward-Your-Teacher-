@@ -1,29 +1,49 @@
-import styles from './StudentNotifications.module.css';
-import Emoji from '../../assets/Emoji.svg';
+import styles from "./StudentNotifications.module.css";
+import Emoji from "../../assets/Emoji.svg";
+import Navigation from "../Common/navs/SideBar/student/Navigation";
 
 
 export default function StudentNotifications() {
-    return (
-        <div className={styles['notification-border']}>
-            <h1 className={styles.header}>Notifications</h1>
-            <hr/>
+  return (
+    <>
+      <Navigation />
+      <Navigation />
+      <div className={styles["notification-border"]}>
+        <h1 className={styles.header}>Notifications</h1>
+        <hr className={styles["notification-line"]} />
 
-            <div className={styles['notification-message2']}>
-               <p><span className={styles['day-message']}>Today, 10:15AM</span>
-                <span className={styles['claimed-message']}>Claimed</span></p>
-                <p className={styles['fund-message']}>You sent money to Babatunde</p>
-            </div>
-            <hr/>
-            <div className={styles['notification-message2']}>
-                <span className={styles['day-message']}>Today, 10:15AM</span>
-                <p className={styles['fund-message']}>You funded your wallet with N12,200</p>
-            </div>
-            <hr/>
-            <div className={styles['notification-message3']}>
-                <span className={styles['day-message']}>Today, 10:15AM</span>                
-                <p className={styles['appriciated-message']}>Cythian Morgan appreciated you <img className={styles.emoji} src={Emoji} /></p>
-            </div>
+        <div className={styles["notification-message"]}>
+          <div className={styles["notification-message__info"]}>
+            <p className={styles["notification-message__info-time"]}>
+              <span>Today</span>, 10:15AM
+            </p>
+            <p className={styles["notification-message__info-sent"]}>
+              You sent money to Babatunde
+            </p>
+          </div>
+          <p className={styles["notification-message__info-amount"]}>Claimed</p>
         </div>
-    )
+        <div className={styles["notification-message"]}>
+          <div className={styles["notification-message__info"]}>
+            <p className={styles["notification-message__info-time"]}>
+              <span>Today</span>, 10:15AM
+            </p>
+            <p className={styles["notification-message__info-sent"]}>
+              You funded your wallet with &#8358;12,000
+            </p>
+          </div>
+        </div>
+        <div className={styles["notification-message"]}>
+          <div className={styles["notification-message__info"]}>
+            <p className={styles["notification-message__info-time"]}>
+              <span>Today</span>, 10:15AM
+            </p>
+            <p className={styles["notification-message__info-sent"]}>
+              Cynthia Morgan appreciated you <img src={Emoji} alt="" />
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
-

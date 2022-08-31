@@ -1,5 +1,9 @@
-import React, {useState, useMemo} from "react";
+import React, { useState, useMemo } from "react";
+import Navigation from "../Common/navs/SideBar/student/Navigation";
+import styles from "./index.module.css";
+import { Link } from "react-router-dom";
 import {
+  H1,
   MainContainer,
   Pages,
   Header,
@@ -9,13 +13,11 @@ import {
 import filter from "../../assets/Filter.svg";
 import ReactDOM from "react-dom/client";
 
-
-
 function SchoolsList(props) {
   return <li>{props.name}</li>;
 }
 
-export function AllSchools() {
+export default function AllSchools() {
   const schools = [
     "Iyana paja School",
     "Decagon Institute",
@@ -26,15 +28,12 @@ export function AllSchools() {
     "Youtube College",
     "Ikeja Private",
   ];
-  
 
   return (
     <>
+      <Navigation />
       <MainContainer>
-        <div className="NavBar"></div>
-        <div className="SideBar"></div>
-
-        <h1>All Schools</h1>
+        <H1>All Schools</H1>
 
         <Search>
           <input type="text" placeholder="Search.." name="search" />
@@ -52,8 +51,7 @@ export function AllSchools() {
             </svg>
           </button>
           <button className="filterButton" type="submit">
-            Filter
-            <img src={filter} alt="filter" />
+            Filter <img src={filter} alt="filter" />
           </button>
         </Search>
 
@@ -62,26 +60,26 @@ export function AllSchools() {
         </Header>
 
         <ListOfSchools>
-          <ul>
-            {schools.map((school) => (
-              <SchoolsList name={school} />
-            ))}
-          </ul>
+          <Link to="/all-teacher">
+            <ul>
+              {schools.map((school) => (
+                <SchoolsList name={school} />
+              ))}
+            </ul>
+          </Link>
         </ListOfSchools>
 
         {/* Pagination */}
-        <Pages>
-          <a href="/">&laquo; prev</a>
-          <a href="/">1</a>
-          <a href="/" class="active">
-            2
-          </a>
-          <a href="/">3</a>
-          <a href="/">4</a>
-          <a href="/">5</a>
-          <a href="/">6</a>
-          <a href="/">next &raquo;</a>
-        </Pages>
+        <div className={styles["wrapper__footer"]}>
+          <span className={styles["footer-b-arrow"]}>&lt; Prev </span>
+          <span className={styles["current"]}>1</span>
+          <span className={styles["page-num"]}>2</span>
+          <span className={styles["page-num"]}>3</span>
+          <span className={styles["page-num"]}>4</span>
+          <span className={styles["page-dot"]}>&#46;&#46;&#46;</span>
+          <span className={styles["page-num"]}>10</span>
+          <span className="footer-f-arrow">Next &gt;</span>
+        </div>
       </MainContainer>
     </>
   );

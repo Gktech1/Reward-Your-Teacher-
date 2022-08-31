@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap");
 
 .maint {
-  margin-left: 70px;
+  margin-left: 350px;
   text-align: left;
+  height: 800px;
+  width: 826px;
+  position: absolute;
+  margin-top: 90px;
 }
 .headingt {
   font-family: "Inter", sans-serif;
@@ -10,6 +14,7 @@
   font-size: 32px;
   line-height: 39px;
   color: #03435f;
+  margin-bottom: -20px;
 }
 .formst {
   margin-left: 30px;
@@ -23,7 +28,6 @@
   line-height: 17px;
   color: #21334f;
   height: 8px;
-  margin-bottom : 15px;
 }
 .info1t {
   font-family: "Inter", sans-serif;
@@ -42,8 +46,7 @@
   margin-bottom: 8px;
   margin-top: 30px;
 }
-
-button {
+.button-edit-student {
   width: 500px;
   height: 48px;
   background: #55a630;
@@ -81,7 +84,7 @@ button {
 }
 .fieldst {
   width: 500px;
-  height: 48px;
+  height: 38px;
   background: rgba(0, 0, 0, 0.03);
   font-family: Inter;
   font-style: normal;

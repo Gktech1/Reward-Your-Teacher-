@@ -1,0 +1,13 @@
+.container {
+  background-color: #e5e5e5;
+  width: 1440px;
+  height: fit-content;
+  display: inline-block;
+  padding-bottom: 200px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.tab-pane {
+  margin-top: -30px;
+}

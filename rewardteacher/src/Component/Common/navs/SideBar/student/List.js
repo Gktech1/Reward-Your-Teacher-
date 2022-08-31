@@ -2,12 +2,12 @@ import React from "react";
 import "./SideBar.css";
 
 //mapped through the sidebardata and rendered it in the sidebar component
-const List = (props) => {
+const List = ({ SideBarData }) => {
   return (
     <>
       <ul className="SideBarList">
-        {props.SideBarData &&
-          props.SideBarData.map((val, key) => {
+        {SideBarData &&
+          SideBarData.map((val, key) => {
             return (
               <li
                 key={key}

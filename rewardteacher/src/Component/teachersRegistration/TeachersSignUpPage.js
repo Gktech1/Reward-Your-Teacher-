@@ -3,21 +3,19 @@ import "./TeachersSignUp.css";
 import MultiSelectComponent from "./CustomSubject";
 import logo from "./logoimg.svg";
 import CustomSchool from "./CustomSchool";
+import { Link } from "react-router-dom";
 
 function TeachersSignUpPage() {
-    
-
-
   const [display, setDisplay] = React.useState(false);
 
   const handleClick = (e) => {
     setDisplay(true);
-  }
+  };
 
   return (
     <>
-      {
-        display === false && <div className="container">
+      {display === false && (
+        <div className="container">
           <div className="baseContainer">
             <img className="first-image" src={logo} alt="" />
             <h1 className="title">Reward your Teacher</h1>
@@ -66,62 +64,64 @@ function TeachersSignUpPage() {
                   placeholder="Type name of schools"
                 />
 
-                <button onClick={(e) => handleClick(e)} className="continue">Continue</button>
+                <button onClick={(e) => handleClick(e)} className="continue">
+                  Continue
+                </button>
               </form>
             </div>
           </div>
         </div>
-      }
+      )}
 
-{
-    display && <div className="container">
-        <div className="baseContainer">
-          <img className="first-image" src={logo} alt="" />
-          <h1 className="title">Reward your Teacher</h1>
-        </div>
-        <div className="secondSign">
-          <div className="text1">Sign Up as a Teacher</div>
-          <div className="text2">STEP 2 OF 2</div>
-        </div>
+      {display && (
+        <div className="container">
+          <div className="baseContainer">
+            <img className="first-image" src={logo} alt="" />
+            <h1 className="title">Reward your Teacher</h1>
+          </div>
+          <div className="secondSign">
+            <div className="text1">Sign Up as a Teacher</div>
+            <div className="text2">STEP 2 OF 2</div>
+          </div>
 
-        <div className="boxLikeSize">
-          <div className="formContainer">
-            <p className="firstboxitem">Update your profile information</p>
+          <div className="boxLikeSize">
+            <div className="formContainer">
+              <p className="firstboxitem">Update your profile information</p>
 
-            <p className="secondboxitem">
-              Only you can view and edit your information
-            </p>
+              <p className="secondboxitem">
+                Only you can view and edit your information
+              </p>
 
-            <form className="form-main">
-              <label className="form-label">Years of Teaching</label>
-              <input
-                className="form-input"
-                type="number"
-                placeholder="e.g 1993 - 2000"
-              />
+              <form className="form-main">
+                <label className="form-label">Years of Teaching</label>
+                <input
+                  className="form-input"
+                  type="number"
+                  placeholder="e.g 1993 - 2000"
+                />
 
-              <label className="form-label">Subjects Taught</label>
-              {/* <CustomSubject /> */}
-              <MultiSelectComponent />
+                <label className="form-label">Subjects Taught</label>
+                {/* <CustomSubject /> */}
+                <MultiSelectComponent />
 
-              <label className="form-label">School Type</label>
-              <CustomSchool />
+                <label className="form-label">School Type</label>
+                <CustomSchool />
 
-              <label className="form-label">Upload NIN</label>
-              <input
-                className="form-input"
-                type="image"
-                alt="Upload"
-                placeholder="Upload"
-              />
-
-              <button className="continue">Sign Up</button>
-            </form>
+                <label className="form-label">Upload NIN</label>
+                <input
+                  className="form-input"
+                  type="image"
+                  alt="Upload"
+                  placeholder="Upload"
+                />
+                <Link to="/teacher-login">
+                  <button className="continue">Sign Up</button>
+                </Link>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-
-}
+      )}
     </>
   );
 }

@@ -11,7 +11,7 @@ import {
   InterBoldWhite16px,
 } from "./styledMixins";
 
-export default function StudentProfileTeacher(props) {
+export default function StudentProfile(props) {
   const {
     profileDetails,
     babajideLawal,

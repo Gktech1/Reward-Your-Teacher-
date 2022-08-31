@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 const MyDashboard = styled.div`
-  
+  color: #03435f;
+  font-family: "Inter";
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0;
+  max-height: 39px;
+  max-width: 225px;
+  margin-left: 200rem;
 `;
 
 const WalletBalanceContainer = styled.div`
@@ -9,8 +16,8 @@ const WalletBalanceContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 4px 24px #0000000a;
   display: flex;
-  margin-left: 160px;
-  margin-top: 41px;
+  margin-left: 220px;
+  margin-top: 80px;
   width: 840px;
   height: 197px;
   z-index: 2;
@@ -55,7 +62,6 @@ const WalletAmount = styled.h1`
 `;
 
 const TotalAmountRecieved = styled.span`
-  
   width: 180px;
   height: 19px;
   left: 80px;
@@ -129,7 +135,7 @@ const AccountIsActiveh1 = styled.span`
 `;
 
 const SecondContainer = styled.div`
-  margin-left: 13.3rem;
+  margin-left: 14.3rem;
   margin-top: 3rem;
   width: 840px;
   height: 360px;
@@ -201,7 +207,7 @@ const RecentReceivedMeg1Con = styled.div`
   left: 24px;
   top: 93px;
 `;
-  
+
 const RecentReceivedMeg1 = styled.span`
   width: 177px;
   height: 17px;
@@ -216,12 +222,12 @@ const RecentReceivedMeg1 = styled.span`
 const RecentReceivedMeg1Date = styled.span`
   width: 70px;
   height: 17px;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #C4C4C4;
+  color: #c4c4c4;
 `;
 
 const ViewStudentCon = styled.button`
@@ -256,6 +262,11 @@ const ViewStudent = styled.span`
   color: #55a630;
 `;
 
+const Wrapper = styled.div`
+  margin-left: 110px;
+  margin-top: 0;
+  height: 800px;
+`;
 
 export {
   MyDashboard,
@@ -280,4 +291,5 @@ export {
   RecentReceivedMeg1Date,
   ViewStudentCon,
   ViewStudent,
+  Wrapper,
 };

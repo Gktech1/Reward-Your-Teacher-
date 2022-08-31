@@ -2,27 +2,27 @@ import styled from "styled-components";
 
 const MyDashboard = styled.div`
   color: #03435f;
-  font-family: "inter";
+  font-family: "Inter";
+  line-height: 39px;
   font-size: 32px;
-  fontweight: 600;
+  font-weight: 600;
   letter-spacing: 0;
-  min-height: 39px;
-  margin-top: 455px;
-  margin-top: 135px;
-  min-width: 225px;
+  max-height: 39px;
+  margin-top: 0px;
+  max-width: 225px;
   margin-left: 13rem;
+  position: absolute;
 `;
 
 const WalletBalanceContainer = styled.div`
   align-items: center;
   background-color: #ffffff;
-  box-shadow: 0px 4px 24px #0000000a;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
   display: flex;
   margin-left: 160px;
   margin-top: 41px;
   width: 840px;
   height: 197px;
-  z-index: 2;
 `;
 
 const WalletBalanceInner = styled.div`
@@ -76,12 +76,11 @@ const WalletButton = styled.button`
   height: 40px;
   left: 80px;
   top: 123px;
-  background: #55A630;
+  background: #55a630;
   cursor: pointer;
   border-radius: 4px;
-    &:hover {
-      transform: Scale(1.05);
-
+  &:hover {
+    transform: Scale(1.05);
   }
 `;
 
@@ -90,6 +89,7 @@ const WalletEclipse = styled.div`
   margin-left: 358px;
   margin-top: -9px;
   position: absolute;
+  z-index: -1;
 `;
 
 const Eclipse1 = styled.img`
@@ -98,14 +98,16 @@ const Eclipse1 = styled.img`
   width: 310px;
   left: 92px;
   top: 0;
+  z-index: -1;
 `;
 
 const Eclipse2 = styled.img`
   position: absolute;
-  width: 402px:
+  width: 402px;
   height: 197px;
   left: 0;
   top: 0;
+  z-index: -1;
 `;
 
 const ActiveContainer = styled.div`
@@ -115,7 +117,7 @@ const ActiveContainer = styled.div`
   display: flex;
   gap: 10px;
   height: 24px;
-  justify-content: cneter;
+  justify-content: center;
   left: 234px;
   padding: 0px 16px;
   position: absolute;
@@ -124,15 +126,15 @@ const ActiveContainer = styled.div`
 `;
 
 const AccountIsActive = styled.div`
-    letter - spacing: 0;
-    margin-bottom: -4.5px;
-    margin-left: -6px;
-    margin-top: -6.5px:
-    min-width: 99px;
-    background: #ffffff;
-    border-radius: 19px;
-    padding: 5px;
-    `;
+  letter-spacing: 0;
+  margin-bottom: -4.5px;
+  margin-left: -80px;
+  margin-top: -6.5px;
+  min-width: 99px;
+  background: #ffffff;
+  border-radius: 19px;
+  padding: 5px;
+`;
 
 const AccountIsActiveh1 = styled.span`
   color: #55a630;
@@ -158,15 +160,15 @@ const SecondSection = styled.div`
 const SecondSectionUpperInner = styled.div`
   align-items: flex-end;
   display: flex;
-    height: 96px;
-    overflow: hidden;
-    width: 840px:
+  height: 96px;
+  overflow: hidden;
+  width: 840px:
 `;
 
 const SecondSectionUppBg = styled.img`
   height: 96px;
   left: 0;
-  object-fit:cover:
+  object-fit:cover;
   position: absolute;
   top: 0;
   width: 840px:
@@ -279,6 +281,13 @@ const Money = styled.img`
   width: 32px:
   marginLeft: 1000px;
 `;
+
+const Wrapper = styled.div`
+  margin-left: 180px;
+  margin-top: 120px;
+  position: absolute;
+  height: 100%;
+`;
 //AddMoney,
 export {
   MyDashboard,
@@ -307,4 +316,5 @@ export {
   Sent,
   MoneyContainer,
   Money,
+  Wrapper,
 };

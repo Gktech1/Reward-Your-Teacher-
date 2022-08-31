@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import AuthContext from './AuthContext';
-import { apiPost } from '../../utils/apiHelper';
+import { apiPost } from "../../Utils/apiHelper";
+
 import AuthReducer from './AuthReducer';
 import {
   LOGIN_SUCCESS,

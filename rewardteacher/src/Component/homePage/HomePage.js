@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logoColor from "../../assets/logocolor.svg";
 import momandDaughter from "../../assets/momanddaughter.png";
 import person from "../../assets/person.png";
@@ -34,28 +35,30 @@ import {
   PartnersHead,
 } from "./HomePageStyled";
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <>
       <MainContainer>
         <NavBar>
           <Logo>
-            <a href="/">
+            <Link className="logo" to="/">
               <img src={logoColor} alt="logo" />
               <span>Reward Your Teacher</span>
-            </a>
+            </Link>
           </Logo>
           <MenuBarItem>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">About Reward Your Teacher</a>
-            </li>
-            <li>
-              <a href="/">Contact Us</a>
-            </li>
-            <button>Login</button>
+            <Link className="link isActive" to="/">
+              Home
+            </Link>
+            <Link className="link" to="/">
+              About Reward Your Teacher
+            </Link>
+            <Link className="link" to="/">
+              Contact Us
+            </Link>
+            <Link className="link login" to="/login">
+              Login
+            </Link>
           </MenuBarItem>
         </NavBar>
 
@@ -71,7 +74,7 @@ export function HomePage() {
               </p>
               <button>Get Started</button>
             </div>
-            <div className="col-md-6">
+            <div className="col-right">
               <img src={momandDaughter} alt="hero" />
             </div>
           </div>
@@ -96,10 +99,12 @@ export function HomePage() {
                 <div className="stepOne-right">
                   <p>STEP ONE</p>
                   <h3>Sign in / Sign up</h3>
-                  <p>
-                    Do this with your email and password or Google account to
-                    get started
-                  </p>
+                  <Link to="/">
+                    <p>
+                      Do this with your email and password or Google account to
+                      get started
+                    </p>
+                  </Link>
                 </div>
               </div>
 
@@ -164,11 +169,6 @@ export function HomePage() {
             </div>
           </div>
         </Surprise>
-
-        {/* Section4 */}
-        <Gap></Gap>
-
-        {/* Section5 */}
         <TeacherReward>
           <div className="row">
             <div className="column-left">
@@ -202,7 +202,7 @@ export function HomePage() {
         </PartnersHead>
 
         <Partners>
-          <div className="partnersIcons">
+          <div className="partners-icons">
             <div>
               <img src={abeg} alt="abeg" />
             </div>
@@ -223,31 +223,31 @@ export function HomePage() {
 
         {/* Footer */}
         <Footer>
-          <div className="footerLogo">
+          <div className="footer-logo">
             <img src={footerLogo} alt="Logo" />
             <span>Reward Your Teacher</span>
           </div>
 
-          <div className="footerMenu">
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About Reward Your Teacher</a>
-              </li>
-              <li>
-                <a href="/">Contact Us</a>
-              </li>
-            </ul>
+          <div className="footer-links">
+            <Link className="footer-link" to="/">
+              Home
+            </Link>
+
+            <Link className="footer-link" to="/">
+              About Reward Your Teacher
+            </Link>
+
+            <Link className="footer-link" to="/">
+              Contact Us
+            </Link>
           </div>
 
           <hr></hr>
 
-          <div className="footerSocial">
-            <div className="socialIcons">
+          <div className="footer-socials">
+            <div className="social-icons">
               <p>&copy; 2022 Reward Teacher. All Rights reserved</p>
-              <div className="social-Right">
+              <div className="social-right">
                 <ul>
                   <li>
                     <a href="/">

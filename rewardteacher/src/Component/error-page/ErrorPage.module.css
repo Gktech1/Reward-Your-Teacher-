@@ -1,0 +1,49 @@
+.container::after,
+.container::before,
+.container {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.container h1 {
+  color: #000;
+  font-size: 12.5rem;
+  letter-spacing: 0.1em;
+  margin: 0.025em 0;
+  text-shadow: 0.05em 0.05em 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.container span {
+  animation: spooky 2s alternate infinite linear;
+  color: green;
+  display: inline-block;
+}
+
+.container h2 {
+  color: #000;
+  margin-bottom: 0.4em;
+}
+
+.container p {
+  color: #000;
+  margin-top: 0;
+}
+
+@keyframes spooky {
+  from {
+    transform: translatey(0.15em) scaley(0.95);
+  }
+
+  to {
+    transform: translatey(-0.15em);
+  }
+}

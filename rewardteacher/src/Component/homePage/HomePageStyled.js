@@ -2,96 +2,121 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   margin: 0 auto;
-  width: 1440px;
-  height: 3373px;
-  display: block;
-  padding: 3rem;
-  overflow-x: hidden;
+  width: 1255px;
+  height: 3260px;
+  overflow: hidden;
 `;
 
 export const NavBar = styled.nav`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 80px;
 `;
 
 export const Logo = styled.div`
-  display: inline-block;
-  margin-top: 1rem;
-  margin-left: 1.5rem;
-
-  a {
-    text-decoration: none;
-    text-underline: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #80b918;
-    display: inline-block;
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin-left: 100px;
+    padding-bottom: 30px;
+    padding-top: 30px;
 
     span {
-      margin-left: 0.5rem;
-      float: right;
+      width: 100%;
+      height: 29px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+      color: #55a630;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
     }
   }
 `;
 
-export const MenuBarItem = styled.ul`
-  display: inline-block;
-  list-style: none;
+export const MenuBarItem = styled.div`
   display: flex;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-left: 30rem;
-  overflow: hidden;
-
-  li {
-    float: left;
-  }
-
-  li a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
-  }
-
-  li a:hover {
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  padding-right: 130px;
+  .link.isActive {
     color: #80b918;
   }
-
-  button {
-    background-color: #80b918;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    margin-left: 1rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
+  .link {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    margin-left: 10px;
+    color: #012a4a;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
   }
-
-  button:hover {
-    background-color: blue;
+  .link.login {
+    width: 100px;
+    background: #80b918;
+    border-radius: 4px;
+    padding: 10px;
   }
 `;
 
 export const Hero = styled.section`
-  padding: 4rem 4rem 0 4rem;
-  column-count: 2;
-  column-gap: 1rem;
+  .row {
+    display: flex;
+    padding: 60px 80px 60px 100px;
+    gap: 60px;
+    background: #fff;
+    margin-bottom: 200px;
+    height: 400px;
+  }
+  div.col-left {
+    width: 524px;
+    height: 219px;
+    font-family: "Inter";
+    font-style: normal;
 
-  h1 {
-    font-size: 3rem;
-    color: #80b918;
+    h1 {
+      background: linear-gradient(104.55deg, #80b918 31.79%, #55a630 64.96%);
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 73px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #000;
+      width: 508px;
+      height: 34px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px;
+      width: 123px;
+      height: 37px;
+      background: #80b918;
+      border-radius: 4px;
+      border: none;
+    }
   }
-  button {
-    background-color: #80b918;
-    border: none;
-    padding: 1rem 2rem;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 1.1rem;
-  }
-  button:hover {
-    background-color: blue;
+  div.col-right {
+    margin-top: -60px;
   }
 `;
 
@@ -101,24 +126,33 @@ export const Confetti = styled.img`
 `;
 
 export const HowItWorks = styled.section`
-  background-color: #fff2eb;
-  padding: 4rem 4rem 4rem 4rem;
-  column-count: 2;
-  column-gap: 1rem;
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff2eb;
+    padding: 60px 80px 60px 100px;
+  }
 
   img {
-    width: 100%;
-    height: 70%;
+    width: 483px;
+    height: 365px;
   }
 
   h2 {
     width: 253px;
-    height: 48px;
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
     color: #012a4a;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
   }
 
   h3 {
@@ -172,39 +206,51 @@ export const Surprise = styled.section`
   padding: 4rem 4rem 0 4rem;
   column-count: 2;
   column-gap: 1rem;
+  height: 444px;
+  width: 1440px;
 
   color: #fff;
 
-  img {
-    position: relative;
-    width: 680px;
-    height: 560px;
+  .column-left {
+    padding-left: 3rem;
+    margin-right: -2px;
+    font-family: "Inter";
+    font-style: normal;
+    h3 {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      color: #ffffff;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+      margin-top: 10px;
+    }
   }
 
-  h3 {
-    font-size: 2.8rem;
-  }
-  column-left {
-    display: block;
+  img {
+    height: 445px;
+    margin-bottom: -1rem;
+    padding-right: 60rem;
   }
 
   button {
-    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 154px;
+    height: 37px;
+    background: #ffffff;
+    border-radius: 4px;
     border: none;
-    padding: 0.8rem 1.6rem;
-    color: #80b918;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    display: block;
-    margin-top: 1.5rem;
   }
-  button:hover {
-    background-color: blue;
-  }
-`;
-
-export const Gap = styled.div`
-  height: 1.5rem;
 `;
 
 export const TeacherReward = styled.section`
@@ -214,6 +260,10 @@ export const TeacherReward = styled.section`
   column-gap: 1rem;
   color: #03435f;
 
+  .row {
+    padding-left: 40px;
+  }
+
   span {
     display: block;
     font-size: 1.5rem;
@@ -221,37 +271,53 @@ export const TeacherReward = styled.section`
   }
 
   h3 {
-    font-size: 2.6rem;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #03435f;
+    margin-bottom: 40px;
   }
 `;
 
 export const PartnersHead = styled.div`
   text-align: center;
   align-items: center;
+  background: #fff;
 
   h3 {
-    font-size: 2.6rem;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
     color: #012a4a;
+    padding-top: 30px;
   }
 `;
 
 export const Partners = styled.section`
   padding: 4rem;
-  column-count: 5;
-  column-gap: 1rem;
   display: block;
+  background: #fff;
+
+  div.partners-icons {
+    padding-right: 10rem;
+    padding-left: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
 
   h3 {
     justify-items: center;
     font-size: 1.5rem;
   }
-
-  .partnerIcons {
-    display: inline-block;
-  }
   img {
-    width: 200px;
-    height: 100px;
+    width: 100px;
   }
 `;
 
@@ -259,52 +325,55 @@ export const Footer = styled.footer`
   background-color: #000000;
   color: #fff;
   display: block;
+  height: 285px;
 
-  span {
-    margin-left: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  li {
-    display: inline-block;
-  }
-
-  li a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
-    color: #fff;
-  }
-
-  li a:hover {
-    color: #80b918;
-  }
-
-  .footerLogo {
-    text-align: center;
-    padding: 1rem;
+  .footer-logo {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    gap: 10px;
+    padding-top: 15px;
   }
 
-  .footerMenu {
-    display: block;
-    font-size: 1.1rem;
+  .footer-links {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    gap: 20px;
+    padding-top: 15px;
+  }
+  .footer-link {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #f2f2f2;
   }
 
-  .footerSocial {
-    column-count: 2;
-    column-gap: 1rem;
-    display: block;
-    padding: 2rem;
-    align-items: left;
-    justify-content: left;
+  hr {
+    width: 1200px;
+    height: 1px;
+    background: #ffffff;
+    margin: 20px auto;
   }
-  .social-Right {
-    margin-left: 30rem;
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50rem;
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .social-right ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style-type: none;
+    }
   }
 `;

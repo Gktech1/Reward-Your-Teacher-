@@ -1,6 +1,10 @@
 .container {
   height: 75rem;
   box-sizing: border-box;
+  margin: auto;
+  margin-left: 400px;
+  position: absolute;
+  margin-top: 120px;
 }
 
 .container__heading {
@@ -12,9 +16,6 @@
   font-size: 2rem;
   line-height: 2.4375rem;
   color: #03435f;
-  position: absolute;
-  left: 300px;
-  top: 136px;
 }
 
 .form-container {
@@ -26,13 +27,8 @@
   gap: 2rem;
   width: 38.5rem;
   height: 56.25rem;
-  left: 23.75rem;
-  top: 12.9375rem;
   background: #ffffff;
   border: 0.0625rem solid #c4c4c4;
-  position: absolute;
-  left: 300px;
-  top: 207px;
 }
 
 .form-container__heading {
@@ -131,6 +127,7 @@ label {
 
 input[type="file"] {
   width: 500px;
+  /* height: 200px; */
 }
 
 .file-container {

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./login.module.css";
 import rewardLogo from "../../assets/reward.svg";
 import googleLogo from "../../assets/google.svg";
+import { Link } from "react-router-dom";
 
 function StudentLogin() {
   return (
@@ -18,19 +19,29 @@ function StudentLogin() {
             Login as an old Student
           </h5>
           <div className="card-form__group">
-            <label>Email</label>
-            <input type="password" placeholder="Enter your email" />
+            <label className={styles["card-form__label"]}>Email</label>
+            <input
+              className={styles["card-form__input"]}
+              type="password"
+              placeholder="Enter your email"
+            />
           </div>
           <div className="card-form__group">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
+            <label className={styles["card-form__label"]}>Password</label>
+            <input
+              className={styles["card-form__input"]}
+              type="password"
+              placeholder="Enter your password"
+            />
             <p className={styles["card-form-group__option"]}>
               Forgot Password?
             </p>
           </div>
-          <button className={styles["card-form__btn-card-form__btn--login"]}>
-            <span className={styles["login-text"]}>Login</span>
-          </button>
+          <Link to="/student-dashboard">
+            <button className={styles["card-form__btn-card-form__btn--login"]}>
+              <span className={styles["login-text"]}>Login</span>
+            </button>
+          </Link>
         </form>
         <div className={styles["lines"]}>
           <span className={styles["or"]}>Or</span>
@@ -46,7 +57,9 @@ function StudentLogin() {
           <span className={styles["card__account--link"]}>
             Don't have an account?{" "}
           </span>
-          <span className={styles["text-green"]}>Create Account</span>
+          <Link to="/student-registration" className={styles["text-green"]}>
+            Create Account
+          </Link>
         </div>
       </div>
     </div>

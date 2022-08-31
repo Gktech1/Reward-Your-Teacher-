@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./login.module.css";
 import rewardLogo from "../../assets/reward.svg";
 import googleLogo from "../../assets/google.svg";
+import { Link } from "react-router-dom";
 
 function TeacherLogin() {
   return (
@@ -15,20 +16,30 @@ function TeacherLogin() {
       <div className={styles["card"]}>
         <form className={styles["card-form"]}>
           <h5 className={styles["card-form__heading"]}>Login as a Teacher</h5>
-          <div className="card-form__group">
-            <label>Email</label>
-            <input type="password" placeholder="Enter your email" />
+          <div className={styles["card-form__group"]}>
+            <label className={styles["card-form__label"]}>Email</label>
+            <input
+              className={styles["card-form__input"]}
+              type="password"
+              placeholder="Enter your email"
+            />
           </div>
-          <div className="card-form__group">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
+          <div className={styles["card-form__group"]}>
+            <label className={styles["card-form__label"]}>Password</label>
+            <input
+              className={styles["card-form__input"]}
+              type="password"
+              placeholder="Enter your password"
+            />
             <p className={styles["card-form-group__option"]}>
               Forgot Password?
             </p>
           </div>
-          <button className={styles["card-form__btn-card-form__btn--login"]}>
-            <span className={styles["login-text"]}>Login</span>
-          </button>
+          <Link to="/overview">
+            <button className={styles["card-form__btn-card-form__btn--login"]}>
+              <span className={styles["login-text"]}>Login</span>
+            </button>
+          </Link>
         </form>
         <div className={styles["lines"]}>
           <span className={styles["or"]}>Or</span>
@@ -42,7 +53,7 @@ function TeacherLogin() {
         </div>
         <div className={styles["card__account"]}>
           <span className={styles["card__account--link"]}>
-            Don't have an account?{" "}
+            Don't have an account?
           </span>
           <span className={styles["text-green"]}>Create Account</span>
         </div>

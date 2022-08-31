@@ -24,6 +24,6 @@ RUN dotnet publish "RYTUserManagementService.API.csproj" -c Release -o /app/publ
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=publish /app/publish . 
 CMD ASPNETCORE_URLS=http://*:$PORT dotnet RYTUserManagementService.API.dll
 #ENTRYPOINT ["dotnet", "RYTUserManagementService.API.dll"]

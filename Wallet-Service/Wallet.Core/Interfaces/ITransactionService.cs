@@ -17,5 +17,6 @@ namespace Wallet.Core.Interfaces
         Task UpdateTransaction(UserTransaction transaction);
         Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetTransactionsForWallet(int id, int pageNumber, int pageSize,
             DateTime searchDate);
+        
     }
 }

@@ -16,6 +16,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Wallet.Utilties.Requests;
 using System.Collections.Generic;
+using Wallet.Model.Enums;
+
 namespace Wallet.API.Services
 {
     public class WalletServices : IWalletServices
@@ -111,5 +113,22 @@ namespace Wallet.API.Services
             (int id, TransactionParameters parameters) =>
            await _txService.GetTransactionsForWallet(id: id, pageSize: parameters.PageSize,
                 pageNumber: parameters.PageNumber, searchDate: parameters.SearchDate);
+
+        public async Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(int userId)
+        {
+            var totalAmount = await _Db.Wallets.Where(x => x.UserId == userId)
+                .Include(x => x.Transactions)
+                .SelectMany(x => x.Transactions)
+                .Where(x => x.Type == TransactionType.Receiving)
+                .Select(x => (Convert.ToDecimal(x.Amount) / 100))
+                .SumAsync(x => x);
+            var teacherReceivedTotal = new TotalTransactionAmountDto() { TotalAmount = totalAmount };
+            return new ExecutionResponse<TotalTransactionAmountDto>()
+            {
+                Status = true,
+                StatusCode = 200,
+                Data = teacherReceivedTotal
+            };
+        }
     }
 }

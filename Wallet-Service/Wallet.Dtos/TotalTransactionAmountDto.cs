@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Wallet.Dtos
 {
-    internal class TotalTransactionAmount
+    public class TotalTransactionAmountDto
     {
+        public decimal TotalAmount { get; set; }
     }
 }

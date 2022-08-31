@@ -72,12 +72,19 @@ namespace Wallet.API.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
-        [HttpGet("walletTransactions/{id:Guid}")]
+        [HttpGet("walletTransactions/{id}")]
         public async Task<IActionResult> GetWalletTransactions(int id, [FromQuery]TransactionParameters parameters)
         {
             var result = await _walletServices.GetWalletTransactionsAsync(id, parameters);
             return StatusCode(result.StatusCode, result);
         }
-        
+
+        [HttpGet("totalTeacherReceived/{id}")]
+        public async Task<IActionResult> GetTotalTeacher(int id)
+        {
+            var result = await _walletServices.GetTotalTeacherReceivedAmount(id);
+            return StatusCode(result.StatusCode, result);
+        }
+
     }
 }

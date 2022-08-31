@@ -15,6 +15,7 @@ namespace Wallet.Core.Interfaces
         Task<ExecutionResponse<UserBankDto>> GetBankAsync(int userId);
         Task<ExecutionResponse<IEnumerable<BankModelDto>>> SeedBanks();
         Task<ExecutionResponse<IEnumerable<BankModelDto>>> GetBanks();
+       
 
     }
 }

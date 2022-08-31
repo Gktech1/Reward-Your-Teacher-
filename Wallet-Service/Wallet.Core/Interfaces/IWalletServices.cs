@@ -21,11 +21,7 @@ namespace Wallet.Core.Interfaces
         Task<ExecutionResponse<UserTransactionDto>> TransferToWallet(WalletTransferDto walletTransferDto);
         Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetWalletTransactionsAsync
             (int id, TransactionParameters parameters);
-
-
-
-
-
+        Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(int userId); 
     }
 
 

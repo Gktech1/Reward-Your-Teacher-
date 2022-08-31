@@ -19,6 +19,9 @@ import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import Login from "./Component/login/Login";
 import ErrorPage from "./Component/error-page/ErrorPage";
+import GlobalState from '../src/Context/GlobalState';
+import AuthState from '../src/Context/auth/AuthState';
+
 
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 
@@ -26,43 +29,53 @@ function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback="loading">
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/student-login" element={<StudentLogin />} />
-          <Route path="/teacher-login" element={<TeacherLogin />} />
-          <Route path="/all-teacher" element={<AllTeacher />} />
-          <Route path="/schools" element={<AllSchools />} />
-          <Route path="/student-dashboard" element={<Student />} />
-          <Route path="/teacher-dashboard" element={<Teacher />} />
-          <Route path="/messaging" element={<MessageBody />} />
-          <Route
-            path="/update-student-profile"
-            element={<EditStudentProfile />}
-          />
-          <Route path="/student-profile" element={<StudentProfile />} />
+        <GlobalState>
+          <AuthState>
+            <Routes>
+              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/student-login" element={<StudentLogin />} />
+              <Route path="/teacher-login" element={<TeacherLogin />} />
+              <Route path="/all-teacher" element={<AllTeacher />} />
+              <Route path="/schools" element={<AllSchools />} />
+              <Route path="/student-dashboard" element={<Student />} />
+              <Route path="/teacher-dashboard" element={<Teacher />} />
+              <Route path="/messaging" element={<MessageBody />} />
+              <Route
+                path="/update-student-profile"
+                element={<EditStudentProfile />}
+              />
+              <Route path="/student-profile" element={<StudentProfile />} />
 
-          <Route
-            path="/student-registration"
-            element={<StudentRegistration />}
-          />
-          <Route
-            path="/student-notification"
-            element={<StudentNotifications />}
-          />
-          <Route
-            path="/teacher-notification"
-            element={<TeacherNotifications />}
-          />
-          <Route path="/teacher-profile" element={<TeacherProfileScreen />} />
-          <Route path="/update-teacher-profile" element={<TeacherProfile />} />
-          <Route
-            path="/teacher-registration"
-            element={<TeachersSignUpPage />}
-          />
-          <Route path="/login" element={<Login />} />
+              <Route
+                path="/student-registration"
+                element={<StudentRegistration />}
+              />
+              <Route
+                path="/student-notification"
+                element={<StudentNotifications />}
+              />
+              <Route
+                path="/teacher-notification"
+                element={<TeacherNotifications />}
+              />
+              <Route
+                path="/teacher-profile"
+                element={<TeacherProfileScreen />}
+              />
+              <Route
+                path="/update-teacher-profile"
+                element={<TeacherProfile />}
+              />
+              <Route
+                path="/teacher-registration"
+                element={<TeachersSignUpPage />}
+              />
+              <Route path="/login" element={<Login />} />
 
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </AuthState>
+        </GlobalState>
       </Suspense>
     </ErrorBoundary>
   );

@@ -65,9 +65,6 @@ builder.Services.AddDbContext<UserManagementDbContext>(options =>
 {
 //options.UseSqlServer(builder.Configuration.GetConnectionString("Path"));
 options.UseNpgsql(builder.Configuration.GetConnectionString("Path"));
-
-
-
 });
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -123,7 +120,7 @@ builder.Services.AddCors(o => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-AddSwaggerDoc(services);
+
 
 
 
@@ -132,10 +129,11 @@ builder.Services.AddControllers().AddNewtonsoftJson(op =>
 
 
 
-void AddSwaggerDoc(IServiceCollection services)
-{
+
     builder.Services.AddSwaggerGen(c =>
     {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "RYTLP-UserManagement", Version = "v1"});
+
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Description = @" JWT Authorization header using bearer scheme, 
@@ -164,7 +162,7 @@ void AddSwaggerDoc(IServiceCollection services)
 
         });
     });
-}
+
 
 
 var app = builder.Build();
@@ -175,6 +173,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+});
 
 app.UseHttpsRedirection();
 

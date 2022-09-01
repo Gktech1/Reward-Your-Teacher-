@@ -10,7 +10,7 @@ namespace Wallet.Core.Interfaces
 {
     public interface IPayStackService
     {
-        Task<PayStackLinkResponseDto> GetPaymentLink(PayStackPaymentDto details, int userId);
+        Task<PayStackLinkResponseDto> GetPaymentLink(PayStackPaymentDto details, string userId);
         Task<bool> ConfirmTransactionById(string transactionId);
         Task<bool> ConfirmTransactionByRef(string txRef);
         Task CreateRecipient(string source, int amount, int walletId);

@@ -15,13 +15,13 @@ namespace Wallet.Core.Interfaces
     public interface IWalletServices
     {
         Task<ExecutionResponse<UserWalletDto>> CreateWalletAsync(UserWalletDto userWallet);
-        Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int userId);
-        Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(int userId);
-        Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(int userId);
+        Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(string userId);
+        Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(string userId);
+        Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId);
         Task<ExecutionResponse<UserTransactionDto>> TransferToWallet(WalletTransferDto walletTransferDto);
         Task<PagedExecutionResponse<IEnumerable<UserTransactionDto>>> GetWalletTransactionsAsync
             (int id, TransactionParameters parameters);
-        Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(int userId); 
+        Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(string userId); 
     }
 
 

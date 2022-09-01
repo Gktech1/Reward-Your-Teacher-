@@ -37,7 +37,7 @@ namespace Wallet.API.Services
             _Db = Db;
             _txService = txService;
         }
-        public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(int UserId)
+        public async Task<ExecutionResponse<UserWalletUpdateDto>> ActivateWallet(string UserId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == UserId).FirstOrDefaultAsync();
             if (wallet == null)
@@ -73,7 +73,7 @@ namespace Wallet.API.Services
             await _Db.SaveChangesAsync();
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Successfully Created", userWallet, true, 200);
         }
-        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(int userId)
+        public async Task<ExecutionResponse<UserWalletDto>> GetUserWalletAsync(string userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
             if (wallet == null)
@@ -83,7 +83,7 @@ namespace Wallet.API.Services
             var mapWallet = _mapper.Map<UserWallet, UserWalletDto>(wallet);
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Found", mapWallet, true, 200);
         }
-        public async Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(int userId)
+        public async Task<ExecutionResponse<UserWalletUpdateDto>> DeactivateWallet(string userId)
         {
             var wallet = await _Db.Wallets.Where(x => x.UserId == userId).FirstOrDefaultAsync();
             if (wallet == null)
@@ -114,7 +114,7 @@ namespace Wallet.API.Services
            await _txService.GetTransactionsForWallet(id: id, pageSize: parameters.PageSize,
                 pageNumber: parameters.PageNumber, searchDate: parameters.SearchDate);
 
-        public async Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(int userId)
+        public async Task<ExecutionResponse<TotalTransactionAmountDto>> GetTotalTeacherReceivedAmount(string userId)
         {
             var totalAmount = await _Db.Wallets.Where(x => x.UserId == userId)
                 .Include(x => x.Transactions)

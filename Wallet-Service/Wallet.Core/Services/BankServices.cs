@@ -46,7 +46,7 @@ namespace Wallet.Core.Services
             return _responseService.ExecutionResponse<UserBankDto>("Bank Account created", accountToReturn, true, 200);
         }
 
-        public async Task<ExecutionResponse<UserBank>> DeleteBankAsync(int accountId, int userId)
+        public async Task<ExecutionResponse<UserBank>> DeleteBankAsync(int accountId, string userId)
         {
             var account = _Db.UserBanks.FirstOrDefault(x => x.UserId == userId && x.Id == accountId);
             if (account == null)
@@ -60,9 +60,9 @@ namespace Wallet.Core.Services
 
         }
 
-        public async Task<ExecutionResponse<UserBankDto>> GetBankAsync(int userId)
+        public async Task<ExecutionResponse<UserBankDto>> GetBankAsync(string userId)
         {
-            var account = _Db.UserBanks.FirstOrDefault(x => x.Id == userId);
+            var account = _Db.UserBanks.FirstOrDefault(x => x.UserId == userId);
             if (account == null)
             {
                 return _responseService.ExecutionResponse<UserBankDto>("Bank account details does not exist", null, false, 400);

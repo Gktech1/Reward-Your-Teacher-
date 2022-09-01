@@ -43,7 +43,7 @@ namespace Wallet.API.Controllers
 
 
         [HttpPatch("{userId}/activate")]
-        public async Task<IActionResult> ActivateWallet(int userId)
+        public async Task<IActionResult> ActivateWallet(string userId)
         {
             var result = await _walletServices.ActivateWallet(userId);
             return StatusCode(result.StatusCode, result);
@@ -51,7 +51,7 @@ namespace Wallet.API.Controllers
 
         [HttpPatch("{userId}/deactivate")]
 
-        public async Task<IActionResult> DeactivateWallet(int userId)
+        public async Task<IActionResult> DeactivateWallet(string userId)
         {
             var result = await _walletServices.DeactivateWallet(userId);
             return StatusCode(result.StatusCode, result);
@@ -59,9 +59,9 @@ namespace Wallet.API.Controllers
 
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetUserWallet(int userId)
+        public async Task<IActionResult> GetUserWallet(string userId)
         {
-            var result = await _walletServices.GetUserWalletAsync( userId);
+            var result = await _walletServices.GetUserWalletAsync(userId);
             return StatusCode(result.StatusCode, result);
         }
 
@@ -80,7 +80,7 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet("totalTeacherReceived/{id}")]
-        public async Task<IActionResult> GetTotalTeacher(int id)
+        public async Task<IActionResult> GetTotalTeacher(string id)
         {
             var result = await _walletServices.GetTotalTeacherReceivedAmount(id);
             return StatusCode(result.StatusCode, result);

@@ -123,7 +123,7 @@ namespace Wallet.Core.Services
 
         }
 
-        public async Task<PayStackLinkResponseDto> GetPaymentLink(PayStackPaymentDto details, int userId)
+        public async Task<PayStackLinkResponseDto> GetPaymentLink(PayStackPaymentDto details, string userId)
         {
             var request = new JsonContentPostRequest<PayStackPaymentDto>();
             details.Amount = details.Amount + "00";

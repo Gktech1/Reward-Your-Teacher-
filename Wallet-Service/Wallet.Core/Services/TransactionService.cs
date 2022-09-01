@@ -22,7 +22,7 @@ namespace Wallet.Core.Services
             _db = db;
             _mapper = mapper;
         }
-        public async Task CreateFundingTransactionAsync(string txRef, string amount, int userId)
+        public async Task CreateFundingTransactionAsync(string txRef, string amount, string userId)
         {
             var transaction = new UserTransaction();
             var userWalletId = GetWalletId(userId);
@@ -122,7 +122,7 @@ namespace Wallet.Core.Services
                 Data = pagedTransactionDtos
             };
         }
-        private int GetWalletId(int userId) =>
+        private int GetWalletId(string userId) =>
             _db.Wallets.FirstOrDefault(x => x.UserId == userId).Id;
         private async Task<UserWallet> GetWallet(int walletId) =>
             await _db.Wallets.FirstOrDefaultAsync(x => x.Id.Equals(walletId));

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using System;
+using Wallet.API.Mappings.Configurations;
 using Wallet.Dtos;
 using Wallet.Model;
 
@@ -11,7 +12,9 @@ namespace Wallet.API.Mappings
 
         public MappingConfiguration()
         {
-            CreateMap<UserWallet, UserWalletDto>().ReverseMap();
+            CreateMap<UserWallet, UserWalletDto>().
+                ForMember(dest => dest.Balance, opt => opt.MapFrom<WalletBalanceResolver>())
+                .ReverseMap();
 
             CreateMap<UserWallet, UserWalletUpdateDto>().ReverseMap();
 

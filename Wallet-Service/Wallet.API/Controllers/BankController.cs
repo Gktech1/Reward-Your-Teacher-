@@ -40,14 +40,14 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetUserBank(int userId)
+        public async Task<IActionResult> GetUserBank(string userId)
         {
             var bank = await _bankServices.GetBankAsync(userId);
             return StatusCode(bank.StatusCode, bank);
         }
 
         [HttpDelete("{accountId}/{userId}")]
-        public async Task<IActionResult> DeleteUserBank(int accountId, int userId)
+        public async Task<IActionResult> DeleteUserBank(int accountId, string userId)
         {
             var bank = await _bankServices.DeleteBankAsync(accountId, userId);
             return StatusCode(bank.StatusCode, bank);

@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 function TeacherLogin() {
   return (
     <div className={styles["container"]}>
-      <div className={styles["container__header"]}>
-        <div className={styles["container__img"]}>
-          <img src={rewardLogo} alt="" />
+      <Link to="/">
+        <div className={styles["container__header"]}>
+          <div className={styles["container__img"]}>
+            <img src={rewardLogo} alt="" />
+          </div>
+          <h4 className={styles["container__heading"]}>Reward your Teacher</h4>
         </div>
-        <h4 className={styles["container__heading"]}>Reward your Teacher</h4>
-      </div>
+      </Link>
       <div className={styles["card"]}>
         <form className={styles["card-form"]}>
           <h5 className={styles["card-form__heading"]}>Login as a Teacher</h5>
@@ -55,7 +57,9 @@ function TeacherLogin() {
           <span className={styles["card__account--link"]}>
             Don't have an account?
           </span>
-          <span className={styles["text-green"]}>Create Account</span>
+          <Link to="/teacher-registration">
+            <span className={styles["text-green"]}>Create Account</span>
+          </Link>
         </div>
       </div>
     </div>

@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 function StudentLogin() {
   return (
     <div className={styles["container"]}>
-      <div className={styles["container__header"]}>
-        <div className={styles["container__img"]}>
-          <img src={rewardLogo} alt="" />
+      <Link to="/">
+        <div className={styles["container__header"]}>
+          <div className={styles["container__img"]}>
+            <img src={rewardLogo} alt="" />
+          </div>
+          <h4 className={styles["container__heading"]}>Reward your Teacher</h4>
         </div>
-        <h4 className={styles["container__heading"]}>Reward your Teacher</h4>
-      </div>
+      </Link>
       <div className={styles["card"]}>
         <form className={styles["card-form"]}>
           <h5 className={styles["card-form__heading"]}>

@@ -7,11 +7,10 @@ export default function authReducer(state, action) {
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.data.token);
       const user = {
-        fullname: action.payload.data.userFullName,
+        firstName: action.payload.data.firstName,
+        lastName: action.payload.data.lastName,
         role: action.payload.data.role,
-        organizationId: action.payload.data.organizationId,
         id: action.payload.data.id,
-        superadmin: action.payload.data.superadmin,
       };
       localStorage.setItem("user", JSON.stringify(user));
       toast.success(action.payload.message, {
@@ -20,11 +19,7 @@ export default function authReducer(state, action) {
       if (user.role === "TEACHER") {
         window.location.href = "/teacher-dashboard";
       } else {
-        // if (checkFirstTimeLogin(action.payload.data.id)) {
-        //   window.location.href = "/user/user-profile";
-        // } else {
-        //   window.location.href = "/user/home";
-        // }
+        window.location.href = "/student-dashboard";
       }
       return {
         ...state,

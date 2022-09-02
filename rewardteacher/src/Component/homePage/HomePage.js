@@ -72,7 +72,9 @@ export default function HomePage() {
                 A digital platform that digitizes the process of sending funds
                 to teachers who have done their work with emphatic kindness.
               </p>
-              <button>Get Started</button>
+              <Link to="/login">
+                <button>Get Started</button>
+              </Link>
             </div>
             <div className="col-right">
               <img src={momandDaughter} alt="hero" />

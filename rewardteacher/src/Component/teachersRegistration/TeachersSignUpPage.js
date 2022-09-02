@@ -16,10 +16,12 @@ function TeachersSignUpPage() {
     <>
       {display === false && (
         <div className="container">
-          <div className="baseContainer">
-            <img className="first-image" src={logo} alt="" />
-            <h1 className="title">Reward your Teacher</h1>
-          </div>
+          <Link to="/">
+            <div className="baseContainer">
+              <img className="first-image" src={logo} alt="" />
+              <h1 className="title">Reward your Teacher</h1>
+            </div>
+          </Link>
 
           <div className="secondSign">
             <p className="text1">Sign Up as a Teacher</p>
@@ -75,10 +77,12 @@ function TeachersSignUpPage() {
 
       {display && (
         <div className="container">
-          <div className="baseContainer">
-            <img className="first-image" src={logo} alt="" />
-            <h1 className="title">Reward your Teacher</h1>
-          </div>
+          <Link to="/">
+            <div className="baseContainer">
+              <img className="first-image" src={logo} alt="" />
+              <h1 className="title">Reward your Teacher</h1>
+            </div>
+          </Link>
           <div className="secondSign">
             <div className="text1">Sign Up as a Teacher</div>
             <div className="text2">STEP 2 OF 2</div>

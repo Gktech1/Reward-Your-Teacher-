@@ -1,15 +1,15 @@
-import React, { createContext } from 'react';
-import axios from 'axios';
+import React, { createContext } from "react";
+import axios from "axios";
 
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const baseUrl = '';
+  const baseUrl = "https://localhost:7166";
   // const [loggedIn, setLoggedIn] = useState(false);
-  var word = 'testing';
+  var word = "testing";
 
   function login(email, password) {
-    const loginUrl = baseUrl.concat('/auth/login');
+    const loginUrl = baseUrl.concat("/auth/login");
     axios
       .post(baseUrl, {
         usernameOrEmail: email,
@@ -19,15 +19,11 @@ export const GlobalProvider = ({ children }) => {
         console.log(response);
       });
     // setLoggedIn(true);
-    console.log(email + ' ' + password);
+    console.log(email + " " + password);
     console.log(loginUrl);
   }
 
-  return (
-    <GlobalContext.Provider>
-      {children}
-    </GlobalContext.Provider>
-  );
+  return <GlobalContext.Provider value={{word,login,baseUrl}}>{children}</GlobalContext.Provider>;
 };
 
-export default GlobalProvider;
+

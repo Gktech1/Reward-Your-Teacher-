@@ -19,9 +19,8 @@ import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import Login from "./Component/login/Login";
 import ErrorPage from "./Component/error-page/ErrorPage";
-import GlobalProvider from '../src/Context/GlobalState';
-import AuthState from '../src/Context/auth/AuthState';
-
+import{ GlobalProvider }from "../src/Context/GlobalState";
+import AuthState from "../src/Context/auth/AuthState";
 
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 
@@ -29,7 +28,8 @@ function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback="loading">
-        
+        <GlobalProvider>
+          <AuthState>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
               <Route path="/student-login" element={<StudentLogin />} />
@@ -73,7 +73,8 @@ function App() {
 
               <Route path="*" element={<ErrorPage />} />
             </Routes>
-         
+          </AuthState>
+        </GlobalProvider>
       </Suspense>
     </ErrorBoundary>
   );

@@ -12,5 +12,6 @@ namespace RYTUserManagementService.Dto
 
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string AddressId { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

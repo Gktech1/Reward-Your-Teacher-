@@ -12,6 +12,7 @@ namespace RYTUserManagementService.Dto
 
         public string SchoolName { get; set; }
         public string AddressId { get; set; }
+        public string CreatedBy { get; set; }
     }
 
 }

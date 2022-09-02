@@ -26,7 +26,6 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     AddressId = "a7dd2ab0-289c-11ed-a261-0242ac120002",
                     Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     Type = Constants.SchoolType.Secondary,
-                
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,
@@ -41,8 +40,6 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     AddressId = "b01430ca-289c-11ed-a261-0242ac120002",
                     Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     Type = Constants.SchoolType.Secondary,
-                    //Students = new List<Student>(),
-                    //Teachers = new List<Teacher>(),
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,

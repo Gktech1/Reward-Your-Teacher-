@@ -20,34 +20,34 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 new Student
                 {
                     Id = Guid.NewGuid().ToString(),
-                    FirstName = "bayo",
-                    LastName  = "dayo",
                     Title = Constants.Titles.Mr,
+                    FirstName = "bayo",
+                    LastName = "dayo",
+                    SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     FullName = "Jegede Moses",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
-                    SchoolId = "8691ffe5-4273-42d0-9a59-bed24eb5af6e",
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedBy = "Dami"
-                }, 
+                },
                 new Student
                 {
                     Id = Guid.NewGuid().ToString(),
                     FirstName = "bayo",
                     LastName = "dayo",
                     Title = Constants.Titles.Mrs,
+                    SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     FullName = "Jegede Esther",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
-                    SchoolId = "8691ffe5-4273-42d0-9a59-bed24eb5af6e",
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedBy = "Dami"
                 }
-            );
+            ); ;
         }
     }
     

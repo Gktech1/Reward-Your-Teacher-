@@ -5,7 +5,7 @@ using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
 {
-    public class Student : IdentityUser
+    public class Student : ApiUser
     {
         public Constants.Titles Title { get; set; }
 
@@ -18,18 +18,16 @@ namespace RYTUserManagementService.Models
         [StringLength(Constants.Max2000Length)]
         public string About { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 
-        public virtual ICollection<School> School { get; set; }
-
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        
-        public DateTime UpdatedAt { get; set; }
+        public string SchoolId { get; set; }
+        [ForeignKey("SchoolId")]
+        public School School { get; set; }
 
         public string Address { get; set; }
-        
+
         public string CreatedBy { get; set; }
-        
-        public string UpdatedBy { get; set; }
+
+        public string UpdatedBy { get; set; } 
     }
 }

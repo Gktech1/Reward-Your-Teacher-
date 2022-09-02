@@ -18,7 +18,7 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
             builder.HasData(
                 new Address
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = "a7dd2ab0-289c-11ed-a261-0242ac120002",
                     StreetAddress = "Okuoromi Community",
                     City = "Benin",
                     State = "Edo",
@@ -30,7 +30,8 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 },
                 new Address
                 {
-                    Id = Guid.NewGuid().ToString(),
+
+                    Id = "b01430ca-289c-11ed-a261-0242ac120002",
                     StreetAddress = "Lagos Community",
                     City = "Lagos",
                     State = "Lagos",

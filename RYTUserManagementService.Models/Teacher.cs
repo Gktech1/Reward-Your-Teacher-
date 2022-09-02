@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RYTUserManagementService.Models
 {
-    public class Teacher : IdentityUser
+    public class Teacher : ApiUser
     {
         public Constants.Titles Title { get; set; }
 
@@ -23,12 +23,12 @@ namespace RYTUserManagementService.Models
 
         public DateTime StartYear { get; set; }
 
-        public DateTime? EndYear { get; set; }
+        public DateTime EndYear { get; set; }
         public string Address { get; set; }
 
         public virtual IEnumerable<School> School { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 
         public DateTime UpdateAt { get; set; }
 

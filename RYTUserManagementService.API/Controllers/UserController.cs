@@ -9,6 +9,7 @@ using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
+using RYTUserManagementService.Dto.UserDto;
 using RYTUserManagementService.Models;
 using System.Text;
 
@@ -225,14 +226,16 @@ namespace RYTUserManagementService.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/UpdateUserPassword")]
         public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordDto userDto)
         {
-            _logger.LogInformation($"Update Password attempt for {userDto.Email}");
+            _logger.LogInformation($"Update Password attempt for {userDto}");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                var user = _mapper.Map<ApiUser>(userDto);
+                
+                //var user = _mapper.Map<ApiUser>(userDto);
+                var user = await _userManager.FindByEmailAsync(userDto.Email);
                 if (user.Email != userDto.Email)
                 {
                     _logger.LogInformation($"Check the credentials and try again");

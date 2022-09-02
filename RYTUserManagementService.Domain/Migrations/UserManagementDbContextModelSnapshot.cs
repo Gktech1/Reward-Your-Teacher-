@@ -398,7 +398,6 @@ namespace RYTUserManagementService.Domain.Migrations
                             Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                             SchoolName = "Decagon Institute Edo",
                             Type = 1,
-<
                             UpdatedAt = new DateTime(2022, 9, 1, 0, 0, 0, 0, DateTimeKind.Local),
 
                             UpdatedBy = "Dami"

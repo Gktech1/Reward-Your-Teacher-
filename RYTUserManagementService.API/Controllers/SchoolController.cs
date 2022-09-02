@@ -14,9 +14,7 @@ namespace RYTUserManagementService.API.Controllers
     public class SchoolController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-       // private readonly IMapper _mapper;
         private readonly ILogger<SchoolController> _logger;
-
         private readonly IMapper _mapper;
 
         public SchoolController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<SchoolController> logger)

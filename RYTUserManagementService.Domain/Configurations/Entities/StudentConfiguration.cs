@@ -20,11 +20,13 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 new Student
                 {
                     Id = Guid.NewGuid().ToString(),
+                    FirstName = "bayo",
+                    LastName  = "dayo",
                     Title = Constants.Titles.Mr,
                     FullName = "Jegede Moses",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
-                    //School = new List<School>(),
+                    SchoolId = "8691ffe5-4273-42d0-9a59-bed24eb5af6e",
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
@@ -33,11 +35,13 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 new Student
                 {
                     Id = Guid.NewGuid().ToString(),
+                    FirstName = "bayo",
+                    LastName = "dayo",
                     Title = Constants.Titles.Mrs,
                     FullName = "Jegede Esther",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
-                    //School = new List<School>(),
+                    SchoolId = "8691ffe5-4273-42d0-9a59-bed24eb5af6e",
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",

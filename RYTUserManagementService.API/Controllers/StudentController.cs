@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
-using RYTUserManagementService.Dto;
+using RYTUserManagementService.Dto.StudentDto;
 using RYTUserManagementService.Models;
 using System.Security.Cryptography;
 
@@ -17,10 +17,11 @@ namespace RYTUserManagementService.API.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<StudentController> _logger;
-        private readonly UserManager<ApiUser> _userManager;
+        private readonly UserManager<Student> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public StudentController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<StudentController> logger, UserManager<ApiUser> userManager, IEmailSender emailSender)
+        public StudentController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<StudentController> logger, 
+            UserManager<Student> userManager, IEmailSender emailSender)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -35,9 +36,10 @@ namespace RYTUserManagementService.API.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}", Name="GetStudentById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
         public async Task<IActionResult> GetStudentById(string id)
         {
             try
@@ -90,7 +92,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Post: CreateStudent
-        [Authorize]
+        [AllowAnonymous]
         [HttpPost("CreateStudent")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -107,10 +109,10 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var student = _mapper.Map<Student>(studentDto);
-                await _unitOfWork.Students.Insert(student);
+                var res = await _userManager.CreateAsync(student, student.PasswordHash);
                 await _unitOfWork.Save();
 
-                return CreatedAtRoute("GetStudent", new {id = student.Id}, student);
+                return CreatedAtRoute(nameof(GetStudentById), new {id = student.Id}, student);
 
             }
             catch (Exception e)

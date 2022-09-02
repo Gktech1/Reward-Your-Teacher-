@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RYTUserManagementService.Models
 {
-    public class Teacher : IdentityUser
+    public class Teacher : ApiUser
     {
         public Constants.Titles Title { get; set; }
 

@@ -20,6 +20,8 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 new Teacher
                 {
                     Id = Guid.NewGuid().ToString(),
+                    FirstName = "bayo",
+                    LastName = "dayo",
                     Title = Constants.Titles.Dr,
                     FullName = "Ayooluwa Moses",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
@@ -36,6 +38,8 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 new Teacher
                 {
                     Id = Guid.NewGuid().ToString(),
+                    FirstName = "bayo",
+                    LastName = "dayo",
                     Title = Constants.Titles.Prof,
                     FullName = "Tijani Moses",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",

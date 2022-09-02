@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
-using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
+using RYTUserManagementService.Dto.TeacherDto;
 
 namespace RYTUserManagementService.API.Controllers
 {
@@ -17,10 +17,10 @@ namespace RYTUserManagementService.API.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<TeacherController> _logger;
-        private readonly UserManager<ApiUser> _userManager;
+        private readonly UserManager<Teacher> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<TeacherController> logger, UserManager<ApiUser> userManager, IEmailSender emailSender)
+        public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<TeacherController> logger, UserManager<Teacher> userManager, IEmailSender emailSender)
 
         {
             _unitOfWork = unitOfWork;
@@ -39,7 +39,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // GET: Teacher
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}", Name="GetTeacherById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
@@ -93,7 +93,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Post: CreateTeacher
-        [Authorize]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -109,10 +109,10 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var teacher = _mapper.Map<Teacher>(teacherDto);
-                await _unitOfWork.Teachers.Insert(teacher);
+                var res = await _userManager.CreateAsync(teacher, teacher.PasswordHash);
                 await _unitOfWork.Save();
 
-                return CreatedAtRoute("GetTeacher", new { id = teacher.Id }, teacher);
+                return CreatedAtRoute(nameof(GetTeacherById), new { id = teacher.Id }, teacher);
 
             }
             catch (Exception e)

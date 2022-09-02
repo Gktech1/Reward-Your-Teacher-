@@ -30,7 +30,6 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 },
                 new Address
                 {
-
                     Id = "b01430ca-289c-11ed-a261-0242ac120002",
                     StreetAddress = "Lagos Community",
                     City = "Lagos",

@@ -9,6 +9,7 @@ using RYTUserManagementService.Core.ServiceImplementations;
 using RYTUserManagementService.Core.ServiceInterfaces;
 using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
+using RYTUserManagementService.Dto.UserDto;
 using RYTUserManagementService.Models;
 using System.Text;
 
@@ -191,7 +192,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/{UpdateUser}")]
+        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/UpdateUser")]
         public async Task<IActionResult> UpdateUser([FromBody] UserDto userDto)
         {
             _logger.LogInformation($"Update attempt for {userDto.Email}");
@@ -222,17 +223,19 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/{UpdateUser}/UpdatePassword")]
+        [Microsoft.AspNetCore.Mvc.HttpPut("[controller]/UpdateUserPassword")]
         public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordDto userDto)
         {
-            _logger.LogInformation($"Update Password attempt for {userDto.Email}");
+            _logger.LogInformation($"Update Password attempt for {userDto}");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                var user = _mapper.Map<ApiUser>(userDto);
+                
+                //var user = _mapper.Map<ApiUser>(userDto);
+                var user = await _userManager.FindByEmailAsync(userDto.Email);
                 if (user.Email != userDto.Email)
                 {
                     _logger.LogInformation($"Check the credentials and try again");
@@ -319,7 +322,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Microsoft.AspNetCore.Mvc.HttpDelete("[controller]/{DeleteUser}")]
+        [Microsoft.AspNetCore.Mvc.HttpDelete("[controller]/DeleteUser")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             try

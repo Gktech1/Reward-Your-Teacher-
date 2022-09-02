@@ -36,7 +36,7 @@ namespace RYTUserManagementService.API.Controllers
 
         //GET: School
      
-       [HttpGet("{id}")]
+       [HttpGet("{id}", Name="GetSchoolById")]
        [ProducesResponseType(200)]
        [ProducesResponseType(400)]
        [ProducesResponseType(404)]
@@ -96,7 +96,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Post: CreateSchool
-        //[Authorize]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -113,12 +113,13 @@ namespace RYTUserManagementService.API.Controllers
             {
                
                 var school = _mapper.Map<School>(schoolcreate);
+                school.Id = Guid.NewGuid().ToString();
                 await _unitOfWork.Schools.Insert(school);
                 await _unitOfWork.Save();
+                  
+                return CreatedAtRoute(nameof(GetSchoolById), new { id = school.Id }, school);
 
-                return CreatedAtRoute("GetStudent", new { id = school.Id }, school);
-
-            }
+            }  
             catch (Exception e)
             {
                 _logger.LogError(e, $"Something went wrong in the {nameof(CreateSchool)}");
@@ -167,6 +168,7 @@ namespace RYTUserManagementService.API.Controllers
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
         }
+
 
         /// <summary>
         /// 

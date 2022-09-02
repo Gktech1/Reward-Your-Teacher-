@@ -4,13 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.AutoMapper;
 using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Dto
 {
-    [AutoMapFrom(typeof(Address))]
     public class AddressDto
     {
         public int Id { get; set; }

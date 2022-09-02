@@ -7,10 +7,10 @@ using RYTUserManagementService.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using RYTUserManagementService.Dto;
 using System.Configuration;
 using Microsoft.AspNetCore.DataProtection;
 using System.Collections.Generic;
+using RYTUserManagementService.Dto.UserDto;
 
 namespace RYTUserManagementService.Core.ServiceImplementations
 {

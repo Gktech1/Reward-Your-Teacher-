@@ -14,7 +14,7 @@ jobs:
       working-directory: ./User-Service/
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_KEY }}
-        APP_NAME: ${{ 'rewardteacherapi' }}
+        APP_NAME: ${{ 'reward-teacher-api' }}
       run: |
         docker build -t rewardteacherapp .
         docker tag rewardteacherapp registry.heroku.com/$APP_NAME/web

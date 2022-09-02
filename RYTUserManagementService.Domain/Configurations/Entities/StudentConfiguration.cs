@@ -21,6 +21,9 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                 {
                     Id = Guid.NewGuid().ToString(),
                     Title = Constants.Titles.Mr,
+                    FirstName = "bayo",
+                    LastName = "dayo",
+                    SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     FullName = "Jegede Moses",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
@@ -28,11 +31,14 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",
                     UpdatedBy = "Dami"
-                }, 
+                },
                 new Student
                 {
                     Id = Guid.NewGuid().ToString(),
+                    FirstName = "bayo",
+                    LastName = "dayo",
                     Title = Constants.Titles.Mrs,
+                    SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     FullName = "Jegede Esther",
                     ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                     About = "I am a student",
@@ -41,7 +47,7 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     CreatedBy = "Dami",
                     UpdatedBy = "Dami"
                 }
-            );
+            ); ;
         }
     }
     

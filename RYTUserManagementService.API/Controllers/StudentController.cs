@@ -44,7 +44,7 @@ namespace RYTUserManagementService.API.Controllers
         {
             try
             {
-                var student = await _unitOfWork.Students.Get(q => q.Id == id, new List<string>{"Students"});
+                var student = await _unitOfWork.Students.Get(q => q.Id == id);
                 var result = _mapper.Map<StudentsDto>(student);
                 return Ok(result);
             }

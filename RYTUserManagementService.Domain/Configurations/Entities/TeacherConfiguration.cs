@@ -28,7 +28,7 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Position = "HeadSA",
                     About = "I am A Teacher",
                     SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
-                    //School = new List<School>(),
+                    
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
                     CreatedBy = "Dami",

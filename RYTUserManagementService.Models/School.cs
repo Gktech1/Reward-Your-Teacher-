@@ -19,12 +19,7 @@ namespace RYTUserManagementService.Models
 
         public string Logo { get; set; }
 
-
         public Constants.SchoolType Type { get; set; }
-
-
-        public ICollection<Student> Students { get; set; }
-
 
         public ICollection<Teacher> Teachers { get; set; }
 

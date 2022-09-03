@@ -8,18 +8,23 @@ import axios from "axios";
 
 const StudentRegistration = () => {
   const [userData, setUserData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
     email: "",
     password: "",
     school: "",
   });
   const [errors, setErrors] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
     email: "",
     password: "",
     school: "",
   });
-  const { name, email, password, school } = userData;
+  const { firstName, lastName, phoneNumber, email, password, school } =
+    userData;
   const [isValid, setIsValid] = useState(false);
   const [userId, setUserId] = useState("");
 
@@ -30,25 +35,26 @@ const StudentRegistration = () => {
       [name]: value,
     }));
     console.log(validateEmail());
-    console.log(validateName());
+    // console.log(validateName());
     console.log(validatePassword());
   };
 
-  const validateName = () => {
-    if (!new RegExp(/^([A-Za-z]{3,16})([ ]{1})([A-Za-z]{3,16})$/).test(name)) {
-      setErrors((prevState) => ({
-        ...prevState,
-        name: "Enter a valid name",
-      }));
-      return false;
-    } else {
-      setErrors((prevState) => ({
-        ...prevState,
-        name: "",
-      }));
-      return true;
-    }
-  };
+  // const validateName = () => {
+  //   let name = `${firstName}${lastName}`;
+  //   if (!new RegExp(/^([A-Za-z]{3,16})([ ]{1})([A-Za-z]{3,16})$/).test(name)) {
+  //     setErrors((prevState) => ({
+  //       ...prevState,
+  //       name: "Enter a valid name",
+  //     }));
+  //     return false;
+  //   } else {
+  //     setErrors((prevState) => ({
+  //       ...prevState,
+  //       name: "",
+  //     }));
+  //     return true;
+  //   }
+  // };
 
   const validateEmail = () => {
     if (
@@ -87,7 +93,7 @@ const StudentRegistration = () => {
     }
   };
   const validInput = () => {
-    setIsValid(validateName());
+    // setIsValid(validateName());
     setIsValid(validateEmail());
     setIsValid(validatePassword());
     console.log(isValid);
@@ -98,7 +104,7 @@ const StudentRegistration = () => {
     e.preventDefault();
     if (validInput()) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/User/api/v1/RegisterUser";
+      const registerUrl = "https://localhost:7166/Student/api/v1/CreateStudent";
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);
@@ -126,14 +132,40 @@ const StudentRegistration = () => {
               Sign Up as an old Student
             </h5>
             <div className="card-form__group">
-              <label className={styles["card-form__label"]}>Name</label>
+              <label className={styles["card-form__label"]}>FirstName</label>
               <input
                 className={styles["card-form__input"]}
                 type="text"
-                name="name"
-                value={name}
+                name="firstName"
+                value={firstName}
                 onChange={changeHandler}
-                onBlur={validateName}
+                // onBlur={validateName}
+                placeholder="Enter your name"
+                // errorMessage={errors.name}
+              />
+            </div>
+            <div className="card-form__group">
+              <label className={styles["card-form__label"]}>LastName</label>
+              <input
+                className={styles["card-form__input"]}
+                type="text"
+                name="lastName"
+                value={lastName}
+                onChange={changeHandler}
+                // onBlur={validateName}
+                placeholder="Enter your name"
+                // errorMessage={errors.name}
+              />
+            </div>
+            <div className="card-form__group">
+              <label className={styles["card-form__label"]}>PhoneNumber</label>
+              <input
+                className={styles["card-form__input"]}
+                type="text"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={changeHandler}
+                // onBlur={validateName}
                 placeholder="Enter your name"
                 // errorMessage={errors.name}
               />

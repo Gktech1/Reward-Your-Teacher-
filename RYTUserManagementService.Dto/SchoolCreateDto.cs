@@ -15,8 +15,10 @@ namespace RYTUserManagementService.Dto
         public Constants.SchoolType Type { get; set; }
 
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public string Logo { get; set; }
         public string AddressId { get; set; }
         public string CreatedBy { get; set; }
+
         public string UpdatedBy { get; set; }
     }
 }

@@ -18,6 +18,4 @@ public class CreateStudentDto : StudentsDto
 
     public string Address { get; set; }
 
-    public string SchoolId  { get; set; }
-
 }

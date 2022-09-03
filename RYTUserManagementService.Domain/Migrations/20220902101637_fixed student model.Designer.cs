@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RYTUserManagementService.Domain;
@@ -11,9 +12,10 @@ using RYTUserManagementService.Domain;
 namespace RYTUserManagementService.Domain.Migrations
 {
     [DbContext(typeof(UserManagementDbContext))]
-    partial class UserManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220902101637_fixed student model")]
+    partial class fixedstudentmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -317,9 +319,6 @@ namespace RYTUserManagementService.Domain.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<int>("UserRole")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -457,7 +456,6 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "bc758277-572c-4c20-88bc-91b8a7367087",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                             CreatedAt = new DateTime(2022, 9, 2, 11, 16, 37, 107, DateTimeKind.Local).AddTicks(4975),
@@ -480,7 +478,6 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "f92207cf-bb8e-4a53-ac9f-a11b3cc1bb56",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                             CreatedAt = new DateTime(2022, 9, 2, 11, 16, 37, 107, DateTimeKind.Local).AddTicks(5036),
@@ -573,7 +570,6 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e4f5782f-a528-4d89-851f-fcce56abeebf",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                             CreatedAt = new DateTime(2022, 9, 2, 11, 16, 37, 107, DateTimeKind.Local).AddTicks(4770),
@@ -600,7 +596,6 @@ namespace RYTUserManagementService.Domain.Migrations
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e396d1dd-38bf-44e7-a68b-cb5f3518c64d",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                             CreatedAt = new DateTime(2022, 9, 2, 11, 16, 37, 107, DateTimeKind.Local).AddTicks(4786),

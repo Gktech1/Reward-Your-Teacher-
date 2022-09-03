@@ -9,8 +9,6 @@ namespace RYTUserManagementService.Dto
         [Required]
         [StringLength(Constants.Max100Length)]
         public string SchoolName { get; set; }
-        public string Logo { get; set; }
-
 
         public Constants.SchoolType Type { get; set; }
 

@@ -25,7 +25,6 @@ namespace RYTUserManagementService.Domain
             builder.ApplyConfiguration(new StudentConfiguration());
             builder.ApplyConfiguration(new SchoolConfiguration());
             builder.ApplyConfiguration(new AddressConfiguration());
-            builder.ApplyConfiguration(new RoleConfiguration());
             base.OnModelCreating(builder);
         }
 

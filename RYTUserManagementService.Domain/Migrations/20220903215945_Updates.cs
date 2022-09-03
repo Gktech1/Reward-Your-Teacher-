@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace RYTUserManagementService.Domain.Migrations
 {
-    public partial class init : Migration
+    public partial class Updates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -104,7 +104,7 @@ namespace RYTUserManagementService.Domain.Migrations
                     FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     About = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    SchoolId = table.Column<string>(type: "text", nullable: true),
+                    SchoolName = table.Column<string>(type: "text", nullable: true),
                     Address = table.Column<string>(type: "text", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: true),
                     UpdatedBy = table.Column<string>(type: "text", nullable: true),
@@ -116,7 +116,7 @@ namespace RYTUserManagementService.Domain.Migrations
                     StartYear = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     EndYear = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     Teacher_Address = table.Column<string>(type: "text", nullable: true),
-                    Teacher_SchoolId = table.Column<string>(type: "text", nullable: true),
+                    SchoolId = table.Column<string>(type: "text", nullable: true),
                     Teacher_CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     UpdateAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     Teacher_CreatedBy = table.Column<string>(type: "text", nullable: true),
@@ -142,12 +142,6 @@ namespace RYTUserManagementService.Domain.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUsers_Schools_SchoolId",
                         column: x => x.SchoolId,
-                        principalTable: "Schools",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_Schools_Teacher_SchoolId",
-                        column: x => x.Teacher_SchoolId,
                         principalTable: "Schools",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -243,18 +237,17 @@ namespace RYTUserManagementService.Domain.Migrations
                 columns: new[] { "Id", "City", "Country", "CreatedAt", "CreatedBy", "Latitude", "Longitude", "State", "StreetAddress", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "a7dd2ab0-289c-11ed-a261-0242ac120002", "Benin", "Nigeria", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4685), "Dami", 4.5646573999999998, 9.0, "Edo", "Okuoromi Community", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami" },
-                    { "b01430ca-289c-11ed-a261-0242ac120002", "Lagos", "Nigeria", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4692), "Dami", 4.5646764657399999, 9.5600645699999998, "Lagos", "Lagos Community", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami" }
+                    { "a7dd2ab0-289c-11ed-a261-0242ac120002", "Benin", "Nigeria", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(3455), "Dami", 4.5646573999999998, 9.0, "Edo", "Okuoromi Community", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami" },
+                    { "b01430ca-289c-11ed-a261-0242ac120002", "Lagos", "Nigeria", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(3459), "Dami", 4.5646764657399999, 9.5600645699999998, "Lagos", "Lagos Community", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami" }
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                table: "AspNetUsers",
+                columns: new[] { "Id", "About", "AccessFailedCount", "Address", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Discriminator", "Email", "EmailConfirmed", "FirstName", "FullName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileUrl", "SchoolName", "SecurityStamp", "Title", "TwoFactorEnabled", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { "3afef8f5-5f56-4498-8039-9cd766437a49", "a8f02da8-b6c3-485c-82c8-35881890744d", "Student", "STUDENT" },
-                    { "6044a881-c77d-4caf-a8d7-8339f4e75feb", "b096193d-6890-46d3-89fd-628dae7a12d1", "Teacher", "TEACHER" },
-                    { "a3506fb1-0c7a-4961-90ab-fe7b5fdf0556", "a9d31d98-e6c7-4c86-8bb5-bf1f5fac673b", "Administrator", "ADMINISTRATOR" }
+                    { "a7b14d10-8403-4bc8-a671-e452fab705d6", "I am a student", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "83f5ece3-b697-4a8b-9298-fb917e488052", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2793), "Dami", "Student", null, false, "bayo", "Jegede Moses", "dayo", false, null, null, null, null, null, false, "https://unsplash.com/photos/mPnkjZ_9a8Q", "Lara&Manny Int'l sec school", "ef3c1447-f01b-49e4-bfbd-19adc52543fc", 0, false, "Dami", null },
+                    { "c21f1b1c-8afc-4ff6-b842-4e3c7c69ef4d", "I am a student", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "3c17bb77-e57d-4dae-85f4-fc683f816b71", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2804), "Dami", "Student", null, false, "bayo", "Jegede Esther", "dayo", false, null, null, null, null, null, false, "https://unsplash.com/photos/mPnkjZ_9a8Q", "Lara&Manny Int'l sec school", "369dc639-0f04-4a04-9e29-8e8b76ee72a7", 1, false, "Dami", null }
                 });
 
             migrationBuilder.InsertData(
@@ -262,26 +255,17 @@ namespace RYTUserManagementService.Domain.Migrations
                 columns: new[] { "Id", "AddressId", "CreatedAt", "CreatedBy", "Logo", "SchoolName", "Type", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "11f09734-289d-11ed-a261-0242ac120002", "a7dd2ab0-289c-11ed-a261-0242ac120002", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4397), "Dami", "https://unsplash.com/photos/mPnkjZ_9a8Q", "Decagon Institute Edo", 1, new DateTime(2022, 9, 2, 0, 0, 0, 0, DateTimeKind.Local), "Dami" },
-                    { "21addd9e-289d-11ed-a261-0242ac120002", "b01430ca-289c-11ed-a261-0242ac120002", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4403), "Dami", "https://unsplash.com/photos/mPnkjZ_9a8Q", "Decagon Institute Lagos", 1, new DateTime(2022, 9, 2, 0, 0, 0, 0, DateTimeKind.Local), "Dami" }
+                    { "11f09734-289d-11ed-a261-0242ac120002", "a7dd2ab0-289c-11ed-a261-0242ac120002", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2864), "Dami", "https://unsplash.com/photos/mPnkjZ_9a8Q", "Decagon Institute Edo", 1, new DateTime(2022, 9, 3, 0, 0, 0, 0, DateTimeKind.Local), "Dami" },
+                    { "21addd9e-289d-11ed-a261-0242ac120002", "b01430ca-289c-11ed-a261-0242ac120002", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2869), "Dami", "https://unsplash.com/photos/mPnkjZ_9a8Q", "Decagon Institute Lagos", 1, new DateTime(2022, 9, 3, 0, 0, 0, 0, DateTimeKind.Local), "Dami" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "About", "AccessFailedCount", "Address", "ConcurrencyStamp", "CreatedAt", "CreatedBy", "Discriminator", "Email", "EmailConfirmed", "FirstName", "FullName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileUrl", "SchoolId", "SecurityStamp", "Title", "TwoFactorEnabled", "UpdatedBy", "UserName" },
+                columns: new[] { "Id", "Teacher_About", "AccessFailedCount", "Teacher_Address", "ConcurrencyStamp", "Teacher_CreatedAt", "Teacher_CreatedBy", "Discriminator", "Email", "EmailConfirmed", "EndYear", "FirstName", "Teacher_FullName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Position", "Teacher_ProfileUrl", "SchoolId", "SecurityStamp", "StartYear", "Teacher_Title", "TwoFactorEnabled", "UpdateAt", "Teacher_UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { "109f26dc-85d1-49a9-b02b-fb46f5b05f6c", "I am a student", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "d8d6e271-737c-4ca7-84c3-cf55bfc25e78", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4307), "Dami", "Student", null, false, "bayo", "Jegede Esther", "dayo", false, null, null, null, null, null, false, "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "778df6a3-712f-489f-85d7-b80275d0428e", 1, false, "Dami", null },
-                    { "bfd51f44-1028-4521-9436-f9036302d15c", "I am a student", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "f2e8562f-d717-4189-a4a0-26eb3d5e8e82", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(4292), "Dami", "Student", null, false, "bayo", "Jegede Moses", "dayo", false, null, null, null, null, null, false, "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "4afc8adb-98e0-40ef-92b9-9530764160af", 0, false, "Dami", null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "Teacher_About", "AccessFailedCount", "Teacher_Address", "ConcurrencyStamp", "Teacher_CreatedAt", "Teacher_CreatedBy", "Discriminator", "Email", "EmailConfirmed", "EndYear", "FirstName", "Teacher_FullName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Position", "Teacher_ProfileUrl", "Teacher_SchoolId", "SecurityStamp", "StartYear", "Teacher_Title", "TwoFactorEnabled", "UpdateAt", "Teacher_UpdatedBy", "UserName" },
-                values: new object[,]
-                {
-                    { "75b04886-f726-4d9f-83f7-cc31d138d5bd", "I am A Teacher", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "7780d4ac-795b-4336-9758-e754c68ce239", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(3762), "Dami", "Teacher", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "bayo", "Ayooluwa Moses", "dayo", false, null, null, null, null, null, false, "HeadSA", "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "21d460f2-bf21-4975-a398-005b543d17e1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami", null },
-                    { "827e6621-f9d6-42e4-9791-82d1d7e19733", "I am A Teacher", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "8caa8a7b-263e-4d46-9203-0ba428e1d552", new DateTime(2022, 9, 2, 3, 15, 27, 408, DateTimeKind.Local).AddTicks(3786), "Dami", "Teacher", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "bayo", "Tijani Moses", "dayo", false, null, null, null, null, null, false, "HeadSA", "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "e8a9a6a0-c411-466d-9a9f-3dc47d5d4dbe", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami", null }
+                    { "b8b473a1-9265-4df5-b931-b5065b42383f", "I am A Teacher", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "d4662e46-c5ee-4dc8-aa34-c63c7af79ef3", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2622), "Dami", "Teacher", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "bayo", "Tijani Moses", "dayo", false, null, null, null, null, null, false, "HeadSA", "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "536ec095-f5e1-4b95-a592-c91416c7a9be", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami", null },
+                    { "edc65fd2-3d60-44e9-bce9-9805695797d0", "I am A Teacher", 0, "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574", "eeb95e8a-76c7-41d5-ab09-500894237630", new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2605), "Dami", "Teacher", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "bayo", "Ayooluwa Moses", "dayo", false, null, null, null, null, null, false, "HeadSA", "https://unsplash.com/photos/mPnkjZ_9a8Q", "11f09734-289d-11ed-a261-0242ac120002", "4ec47f94-11e0-4776-845c-b2fbfcb5422e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dami", null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -319,11 +303,6 @@ namespace RYTUserManagementService.Domain.Migrations
                 name: "IX_AspNetUsers_SchoolId",
                 table: "AspNetUsers",
                 column: "SchoolId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_Teacher_SchoolId",
-                table: "AspNetUsers",
-                column: "Teacher_SchoolId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

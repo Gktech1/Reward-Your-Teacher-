@@ -1,13 +1,9 @@
 ﻿
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RYTUserManagementService.Core.ServiceImplementations;
-using RYTUserManagementService.Core.ServiceInterfaces;
-using RYTUserManagementService.Domain;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Dto.UserDto;
 using RYTUserManagementService.Models;
@@ -78,7 +74,6 @@ namespace RYTUserManagementService.API.Controllers
                     return BadRequest($"User Registration Attempt Failed");
                 }
 
-                await _userManager.AddToRolesAsync(user, userDto.Roles);
 
                 return Accepted();
             }

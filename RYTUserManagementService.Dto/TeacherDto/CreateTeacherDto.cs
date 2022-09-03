@@ -2,7 +2,7 @@
 
 namespace RYTUserManagementService.Dto.TeacherDto
 {
-    public class TeacherDto
+    public class CreateTeacherDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -23,6 +23,5 @@ namespace RYTUserManagementService.Dto.TeacherDto
         public string Address { get; set; }
 
         public string SchoolId { get; set; }
-
     }
 }

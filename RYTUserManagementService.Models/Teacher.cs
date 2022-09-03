@@ -25,8 +25,10 @@ namespace RYTUserManagementService.Models
 
         public DateTime EndYear { get; set; }
         public string Address { get; set; }
+        public string SchoolId { get; set; }
 
-        public virtual IEnumerable<School> School { get; set; }
+        [ForeignKey("SchoolId")]
+        public School School { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 

@@ -20,9 +20,7 @@ namespace RYTUserManagementService.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 
-        public string SchoolId { get; set; }
-        [ForeignKey("SchoolId")]
-        public School School { get; set; }
+        public string SchoolName { get; set; }
 
         public string Address { get; set; }
 

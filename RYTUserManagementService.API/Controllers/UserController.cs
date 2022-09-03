@@ -149,7 +149,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // GET: AllUsers
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
@@ -168,7 +168,7 @@ namespace RYTUserManagementService.API.Controllers
             }
         }
         // get single user
-        [Authorize]
+        //[Authorize]
         [HttpGet("currentUser")]
         public async Task<ActionResult<TokenDto>> GetCurrentUser()
         {
@@ -188,7 +188,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Put: UpdateUser
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -219,7 +219,7 @@ namespace RYTUserManagementService.API.Controllers
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
         }
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -318,7 +318,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Delete: DeleteUser
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -343,10 +343,5 @@ namespace RYTUserManagementService.API.Controllers
                 return StatusCode(500, "Internal Server Error. Please try Again Later.");
             }
         }
-        
-
-
-
-
     }
 }

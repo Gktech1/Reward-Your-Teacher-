@@ -132,7 +132,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Put: UpdateSchool
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -175,7 +175,7 @@ namespace RYTUserManagementService.API.Controllers
         /// <returns></returns>
 
         // Delete: DeleteSchool
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -10,7 +10,5 @@ public class UpdateStudentDto : StudentsDto
 
     public DateTime UpdateAt { get; set; } = DateTime.Now;
 
-    public int SchoolId { get; set; }
 
-    public ICollection<StudentsDto> Students { get; set; }
 }

@@ -12,5 +12,4 @@ public class LoginUserDto
     [StringLength(15, ErrorMessage = "Your Password is limited to {2} to 15 characters", MinimumLength = 4)]
     public string Password { get; set; }
 
-    public ICollection<string> Roles { get; set; }
 }

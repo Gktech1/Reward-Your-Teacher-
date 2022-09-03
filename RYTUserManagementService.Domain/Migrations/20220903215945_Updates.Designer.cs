@@ -12,8 +12,8 @@ using RYTUserManagementService.Domain;
 namespace RYTUserManagementService.Domain.Migrations
 {
     [DbContext(typeof(UserManagementDbContext))]
-    [Migration("20220902120001_recent")]
-    partial class recent
+    [Migration("20220903215945_Updates")]
+    partial class Updates
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,29 +48,6 @@ namespace RYTUserManagementService.Domain.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "3b5658ca-ea19-4c14-ada7-40f4ea6da3e3",
-                            ConcurrencyStamp = "3ac747c5-2336-48a4-89ed-59c9f9105384",
-                            Name = "Student",
-                            NormalizedName = "STUDENT"
-                        },
-                        new
-                        {
-                            Id = "bfaad3a6-0e00-4ba9-bc63-17a4e5bee2fd",
-                            ConcurrencyStamp = "99abfeba-b3cc-4168-a714-c8db39d2f673",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "f382548c-30db-433d-891d-e9abef203bbe",
-                            ConcurrencyStamp = "e1aebfad-b398-4092-a6e4-7ea174598815",
-                            Name = "Teacher",
-                            NormalizedName = "TEACHER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -230,7 +207,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             Id = "a7dd2ab0-289c-11ed-a261-0242ac120002",
                             City = "Benin",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1994),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(3455),
                             CreatedBy = "Dami",
                             Latitude = 4.5646573999999998,
                             Longitude = 9.0,
@@ -244,7 +221,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             Id = "b01430ca-289c-11ed-a261-0242ac120002",
                             City = "Lagos",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1998),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(3459),
                             CreatedBy = "Dami",
                             Latitude = 4.5646764657399999,
                             Longitude = 9.5600645699999998,
@@ -319,9 +296,6 @@ namespace RYTUserManagementService.Domain.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<int>("UserRole")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -381,24 +355,24 @@ namespace RYTUserManagementService.Domain.Migrations
                         {
                             Id = "11f09734-289d-11ed-a261-0242ac120002",
                             AddressId = "a7dd2ab0-289c-11ed-a261-0242ac120002",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1867),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2864),
                             CreatedBy = "Dami",
                             Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                             SchoolName = "Decagon Institute Edo",
                             Type = 1,
-                            UpdatedAt = new DateTime(2022, 9, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdatedAt = new DateTime(2022, 9, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             UpdatedBy = "Dami"
                         },
                         new
                         {
                             Id = "21addd9e-289d-11ed-a261-0242ac120002",
                             AddressId = "b01430ca-289c-11ed-a261-0242ac120002",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1874),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2869),
                             CreatedBy = "Dami",
                             Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
                             SchoolName = "Decagon Institute Lagos",
                             Type = 1,
-                            UpdatedAt = new DateTime(2022, 9, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdatedAt = new DateTime(2022, 9, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             UpdatedBy = "Dami"
                         });
                 });
@@ -433,7 +407,7 @@ namespace RYTUserManagementService.Domain.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<string>("SchoolId")
+                    b.Property<string>("SchoolName")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -444,54 +418,50 @@ namespace RYTUserManagementService.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasIndex("SchoolId");
-
                     b.HasDiscriminator().HasValue("Student");
 
                     b.HasData(
                         new
                         {
-                            Id = "93530ed2-c51b-4b4d-9655-a457b2bbc2ae",
+                            Id = "a7b14d10-8403-4bc8-a671-e452fab705d6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8eb1cfdc-4082-4642-8532-597a893f5401",
+                            ConcurrencyStamp = "83f5ece3-b697-4a8b-9298-fb917e488052",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "604b372a-9e3b-4fec-979c-4966d20cd7ad",
+                            SecurityStamp = "ef3c1447-f01b-49e4-bfbd-19adc52543fc",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1684),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2793),
                             CreatedBy = "Dami",
                             FullName = "Jegede Moses",
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
+                            SchoolName = "Lara&Manny Int'l sec school",
                             Title = 0,
                             UpdatedBy = "Dami"
                         },
                         new
                         {
-                            Id = "db714c91-d787-49de-bf36-ac9accead430",
+                            Id = "c21f1b1c-8afc-4ff6-b842-4e3c7c69ef4d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "810665d9-8d3e-4cc1-8366-07248990e309",
+                            ConcurrencyStamp = "3c17bb77-e57d-4dae-85f4-fc683f816b71",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95b1654d-12e3-4d8e-9790-48f3337b5969",
+                            SecurityStamp = "369dc639-0f04-4a04-9e29-8e8b76ee72a7",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(1705),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2804),
                             CreatedBy = "Dami",
                             FullName = "Jegede Esther",
                             ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                            SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
+                            SchoolName = "Lara&Manny Int'l sec school",
                             Title = 1,
                             UpdatedBy = "Dami"
                         });
@@ -543,8 +513,7 @@ namespace RYTUserManagementService.Domain.Migrations
 
                     b.Property<string>("SchoolId")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Teacher_SchoolId");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("StartYear")
                         .HasColumnType("timestamp without time zone");
@@ -568,20 +537,19 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "27f41870-0445-4a17-b54c-d78648196551",
+                            Id = "edc65fd2-3d60-44e9-bce9-9805695797d0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "302c65a1-7f65-4294-b8f3-f2a1b4efe6ff",
+                            ConcurrencyStamp = "eeb95e8a-76c7-41d5-ab09-500894237630",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "376a3667-4335-4630-a06f-841a0d6b17da",
+                            SecurityStamp = "4ec47f94-11e0-4776-845c-b2fbfcb5422e",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 365, DateTimeKind.Local).AddTicks(9644),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2605),
                             CreatedBy = "Dami",
                             EndYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Ayooluwa Moses",
@@ -595,20 +563,19 @@ namespace RYTUserManagementService.Domain.Migrations
                         },
                         new
                         {
-                            Id = "1a518c15-5f3d-4ef0-b1b7-690cf04b60a9",
+                            Id = "b8b473a1-9265-4df5-b931-b5065b42383f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e27b9234-3784-4d77-9d4f-96150319ee72",
+                            ConcurrencyStamp = "d4662e46-c5ee-4dc8-aa34-c63c7af79ef3",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6505ba86-d2fa-4ee7-b105-61a9a50aa184",
+                            SecurityStamp = "536ec095-f5e1-4b95-a592-c91416c7a9be",
                             TwoFactorEnabled = false,
-                            UserRole = 0,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 2, 13, 0, 0, 366, DateTimeKind.Local).AddTicks(89),
+                            CreatedAt = new DateTime(2022, 9, 3, 22, 59, 44, 902, DateTimeKind.Local).AddTicks(2622),
                             CreatedBy = "Dami",
                             EndYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Tijani Moses",
@@ -684,17 +651,6 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.Navigation("Address");
                 });
 
-            modelBuilder.Entity("RYTUserManagementService.Models.Student", b =>
-                {
-                    b.HasOne("RYTUserManagementService.Models.School", "School")
-                        .WithMany("Students")
-                        .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("School");
-                });
-
             modelBuilder.Entity("RYTUserManagementService.Models.Teacher", b =>
                 {
                     b.HasOne("RYTUserManagementService.Models.School", "School")
@@ -713,8 +669,6 @@ namespace RYTUserManagementService.Domain.Migrations
 
             modelBuilder.Entity("RYTUserManagementService.Models.School", b =>
                 {
-                    b.Navigation("Students");
-
                     b.Navigation("Teachers");
                 });
 #pragma warning restore 612, 618

@@ -1,5 +1,4 @@
 ﻿using RYTUserManagementService.Domain.RepoImplementations;
-using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
 using System;

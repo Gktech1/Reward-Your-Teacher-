@@ -8,7 +8,6 @@ public class CreateStudentDto : StudentsDto
 {
 
     public Constants.Titles Title { get; set; }
-    public string FullName { get; set; }
     public string ProfileUrl { get; set; }
 
     public string Email { get; set; }

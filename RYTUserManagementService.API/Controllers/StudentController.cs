@@ -194,8 +194,6 @@ namespace RYTUserManagementService.API.Controllers
                     return BadRequest("Submitted Data is Invalid");
                 }
 
-           
-
                 await _unitOfWork.Students.Delete(student.Id);
                 await _unitOfWork.Save();
 

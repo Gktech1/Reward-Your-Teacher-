@@ -19,9 +19,9 @@ public class UpdateTeacherDto : TeacherDto
 
     public string Position { get; set; }
 
-    public Address Address { get; set; }
+    public string Address { get; set; }
 
-    public SchoolDto SchoolName { get; set; }
+    public string SchoolName { get; set; }
 
     public string UserType { get; set; }
 

@@ -47,7 +47,7 @@ namespace RYTUserManagementService.API.Controllers
         {
             try
             {
-                var teacher = await _unitOfWork.Teachers.Get(q => q.Id == id, new List<string> { "Teachers" });
+                var teacher = await _unitOfWork.Teachers.Get(q => q.Id == id);
                 var result = _mapper.Map<TeacherDto>(teacher);
                 return Ok(result);
             }
@@ -155,7 +155,7 @@ namespace RYTUserManagementService.API.Controllers
                 _unitOfWork.Teachers.Update(updateteach);
                 await _unitOfWork.Save();
 
-                return NoContent();
+                return Ok();
             }
             catch (Exception e)
             {
@@ -197,7 +197,7 @@ namespace RYTUserManagementService.API.Controllers
                 await _unitOfWork.Teachers.Delete(teacher.Id);
                 await _unitOfWork.Save();
 
-                return NoContent();
+                return Ok();
             }
             catch (Exception e)
             {

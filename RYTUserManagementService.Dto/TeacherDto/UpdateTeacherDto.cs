@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using RYTUserManagementService.Common.Utilities;
+﻿using RYTUserManagementService.Common.Utilities;
 using RYTUserManagementService.Models;
 
 namespace RYTUserManagementService.Dto.TeacherDto;

@@ -156,7 +156,7 @@ namespace RYTUserManagementService.API.Controllers
                 _unitOfWork.Students.Update(updatestud);
                 await _unitOfWork.Save();
 
-                return NoContent();
+                return Ok();
             }
             catch (Exception e)
             {
@@ -199,7 +199,7 @@ namespace RYTUserManagementService.API.Controllers
                 await _unitOfWork.Students.Delete(student.Id);
                 await _unitOfWork.Save();
 
-                return NoContent();
+                return Ok();
             }
             catch (Exception e)
             {

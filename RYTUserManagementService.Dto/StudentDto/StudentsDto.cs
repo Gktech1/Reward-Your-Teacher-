@@ -10,6 +10,7 @@ namespace RYTUserManagementService.Dto.StudentDto
         public string Email { get; set; }
         public string SchoolName { get; set; }
         public string Password { get; set; }
+        public string SchoolId { get; set; }
 
     }
 }

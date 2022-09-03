@@ -70,7 +70,7 @@ builder.Services.AddIdentityCore<Student>(options =>
     {
         options.User.RequireUniqueEmail = false;
     })
-    .AddRoles<IdentityRole>()
+   // .AddRoles<IdentityRole>()
     .AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Student, IdentityRole>>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
     .AddDefaultTokenProviders();
@@ -79,7 +79,7 @@ builder.Services.AddIdentityCore<Teacher>(options =>
     {
         options.User.RequireUniqueEmail = false;
     })
-    .AddRoles<IdentityRole>()
+    //.AddRoles<IdentityRole>()
     .AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Teacher, IdentityRole>>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
     .AddDefaultTokenProviders();

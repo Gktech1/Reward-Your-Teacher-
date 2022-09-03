@@ -9,9 +9,14 @@ namespace RYTUserManagementService.Dto
         [Required]
         [StringLength(Constants.Max100Length)]
         public string SchoolName { get; set; }
+        public string Logo { get; set; }
+
+
+        public Constants.SchoolType Type { get; set; }
 
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string AddressId { get; set; }
         public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
     }
 }

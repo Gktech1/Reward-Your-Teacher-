@@ -23,7 +23,5 @@ namespace RYTUserManagementService.Models
         public double Longitude { get; set; }
 
         public double Latitude { get; set; }
-
-        public ICollection<School> Schools { get; set; }
     }
 }

@@ -97,7 +97,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateStudent([FromBody] CreateStudentDto studentDto)
+        public async Task<IActionResult> CreateStudent([FromBody] StudentsDto studentDto)
         {
 
             if (!ModelState.IsValid)

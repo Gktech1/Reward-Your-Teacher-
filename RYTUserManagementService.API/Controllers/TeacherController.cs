@@ -48,7 +48,7 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var teacher = await _unitOfWork.Teachers.Get(q => q.Id == id);
-                var result = _mapper.Map<TeacherDto>(teacher);
+                var result = _mapper.Map<CreateTeacherDto>(teacher);
                 return Ok(result);
             }
             catch (Exception e)
@@ -74,7 +74,7 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var teachers = await _unitOfWork.Teachers.GetAll();
-                var results = _mapper.Map<IList<TeacherDto>>(teachers);
+                var results = _mapper.Map<IList<CreateTeacherDto>>(teachers);
                 return Ok(results);
             }
             catch (Exception e)
@@ -98,7 +98,7 @@ namespace RYTUserManagementService.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("CreateTeacher")]
-        public async Task<IActionResult> CreateTeacher([FromBody] TeacherDto teacherDto)
+        public async Task<IActionResult> CreateTeacher([FromBody] CreateTeacherDto teacherDto)
         {
             if (!ModelState.IsValid)
             {

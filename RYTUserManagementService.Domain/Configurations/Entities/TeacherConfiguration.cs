@@ -22,17 +22,15 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Id = Guid.NewGuid().ToString(),
                     FirstName = "bayo",
                     LastName = "dayo",
-                    Title = Constants.Titles.Dr,
+               
                     FullName = "Ayooluwa Moses",
-                    ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                    Position = "HeadSA",
+                  
                     About = "I am A Teacher",
                     SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
-                    CreatedBy = "Dami",
-                    UpdatedBy = "Dami"
+                  
 
 
                 },
@@ -41,16 +39,14 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Id = Guid.NewGuid().ToString(),
                     FirstName = "bayo",
                     LastName = "dayo",
-                    Title = Constants.Titles.Prof,
+                 
                     FullName = "Tijani Moses",
-                    ProfileUrl = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                    Position = "HeadSA",
+                   
                     About = "I am A Teacher",
                     SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
                     Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
                     CreatedAt = DateTime.Now,
-                    CreatedBy = "Dami",
-                    UpdatedBy = "Dami"
+                   
                 }
             );
         }

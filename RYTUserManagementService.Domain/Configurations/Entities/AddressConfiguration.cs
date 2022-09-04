@@ -25,8 +25,6 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Country = "Nigeria",
                     Longitude = 9.0000000,
                     Latitude = 4.5646574,
-                    CreatedBy = "Dami",
-                    UpdatedBy = "Dami"
                 },
                 new Address
                 {
@@ -38,8 +36,6 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Country = "Nigeria",
                     Longitude = 9.560064570,
                     Latitude = 4.56467646574,
-                    CreatedBy = "Dami",
-                    UpdatedBy = "Dami"
                 }
 
             );

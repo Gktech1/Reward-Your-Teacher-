@@ -69,6 +69,7 @@ namespace Wallet.API.Services
             var mappWallet = _mapper.Map<UserWalletDto, UserWallet>(userWallet);
             mappWallet.Balance = 0;
             mappWallet.CreatedAt = DateTime.Now;
+            mappWallet.UpdatedAt = DateTime.Now;
             _Db.Wallets.Add(mappWallet);
             await _Db.SaveChangesAsync();
             return _responseService.ExecutionResponse<UserWalletDto>("Wallet Successfully Created", userWallet, true, 200);

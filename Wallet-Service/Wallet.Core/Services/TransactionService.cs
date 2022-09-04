@@ -57,11 +57,14 @@ namespace Wallet.Core.Services
                     };
                 senderWallet.Balance -= amount;
                 receiverWallet.Balance += amount;
+                receiverWallet.TotalSent += amount;
                 var senderTransaction = CreateTransactionWallet(senderWalletId, receiverWalletId, description, amount,
                     TransactionType.TransferingToWallet);
+
                 _db.Transactions.Add(senderTransaction);
                 _db.Transactions.Add(CreateTransactionWallet(receiverWalletId, senderWalletId, description, amount,
                     TransactionType.Receiving));
+
                 await _db.SaveChangesAsync();
                 var senderTransactionDto = (UserTransactionDto)_mapper.Map(senderTransaction, typeof(UserTransaction), typeof(UserTransactionDto));
                 return new ExecutionResponse<UserTransactionDto>()

@@ -23,6 +23,7 @@ namespace Wallet.Model
         public string? TransactionReference { get; set; }
         public string? Description { get; set; }
         public int? SenderOrReceiverWalletId { get; set; }
+        public string? SenderOrReceiverWalletName { get; set; }
         public int? UserBankId { get; set; }
         [ForeignKey("UserBankId")]
 

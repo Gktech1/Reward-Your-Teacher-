@@ -9,7 +9,7 @@ using RYTUserManagementService.Common.Utilities;
 
 namespace RYTUserManagementService.Models
 {
-    [Table(name: "Addresses")]
+    //[Table(name: "Addresses")]
     public class Address : BaseEntity
     {
         public string StreetAddress { get; set; }

@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RYTUserMangementService.Services", "RYTUserMangementService.Services\RYTUserMangementService.Services.csproj", "{5EAA392E-8B26-4D4F-AE21-A6FA22693C68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{B6C67397-DA37-4D22-9183-D0CC4CDC3A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C67397-DA37-4D22-9183-D0CC4CDC3A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C67397-DA37-4D22-9183-D0CC4CDC3A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAA392E-8B26-4D4F-AE21-A6FA22693C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAA392E-8B26-4D4F-AE21-A6FA22693C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAA392E-8B26-4D4F-AE21-A6FA22693C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAA392E-8B26-4D4F-AE21-A6FA22693C68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

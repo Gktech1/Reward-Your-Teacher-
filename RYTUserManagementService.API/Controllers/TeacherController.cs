@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Models;
 using RYTUserManagementService.Dto.TeacherDto;
+using RYTUserMangementService.Services.Interfaces;
+using RYTUserManagementService.Common.Utilities;
+using RYTUserManagementService.Dto;
 
 namespace RYTUserManagementService.API.Controllers
 {
@@ -19,8 +22,12 @@ namespace RYTUserManagementService.API.Controllers
         private readonly ILogger<TeacherController> _logger;
         private readonly UserManager<Teacher> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly IHttpService _service;
+        private readonly IConfiguration _config;
 
-        public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<TeacherController> logger, UserManager<Teacher> userManager, IEmailSender emailSender)
+        public TeacherController(IUnitOfWork unitOfWork, IMapper mapper, 
+            ILogger<TeacherController> logger, UserManager<Teacher> userManager, 
+            IEmailSender emailSender, IHttpService service, IConfiguration config)
 
         {
             _unitOfWork = unitOfWork;
@@ -28,6 +35,8 @@ namespace RYTUserManagementService.API.Controllers
             _logger = logger;
             _userManager = userManager;
             _emailSender = emailSender;
+            _service = service;
+            _config = config;
         }
 
 
@@ -112,8 +121,24 @@ namespace RYTUserManagementService.API.Controllers
                 var res = await _userManager.CreateAsync(teacher, teacher.PasswordHash);
                 await _unitOfWork.Save();
 
-                return CreatedAtRoute(nameof(GetTeacherById), new { id = teacher.Id }, teacher);
-
+                var walletDto = new UserWalletDto()
+                {
+                    UserId = teacher.Id,
+                    Currency = "NGN",
+                    Status = true,
+                    UserFullName = $"{teacher.LastName} {teacher.FirstName}",
+                };
+                var jsonRequest = new JsonContentPostRequest<UserWalletDto>()
+                {
+                    Url = _config["walletCreateUrl"],
+                    Data = walletDto
+                };
+                var response = await _service.SendPostRequest<WalletResponse, UserWalletDto>(jsonRequest);
+                if (response.Status == true)
+                {
+                    return CreatedAtRoute(nameof(GetTeacherById), new { id = teacher.Id }, teacher);
+                }
+                return BadRequest(new { message = "something went wrong with creating wallet"});
             }
             catch (Exception e)
             {

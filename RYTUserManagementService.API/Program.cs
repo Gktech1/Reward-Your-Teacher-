@@ -12,6 +12,8 @@ using RYTUserManagementService.Domain.RepoImplementations;
 using RYTUserManagementService.Domain.RepoInterfaces;
 using RYTUserManagementService.Dto;
 using RYTUserManagementService.Models;
+using RYTUserMangementService.Services.Interfaces;
+using RYTUserMangementService.Services.Services;
 using Serilog;
 using Serilog.Events;
 var builder = WebApplication.CreateBuilder(args);
@@ -64,6 +66,8 @@ builder.Services.AddScoped<IStudentServices, StudentServices>();
 builder.Services.AddScoped<ITeacherServices, TeacherServices>();
 builder.Services.AddScoped<AuthManager>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddHttpClient<IHttpService>();
+builder.Services.AddScoped<IHttpService, HttpService>();
 builder.Services.AddIdentity<ApiUser, IdentityRole>().AddEntityFrameworkStores<UserManagementDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddIdentityCore<Student>(options =>

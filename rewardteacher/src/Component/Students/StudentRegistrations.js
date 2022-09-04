@@ -3,29 +3,23 @@ import styles from "./StudentRegistration.module.css";
 import rewardLogo from "../../assets/reward.svg";
 import googleLogo from "../../assets/google.svg";
 // import { apiPost, apiGet } from "../../Utils/apiHelper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const StudentRegistration = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
     phoneNumber: "",
     email: "",
     password: "",
-    school: "",
+    schoolName: "",
   });
-  const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-    password: "",
-    school: "",
-  });
-  const { firstName, lastName, phoneNumber, email, password, school } =
+  const [errors, setErrors] = useState({ email: "", password: "" });
+  const { firstName, lastName, phoneNumber, email, password, schoolName } =
     userData;
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState({ email: false, password: false });
   const [userId, setUserId] = useState("");
 
   const changeHandler = (e) => {
@@ -34,29 +28,16 @@ const StudentRegistration = () => {
       ...prevState,
       [name]: value,
     }));
-    console.log(validateEmail());
-    // console.log(validateName());
-    console.log(validatePassword());
+
+    setIsValid((prev) => ({
+      ...prev,
+      email: validateEmail(),
+      password: validatePassword(),
+    }));
   };
 
-  // const validateName = () => {
-  //   let name = `${firstName}${lastName}`;
-  //   if (!new RegExp(/^([A-Za-z]{3,16})([ ]{1})([A-Za-z]{3,16})$/).test(name)) {
-  //     setErrors((prevState) => ({
-  //       ...prevState,
-  //       name: "Enter a valid name",
-  //     }));
-  //     return false;
-  //   } else {
-  //     setErrors((prevState) => ({
-  //       ...prevState,
-  //       name: "",
-  //     }));
-  //     return true;
-  //   }
-  // };
-
   const validateEmail = () => {
+    //console.log(email);
     if (
       !new RegExp(/^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)$/).test(
         email
@@ -78,7 +59,8 @@ const StudentRegistration = () => {
   // console.log(validateEmail());
 
   const validatePassword = () => {
-    if (email.length <= 8) {
+    //console.log(email);
+    if (password.length <= 8) {
       setErrors((prevState) => ({
         ...prevState,
         password: "Enter a valid password",
@@ -94,24 +76,35 @@ const StudentRegistration = () => {
   };
   const validInput = () => {
     // setIsValid(validateName());
-    setIsValid(validateEmail());
-    setIsValid(validatePassword());
+    setIsValid((prev) => ({
+      ...prev,
+      email: validateEmail(),
+      password: validatePassword(),
+    }));
+    // setIsValid(validateEmail());
+    // setIsValid(validatePassword());
     console.log(isValid);
-    return isValid;
+    // return isValid;
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    if (validInput()) {
+    console.log(isValid);
+    if (isValid.email && isValid.password) {
       console.log("valid");
       const registerUrl = "https://localhost:7166/Student/api/v1/CreateStudent";
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);
           setUserId(response.data.id);
+          if (response.data.concurrencyStamp) {
+            alert("Registration Successful");
+            navigate("/student-login");
+          }
         },
         (error) => {
           console.log(error);
+          alert("Registration Failure");
         }
       );
     }
@@ -127,7 +120,7 @@ const StudentRegistration = () => {
           <h4 className={styles["container__heading"]}>Reward your Teacher</h4>
         </div>
         <div className={styles["card"]}>
-          <form className={styles["card-form"]}>
+          <form className={styles["card-form"]} onSubmit={submitHandler}>
             <h5 className={styles["card-form__heading"]}>
               Sign Up as an old Student
             </h5>
@@ -182,6 +175,7 @@ const StudentRegistration = () => {
                 placeholder="Enter your email"
                 // errorMessage={errors.email}
               />
+              <span>{errors.email}</span>
             </div>
             <div className="card-form__group">
               <label className={styles["card-form__label"]}>Password</label>
@@ -195,6 +189,7 @@ const StudentRegistration = () => {
                 placeholder="Enter your password"
                 // errorMessage={errors.password}
               />
+              <span>{errors.password}</span>
             </div>
             <div className="card-form__group">
               <label className={styles["card-form__label"]}>
@@ -203,8 +198,8 @@ const StudentRegistration = () => {
               <input
                 className={styles["card-form__input"]}
                 type="text"
-                name="school"
-                value={school}
+                name="schoolName"
+                value={schoolName}
                 onChange={changeHandler}
                 placeholder="Enter your school"
                 // errorMessage={errors.school}
@@ -212,7 +207,6 @@ const StudentRegistration = () => {
             </div>
             <button
               type="submit"
-              onClick={submitHandler}
               className={styles["card-form__btn-card-form__btn--login"]}
             >
               <span className={styles["login-text"]}>Sign Up</span>

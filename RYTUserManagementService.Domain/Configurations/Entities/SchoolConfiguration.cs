@@ -24,12 +24,8 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Id = "11f09734-289d-11ed-a261-0242ac120002",
                     SchoolName = "Decagon Institute Edo",
                     AddressId = "a7dd2ab0-289c-11ed-a261-0242ac120002",
-                    Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                    Type = Constants.SchoolType.Secondary,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,
-                    UpdatedBy = "Dami"
 
                 },
                 new School
@@ -38,12 +34,8 @@ namespace RYTUserManagementService.Domain.Configurations.Entities
                     Id = "21addd9e-289d-11ed-a261-0242ac120002",
                     SchoolName = "Decagon Institute Lagos",
                     AddressId = "b01430ca-289c-11ed-a261-0242ac120002",
-                    Logo = "https://unsplash.com/photos/mPnkjZ_9a8Q",
-                    Type = Constants.SchoolType.Secondary,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = "Dami",
                     UpdatedAt = DateTime.Today,
-                    UpdatedBy = "Dami"
                 }
             );
 

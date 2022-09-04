@@ -9,12 +9,12 @@ namespace RYTUserManagementService.Dto
     {
         public Mappings()
         {
-            CreateMap<Student, StudentsDto>().ReverseMap();
-            CreateMap<Student, CreateStudentDto>()
+          
+            CreateMap<Student, StudentsDto>()
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.PasswordHash))
                 .ReverseMap();
             CreateMap<Student, UpdateStudentDto>().ReverseMap();
-            CreateMap<Teacher, TeacherDto.TeacherDto>()
+            CreateMap<Teacher, CreateTeacherDto>()
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.PasswordHash))
                 .ReverseMap(); ;
             CreateMap<Teacher, UpdateTeacherDto>().ReverseMap();

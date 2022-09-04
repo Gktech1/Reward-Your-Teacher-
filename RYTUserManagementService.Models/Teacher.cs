@@ -7,16 +7,8 @@ namespace RYTUserManagementService.Models
 {
     public class Teacher : ApiUser
     {
-        public Constants.Titles Title { get; set; }
-
         [StringLength(Constants.Max100Length)]
         public string FullName { get; set; }
-
-        [StringLength(Constants.Max200Length)]
-        public string ProfileUrl { get; set; }
-
-        [StringLength(Constants.Max100Length)]
-        public string Position { get; set; }
 
         [StringLength(Constants.Max2000Length)]
         public string About { get; set; }
@@ -31,16 +23,6 @@ namespace RYTUserManagementService.Models
         public School School { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
-
-        public DateTime UpdateAt { get; set; }
-
-        public string CreatedBy { get; set; }
-
-        public string UpdatedBy { get; set; }
-
-
-
-
 
     }
 }

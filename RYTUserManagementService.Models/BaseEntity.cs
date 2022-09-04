@@ -13,9 +13,5 @@ namespace RYTUserManagementService.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 
         public DateTime UpdatedAt { get; set; } 
-
-        public string CreatedBy { get; set; }
-        
-        public string UpdatedBy { get; set; }
     }
 }

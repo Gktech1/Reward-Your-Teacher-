@@ -7,10 +7,6 @@ namespace RYTUserManagementService.Models
 {
     public class Student : ApiUser
     {
-        public Constants.Titles Title { get; set; }
-
-        [StringLength(Constants.Max200Length)]
-        public string ProfileUrl { get; set; }
 
         [StringLength(Constants.Max100Length)]
         public string FullName { get; set; }
@@ -24,8 +20,6 @@ namespace RYTUserManagementService.Models
 
         public string Address { get; set; }
 
-        public string CreatedBy { get; set; }
 
-        public string UpdatedBy { get; set; } 
     }
 }

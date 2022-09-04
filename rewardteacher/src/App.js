@@ -19,10 +19,12 @@ import TeacherProfileScreen from "./Component/teacher/TeacherProfileScreen";
 import TeacherProfile from "./Component/teacher-profile/TeacherProfile";
 import Login from "./Component/login/Login";
 import ErrorPage from "./Component/error-page/ErrorPage";
-import{ GlobalProvider }from "../src/Context/GlobalState";
+import { GlobalProvider } from "../src/Context/GlobalState";
 import AuthState from "../src/Context/auth/AuthState";
+import NewLogin from "./Component/Login-new/NewResetPassword";
 
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
+import PasswordChange from "./Component/changePassword/passwordChange";
 
 function App() {
   return (
@@ -70,6 +72,8 @@ function App() {
                 element={<TeachersSignUpPage />}
               />
               <Route path="/login" element={<Login />} />
+              <Route path="/password-change" element={<PasswordChange />} />
+              <Route path="/new-login" element={<NewLogin />} />
 
               <Route path="*" element={<ErrorPage />} />
             </Routes>

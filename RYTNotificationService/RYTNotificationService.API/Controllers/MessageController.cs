@@ -41,8 +41,6 @@ namespace RYTNotificationService.API.Controllers
         [HttpGet("GetMessage{id}")]
         public async Task<ActionResult<MessageDto>> GetChatMessage(string id)
         {
-            /*if (!ModelState.IsValid)
-                return BadRequest();*/
             
             var message =await _messageService.GetMessageById(id);
            if (message.Success)

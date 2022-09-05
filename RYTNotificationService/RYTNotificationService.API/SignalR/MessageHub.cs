@@ -2,72 +2,132 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using RYTNotificationService.API.DTOs;
+using RYTNotificationService.API.Extensions;
 using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Services.Interfaces;
 
 namespace RYTNotificationService.API.SignalR
 {
-    [Authorize]
-    public class MessageHub : Hub
+
+   /* public class MessageHub : Hub
     {
-        private readonly IMessageService _messageService;
-        private readonly IMapper _mapper;
-        private readonly IHubContext<PresenceHub> _presenceHub;
-        private readonly PresenceTracker _tracker;
-        private readonly IUserService _userService;
+      */  /*private readonly string _botUser;
+        private readonly IDictionary<string, Connection> _connections;
 
-        public MessageHub(IMessageService messageService, IMapper mapper, 
-            IUserService userService, 
-            IHubContext<PresenceHub> presenceHub,
-            PresenceTracker tracker)
+        public MessageHub(IDictionary<string, Connection> connections)
         {
-            _messageService = messageService;
-            _mapper = mapper;
-            _userService = userService;
-            _presenceHub = presenceHub;
-            _tracker = tracker;
+            _botUser = "RewardYourTeacher";
+            _connections = connections;
         }
 
-        public async Task OnConnectedAsync(string username, string token)
+        public override Task OnDisconnectedAsync(Exception exception)
         {
-            var httpContext = Context.GetHttpContext();
-            var client = httpContext.Request.Query["User"].ToString();
-
-            var message = await _userService.GetUserByUsername(username, token);
-            await Clients.Caller.SendAsync("ReceivedMessageThread", message);
-        }
-
-        public async Task SendMessage(CreateMessageDto createMessageDto, string username, string token)
-        {
-            var userName = "";//Context.User.GetUserName();
-
-            if (userName == createMessageDto.RecipientUserName.ToLower())
-                throw new HubException("You cannot send message to yourself");
-
-            var sender = await _userService.GetUserByUsername(username, token);
-            var recipient = await _userService.GetUserByUsername(createMessageDto.RecipientUserName, token);
-
-            if (recipient == null) throw new HubException("User not found");
-            var message = new Message
+            if (_connections.TryGetValue(Context.ConnectionId, out Connection userConnection))
             {
-                SenderUserName = sender.UserName,
-                RecipientUserName = recipient.UserName,
-                SenderId = sender.Id,
-                RecipientId = recipient.Id,
-                Content = createMessageDto.content
-            };
-
-            var connections = await _tracker.GetConnectionForUser(recipient.UserName);
-            if (connections != null)
-            {
-                await _presenceHub.Clients.Clients(connections)
-                    .SendAsync("NewMessageReceived", new
-                    {
-                        username = sender.UserName,
-                        recipient.UserName
-                    });
+                _connections.Remove(Context.ConnectionId);
+                Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", _botUser, $"{userConnection.User} has left");
+                SendUsersConnected(userConnection.Room);
             }
-            _messageService.CreateMessage(message);
+
+            return base.OnDisconnectedAsync(exception);
+        }
+
+        // User submit their name & room they want join
+        public async Task JoinRoom(Connection userConnection)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Room);
+
+            _connections[Context.ConnectionId] = userConnection;
+
+            await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", _botUser, $"{userConnection.User} has joined {userConnection.Room}");
+
+            await SendUsersConnected(userConnection.Room);
+        }
+
+        public async Task SendMessage(string message)
+        {
+            if (_connections.TryGetValue(Context.ConnectionId, out Connection userConnection))
+            {
+                await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", userConnection.User, message);
+            }
+        }
+
+        public Task SendUsersConnected(string room)
+        {
+            var users = _connections.Values
+                .Where(c => c.Room == room)
+                .Select(c => c.User);
+
+            return Clients.Group(room).SendAsync("UsersInRoom", users);
         }
     }
-}
+*/
+
+        [Authorize]
+        public class MessageHub : Hub
+        {
+            private readonly IMessageService _messageService;
+            private readonly IMapper _mapper;
+            private readonly IHubContext<PresenceHub> _presenceHub;
+            private readonly PresenceTracker _tracker;
+            private readonly IUserService _userService;
+
+            public MessageHub(IMessageService messageService, IMapper mapper,
+                IUserService userService,
+                IHubContext<PresenceHub> presenceHub,
+                PresenceTracker tracker)
+            {
+                _messageService = messageService;
+                _mapper = mapper;
+                _userService = userService;
+                _presenceHub = presenceHub;
+                _tracker = tracker;
+            }
+
+            public async Task OnConnectedAsync(string username, string token)
+            {
+                var httpContext = Context.GetHttpContext();
+                var client = httpContext.Request.Query["User"].ToString();
+
+                var message = await _userService.GetUserByUsername(username, token);
+                await Clients.Caller.SendAsync("ReceivedMessageThread", message);
+            }
+
+            public async Task SendMessage(CreateMessageDto createMessageDto)
+            {
+                if (createMessageDto.SenderUserName == createMessageDto.RecipientUserName.ToLower())
+                    throw new HubException("You cannot send message to yourself");
+
+                // var sender = await _userService.GetUserByUsername(username, token);
+               // var recipient = await _userService.GetUserByUsername(createMessageDto.RecipientUserName, token);
+
+               if (createMessageDto.RecipientUserName == null ||
+                   createMessageDto.SenderUserName == null || 
+                   string.IsNullOrEmpty(createMessageDto.SenderId) || 
+                   string.IsNullOrEmpty(createMessageDto.RecipientId)
+                   ) 
+                   throw new HubException("Incomplete required detail");
+               
+                var message = new Message
+                {
+                    SenderUserName = createMessageDto.SenderUserName,
+                    RecipientUserName = createMessageDto.RecipientUserName,
+                    SenderId = createMessageDto.SenderId,
+                    RecipientId = createMessageDto.RecipientId,
+                    Content = createMessageDto.content
+                };
+
+                var connections = await _tracker.GetConnectionForUser(createMessageDto.SenderUserName);
+                if (connections != null)
+                {
+                    await _presenceHub.Clients.Clients(connections)
+                        .SendAsync("NewMessageReceived", new
+                        {
+                            username = createMessageDto.SenderUserName,
+                            createMessageDto.RecipientUserName
+                        });
+                }
+                _messageService.CreateMessage(message);
+            }
+        }
+    }

@@ -10,7 +10,8 @@
             Id = connectionId;
             Username = username;
         }
-
         public string Username { get; set; }
     }
 }
+
+

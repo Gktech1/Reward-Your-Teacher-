@@ -48,21 +48,21 @@ namespace RYTNotificationService.API.SignalR
             var notification = new Notification
 
             {
-                SenderUserName = sender.UserName,
-                RecipientUserName = recipient.UserName,
+                SenderUserName = sender.Username,
+                RecipientUserName = recipient.Username,
                 SenderId = sender.Id,
                 RecipientId = recipient.Id,
                 Content = createNotificationDto.content
             };
 
-            var connections = await _tracker.GetConnectionForUser(recipient.UserName);
+            var connections = await _tracker.GetConnectionForUser(recipient.Username);
             if (connections != null)
             {
                 await _presenceHub.Clients.Clients(connections)
                     .SendAsync("NewNotificationReceived", new
                     {
-                        username = sender.UserName,
-                        sender.UserName
+                        username = sender.Username,
+                        sender.Username
                     });  
             }
 

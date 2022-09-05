@@ -77,6 +77,18 @@ builder.Services.AddAuthorization(x =>
             .Build();
     }
 });
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -88,35 +100,47 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<ChatHub>("/chats");
+});
+app.UseCors();
+
+
+
 app.MapControllers();
-app.MapHub<MessageHub>("/MessageHub", options =>
+
+
+/*app.MapHub<MessageHub>("/PresenceHub", options =>
     {
         options.Transports =
             HttpTransportType.WebSockets |
             HttpTransportType.LongPolling;
     }
-);
+);*/
 
 
-app.MapHub<NotificationHub>("/NotificationHub", options =>
+/*app.MapHub<NotificationHub>("/NotificationHub", options =>
+{
+    options.Transports =
+        HttpTransportType.WebSockets |
+        HttpTransportType.LongPolling;
+}
+);*/
+
+/*app.MapHub<NotificationHub>("/NotificationHub", options =>
 {
     options.Transports =
         HttpTransportType.WebSockets |
         HttpTransportType.LongPolling;
 }
 );
-
-app.MapHub<NotificationHub>("/NotificationHub", options =>
-{
-    options.Transports =
-        HttpTransportType.WebSockets |
-        HttpTransportType.LongPolling;
-}
-);
-
+*/
 app.Run();

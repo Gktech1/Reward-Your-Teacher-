@@ -20,6 +20,8 @@ namespace Wallet.Model
         public int? BankId { get; set; }
         public string UserId { get; set; }
         public double Balance { get; set; }
+        public double TotalSent { get; set; }
+        public string UserFullName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public string Currency { get; set; }

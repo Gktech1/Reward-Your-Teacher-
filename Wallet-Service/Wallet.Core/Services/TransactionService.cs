@@ -57,11 +57,14 @@ namespace Wallet.Core.Services
                     };
                 senderWallet.Balance -= amount;
                 receiverWallet.Balance += amount;
+                receiverWallet.TotalSent += amount;
                 var senderTransaction = CreateTransactionWallet(senderWalletId, receiverWalletId, description, amount,
-                    TransactionType.TransferingToWallet);
+                    TransactionType.TransferingToWallet, receiverWallet.UserFullName);
+
                 _db.Transactions.Add(senderTransaction);
-                _db.Transactions.Add(CreateTransactionWallet(receiverWalletId, senderWalletId, description, amount,
-                    TransactionType.Receiving));
+                _db.Transactions.Add(CreateTransactionWallet(receiverWalletId, 
+                    senderWalletId, description, amount,TransactionType.Receiving, senderWallet.UserFullName));
+
                 await _db.SaveChangesAsync();
                 var senderTransactionDto = (UserTransactionDto)_mapper.Map(senderTransaction, typeof(UserTransaction), typeof(UserTransactionDto));
                 return new ExecutionResponse<UserTransactionDto>()
@@ -133,7 +136,7 @@ namespace Wallet.Core.Services
             return true;
         }
         private UserTransaction CreateTransactionWallet(int userWalletId,
-            int senderOrReceiverWalletId, string description, int amount, TransactionType type) =>
+            int senderOrReceiverWalletId, string description, int amount, TransactionType type, string name) =>
             new UserTransaction()
             {
                 Status = TransactionStatus.Success,
@@ -144,6 +147,7 @@ namespace Wallet.Core.Services
                 Description = description,
                 Created = DateTime.Now,
                 Updated = DateTime.Now,
+                SenderOrReceiverWalletName = name
             };
 
     }

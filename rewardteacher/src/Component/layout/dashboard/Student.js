@@ -6,6 +6,7 @@ import secondSectionUppBg from "../../../assets/images/SecondSectionUppBg.svg";
 import money from "../../../assets/images/Money.svg";
 import moneycontainer from "../../../assets/images/MoneyContainer.svg";
 import Navigation from "../../Common/navs/SideBar/student/Navigation";
+import { useAuth } from "../../../Context/auth/AuthState";
 
 //AddMoney,
 import {
@@ -39,6 +40,8 @@ import {
 } from "../../layout/dashboard/StudentStyle";
 
 function Student() {
+  const data = useAuth();
+  console.log(data)
   return (
     <>
       <Navigation />

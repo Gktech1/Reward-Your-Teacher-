@@ -115,6 +115,7 @@ namespace RYTUserManagementService.API.Controllers
 
                 return new TokenDto
                 {
+                    Id = user.Id,
                     Email = user.Email,
                     Token = await _authManager.CreateToken(user)
                 };
@@ -170,6 +171,7 @@ namespace RYTUserManagementService.API.Controllers
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             return new TokenDto
             {
+                Id = user.Id,
                 Email = user.Email,
                 Token = await _authManager.CreateToken(user)
             };

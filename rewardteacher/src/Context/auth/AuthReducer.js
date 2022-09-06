@@ -5,12 +5,11 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOADING, LOGOUT } from "../types";
 export default function authReducer(state, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload.data.token);
+      console.log(action.payload)
+      localStorage.setItem("token", action.payload.token);
       const user = {
-        firstName: action.payload.data.firstName,
-        lastName: action.payload.data.lastName,
-        role: action.payload.data.role,
-        id: action.payload.data.id,
+        email: action.payload.email,
+        id: action.payload.id,
       };
       localStorage.setItem("user", JSON.stringify(user));
       toast.success(action.payload.message, {
@@ -26,6 +25,7 @@ export default function authReducer(state, action) {
         ...action.payload,
         isAuthenticated: true,
         loading: false,
+        user
       };
     case LOADING:
       return {

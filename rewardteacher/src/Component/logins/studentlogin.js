@@ -4,8 +4,10 @@ import rewardLogo from "../../assets/reward.svg";
 import googleLogo from "../../assets/google.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../Context/auth/AuthState";
 
 const StudentLogin = () => {
+  const {login} = useAuth();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -85,14 +87,15 @@ const StudentLogin = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(isValid);
-    if (isValid.email && isValid.password) {
+    if (isValid.email || isValid.password) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/Student/api/v1/LoginUser";
+      const registerUrl = "https://localhost:7166/User/api/v1/LoginUser";
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);
           setUserId(response.data.id);
-          if (response.data.concurrencyStamp) {
+          login(response.data)
+          if (response.data.id) {
             alert("Login Successful");
             navigate("/student-dashboard");
           }
@@ -117,10 +120,8 @@ const StudentLogin = () => {
       </Link>
       <div className={styles["card"]}>
         <form className={styles["card-form"]} onSubmit={submitHandler}>
-          <h5 className={styles["card-form__heading"]}>
-            Login as an old Student
-          </h5>
-          <div className="card-form__group">
+          <h5 className={styles["card-form__heading"]}>Login as a Student</h5>
+          <div className={styles["card-form__group"]}>
             <label className={styles["card-form__label"]}>Email</label>
             <input
               className={styles["card-form__input"]}
@@ -133,7 +134,7 @@ const StudentLogin = () => {
             />
             <span>{errors.email}</span>
           </div>
-          <div className="card-form__group">
+          <div className={styles["card-form__group"]}>
             <label className={styles["card-form__label"]}>Password</label>
             <input
               className={styles["card-form__input"]}
@@ -149,11 +150,10 @@ const StudentLogin = () => {
               Forgot Password?
             </p>
           </div>
-          <Link to="/student-dashboard">
+    
             <button className={styles["card-form__btn-card-form__btn--login"]}>
               <span className={styles["login-text"]}>Login</span>
             </button>
-          </Link>
         </form>
         <div className={styles["lines"]}>
           <span className={styles["or"]}>Or</span>
@@ -167,11 +167,14 @@ const StudentLogin = () => {
         </div>
         <div className={styles["card__account"]}>
           <span className={styles["card__account--link"]}>
-            Don't have an account?{" "}
+            Don't have an account?
           </span>
-          <Link to="/student-registration" className={styles["text-green"]}>
-            Create Account
+          <Link to="/student-registration">
+
+            <span className={styles["text-green"]}>Create Account</span>
           </Link>
+        
+        
         </div>
       </div>
     </div>

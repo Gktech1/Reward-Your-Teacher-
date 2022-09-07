@@ -97,10 +97,10 @@ const StudentRegistration = () => {
         (response) => {
           console.log(response.data);
           setUserId(response.data.id);
-          if (response.data.concurrencyStamp) {
+           
             alert("Registration Successful");
             navigate("/student-login");
-          }
+          
         },
         (error) => {
           console.log(error);

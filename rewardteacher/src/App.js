@@ -63,10 +63,10 @@ function App() {
                 path="/teacher-profile"
                 element={<TeacherProfileScreen />}
               />
-              {/* <Route
+              <Route
                 path="/update-teacher-profile"
                 element={<TeacherProfile />}
-              /> */}
+              />
               <Route
                 path="/teacher-registration"
                 element={<TeachersSignUpPage />}

@@ -15,11 +15,7 @@ export default function authReducer(state, action) {
       toast.success(action.payload.message, {
         position: "top-right",
       });
-      if (user.role === "TEACHER") {
-        window.location.href = "/teacher-dashboard";
-      } else {
-        window.location.href = "/student-dashboard";
-      }
+      console.log('I am authenticated')
       return {
         ...state,
         ...action.payload,

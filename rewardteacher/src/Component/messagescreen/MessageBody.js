@@ -1,22 +1,32 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import MessageContent from "./MessageContent";
 import MessageSideBar from "./MessageSideBar";
 import Navigation from "../Common/navs/SideBar/teacher/Navigation";
 
-function MessageBody() {
+const MessageBody = ({ messages, users, sendMessage }) => {
+  const messageRef = useRef();
+
+  useEffect(() => {
+    if (messageRef && messageRef.current) {
+        const { scrollHeight, clientHeight } = messageRef.current;
+        messageRef.current.scrollTo({ left: 0, top: scrollHeight - clientHeight, behavior: 'smooth' });
+    }
+}, [messages]);
+
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <div className="msg_body">
-        <div className="msg_left">
-          <MessageSideBar />
-        </div>
-        <div className="msg_right">
-          <MessageContent />
-        </div>
+      <div className="msg_left">
+        <MessageSideBar users={users} messages={messages} />
       </div>
+      <div className="msg_right">
+          <MessageContent messages={messages} sendMessage={sendMessage}/>
+      </div>
+    </div>
     </>
   );
 }
 
 export default MessageBody;
+

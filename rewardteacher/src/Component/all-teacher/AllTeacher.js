@@ -1,14 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./AllTeacher.module.css";
 import search from "../../assets/search.svg";
 import Navigation from "../Common/navs/SideBar/student/Navigation";
 import TeacherProfileScreen from "../teacher/TeacherProfileScreen";
 
 import filter from "../../assets/filter-a.svg";
+import { FooterContainer } from "./AllTeachersStyled";
 
 function AllTeachers() {
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
+
+  const [teachers, getTeachers] = useState([]);
+  //get data from API
+
+  const getAllTeachers = async () => {
+    fetch("https://localhost:7166/Teacher/api/v1/GetAllTeachers")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        getTeachers(data);
+      });
+  };
+
+  useEffect(() => {
+    getAllTeachers();
+  }, []);
+
   return (
     <>
       {modal && <TeacherProfileScreen />}
@@ -47,80 +67,55 @@ function AllTeachers() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td onClick={toggleModal}>Chioma Awoniyi</td>
-                <td>Igando Grammar School</td>
-                <td>Head Teacher</td>
-                <td>2001-2019</td>
-              </tr>
-
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
-              <tr>
-                <td>Chioma Awoniyi</td>
-                <td>Iyana Ipaja Grammar School</td>
-                <td>Teacher</td>
-                <td>2000-2020</td>
-              </tr>
+              {teachers.length > 0 && teachers.map((teacher) => (<tr>
+                <td onClick={toggleModal}>{teacher.firstName}</td>
+                <td>{teacher.schoolName}</td>
+                <td>{teacher.position}</td>
+                <td>{teacher.periodOfTeaching}</td>
+              </tr>))}
+              
             </tbody>
           </table>
         </div>
-        <div className={styles["wrapper__footer"]}>
-          <span className={styles["footer-b-arrow"]}>&lt; Prev </span>
-          <span className={styles["current"]}>1</span>
-          <span className={styles["page-num"]}>2</span>
-          <span className={styles["page-num"]}>3</span>
-          <span className={styles["page-num"]}>4</span>
-          <span className={styles["page-dot"]}>&#46;&#46;&#46;</span>
-          <span className={styles["page-num"]}>10</span>
-          <span className="footer-f-arrow">Next &gt;</span>
-        </div>
+
+        <FooterContainer>
+          <ul className="pagination">
+            <li className="icon">
+              <a href="/">
+                <span>&laquo;</span>Previous
+              </a>
+            </li>
+            <li>
+              <a href="/">1</a>
+            </li>
+            <li>
+              <a href="/">2</a>
+            </li>
+            <li>
+              <a href="/">3</a>
+            </li>
+            <li>
+              <a href="/">4</a>
+            </li>
+            <li>
+              <a href="/">5</a>
+            </li>
+            <li>
+              <a href="/">6</a>
+            </li>
+            <li>
+              <a href="/">7</a>
+            </li>
+            <li>
+              <a href="/">8</a>
+            </li>
+            <li className="icon">
+              <a href="/">
+                Next<span>&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </FooterContainer>
       </div>
     </>
   );

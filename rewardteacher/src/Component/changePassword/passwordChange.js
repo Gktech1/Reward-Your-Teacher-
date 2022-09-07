@@ -3,6 +3,9 @@ import styles from "./passwordChange.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import rewardLogo from "../../assets/reward.svg";
 import NewLoginImage from "../../assets/newLogin.svg";
+import axios from "axios";
+
+
 
 const PasswordChange = () => {
     const [userData, setUserData] = useState({
@@ -61,7 +64,7 @@ const PasswordChange = () => {
         axios.post(changePasswordUrl, userData).then(
           (response) => {
             console.log(response.data);
-            setUserId(response.data.id);
+           // setUserId(response.data.id);
             if (response.data.concurrencyStamp) {
               alert("Password Successful");
               navigate("/login");

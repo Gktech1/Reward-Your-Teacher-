@@ -92,39 +92,95 @@ export const Pages = styled.div`
   }
 `;
 
-export const Header = styled.div`
-  background-color: rgba(0, 0, 0, 0.04);
-  padding: 5px;
-  width: 100%;
-  height: 40px;
 
-  p {
-    font-family: "Inter";
-    font-style: normal;
+
+export const SchoolTable = styled.table`
+  width: 730px;
+
+  thead {
+    background: rgba(0, 0, 0, 0.04);
+    color: #03435f;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-  }
-`;
-
-export const ListOfSchools = styled.div`
-  width: 100%;
-  height: 49px;
-  ul {
-    list-style-type: none;
-    font-weight: bold;
-    font-size: 24px;
-  }
-  li {
-    text-decoration: none;
-    margin-bottom: 20px;
-    margin-left: -40px;
-    border-bottom: 1px solid #c4c4c4;
+    padding: 0px 1rem;
+    width: 57.875rem;
+    height: 2.5rem;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #03435f;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+  }
+
+  tbody > tr {
+    width: 100%;
+    height: 2.5rem;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  td {
+    width: 100%;
+    border-bottom: 0.0625rem solid #c4c4c4;
+  }
+
+  th {
+    line-height: 2.5rem;
+  }
+`;
+
+
+export const FooterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pagination {
+    margin: 25px 0 15px 0;
+  }
+  .pagination,
+  .pagination li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pagination li {
+    background: #4caf50;
+    list-style: none;
+  }
+  .pagination li a {
+    text-decoration: none;
+    color: #fdfdfd;
+    height: 50px;
+    width: 50px;
+    font-size: 18px;
+    padding-top: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-right-width: 0px;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35);
+  }
+  .pagination li:last-child a {
+    border-right-width: 1px;
+  }
+  .pagination li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.35);
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+  }
+  .pagination li a:focus,
+  .pagination li a:active {
+    padding-top: 4px;
+    border-left-width: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+  }
+  .pagination li.icon a {
+    min-width: 120px;
+  }
+  .pagination li:first-child span {
+    padding-right: 8px;
+  }
+  .pagination li:last-child span {
+    padding-left: 8px;
   }
 `;

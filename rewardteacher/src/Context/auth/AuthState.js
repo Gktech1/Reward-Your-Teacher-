@@ -45,25 +45,29 @@ const AuthState = (props) => {
         usernameOrEmail: formData.email,
         password: formData.password,
       };
-      await apiPost('/auth/login', loginData, config, false).then(
-        (res) => {
-          dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data,
-          });
-        },
-        (err) => {
-          dispatch({
-            type: LOGIN_FAIL,
-            payload:
-              err.message === 'Network Error'
-                ? err.message
-                : !err.response.data
-                ? 'Something went wrong'
-                : err.response.data,
-          });
-        }
-      );
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: formData
+      })
+      // await apiPost('/auth/login', loginData, config, false).then(
+      //   (res) => {
+      //     dispatch({
+      //       type: LOGIN_SUCCESS,
+      //       payload: res.data,
+      //     });
+      //   },
+      //   (err) => {
+      //     dispatch({
+      //       type: LOGIN_FAIL,
+      //       payload:
+      //         err.message === 'Network Error'
+      //           ? err.message
+      //           : !err.response.data
+      //           ? 'Something went wrong'
+      //           : err.response.data,
+      //     });
+      //   }
+      // );
       dispatch({
         type: LOADING,
         payload: false,

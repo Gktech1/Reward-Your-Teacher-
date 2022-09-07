@@ -92,7 +92,7 @@ const StudentRegistration = () => {
     console.log(isValid);
     if (isValid.email && isValid.password) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/Student/api/v1/CreateStudent";
+      const registerUrl = "https://localhost:7166/User/api/v1/RegisterUser";
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);

@@ -22,6 +22,7 @@ import ErrorPage from "./Component/error-page/ErrorPage";
 import { GlobalProvider } from "../src/Context/GlobalState";
 import AuthState from "../src/Context/auth/AuthState";
 import NewLogin from "./Component/Login-new/NewResetPassword";
+import Reward from "./Component/reward/Reward";
 
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 import PasswordChange from "./Component/changePassword/passwordChange";
@@ -73,8 +74,8 @@ function App() {
                 element={<TeachersSignUpPage />}
               />
               <Route path="/login" element={<Login />} />
-              <Route path="/password-change" element={<PasswordChange />} />
               <Route path="/new-login" element={<NewLogin />} />
+              <Route path="/reward" element={<Reward />} />
 
               <Route path="*" element={<ErrorPage />} />
             </Routes>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import walletbuttonlogo from "../../../assets/images/WalletButtonLogo.svg";
 import eclipse1 from "../../../assets/images/Eclipseone.svg";
 import eclipse2 from "../../../assets/images/Eclipsetwo.svg";
@@ -7,6 +7,8 @@ import money from "../../../assets/images/Money.svg";
 import moneycontainer from "../../../assets/images/MoneyContainer.svg";
 import Navigation from "../../Common/navs/SideBar/student/Navigation";
 import { useAuth } from "../../../Context/auth/AuthState";
+import Reward from "../../reward/Reward";
+import axios from "axios";
 
 //AddMoney,
 import {
@@ -38,12 +40,23 @@ import {
   Money,
   Wrapper,
 } from "../../layout/dashboard/StudentStyle";
+var formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "NGN",
+});
 
 function Student() {
-  const data = useAuth();
-  console.log(data)
+  const [modal, setModal] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const toggleModal = () => setModal(!modal);
+  const { user } = useAuth();
+  console.log(user);
+  axios.get(`${process.env.REACT_APP_WALLET}/Wallet/${user.id}`).then((res) => {
+    setBalance(res.data.data.balance);
+  });
   return (
     <>
+      {modal && <Reward />}
       <Navigation />
       <Wrapper>
         <MyDashboard>My Dashboard</MyDashboard>
@@ -51,8 +64,8 @@ function Student() {
         <WalletBalanceContainer>
           <WalletBalanceInner>
             <MyWalletBalance>My Wallet Balance</MyWalletBalance>
-            <WalletAmount>N56,600</WalletAmount>
-            <WalletButton>
+            <WalletAmount>&#x20A6;{balance}</WalletAmount>
+            <WalletButton onClick={toggleModal}>
               <img
                 src={walletbuttonlogo}
                 alt="btnlogo"

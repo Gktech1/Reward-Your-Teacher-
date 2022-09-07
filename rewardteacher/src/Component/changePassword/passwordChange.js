@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./passwordChange.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import rewardLogo from "../../assets/reward.svg";
@@ -8,28 +8,20 @@ import axios from "axios";
 
 
 const PasswordChange = () => {
-  const [userData, setUserData] = useState({
-    newPassword: "",
-    confirmPassword: "",
-  });
-  //const [showSuccess, setShowSuccess] = useState(false);
-  const [isValid, setIsValid] = useState(false);
-  const [errors, setErrors] = useState({ password: "", confirmPassword: "" });
-  const { newPassword, confirmPassword } = userData;
-  const navigate = useNavigate();
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const checkPasswordLength = () => {
-    if (newPassword.length >= 8) {
-      setIsValid(true);
-      setErrors((prevState) => ({
+    const [userData, setUserData] = useState({
+      newPassword: '',
+      confirmPassword: '',
+    });
+    //const [showSuccess, setShowSuccess] = useState(false);
+    const [isValid, setIsValid] = useState(false);
+    const [errors, setErrors] = useState({ password: '', confirmPassword: '' });
+    const { newPassword, confirmPassword } = userData;
+    const navigate = useNavigate();
+    const changeHandler = (e) => {
+      const { name, value } = e.target;
+      setUserData((prevState) => ({
         ...prevState,
-        password: "",
+        [name]: value,
       }));
     };
     const checkPasswordLength = () => {
@@ -82,15 +74,12 @@ const PasswordChange = () => {
             console.log(error);
             alert("Password Unsuccessful");
           }
-        },
-        (error) => {
-          console.log(error);
-          alert("Password Unsuccessful");
-        }
-      );
-    }
-  };
-
+        );
+      }
+    };
+  
+    
+  
   return (
     <div className={styles["loginContainer"]}>
       <div className={styles["leftContainer"]}>
@@ -133,7 +122,8 @@ const PasswordChange = () => {
           />
 
           <Link to="/">
-            <button className={styles["resetButton"]}>
+            <button className={styles["resetButton"]}
+            >
               <span className={styles["login-text"]}>Reset Password</span>
             </button>
           </Link>
@@ -144,6 +134,6 @@ const PasswordChange = () => {
       </div>
     </div>
   );
-};
+}
 
 export default PasswordChange;

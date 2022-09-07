@@ -117,6 +117,7 @@ namespace RYTUserManagementService.API.Controllers
             try
             {
                 var student = _mapper.Map<Student>(studentDto);
+                student.UserName = studentDto.Email; 
                 var res = await _userManager.CreateAsync(student, student.PasswordHash);
                 await _unitOfWork.Save();
 

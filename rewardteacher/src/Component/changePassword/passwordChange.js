@@ -90,7 +90,7 @@ const PasswordChange = () => {
         <div className="formArea">
           <h1>Forgot Password</h1>
         </div>
-        <form>
+        <form onSubmit={submitHandler}>
           <label className={styles["card-form__label"]}>New Password</label>
           <input
             className={styles["card-form__input"]}

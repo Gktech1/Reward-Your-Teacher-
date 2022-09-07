@@ -1,14 +1,79 @@
 
 .msg_body {
-    display:flex
-  }
+  display:flex;
+  width: 1000px;
+  height: 930px;
+  margin-left: 212px;
+}
+
+.msg_left {
+  flex: 2;
+  height: 780px;
+  width: 394px;
+  margin-left: 87px;
+  margin-top: 116px;
+}
+
+.msg_right {  
+  flex: 5;
+  width: 619px;
+  height: 780px;
+  margin-top: 116px;
+}
+.message {
+  padding: 1rem 2rem;
+  /* max-width: 75%; */
+  margin-top: 1rem;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
   
-  .msg_left {
-    flex: 2;
-  }
-  .msg_right {  flex: 5;
-  }
-  
+.user-message {
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 auto 0 1rem; */
+}
+
+.from-user {
+  display: inline-block;
+  padding-bottom: 1rem;
+  /* padding-right: calc(25%); */
+  margin: 0;
+  /* align-items: 'center'; */
+  color: grey;
+  font-size: 0.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  align-self: flex-end;
+}
+
+.msg-holder {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
+
+
+.msg-holder:nth-of-type(even) {
+  justify-content: start;
+  flex-direction: row;
+}
+.msg-holder:nth-of-type(even) > .user-message > .message {
+  background-color: #aaa;
+  /* flex-direction: row-reverse; */
+}
+
+
+.msg-holder:nth-of-type(odd) > .user-message > .message {
+  align-self: flex-end;
+  background-color: #14ad14;
+  color: aliceblue;
+}
+
+.msg-holder:nth-of-type(odd) > .user-message > .from-user {
+padding-right: 0;
+}
+
   .has-search .form-control {
     padding-left: 2.375rem;
   }
@@ -24,4 +89,39 @@
     pointer-events: none;
     color: #aaa;
     margin-top:10px;
+  }
+
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    
+  }
+  
+  .btn{
+    background-color: #45a049;
+    color: white;
+  }
+  
+  div {
+    border-radius: 5px;
+    /* background-color: #f2f2f2; */
+  /* padding: 20px; */
   }

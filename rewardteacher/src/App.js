@@ -25,6 +25,7 @@ import NewLogin from "./Component/Login-new/NewResetPassword";
 
 import TeachersSignUpPage from "./Component/teachersRegistration/TeachersSignUpPage";
 import PasswordChange from "./Component/changePassword/passwordChange";
+import EntryLogic from "./Component/messagescreen/EntryLogic";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
               <Route path="/schools" element={<AllSchools />} />
               <Route path="/student-dashboard" element={<Student />} />
               <Route path="/teacher-dashboard" element={<Teacher />} />
-              <Route path="/messaging" element={<MessageBody />} />
+              <Route path="/messaging" element={<EntryLogic />} />
               <Route
                 path="/update-student-profile"
                 element={<EditStudentProfile />}

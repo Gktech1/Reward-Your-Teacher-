@@ -100,6 +100,7 @@ const StudentRegistration = () => {
           console.log(response.data);
           alert("Registration Successful");
           navigate("/student-login");
+
         },
         (error) => {
           console.log(error);

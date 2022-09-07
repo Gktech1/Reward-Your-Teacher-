@@ -87,15 +87,13 @@ const TeacherLogin = () => {
     console.log(isValid);
     if (isValid.email && isValid.password) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/Student/api/v1/LoginUser";
+      const registerUrl = "https://localhost:7166/User/api/v1/LoginUser";
       axios.post(registerUrl, userData).then(
         (response) => {
-          console.log(response.data);
-          setUserId(response.data.id);
-          if (response.data.concurrencyStamp) {
+          console.log(response.data);       
             alert("Login Successful");
             navigate("/teacher-dashboard");
-          }
+ 
         },
         (error) => {
           console.log(error);
@@ -116,7 +114,7 @@ const TeacherLogin = () => {
         </div>
       </Link>
       <div className={styles["card"]}>
-        <form className={styles["card-form"]}>
+        <form className={styles["card-form"]} onSubmit={submitHandler}>
           <h5 className={styles["card-form__heading"]}>Login as a Teacher</h5>
           <div className={styles["card-form__group"]}>
             <label className={styles["card-form__label"]}>Email</label>
@@ -147,11 +145,10 @@ const TeacherLogin = () => {
               Forgot Password?
             </p>
           </div>
-          <Link to="/teacher-dashboard">
             <button className={styles["card-form__btn-card-form__btn--login"]}>
               <span className={styles["login-text"]}>Login</span>
             </button>
-          </Link>
+
         </form>
         <div className={styles["lines"]}>
           <span className={styles["or"]}>Or</span>

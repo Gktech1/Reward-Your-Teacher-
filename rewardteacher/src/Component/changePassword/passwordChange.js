@@ -1,82 +1,81 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./passwordChange.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import rewardLogo from "../../assets/reward.svg";
 import NewLoginImage from "../../assets/newLogin.svg";
+import { apiPost } from "../../Utils/apiHelper";
 
 const PasswordChange = () => {
-    const [userData, setUserData] = useState({
-      newPassword: '',
-      confirmPassword: '',
-    });
-    //const [showSuccess, setShowSuccess] = useState(false);
-    const [isValid, setIsValid] = useState(false);
-    const [errors, setErrors] = useState({ password: '', confirmPassword: '' });
-    const { newPassword, confirmPassword } = userData;
-    const navigate = useNavigate();
-    const changeHandler = (e) => {
-      const { name, value } = e.target;
-      setUserData((prevState) => ({
+  const [userData, setUserData] = useState({
+    newPassword: "",
+    confirmPassword: "",
+  });
+  //const [showSuccess, setShowSuccess] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [errors, setErrors] = useState({ password: "", confirmPassword: "" });
+  const { newPassword, confirmPassword } = userData;
+  const navigate = useNavigate();
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const checkPasswordLength = () => {
+    if (newPassword.length >= 8) {
+      setIsValid(true);
+      setErrors((prevState) => ({
         ...prevState,
-        [name]: value,
+        password: "",
       }));
-    };
-    const checkPasswordLength = () => {
-      if (newPassword.length >= 8) {
-        setIsValid(true);
-        setErrors((prevState) => ({
-          ...prevState,
-          password: '',
-        }));
-        return true;
-      } else {
-        setErrors((prevState) => ({
-          ...prevState,
-          password: 'Password is too short',
-        }));
-        return false;
-      }
-    };
-    const checkPasswordsMatch = () => {
-      if (newPassword === confirmPassword) {
-        setErrors((prevState) => ({
-          ...prevState,
-          confirmPassword: '',
-        }));
-        return true;
-      } else {
-        setErrors((prevState) => ({
-          ...prevState,
-          confirmPassword: 'Passwords do not match',
-        }));
-        return false;
-      }
-    };
-    const submitHandler = (e) => {
-      e.preventDefault();
-      console.log(isValid);
-      if (isValid.newPassword && isValid.confirmPassword) {
-        console.log("valid");
-        const changePasswordUrl = "https://localhost:7166/User/api/v1/User/UpdateUserPassword";
-        axios.post(changePasswordUrl, userData).then(
-          (response) => {
-            console.log(response.data);
-            setUserId(response.data.id);
-            if (response.data.concurrencyStamp) {
-              alert("Password Successful");
-              navigate("/login");
-            }
-          },
-          (error) => {
-            console.log(error);
-            alert("Password Unsuccessful");
+      return true;
+    } else {
+      setErrors((prevState) => ({
+        ...prevState,
+        password: "Password is too short",
+      }));
+      return false;
+    }
+  };
+  const checkPasswordsMatch = () => {
+    if (newPassword === confirmPassword) {
+      setErrors((prevState) => ({
+        ...prevState,
+        confirmPassword: "",
+      }));
+      return true;
+    } else {
+      setErrors((prevState) => ({
+        ...prevState,
+        confirmPassword: "Passwords do not match",
+      }));
+      return false;
+    }
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(isValid);
+    if (isValid.newPassword && isValid.confirmPassword) {
+      console.log("valid");
+      const changePasswordUrl =
+        "https://localhost:7166/User/api/v1/User/UpdateUserPassword";
+      apiPost(changePasswordUrl, userData).then(
+        (response) => {
+          console.log(response.data);
+          if (response.data.concurrencyStamp) {
+            alert("Password Successful");
+            navigate("/login");
           }
-        );
-      }
-    };
-  
-    
-  
+        },
+        (error) => {
+          console.log(error);
+          alert("Password Unsuccessful");
+        }
+      );
+    }
+  };
+
   return (
     <div className={styles["loginContainer"]}>
       <div className={styles["leftContainer"]}>
@@ -119,8 +118,7 @@ const PasswordChange = () => {
           />
 
           <Link to="/">
-            <button className={styles["resetButton"]}
-            >
+            <button className={styles["resetButton"]}>
               <span className={styles["login-text"]}>Reset Password</span>
             </button>
           </Link>
@@ -131,6 +129,6 @@ const PasswordChange = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PasswordChange;

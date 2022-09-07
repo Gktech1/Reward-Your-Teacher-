@@ -7,7 +7,7 @@ import axios from "axios";
 import { useAuth } from "../../Context/auth/AuthState";
 
 const StudentLogin = () => {
-  const {login} = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -89,12 +89,12 @@ const StudentLogin = () => {
     console.log(isValid);
     if (isValid.email || isValid.password) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/User/api/v1/LoginUser";
+      const registerUrl = `${process.env.REACT_APP_USER}/User/api/v1/LoginUser`;
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);
           setUserId(response.data.id);
-          login(response.data)
+          login(response.data);
           if (response.data.id) {
             alert("Login Successful");
             navigate("/student-dashboard");
@@ -150,10 +150,10 @@ const StudentLogin = () => {
               Forgot Password?
             </p>
           </div>
-    
-            <button className={styles["card-form__btn-card-form__btn--login"]}>
-              <span className={styles["login-text"]}>Login</span>
-            </button>
+
+          <button className={styles["card-form__btn-card-form__btn--login"]}>
+            <span className={styles["login-text"]}>Login</span>
+          </button>
         </form>
         <div className={styles["lines"]}>
           <span className={styles["or"]}>Or</span>
@@ -170,11 +170,8 @@ const StudentLogin = () => {
             Don't have an account?
           </span>
           <Link to="/student-registration">
-
             <span className={styles["text-green"]}>Create Account</span>
           </Link>
-        
-        
         </div>
       </div>
     </div>

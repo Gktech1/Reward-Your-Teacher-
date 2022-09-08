@@ -24,9 +24,11 @@ export const apiPost = (path, data, { headers, ...conf }, auth = true) => {
 };
 
 export const apiPut = (path, data, conf = {}) => {
+  console.log("put", path, `${baseUrl}${path}`);
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
+
     },
     ...conf,
   };

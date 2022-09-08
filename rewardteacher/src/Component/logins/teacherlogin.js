@@ -4,8 +4,10 @@ import rewardLogo from "../../assets/reward.svg";
 import googleLogo from "../../assets/google.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../Context/auth/AuthState";
 
 const TeacherLogin = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -90,9 +92,13 @@ const TeacherLogin = () => {
       const registerUrl = "https://localhost:7166/User/api/v1/LoginUser";
       axios.post(registerUrl, userData).then(
         (response) => {
-          console.log(response.data);       
+          console.log(response.data);
+          setUserId(response.data.id);
+          login(response.data);   
+          if (response.data.id) {    
             alert("Login Successful");
             navigate("/teacher-dashboard");
+          }
  
         },
         (error) => {

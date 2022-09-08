@@ -1,15 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-export default function LogoutConfirmation() {
+export default function LogoutConfirmation(props) {
+  const navigate = useNavigate();
+  const {modal} = props
+  const handleLogout = async(status) => {
+    if(status) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      navigate("/login");
+    }else {
+      modal(false)
+      return
+    }
+  }
   return (
     <BackDrop>
       <LogoutContainer>
         <h2>Logout Confirmation</h2>
         <p>Are you Sure You want to Log out from your account?</p>
         <div>
-          <button>No</button>
-          <button>Yes</button>
+          <button onClick={() => handleLogout(false)}>No</button>
+          <button onClick={() => handleLogout(true)}>Yes</button>
         </div>
       </LogoutContainer>
     </BackDrop>

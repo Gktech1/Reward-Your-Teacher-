@@ -9,7 +9,7 @@ const LogoutButton = () => {
 
   return (
     <>
-      {modal && <LogoutConfirmation />}
+      {modal && <LogoutConfirmation modal={setModal} />}
       <div className="logout-container" onClick={toggleModal}>
         <ul className="logout-list">
           <li className="row">

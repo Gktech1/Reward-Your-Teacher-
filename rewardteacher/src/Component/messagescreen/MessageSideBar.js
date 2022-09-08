@@ -1,6 +1,7 @@
 import React from 'react';
 import { SidebarData } from './SideData';
 import ellipse from '../../assets/Ellipse1.svg';
+import pix from '../../assets/profilepix.png';
 import './MessageStyle.css';
 
 function MessageSideBar({ users, messages }) {

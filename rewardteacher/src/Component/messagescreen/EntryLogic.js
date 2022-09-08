@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import Lobby from './Lobby';
 import Chat from './Chat';
@@ -8,6 +8,14 @@ const EntryLogic = () => {
   const [connection, setConnection] = useState();
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
+
+  // useEffect(() => { 
+  //  // Get item from local storage after logging in
+  //   const userDetails = localStorage.getItem('userDetails');
+  //   const user = JSON.parse(userDetails);
+
+  //   // structure of the json here
+  // }, [])
 
   const joinRoom = async (user, room) => {
     try {

@@ -21,7 +21,7 @@ const Lobby = ({ joinRoom }) => {
 
         <div>
             <label>
-                Chat Room
+                 Chat 
             </label>
             <input type='text' value={room} onChange={e => setRoom(e.target.value)} />
         </div>

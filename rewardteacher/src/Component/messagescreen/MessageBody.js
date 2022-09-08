@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import MessageContent from "./MessageContent";
 import MessageSideBar from "./MessageSideBar";
-import Navigation from "../Common/navs/SideBar/teacher/Navigation";
+
 
 const MessageBody = ({ messages, users, sendMessage }) => {
   const messageRef = useRef();

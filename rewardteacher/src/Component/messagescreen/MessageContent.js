@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SidebarData } from './SideData';
 import { MessageContainer, MessageContainerBodyRight, MessageContainerBody, MessageTextBox, Send } from "./MessageStyle"
 import ellipse from '../../assets/Ellipse1.svg';
-import image from '../../assets/Ellipse2.svg';
+//import image from '../../assets/Ellipse2.svg';
+import pix from '../../assets/profilepix.png';
 import mark from '../../assets/tick.svg';
 import sender from '../../assets/sent.png';
 import './MessageStyle.css';
@@ -48,7 +49,7 @@ function MessageContent({ messages, sendMessage }) {
             <MessageContainer>
                 {messages.map((m, index) =>
                     <div className='msg-holder'>
-                        <img src={image} alt="wanted" style={{ paddingRight: '1rem', height: '3rem', width: '3rem', marginTop: '1rem', marginLeft: '1rem' }} />
+                        <img src={pix} alt="wanted" style={{ paddingRight: '1rem', height: '3rem', width: '3rem', marginTop: '1rem', marginLeft: '1rem' }} />
                         <div key={index} className='user-message'>
                             <span className='message bg-primary'>
                                 {m.message}

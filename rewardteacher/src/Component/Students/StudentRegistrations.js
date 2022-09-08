@@ -5,6 +5,7 @@ import googleLogo from "../../assets/google.svg";
 // import { apiPost, apiGet } from "../../Utils/apiHelper";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { apiPost } from "../../Utils/apiHelper";
 
 const StudentRegistration = () => {
   const navigate = useNavigate();
@@ -92,15 +93,14 @@ const StudentRegistration = () => {
     console.log(isValid);
     if (isValid.email && isValid.password) {
       console.log("valid");
-      const registerUrl = "https://localhost:7166/User/api/v1/RegisterUser";
+      console.log(userData);
+      const registerUrl = `${process.env.REACT_APP_USER}/Student/api/v1/CreateStudent`;
       axios.post(registerUrl, userData).then(
         (response) => {
           console.log(response.data);
-          setUserId(response.data.id);
-          if (response.data.concurrencyStamp) {
-            alert("Registration Successful");
-            navigate("/student-login");
-          }
+          alert("Registration Successful");
+          navigate("/student-login");
+
         },
         (error) => {
           console.log(error);

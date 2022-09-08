@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import profile from "../../assets/profile.svg";
 import { Card } from "./TeacherProfileScreenStyled.js";
-import Reward from "../reward/Reward";
+import RewardTeacher from "../reward/RewardTeacher";
 
 function TeacherProfileScreen() {
   const [modal, setModal] = useState(false);
@@ -17,7 +17,7 @@ function TeacherProfileScreen() {
 
   return (
     <Card>
-      {modal && <Reward />}
+      {modal && <RewardTeacher />}
       <div className="profile">
         <div className="profile1">
           <div className="close">

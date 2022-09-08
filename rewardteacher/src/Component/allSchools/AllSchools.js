@@ -1,36 +1,38 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../Common/navs/SideBar/student/Navigation";
-import styles from "./index.module.css";
-import { Link } from "react-router-dom";
 import {
   H1,
   MainContainer,
-  Pages,
-  Header,
   Search,
-  ListOfSchools,
+  SchoolTable,
+  FooterContainer,
 } from "./AllSchoolsStyled";
 import filter from "../../assets/Filter.svg";
-import ReactDOM from "react-dom/client";
-
-function SchoolsList(props) {
-  return <li>{props.name}</li>;
-}
+import AllTeachers from "../all-teacher/AllTeacher";
 
 export default function AllSchools() {
-  const schools = [
-    "Iyana paja School",
-    "Decagon Institute",
-    "IjebuOde Private",
-    "Ogun Private",
-    "Niger Private",
-    "Hope School",
-    "Youtube College",
-    "Ikeja Private",
-  ];
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
+
+  const [schools, getSchools] = useState([]);
+  const getAllSchools = async () => {
+    fetch("https://localhost:7166/School/api/v1/GetAllSchools")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        getSchools(data);
+      });
+  };
+
+  useEffect(() => {
+    getAllSchools();
+  }, []);
 
   return (
     <>
+      {modal && <AllTeachers />}
       <Navigation />
       <MainContainer>
         <H1>All Schools</H1>
@@ -55,31 +57,66 @@ export default function AllSchools() {
           </button>
         </Search>
 
-        <Header>
-          <p>List of School</p>
-        </Header>
-
-        <ListOfSchools>
-          <Link to="/all-teacher">
-            <ul>
-              {schools.map((school) => (
-                <SchoolsList name={school} />
+        <SchoolTable>
+          <thead>
+            <tr>
+              <th>List of School</th>
+            </tr>
+          </thead>
+          <tbody>
+            {schools.length > 0 &&
+              schools.map((school) => (
+                <tr href="/all-teacher">
+                  <td onClick={toggleModal}>
+                    <a href="/all-teacher" onClick={toggleModal}>
+                      {school.schoolName}
+                    </a>
+                  </td>
+                </tr>
               ))}
-            </ul>
-          </Link>
-        </ListOfSchools>
+          </tbody>
+        </SchoolTable>
 
         {/* Pagination */}
-        <div className={styles["wrapper__footer"]}>
-          <span className={styles["footer-b-arrow"]}>&lt; Prev </span>
-          <span className={styles["current"]}>1</span>
-          <span className={styles["page-num"]}>2</span>
-          <span className={styles["page-num"]}>3</span>
-          <span className={styles["page-num"]}>4</span>
-          <span className={styles["page-dot"]}>&#46;&#46;&#46;</span>
-          <span className={styles["page-num"]}>10</span>
-          <span className="footer-f-arrow">Next &gt;</span>
-        </div>
+
+        <FooterContainer>
+          <ul className="pagination">
+            <li className="icon">
+              <a href="/">
+                <span>&laquo;</span>Previous
+              </a>
+            </li>
+            <li>
+              <a href="/">1</a>
+            </li>
+            <li>
+              <a href="/">2</a>
+            </li>
+            <li>
+              <a href="/">3</a>
+            </li>
+            <li>
+              <a href="/">4</a>
+            </li>
+            <li>
+              <a href="/">5</a>
+            </li>
+            <li>
+              <a href="/">6</a>
+            </li>
+            <li>
+              <a href="/">7</a>
+            </li>
+            <li>
+              <a href="/">8</a>
+            </li>
+            <li className="icon">
+              <a href="/">
+                Next<span>&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </FooterContainer>
       </MainContainer>
     </>
   );

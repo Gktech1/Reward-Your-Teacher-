@@ -1,69 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./reward.module.css";
 import paystack from "../../assets/PayStack.svg";
+import { useAuth } from "../../Context/auth/AuthState";
+import { apiPost, apiGet } from "../../Utils/apiHelper";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function Reward() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  console.log(user);
+  const [userData, setUserData] = useState({ email: "", amount: "" });
+  const [reference, setReference] = useState("");
+  const [error, setError] = useState({ email: "", amount: "" });
+  const { email, amount } = userData;
+  const [isValid, setIsValid] = useState({ email: false, amount: false });
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  console.log(userData);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    await axios
+      .post(
+        `${process.env.REACT_APP_WALLET}/Payment/paystack/pay/${user.id}`,
+        userData
+      )
+      .then((res) => {
+        console.log(res.data);
+        const paystacklink = res.data.data.authorizationUrl;
+        window.open(`${paystacklink}`, "_blank");
+        setTimeout(async () => {
+          await axios
+            .post(
+              `https://teacher-studentapp.herokuapp.com/api/Payment/transaction/${res.data.data.reference}`
+            )
+            .then((res) => {
+              console.log(res.message);
+              alert("Payment Successful");
+              window.location.reload();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }, 10000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div className={styles["container"]}>
         <div className={styles["container__header"]}>
           <div className={styles["container__header-title"]}>
-            <img
-              src={paystack}
-              alt=""
-              className={styles["container__header-title--image"]}
-            />
             <p className={styles["container__header-title--text"]}>
-              Pay with Paystack
+              Fund Wallet
             </p>
           </div>
         </div>
         <p className={styles["container__header-close"]}>&#10006;</p>
         <div className={styles["container__body"]}>
-          <div className={styles["container__body-amount"]}>
-            <p className={styles["container__body-amount--text"]}>Amount</p>
-            <div className={styles["container__body-amount--value"]}>
-              &#8358;20,000
+          <form onSubmit={submitHandler}>
+            <div className={styles["container__body-card-number"]}>
+              <label className={styles["form-label__card-number"]}>Email</label>
+              <input
+                type="text"
+                className={styles["form-control"]}
+                placeholder="Enter email"
+                name="email"
+                onChange={changeHandler}
+              />
             </div>
-          </div>
-          <div className={styles["container__body-payment"]}>
-            <div className={styles["container__body-payment--card"]}>
-              PAY WITH CARD
-            </div>
-            <div className={styles["container__body-payment--bank"]}>
-              PAY WITH BANK
-            </div>
-          </div>
-          <div className={styles["container__body-card-number"]}>
-            <label className={styles["form-label__card-number"]}>Card Number</label>
-            <input
-              type="text"
-              className={styles["form-control"]}
-              placeholder="0000 0000 0000 0000"
-            />
-          </div>
-          <div className={styles["container__body-card-details"]}>
-            <div className={styles["form-group"]}>
-              <label className={styles["container__body-card-details--label-valid"]}>
-                Valid Till
+            <div className={styles["container__body-card-number"]}>
+              <label className={styles["form-label__card-number"]}>
+                Amount
               </label>
               <input
                 type="text"
-                className={styles["container__body-card-details--valid"]}
-                placeholder="MM/YY"
+                className={styles["form-control"]}
+                placeholder="Enter amount"
+                name="amount"
+                onChange={changeHandler}
               />
             </div>
-            <div className={styles["form-group"]}>
-              <label className={styles["container__body-card-details--label-cvv"]}>CVV</label>
 
-              <input
-                type="text"
-                className={styles["container__body-card-details--cvv"]}
-                placeholder="123"
-              />
-            </div>
-          </div>
-          <button className={styles["container__btn"]}>Pay NGR 20,000</button>
+            <button type="submit" className={styles["container__btn"]}>
+              Pay
+            </button>
+          </form>
         </div>
       </div>
     </>

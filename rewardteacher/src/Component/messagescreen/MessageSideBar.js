@@ -28,7 +28,7 @@ function MessageSideBar({ users, messages }) {
                             return (
                                 <div key={index}>
                                     <div style={{ display: 'flex', padding: '0.4rem 0' }}>
-                                        <img src={ellipse} style={{ paddingLeft: '1rem' }} alt="profile_pic" />
+                                        <img src={pix} style={{ paddingLeft: '1rem' }} alt="profile_pic" width={'30px'} height={'30px'}/>
 
                                         <div style={{ flex: '1', paddingLeft: '1rem' }}>
                                             <p><strong>{user}</strong></p>

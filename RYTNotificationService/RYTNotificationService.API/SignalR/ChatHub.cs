@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.SignalR;
+using RYTNotificationService.API.DTOs;
 using RYTNotificationService.API.Models;
+using RYTNotificationService.API.Services.Interfaces;
 
 namespace RYTNotificationService.API.SignalR
 {
@@ -7,13 +10,14 @@ namespace RYTNotificationService.API.SignalR
     {
         private readonly string _botUser;
         private readonly IDictionary<string, UserConnection> _connections;
+        private readonly IMessageService _messageService;
+        private readonly IMapper _mapper;
 
         public ChatHub(IDictionary<string, UserConnection> connections)
         {
             _botUser = "RewardYourTeacher";
             _connections = connections;
         }
-
         public override Task OnDisconnectedAsync(Exception exception)
         {
             if (_connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
@@ -40,6 +44,8 @@ namespace RYTNotificationService.API.SignalR
 
         public async Task SendMessage(string message)
         {
+
+
             if (_connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
             {
                 await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", userConnection.User, message);

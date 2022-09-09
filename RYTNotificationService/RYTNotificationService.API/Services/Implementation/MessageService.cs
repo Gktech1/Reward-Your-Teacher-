@@ -73,7 +73,7 @@ namespace RYTNotificationService.API.Services.Implementation
         public async Task<Response<MessageDto>> CreateChatAsync
            (CreateMessageDto createMessageDto, string username, string token)
         {
-            var userName = ""; // Context.User.GetUserName();
+           // var userName = ""; // Context.User.GetUserName();
             var response = new Response<MessageDto>();
 
             if (username == createMessageDto.RecipientUserName.ToLower())

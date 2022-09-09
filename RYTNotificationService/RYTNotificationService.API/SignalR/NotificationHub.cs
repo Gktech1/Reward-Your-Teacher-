@@ -14,7 +14,7 @@ namespace RYTNotificationService.API.SignalR
         private readonly IHubContext<PresenceHub> _presenceHub;
         private readonly PresenceTracker _tracker;
 
-        public NotificationHub(INotificationService notification, 
+        public NotificationHub(INotificationService notification,
             IMapper mapper,
             IHubContext<PresenceHub> presenceHub,
             PresenceTracker _tracker,
@@ -63,7 +63,7 @@ namespace RYTNotificationService.API.SignalR
                     {
                         username = sender.Username,
                         sender.Username
-                    });  
+                    });
             }
 
             _notification.CreateNotification(notification);

@@ -15,12 +15,15 @@ using RYTNotificationService.API.Helpers;
 using RYTNotificationService.API.Services.Interfaces;
 using RYTNotificationService.API.Data.Repositories.Implementation;
 using RYTNotificationService.API.Data.Repositories.Interfaces;
+using RYTNotificationService.API.Models;
 using RYTNotificationService.API.Repositories.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<DataContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
@@ -79,16 +82,24 @@ builder.Services.AddAuthorization(x =>
 });
 
 
+
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
     });
 });
+
+
+
+
+builder.Services.AddSingleton<IDictionary<string, UserConnection>>(opts => new Dictionary<string, UserConnection>());
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -100,7 +111,10 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthentication();
 
@@ -109,9 +123,9 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
-    endpoints.MapHub<ChatHub>("/chats");
+    endpoints.MapHub<ChatHub>("hubs/chat");
 });
-app.UseCors();
+
 
 
 

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RYTNotificationService.API.Migrations
 {
-    public partial class FirstTable : Migration
+    public partial class Notification : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -12,8 +12,8 @@ using RYTNotificationService.API.Data;
 namespace RYTNotificationService.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220808231938_FirstTable")]
-    partial class FirstTable
+    [Migration("20220907172727_Notification")]
+    partial class Notification
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

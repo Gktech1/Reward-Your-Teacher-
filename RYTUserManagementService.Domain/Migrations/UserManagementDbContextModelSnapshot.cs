@@ -197,7 +197,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             Id = "a7dd2ab0-289c-11ed-a261-0242ac120002",
                             City = "Benin",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(8071),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(4070),
                             Latitude = 4.5646573999999998,
                             Longitude = 9.0,
                             State = "Edo",
@@ -209,7 +209,7 @@ namespace RYTUserManagementService.Domain.Migrations
                             Id = "b01430ca-289c-11ed-a261-0242ac120002",
                             City = "Lagos",
                             Country = "Nigeria",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(8077),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(4077),
                             Latitude = 4.5646764657399999,
                             Longitude = 9.5600645699999998,
                             State = "Lagos",
@@ -326,17 +326,17 @@ namespace RYTUserManagementService.Domain.Migrations
                         {
                             Id = "11f09734-289d-11ed-a261-0242ac120002",
                             AddressId = "a7dd2ab0-289c-11ed-a261-0242ac120002",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(5167),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3947),
                             SchoolName = "Decagon Institute Edo",
-                            UpdatedAt = new DateTime(2022, 9, 4, 0, 0, 0, 0, DateTimeKind.Local)
+                            UpdatedAt = new DateTime(2022, 9, 8, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = "21addd9e-289d-11ed-a261-0242ac120002",
                             AddressId = "b01430ca-289c-11ed-a261-0242ac120002",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(5179),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3952),
                             SchoolName = "Decagon Institute Lagos",
-                            UpdatedAt = new DateTime(2022, 9, 4, 0, 0, 0, 0, DateTimeKind.Local)
+                            UpdatedAt = new DateTime(2022, 9, 8, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
@@ -375,37 +375,37 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cdc1aafc-c89d-4a7c-b728-9078ef191c84",
+                            Id = "882d6872-6cbb-4bb2-916a-abc586ccf841",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0977d02a-58ea-4033-90ca-e4f05e754504",
+                            ConcurrencyStamp = "f928cad6-9010-444e-a497-764b29144a68",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "85a42f85-7880-4f7c-9113-58e712a0c63f",
+                            SecurityStamp = "2d8ff52f-f635-4152-a4c5-6f72a528206e",
                             TwoFactorEnabled = false,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(4988),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3826),
                             FullName = "Jegede Moses",
                             SchoolName = "Lara&Manny Int'l sec school"
                         },
                         new
                         {
-                            Id = "02bd6c74-eefd-496c-bf71-e561c8082b6a",
+                            Id = "3988420c-6544-488f-821d-daa6161e4fb5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d08fb8ab-d581-4c1a-ac38-a5b34fd7e8b4",
+                            ConcurrencyStamp = "d5d7bf3e-4d73-414c-a556-80343ae010b6",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a2bdd30-5d7f-4c0a-8310-71121f12a30f",
+                            SecurityStamp = "d7506af3-ddd0-4e1d-9663-a3f078423427",
                             TwoFactorEnabled = false,
                             About = "I am a student",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(5017),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3842),
                             FullName = "Jegede Esther",
                             SchoolName = "Lara&Manny Int'l sec school"
                         });
@@ -454,19 +454,19 @@ namespace RYTUserManagementService.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b539ac4d-1904-49f6-94ec-df0e665e8f4e",
+                            Id = "16f38df0-979b-4c00-b1dc-e62f8fffe5b7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "68c11b2e-d488-4ed5-baa4-52f80efc93ac",
+                            ConcurrencyStamp = "3b95708c-47c9-460d-8d08-750eae39feaf",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "faa0a272-6031-467c-97e8-3502ef56b2b4",
+                            SecurityStamp = "218d2a12-3dc8-4554-93ad-87bd04a504e6",
                             TwoFactorEnabled = false,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(4510),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3515),
                             EndYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Ayooluwa Moses",
                             SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
@@ -474,19 +474,19 @@ namespace RYTUserManagementService.Domain.Migrations
                         },
                         new
                         {
-                            Id = "26f16c68-6387-4615-be01-6b7d32c10206",
+                            Id = "6efa5199-c1dd-4911-b828-1ca647d1fc16",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07676b70-37a0-4e1f-bf14-436eaa83fefd",
+                            ConcurrencyStamp = "aed4aedc-d250-4081-9f86-27e1a29a663d",
                             EmailConfirmed = false,
                             FirstName = "bayo",
                             LastName = "dayo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2e92275a-7f61-4682-ad23-c8ad6ed37a6d",
+                            SecurityStamp = "cb32fde0-c759-457a-955e-75c0953fc8a1",
                             TwoFactorEnabled = false,
                             About = "I am A Teacher",
                             Address = "Okuoromi Community,Benin, Edo, Nigeria, 9.0000000, 4.5646574",
-                            CreatedAt = new DateTime(2022, 9, 4, 22, 28, 5, 382, DateTimeKind.Local).AddTicks(4549),
+                            CreatedAt = new DateTime(2022, 9, 8, 23, 40, 12, 912, DateTimeKind.Local).AddTicks(3543),
                             EndYear = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Tijani Moses",
                             SchoolId = "11f09734-289d-11ed-a261-0242ac120002",
